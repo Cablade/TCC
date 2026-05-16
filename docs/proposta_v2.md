@@ -33,9 +33,9 @@ Dataset público "Image dataset from Automatic analysis of Trypanosoma cruzi" (M
 
 ## Próximos passos imediatos
 
-- [ ] Formalização da autorização Fuzzylab/FIOCRUZ
-- [ ] Investigação da divergência treino-em-máscara/inferência-em-RGB no Modelo A entregue
-- [ ] Download e exploração do dataset Zenodo
+- [x] Formalização da autorização Fuzzylab/FIOCRUZ
+- [x] Investigação da divergência treino-em-máscara/inferência-em-RGB no Modelo A entregue
+- [x] Download e exploração do dataset Zenodo
 - [ ] Calibração do pipeline de segmentação para o Zenodo
 
 ## Cronograma alvo

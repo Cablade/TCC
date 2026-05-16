@@ -10,7 +10,7 @@ experiments/logs/
 experiments/checkpoints/
 experiments/results/*.csv
 !experiments/results/.gitkeep
-
+*.jpg
 *.keras
 *.h5
 *.pkl

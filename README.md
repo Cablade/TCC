@@ -74,6 +74,13 @@ tcc-chagas/
 └── tcc/              # texto final do TCC
 ```
 
+## Documentação
+
+- [`docs/proposta_v2.md`](docs/proposta_v2.md) — proposta refinada enviada ao orientador
+- [`docs/cronograma.md`](docs/cronograma.md) — plano de trabalho de Mai a Dez de 2026
+- [`docs/decisoes_tecnicas.md`](docs/decisoes_tecnicas.md) — registro de decisões técnicas (decision log)
+- [`docs/referencias.md`](docs/referencias.md) — bibliografia
+
 ## Status
 
 - [x] Proposta aprovada pelo orientador (v2 em `docs/proposta_v2.md`)
