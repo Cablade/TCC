@@ -1,0 +1,104 @@
+# =========================================================
+# DADOS E MODELOS (arquivos grandes, não versionar)
+# =========================================================
+data/raw/
+data/processed/
+data/splits/*.csv
+!data/splits/.gitkeep
+
+experiments/logs/
+experiments/checkpoints/
+experiments/results/*.csv
+!experiments/results/.gitkeep
+
+*.keras
+*.h5
+*.pkl
+*.pt
+*.pth
+*.tflite
+*.pb
+*.onnx
+
+# =========================================================
+# JUPYTER
+# =========================================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# =========================================================
+# PYTHON
+# =========================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# =========================================================
+# AMBIENTES VIRTUAIS
+# =========================================================
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# =========================================================
+# CONFIGURAÇÕES LOCAIS / SECRETS
+# =========================================================
+.env
+.env.local
+*.secret
+credentials.json
+
+# =========================================================
+# IDE
+# =========================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =========================================================
+# LOGS E OUTPUTS TEMPORÁRIOS
+# =========================================================
+*.log
+logs/
+tmp/
+.cache/
+
+# =========================================================
+# TENSORBOARD
+# =========================================================
+events.out.tfevents.*
+runs/
+
+# =========================================================
+# DOCUMENTOS LaTeX (apenas auxiliares)
+# =========================================================
+tcc/*.aux
+tcc/*.log
+tcc/*.out
+tcc/*.toc
+tcc/*.bbl
+tcc/*.blg
+tcc/*.synctex.gz

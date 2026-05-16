@@ -1,0 +1,50 @@
+# Configuração de treino do Modelo B (proposta do TCC)
+
+model:
+  name: "EfficientNetB0"
+  num_classes: 2
+  input_shape: [224, 224, 3]
+  dropout_rate: 0.3
+  unfreeze_last_n: 30           # fine-tuning das últimas N camadas
+  label_smoothing: 0.1
+
+training:
+  batch_size: 32
+  epochs: 40
+  learning_rate: 1.0e-4
+  optimizer: "AdamW"
+  weight_decay: 1.0e-4
+  scheduler: "cosine_annealing"
+  loss: "categorical_crossentropy"
+  patience: 7
+  augmentation: true
+
+augmentation:
+  horizontal_flip: 0.5
+  vertical_flip: 0.5
+  rotation_limit: 180
+  color_jitter:
+    brightness: 0.1
+    contrast: 0.1
+    saturation: 0.1
+    hue: 0.03
+    p: 0.5
+  coarse_dropout:
+    max_holes: 2
+    max_size_pct: 0.15
+    p: 0.3
+
+data:
+  image_size: [224, 224]
+  test_size: 0.15
+  val_size: 0.15
+  k_folds: 5
+  seed: 42
+
+# Class weights serão calculados automaticamente pelo treino
+class_weights: "auto"
+
+# Múltiplas execuções para análise estatística
+runs:
+  n_seeds: 5
+  seeds: [42, 123, 456, 789, 1024]
