@@ -11,6 +11,7 @@ experiments/checkpoints/
 experiments/results/*.csv
 !experiments/results/.gitkeep
 *.jpg
+*.png
 *.keras
 *.h5
 *.pkl
