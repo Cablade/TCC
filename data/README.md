@@ -6,16 +6,24 @@ Os dados não são versionados no Git devido ao tamanho. Esta pasta deve ser pre
 
 ```
 data/
-├── raw/                    # Imagens originais do Zenodo
-│   └── trypoastigote_images/
-│       └── *.jpg / *.png
-├── processed/              # ROIs após segmentação OpenCV
-│   ├── positivo/
-│   └── negativo/
-└── splits/                 # Divisões treino/val/teste (CSVs)
-    ├── train.csv
-    ├── val.csv
-    └── test.csv
+├── raw/                          # Imagens originais do Zenodo + anotações
+│   ├── train/                    # *.jpg (split do próprio dataset)
+│   ├── test/                     # *.jpg (split do próprio dataset)
+│   └── annotations/
+│       ├── supply.csv            # Data S1 (anotações)
+│       └── supply2.csv           # (opcional)
+├── processed/                    # ROIs recortadas (script gerar_rois.py)
+│   ├── train/
+│   │   ├── positivo/             # *.png
+│   │   └── negativo/             # *.png
+│   ├── test/
+│   │   ├── positivo/             # *.png
+│   │   └── negativo/             # *.png
+│   └── manifest.csv              # metadados das ROIs geradas
+└── splits/                       # Divisões treino/val/teste (CSVs)
+  ├── train.csv                 # colunas: path,label
+  ├── val.csv
+  └── test.csv
 ```
 
 ## Download do dataset Zenodo
@@ -28,7 +36,9 @@ data/
 
 1. Acesse https://zenodo.org/records/5123062
 2. Baixe `trypoastigote_images.zip` (~1,3 GB)
-3. Descompacte em `data/raw/`
+3. Descompacte em `data/raw/` de forma que existam as pastas `data/raw/train/` e `data/raw/test/`
+
+Observação: dependendo de como o ZIP vem organizado, pode ser necessário mover os arquivos após descompactar.
 
 ### Via linha de comando
 
@@ -54,12 +64,17 @@ echo "3434fa22df03956c256f1203b683517e  trypoastigote_images.zip" | md5sum -c
 
 ## Próximos passos após download
 
-Após colocar os arquivos em `data/raw/`, execute:
+Após colocar as imagens em `data/raw/train` e `data/raw/test`, rode o gerador de ROIs:
 
 ```bash
-jupyter notebook notebooks/01_exploracao_dataset.ipynb
+python notebooks/gerar_rois.py --dry-run
+python notebooks/gerar_rois.py
 ```
 
-para gerar as estatísticas iniciais e validar a estrutura.
+Isso vai preencher `data/processed/` e criar `data/processed/manifest.csv`.
 
-A geração de ROIs processadas e dos splits é feita pelo notebook `02_pipeline_segmentacao.ipynb`.
+Em seguida, para gerar `data/splits/*.csv` e treinar o Modelo B via CLI:
+
+```bash
+python scripts/train_model_b.py --config configs/model_b.yaml --run-name model_b
+```

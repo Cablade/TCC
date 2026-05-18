@@ -19,6 +19,8 @@ experiments/results/*.csv
 *.tflite
 *.pb
 *.onnx
+*.csv
+*.odt
 
 # =========================================================
 # JUPYTER

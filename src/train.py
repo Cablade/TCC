@@ -19,6 +19,13 @@ def load_config(config_path: str | Path) -> dict:
         return yaml.safe_load(f)
 
 
+def _get_training_cfg(config: dict) -> dict:
+    """Compat: aceita config flat (epochs, batch_size, ...) ou aninhado em 'training'."""
+    if "training" in config and isinstance(config["training"], dict):
+        return config["training"]
+    return config
+
+
 def get_callbacks(
     checkpoint_path: str | Path,
     log_dir: str | Path,
@@ -58,20 +65,24 @@ def train_model(
     Espera em config:
         epochs, batch_size, patience, class_weights (opcional)
     """
+    training_cfg = _get_training_cfg(config)
+
     exp_root = Path("experiments")
+    (exp_root / "checkpoints").mkdir(parents=True, exist_ok=True)
+    (exp_root / "logs").mkdir(parents=True, exist_ok=True)
     checkpoint_path = exp_root / "checkpoints" / f"{run_name}.keras"
     log_dir = exp_root / "logs" / run_name
 
     callbacks = get_callbacks(
         checkpoint_path=checkpoint_path,
         log_dir=log_dir,
-        patience=config.get("patience", 5),
+        patience=training_cfg.get("patience", 5),
     )
 
     history = model.fit(
         train_ds,
         validation_data=val_ds,
-        epochs=config["epochs"],
+        epochs=training_cfg["epochs"],
         callbacks=callbacks,
         class_weight=config.get("class_weights"),
     )

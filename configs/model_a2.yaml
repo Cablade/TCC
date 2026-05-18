@@ -1,0 +1,36 @@
+# Configuração de treino do Modelo A2 (ResNet-50 re-treinada em ROIs RGB)
+#
+# Mesmo código de arquitetura e treino do Modelo A1, mas alimentado com
+# ROIs RGB coloridas geradas pelo pipeline OpenCV aplicado ao Zenodo.
+# Serve como controle: isola o efeito de corrigir a divergência treino/inferência.
+
+model:
+  name: "ResNet50"
+  num_classes: 2
+  input_shape: [224, 224, 3]
+  dropout_rate: 0.3
+  freeze_base: true            # mesma estratégia do A1: base congelada
+
+training:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 1.0e-4
+  optimizer: "Adam"             # mesmo otimizador do A1
+  loss: "sparse_categorical_crossentropy"
+  patience: 3
+  augmentation: false           # mesmo do A1: sem augmentation
+
+data:
+  image_size: [224, 224]
+  test_size: 0.15
+  val_size: 0.15
+  k_folds: 5
+  seed: 42
+  source: "zenodo_rois_rgb"     # diferença chave vs A1: ROIs coloridas do Zenodo
+
+class_weights: "auto"           # leve melhoria para dar mais robustez ao A2
+
+# Múltiplas execuções para análise estatística (mesma estrutura do B)
+runs:
+  n_seeds: 5
+  seeds: [42, 123, 456, 789, 1024]

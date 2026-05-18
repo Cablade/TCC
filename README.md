@@ -32,7 +32,7 @@ Veja [`data/README.md`](data/README.md) para instruções de download e organiza
 ### Pré-requisitos
 
 - Python 3.10+
-- GPU NVIDIA com CUDA 11.8+ (opcional, mas altamente recomendado)
+- GPU (opcional). Observação: suporte a GPU do TensorFlow varia por SO/instalação; no Windows, o caminho mais estável costuma ser via WSL2 + NVIDIA.
 - ~5 GB de espaço em disco
 
 ### Setup
@@ -53,13 +53,42 @@ pip install -r requirements.txt
 # Baixar dataset (siga instruções em data/README.md)
 ```
 
+### Quickstart (Windows / PowerShell)
+
+Do zero até o primeiro treino do Modelo B (CPU/GPU, conforme seu TensorFlow):
+
+```powershell
+python -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+
+# 1) Baixe e organize o dataset (ver data/README.md)
+
+# 2) Gerar ROIs (recortes) e manifest
+python notebooks\gerar_rois.py --dry-run
+python notebooks\gerar_rois.py
+
+# 3) Treinar Modelo B e salvar métricas
+python scripts\train_model_b.py --config configs\model_b.yaml --run-name model_b
+```
+
+Arquivos gerados:
+
+- `data/processed/` (ROIs)
+- `data/splits/` (CSV de splits)
+- `experiments/checkpoints/` (checkpoint do modelo)
+- `experiments/results/` (métricas em JSON)
+
 ### Ordem de execução dos notebooks
 
 1. `notebooks/01_exploracao_dataset.ipynb` — inspeção e estatísticas do Zenodo
-2. `notebooks/02_pipeline_segmentacao.ipynb` — geração de ROIs via segmentação OpenCV
-3. `notebooks/03_modelo_a_baseline.ipynb` — replicação e avaliação do Modelo A
-4. `notebooks/04_modelo_b_treino.ipynb` — treino do Modelo B com k-fold
-5. `notebooks/05_analise_estatistica.ipynb` — Wilcoxon, métricas finais, gráficos
+2. `notebooks/gerar_rois.py` — geração de ROIs (recortes) + negativos amostrados + `manifest.csv`
+3. `scripts/train_model_b.py` — treino do Modelo B via CLI (gera `data/splits/` automaticamente)
+4. `notebooks/05_analise_estatistica.ipynb` — Wilcoxon, métricas finais, gráficos (WIP)
+
+Observação: os notebooks `02_pipeline_segmentacao.ipynb`, `03_modelo_a_baseline.ipynb` e `04_modelo_b_treino.ipynb` ainda estão com células `TODO` e servem como rascunho/roteiro.
 
 ## Estrutura
 
@@ -76,7 +105,8 @@ tcc-chagas/
 
 ## Documentação
 
-- [`docs/proposta_v2.md`](docs/proposta_v2.md) — proposta refinada enviada ao orientador
+- [`docs/proposta_v3.md`](docs/proposta_v3.md) — proposta atual (estratégia A1/A2/B)
+- [`docs/proposta_v2.md`](docs/proposta_v2.md) — proposta enviada ao orientador em maio/2026
 - [`docs/cronograma.md`](docs/cronograma.md) — plano de trabalho de Mai a Dez de 2026
 - [`docs/decisoes_tecnicas.md`](docs/decisoes_tecnicas.md) — registro de decisões técnicas (decision log)
 - [`docs/referencias.md`](docs/referencias.md) — bibliografia
@@ -86,8 +116,9 @@ tcc-chagas/
 - [x] Proposta aprovada pelo orientador (v2 em `docs/proposta_v2.md`)
 - [x] Autorização formal Fuzzylab/FIOCRUZ
 - [x] Download e organização do dataset
-- [ ] Replicação do Modelo A
-- [ ] Implementação do Modelo B
+- [x] Geração de ROIs via anotações (script)
+- [x] Treino do Modelo B via CLI (baseline inicial)
+- [ ] Replicação do Modelo A (WIP)
 - [ ] Análise estatística
 - [ ] Escrita do TCC
 
