@@ -1,26 +1,18 @@
-# Configuração de treino do Modelo A (referência Fuzzylab/FIOCRUZ)
-# Mantém fielmente as configurações originais do traindeddata.py
-
-model:
-  name: "ResNet50"
-  num_classes: 2
-  input_shape: [224, 224, 3]
-  dropout_rate: 0.3
-  freeze_base: true
-
-training:
-  batch_size: 32
-  epochs: 50
-  learning_rate: 1.0e-4
-  optimizer: "Adam"
-  loss: "sparse_categorical_crossentropy"
-  patience: 3
-  augmentation: false
-
-data:
-  image_size: [224, 224]
-  validation_split: 0.2
-  seed: 123
-
-# Não usar class_weight no Modelo A (replicação fiel)
-class_weights: null
+# Registro dos parâmetros congelados; não ajustáveis pela CLI.
+system: A
+mode: inference_only
+reference_repository: https://github.com/Cablade/VisionCruzi
+reference_commit: 59b10244f2ce5cfabff7bece404cb5679668a45d
+artifact: model_trained.keras
+artifact_sha256: 9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f
+class_labels: ['0', '1']
+positive_label: '1'
+input_shape: [224, 224, 3]
+preprocessing: keras.applications.resnet50.preprocess_input
+color_range_hsv: [[145, 100, 30], [165, 255, 120]]
+color_area: [3450, 15300]
+morph_kernel: [30, 30]
+dilation_iterations: 2
+nucleus_range_hsv: [[120, 50, 30], [170, 255, 150]]
+component_area: [450, 1100]
+decision: any_class_1

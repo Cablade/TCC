@@ -1,84 +1,56 @@
-# Proposta de TCC — Versão 3
+# Proposta atual do TCC — sistemas A × B
 
-> **Status:** preparada em 2026-05-16, a ser enviada ao Prof. Rogério Mandelli como atualização à v2.
-> **Motivo da atualização:** identificação de inconsistência metodológica no pipeline do Modelo A durante a inspeção inicial, levando à mudança da estratégia experimental para comparação de três modelos (A1/A2/B).
+> Revisão de 2026-09-20. O nome deste arquivo foi mantido para preservar referências existentes. O desenho anterior foi substituído; sua cópia, incluindo alterações locais, está em [histórico](historico/proposta_anterior.md).
 
-## Tema
+## Tema e problema
 
-Análise comparativa entre modelos de Inteligência Artificial aplicados à classificação de núcleos de *Trypanosoma cruzi* em imagens de esfregaço sanguíneo, com foco em isolar contribuições de pipeline coerente e de técnicas modernas de treinamento.
+Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação, pois um parasita que não gera recorte nunca chega ao classificador.
 
-## Mudança em relação à v2
+O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam, em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
 
-Durante a inspeção do projeto da Fuzzylab/FIOCRUZ, identificamos que o dataset usado para treinar o Modelo A consiste em **máscaras binárias 1-canal de baixa resolução** (24 a 120 pixels, valores apenas 0 e 255), enquanto o pipeline de inferência recebe **ROIs RGB coloridas** geradas pela segmentação por cor HSV em OpenCV. Há, portanto, divergência significativa de distribuição entre treino e inferência.
+## Objetivo geral
 
-Esse achado tornou a comparação simples "A vs B" ambígua: o Modelo B difere do A em múltiplas dimensões simultaneamente (arquitetura, dataset, técnicas, **e** consistência treino/inferência), o que impediria atribuir ganhos a causas específicas.
+Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo a localização e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
 
-A v3 propõe comparar **três modelos** ao invés de dois, isolando uma variável por vez.
+## Objetivos específicos
 
-## Estratégia experimental: três modelos
+1. Inventariar os dados, controlar duplicatas e documentar aquisição, grupos e disponibilidade de anotações.
+2. Separar as origens entre treino, validação e teste antes da geração de recortes, evitando vazamento dentro dos identificadores disponíveis.
+3. Reproduzir o fluxo original do A sem retreinar ou modificar seus parâmetros para favorecer resultados, registrando versões, pesos e decisão original.
+4. Implementar uma localização configurável para B e alinhar seus candidatos de treino aos de inferência, com EfficientNet-B0 e pré-processamento compatível.
+5. Comparar cobertura de localização, precisão, recall, F1, falsos positivos por imagem e custo. Calcular métricas por imagem somente com referência confiável nesse nível.
+6. Discutir limitações, falhas e condições em que cada sistema é aplicável, sem atribuir a uma técnica isolada os efeitos de mudanças simultâneas.
 
-| Modelo | Arquitetura | Dataset de treino | Técnicas modernas | Pergunta científica |
-|---|---|---|---|---|
-| **A1** | ResNet-50 (entregue) | Máscaras binárias originais | Não | Qual a performance do sistema atual da Fuzzylab/FIOCRUZ no conjunto de teste padronizado? |
-| **A2** | ResNet-50 re-treinada | ROIs RGB do Zenodo | Não | Quanto se ganha apenas corrigindo a divergência treino/inferência? |
-| **B** | EfficientNet-B0 | ROIs RGB do Zenodo | Sim | Quanto as técnicas modernas adicionam, controlando pelo pipeline coerente? |
+## Desenho experimental
 
-Todos os três modelos são avaliados no **mesmo conjunto de teste**: ROIs RGB extraídas pelo pipeline OpenCV (mesmo do Modelo A) aplicado ao dataset Zenodo. A etapa de segmentação é mantida idêntica para os três, isolando a classificação como variável sob análise.
+| Aspecto | Modelo A — referência | Modelo B — proposta |
+| --- | --- | --- |
+| Treinamento | Pesos entregues, fixos; nenhum retreinamento | Treino com dados disponíveis, rotulados e separados |
+| Localização | Fluxo e parâmetros originais do Vision | Fluxo configurável definido no desenvolvimento |
+| Classificador | ResNet-50, sujeito à inspeção do artefato | EfficientNet-B0, já presente no código-base |
+| Entrada principal | Imagem microscópica inteira | A mesma imagem microscópica inteira |
+| Saída | Regiões, escores, classes e decisão original | Regiões, escores, classes e decisão definida na validação |
 
-## Hipóteses
+Há exatamente duas abordagens. Repetições do B com sementes distintas não constituem novos modelos. Não há obrigação de ablações, detector complexo, número fixo de folds ou número pré-fixado de treinos.
 
-- **H1:** A2 supera A1 com diferença estatisticamente significativa em F1-score (corrigir a divergência traz ganho mensurável)
-- **H2:** B supera A2 com diferença estatisticamente significativa em F1-score (as técnicas modernas trazem ganho adicional, controlando pelo pipeline coerente)
-- **H3:** O ganho total (A1 → B) decompõe-se em parcela atribuível à correção da divergência (A1 → A2) e parcela atribuível às técnicas modernas (A2 → B)
+O compartilhamento da localização não é obrigatório. O bloqueio da segmentação do A em um lote foi relatado anteriormente e precisa ser reproduzido com rastreabilidade. Eventual ausência de regiões integra o resultado do sistema, sem ser descrita como classificação negativa da rede.
 
-## Base de dados
+## Hipóteses verificáveis
 
-Dataset público "Image dataset from Automatic analysis of Trypanosoma cruzi" (Morais et al., 2021), DOI 10.5281/zenodo.5123062, licença CC-BY 4.0.
+- A localização proposta para B pode aumentar a cobertura dos parasitas anotados no conjunto reservado.
+- O sistema B pode alterar recall, precisão, falsos positivos por imagem e F1 em relação ao A; o sentido e a magnitude dependem do experimento.
+- As mudanças podem afetar o custo de inferência e a relação entre cobertura e falsos positivos.
 
-- Imagens de esfregaço fino de sangue de camundongo corado com Giemsa
-- ~1,3 GB de imagens em baixa resolução
-- Divisão: 70% treino / 15% validação / 15% teste, com Stratified 5-Fold sobre treino+validação
+Essas hipóteses não antecipam superioridade ou significância estatística. Critérios e limiares serão definidos antes da avaliação final, conforme a [metodologia](metodologia.md).
 
-A rotulagem das ROIs será detalhada conforme exploração inicial revelar a disponibilidade no dataset Zenodo. Caso não haja rotulagem pronta, será adotada estratégia híbrida (rotulação de subset + auto-rotulação assistida por modelo + revisão).
+## Dados, análise e limitações
 
-## Modelo B: delimitação detalhada
+O lote de lâminas disponível e a fonte Zenodo mencionada no projeto devem ser inventariados antes de escolher partições. A identidade do animal ou lâmina deve ser confirmada; nomes de pastas não bastam para inferi-la. Não se fixa proporção de divisão sem conhecer grupos e classes. O conjunto usado para ajustar B é desenvolvimento, não teste final intocado.
 
-- **Arquitetura:** EfficientNet-B0 (escolhida por eficiência computacional e modernidade)
-- **Transfer learning:** pesos pré-treinados em ImageNet, com fine-tuning das últimas 30 camadas convolucionais
-- **Data augmentation:** Albumentations com rotação, flip horizontal/vertical, color jitter leve, CoarseDropout
-- **Otimizador:** AdamW com weight decay = 1e-4
-- **Scheduler:** Cosine Annealing
-- **Regularização:** Label smoothing (0,1) + Dropout (0,3)
-- **Balanceamento:** class_weight inverso à frequência
+Anotações devem ter coordenadas compatíveis com a imagem original, cobertura declarada e revisão qualificada. Previsões automáticas podem auxiliar inspeção, mas não substituem referência independente. Sem rótulos confiáveis, o escopo executável é infraestrutura, diagnóstico e verificações sintéticas, sem conclusões de qualidade real.
 
-## Análise estatística
+O histórico de treinamento do A é incompleto; não se afirma igualdade do tamanho de treinamento nem independência de um teste possivelmente visto durante seu treino. Poucos grupos, diferenças de aquisição/resolução e anotações incompletas limitam a generalização. Métricas auxiliares de recortes não substituem a avaliação ponta a ponta. As decisões estatísticas devem respeitar as unidades independentes; recortes correlacionados e sementes não aumentam o número de lâminas avaliadas.
 
-- 5 execuções independentes com sementes diferentes, para cada um dos 3 modelos
-- Stratified 5-Fold cross-validation
-- Total: **75 runs** (5 sementes × 5 folds × 3 modelos)
-- Métricas: acurácia, precisão, recall, F1-score, matriz de confusão (média ± desvio-padrão)
-- Teste de Wilcoxon pareado sobre F1-score por fold, α = 0,05, aplicado a duas comparações:
-  - A1 vs A2 (testa H1)
-  - A2 vs B (testa H2)
-- Curva ROC e AUC complementares
+## Entregas
 
-## Sobre o acesso ao Modelo A (ponto 1 do feedback v1)
-
-- Acesso técnico completo: código de treino (`traindeddata.py`), pipeline de segmentação (`classification.py`), modelo treinado (`model_trained.keras`), pipeline de inferência (`decision_predictor.py`)
-- Caio é colaborador ativo do projeto Fuzzylab/FIOCRUZ, com acesso legítimo aos artefatos
-- Tentativa de obter autorização formal escrita está em curso; não há resposta a tempo hábil até o momento. O TCC será conduzido sob a relação de colaboração de fato já existente, documentada na metodologia. Autorização escrita, se vier, será anexada como evidência complementar.
-
-## Sobre o achado da divergência
-
-O achado será apresentado em tom científico neutro como **resultado parcial da inspeção inicial**, não como crítica ao trabalho original. A metodologia A1/A2/B foi desenhada precisamente para tratar essa observação como variável experimental investigável, e não como bug a contornar silenciosamente. Os resultados quantitativos da comparação A1 → A2 fornecerão a melhor evidência sobre o impacto real da divergência.
-
-## Cronograma alvo (ver `cronograma.md` para detalhes)
-
-| Período | Atividade |
-|---|---|
-| Mai 2026 | Setup, exploração de dados, proposta v3 |
-| Jun 2026 | Pipeline OpenCV, rotulagem de ROIs |
-| Jul-Ago 2026 | Implementação A1, A2 e B |
-| Set-Out 2026 | K-fold completo (75 runs) + análise estatística |
-| Nov 2026 | Escrita do TCC |
-| Dez 2026 | Revisão final + apresentação |
+Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino supervisionado real e comparação final dependem dos dados revisados e do conjunto reservado. O [cronograma](cronograma.md) e o [checklist](checklist_execucao.md) detalham essa sequência.

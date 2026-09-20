@@ -1,127 +1,68 @@
-# TCC — Análise Comparativa de Modelos de IA para Detecção de Doença de Chagas
+# TCC — comparação dos sistemas A e B para localizar e classificar regiões suspeitas de *Trypanosoma cruzi*
 
-> Estudo comparativo entre o modelo de classificação utilizado pela Fuzzylab/FIOCRUZ (ResNet-50) e uma proposta com EfficientNet-B0 + técnicas modernas de treinamento, aplicado à classificação de núcleos de *Trypanosoma cruzi* em imagens de esfregaço sanguíneo.
+**Autores:** Victor Jacques e Caio Milão
 
-**Autores:** Victor Jacques, Caio Milão
 **Orientador:** Prof. Rogério Mandelli
-**Instituição:** UVA — Universidade Veiga de Almeida
-**Curso:** Ciência da Computação
----
 
-## Resumo da pesquisa
+**Instituição:** UVA — Universidade Veiga de Almeida · Ciência da Computação
 
-Comparamos dois modelos de classificação binária de núcleos celulares:
+O estudo compara **dois sistemas completos**, recebendo as mesmas imagens microscópicas inteiras. O **Modelo A** reproduz a inferência do Vision/FuzzyLab/FIOCRUZ com os pesos entregues e fixos. O **Modelo B** é a proposta do TCC, com localização configurável e classificador EfficientNet-B0. Sua eventual melhoria será testada; ainda não é uma conclusão.
 
-- **Modelo A (referência):** ResNet-50 com base congelada, transfer learning de pesos ImageNet, sem data augmentation, treinado pela equipe Fuzzylab/FIOCRUZ.
-- **Modelo B (proposto):** EfficientNet-B0 com fine-tuning, data augmentation (Albumentations), AdamW + cosine annealing, label smoothing e regularização ajustada.
+O arquivo `.keras` do A representa somente o classificador. Segmentação, recortes, ordem dos canais, pré-processamento e decisão original também integram o sistema de referência. O A não será retreinado. O B pode modificar localização e classificação; um resultado diferente não poderá ser atribuído a uma técnica isolada.
 
-Ambos os modelos compartilham o mesmo pipeline de pré-processamento (segmentação por cor via OpenCV) e o mesmo conjunto de teste, isolando a etapa de classificação como variável sob análise.
+## Protocolo atual
 
-## Dataset
-
-Utilizamos o dataset público **"Image dataset from Automatic analysis of Trypanosoma cruzi"** (Morais et al., 2021), disponível no Zenodo:
-
-- DOI: [10.5281/zenodo.5123062](https://doi.org/10.5281/zenodo.5123062)
-- Licença: Creative Commons CC-BY 4.0
-- ~1,3 GB de imagens de esfregaço fino corado com Giemsa
-
-Veja [`data/README.md`](data/README.md) para instruções de download e organização.
-
-## Como reproduzir
-
-### Pré-requisitos
-
-- Python 3.10+
-- GPU (opcional). Observação: suporte a GPU do TensorFlow varia por SO/instalação; no Windows, o caminho mais estável costuma ser via WSL2 + NVIDIA.
-- ~5 GB de espaço em disco
-
-### Setup
-
-```bash
-# Clone do repositório
-git clone <url-do-repo>
-cd tcc-chagas
-
-# Ambiente virtual
-python -m venv .venv
-source .venv/bin/activate    # Linux/Mac
-# .venv\Scripts\activate     # Windows
-
-# Dependências
-pip install -r requirements.txt
-
-# Baixar dataset (siga instruções em data/README.md)
-```
-
-### Quickstart (Windows / PowerShell)
-
-Do zero até o primeiro treino do Modelo B (CPU/GPU, conforme seu TensorFlow):
-
-```powershell
-python -m venv .venv
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
-
-pip install -r requirements.txt
-
-# 1) Baixe e organize o dataset (ver data/README.md)
-
-# 2) Gerar ROIs (recortes) e manifest
-python notebooks\gerar_rois.py --dry-run
-python notebooks\gerar_rois.py
-
-# 3) Treinar Modelo B e salvar métricas
-python scripts\train_model_b.py --config configs\model_b.yaml --run-name model_b
-```
-
-Arquivos gerados:
-
-- `data/processed/` (ROIs)
-- `data/splits/` (CSV de splits)
-- `experiments/checkpoints/` (checkpoint do modelo)
-- `experiments/results/` (métricas em JSON)
-
-### Ordem de execução dos notebooks
-
-1. `notebooks/01_exploracao_dataset.ipynb` — inspeção e estatísticas do Zenodo
-2. `notebooks/gerar_rois.py` — geração de ROIs (recortes) + negativos amostrados + `manifest.csv`
-3. `scripts/train_model_b.py` — treino do Modelo B via CLI (gera `data/splits/` automaticamente)
-4. `notebooks/05_analise_estatistica.ipynb` — Wilcoxon, métricas finais, gráficos (WIP)
-
-Observação: os notebooks `02_pipeline_segmentacao.ipynb`, `03_modelo_a_baseline.ipynb` e `04_modelo_b_treino.ipynb` ainda estão com células `TODO` e servem como rascunho/roteiro.
-
-## Estrutura
-
-```
-tcc-chagas/
-├── data/             # dados brutos e processados (não versionados)
-├── notebooks/        # exploração e experimentos numerados
-├── src/              # código modular reutilizável
-├── configs/          # hiperparâmetros por experimento (YAML)
-├── experiments/      # logs, checkpoints, resultados (não versionados)
-├── docs/             # proposta, decisões técnicas, referências
-└── tcc/              # texto final do TCC
-```
+- Avaliação principal em **imagem inteira**, com os mesmos IDs reservados para A e B.
+- Separação por animal/lâmina confiável ou, quando indisponível, por imagem original, antes de recortes e aumentos de dados.
+- Duplicatas identificadas por conteúdo e excluídas por manifesto, mantendo os originais.
+- Ausência de anotação não significa imagem ou região negativa. Treino e métricas reais exigem referência revisada por alguém qualificado.
+- Histórico e quantidade de dados de treino do A desconhecidos: não se presume igualdade de treinamento nem ausência de sobreposição com o teste.
+- Métricas de recortes são auxiliares; cobertura da localização, detecção final e decisão por imagem são medidas distintas.
 
 ## Documentação
 
-- [`docs/proposta_v3.md`](docs/proposta_v3.md) — proposta atual (estratégia A1/A2/B)
-- [`docs/proposta_v2.md`](docs/proposta_v2.md) — proposta enviada ao orientador em maio/2026
-- [`docs/cronograma.md`](docs/cronograma.md) — plano de trabalho de Mai a Dez de 2026
-- [`docs/decisoes_tecnicas.md`](docs/decisoes_tecnicas.md) — registro de decisões técnicas (decision log)
-- [`docs/referencias.md`](docs/referencias.md) — bibliografia
+- [Proposta atual](docs/proposta_v3.md): problema, objetivos e hipóteses A × B; nome do arquivo mantido para preservar os links.
+- [Metodologia](docs/metodologia.md): protocolo central, regras de avaliação e limitações.
+- [Dados e anotações](data/README.md): inventário, partições e referência supervisionada.
+- [Checklist de execução](docs/checklist_execucao.md): entregas e dependências.
+- [Execução de 20/09/2026](docs/execucao_2026-09-20.md): comandos, testes novos, diagnóstico real e arquivos gerados.
+- [Decisões técnicas](docs/decisoes_tecnicas.md): escolhas atuais e sua justificativa.
+- [Cronograma](docs/cronograma.md): etapas condicionadas aos dados disponíveis.
+- [Referências](docs/referencias.md): bibliografia a conferir para o texto final.
+- [Histórico substituído](docs/historico/README.md): documentos antigos preservados, sem validar suas alegações.
 
-## Status
+## Execução
 
-- [x] Proposta aprovada pelo orientador (v2 em `docs/proposta_v2.md`)
-- [x] Autorização formal Fuzzylab/FIOCRUZ
-- [x] Download e organização do dataset
-- [x] Geração de ROIs via anotações (script)
-- [x] Treino do Modelo B via CLI (baseline inicial)
-- [ ] Replicação do Modelo A (WIP)
-- [ ] Análise estatística
-- [ ] Escrita do TCC
+Use **Python 3.10 ou 3.11** com as versões de [requirements.txt](requirements.txt); TensorFlow 2.15 não atende Python 3.12+. Nesta máquina já existe `.venv` com Python 3.11.15 e TensorFlow/Keras 2.15. Os notebooks usam fixtures sintéticas por padrão; variáveis `TCC_*` permitem configurar caminhos reais.
 
-## Licença
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m jupyter notebook
+```
 
-Código sob licença MIT (ver `LICENSE`). Dataset sob CC-BY 4.0 (creditar Morais et al., 2021).
+Verificações sem treino completo nem download de pesos:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+.\.venv\Scripts\python.exe scripts/train_model_b.py --smoke
+.\.venv\Scripts\python.exe scripts/validate_notebooks.py
+```
+
+Fluxo de trabalho, reutilizando os nomes existentes:
+
+1. [01_exploracao_dataset.ipynb](notebooks/01_exploracao_dataset.ipynb) — inventário, origens, duplicatas e grupos.
+2. [02_pipeline_segmentacao.ipynb](notebooks/02_pipeline_segmentacao.ipynb) — dados, anotações, partições e localização.
+3. [03_modelo_a_baseline.ipynb](notebooks/03_modelo_a_baseline.ipynb) — A original com instrumentação.
+4. [04_modelo_b_treino.ipynb](notebooks/04_modelo_b_treino.ipynb) — B, verificação curta e treinamento condicionado aos dados.
+5. [05_analise_estatistica.ipynb](notebooks/05_analise_estatistica.ipynb) — comparação dos sistemas em imagens inteiras.
+
+Os comandos experimentais exatos e artefatos estão no [relatório de execução](docs/execucao_2026-09-20.md). O [checklist](docs/checklist_execucao.md) separa o trabalho concluído das dependências humanas.
+
+## Estado e limites
+
+Esta revisão começou pela atualização efetiva da documentação. A base inspecionada do TCC é o commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais preservadas. Código existente não equivale a teste concluído. O checklist distingue implementação, execução sintética, execução real e pendências.
+
+Nesta execução foram reconfirmados o carregamento do A, a preservação de 329 tensores na cópia normalizada e a ausência de regiões nas 58 imagens únicas do lote Luiz. O B passou por uma etapa sintética de treino, salvamento e recarga. Os cinco notebooks executaram em modo sintético. Esses testes novos estão separados dos relatos antigos no relatório. Sem anotações revisadas, não há métricas supervisionadas reais nem superioridade demonstrada do B.
+
+Dados, pesos e resultados volumosos permanecem fora do Git conforme a política do projeto. Consulte [LICENSE](LICENSE) para o código; registre a licença e a autorização de uso de cada fonte de dados sem deduzi-las apenas da disponibilidade local.

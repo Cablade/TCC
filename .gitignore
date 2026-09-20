@@ -3,10 +3,16 @@
 # =========================================================
 data/raw/
 data/processed/
+data/protocol/
+data/annotations/
 data/splits/*.csv
+data/splits/*.json
+data/splits/**/*.json
 !data/splits/.gitkeep
 
 experiments/logs/
+experiments/runs/
+experiments/validation/
 experiments/checkpoints/
 experiments/results/*.csv
 !experiments/results/.gitkeep

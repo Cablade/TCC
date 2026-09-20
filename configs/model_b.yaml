@@ -1,50 +1,50 @@
-# Configuração de treino do Modelo B (proposta do TCC)
-
+# Modelo B: proposta inicial, sem resultados de superioridade.
+# Contrato TF/Keras 2.15: RGB float32 [0,255]; Rescaling interna.
 model:
-  name: "EfficientNetB0"
+  name: EfficientNetB0
   num_classes: 2
   input_shape: [224, 224, 3]
+  weights: imagenet
   dropout_rate: 0.3
-  unfreeze_last_n: 30           # fine-tuning das últimas N camadas
+  unfreeze_last_n: 30
   label_smoothing: 0.1
+  batch_normalization: frozen
 
 training:
   batch_size: 32
   epochs: 40
   learning_rate: 1.0e-4
-  optimizer: "AdamW"
+  optimizer: AdamW
   weight_decay: 1.0e-4
-  scheduler: "cosine_annealing"
-  loss: "categorical_crossentropy"
+  scheduler: cosine_annealing
+  loss: categorical_crossentropy
   patience: 7
   augmentation: true
+  selection_monitor: val_loss
+  selection_mode: min
 
 augmentation:
-  horizontal_flip: 0.5
-  vertical_flip: 0.5
-  rotation_limit: 180
-  color_jitter:
-    brightness: 0.1
-    contrast: 0.1
-    saturation: 0.1
-    hue: 0.03
-    p: 0.5
-  coarse_dropout:
-    max_holes: 2
-    max_size_pct: 0.15
-    p: 0.3
+  # Apenas treino. Sem alterar coloração nem apagar parasitas.
+  policy: rotations_90_and_flips
+
+localization:
+  # Protótipo clássico provisório. Calibrar só em development/val.
+  method: blackhat_otsu
+  kernel_size: 31
+  min_contrast: 8
+  min_area: 8
+  max_area: 2500
+  min_crop_size: 100
+  context_fraction: 0.5
+  border_policy: clip
 
 data:
   image_size: [224, 224]
-  test_size: 0.15
-  val_size: 0.15
-  k_folds: 5
   seed: 42
+  # Não há proporções automáticas: separar grupos antes de gerar crops.
 
-# Class weights serão calculados automaticamente pelo treino
-class_weights: "auto"
+class_weights: auto
 
-# Múltiplas execuções para análise estatística
+# Repetições da mesma abordagem; não constituem modelos adicionais.
 runs:
-  n_seeds: 5
   seeds: [42, 123, 456, 789, 1024]

@@ -1,12 +1,12 @@
 # Referências Bibliográficas
 
-> Lista viva de referências para o TCC. Atualizar conforme necessário.
+> Lista bibliográfica herdada do projeto. Conferir metadados, conteúdo e pertinência nas fontes primárias antes de incorporar ao texto final. Esta revisão documental não verificou os links nem comprova uso dos dados citados. Nenhum método estatístico é obrigatório apenas por constar nesta lista.
 
 ## Dataset e modelo de referência
 
 - Morais, M. C. C., Silva, D. M. da, Oliveira, M. T., Lana, M. de, & Nakaya, H. I. (2021). *Image dataset from Automatic analysis of Trypanosoma cruzi: A machine learning approach for the detection of blood trypomastigotes in low resolution images*. Zenodo. https://doi.org/10.5281/zenodo.5123062
 
-  Dataset utilizado neste trabalho.
+  Fonte mencionada no planejamento anterior; uso efetivo, licença, arquivos e anotações devem ser documentados no inventário antes do experimento.
 
 ## Doença de Chagas
 

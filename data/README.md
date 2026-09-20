@@ -1,80 +1,124 @@
-# Dataset
+# Dados, partições e anotações
 
-Os dados não são versionados no Git devido ao tamanho. Esta pasta deve ser preenchida localmente seguindo as instruções abaixo.
+> Protocolo A × B, 2026-09-20. Consulte a [metodologia](../docs/metodologia.md). Dados, recortes, pesos e resultados volumosos não são incluídos automaticamente no Git. Preserve os originais.
 
-## Estrutura esperada
+## Fontes e inventário
 
+O lote de lâminas citado no plano e o artefato A foram localizados nesta revisão. Isso não confirma anotações, integridade de todo o conteúdo ou grupos independentes. A fonte Zenodo mencionada no histórico é uma possibilidade de dados adicionais, cuja disponibilidade, licença e conteúdo devem ser conferidos antes do uso. Não presumir que anotações estejam em um suplemento específico sem inspecioná-lo.
+
+O inventário é produzido antes de recortes e aumentos:
+
+| Coluna | Significado |
+| --- | --- |
+| `image_id` | Identificador estável usado em anotações, partições e resultados |
+| `path` | Arquivo local ou membro do ZIP, no formato `zip://CAMINHO_ABSOLUTO!membro` |
+| `sha256` | Hash do conteúdo do arquivo original |
+| `width`, `height` | Dimensões verificadas da imagem original |
+| `source` | Origem declarada; desconhecida quando não confirmada |
+| `group_id` | Animal/lâmina confiável ou identificador da imagem original |
+| `group_level` | Nível efetivamente disponível: animal, lâmina ou imagem |
+| `duplicate_of` | ID canônico de conteúdo idêntico; vazio para o exemplar mantido |
+| `split` | No manifesto de partições: treino, validação, teste ou desenvolvimento |
+
+Os valores de partição usados pelos scripts são `train`, `val`, `test` e `development`. Um hash de arquivo detecta cópias de bytes idênticos; reencodificações e campos correlacionados exigem revisão adicional. O manifesto de exclusão registra os duplicados sem apagar imagens. Não decidir que dois arquivos são duplicatas apenas por terem o mesmo nome.
+
+## Grupos e reserva
+
+Confirmar animal/lâmina com a equipe; não transformar nomes de pastas em identidades biológicas presumidas. Sem identificadores confiáveis, usar imagem original e declarar que a independência entre lâminas/animais não foi demonstrada. Recortes da mesma imagem herdam seu grupo e partição.
+
+Atribuir partições **antes** de gerar recortes. Persistir semente e escolhas de grupos. Um CSV explícito de atribuições usa:
+
+```csv
+group_id,split
+grupo_confirmado_001,train
+grupo_confirmado_002,val
+grupo_confirmado_003,test
 ```
+
+O exemplo é ilustrativo, não constitui uma partição real aprovada. Primeiro examinar grupos/classes e justificar quantos grupos podem ser reservados. Imagens usadas para inspecionar falhas ou ajustar a localização de B são desenvolvimento. Se não houver dados para teste intocado, registrar a falta; não renomear desenvolvimento como teste.
+
+## Formato de anotação
+
+A referência JSON usa `schema_version: 1` e `coordinate_convention: "xyxy_half_open"`. Todos os valores espaciais se referem aos pixels originais, sem redimensionamento: canto superior esquerdo `(0,0)`, x horizontal e y vertical. Caixas têm extremos direito e inferior exclusivos: `0 <= x1 < x2 <= width` e `0 <= y1 < y2 <= height`. Pontos atendem `0 <= x < width` e `0 <= y < height`.
+
+Exemplo **sintético**, ainda pendente de revisão:
+
+```json
+{
+  "schema_version": 1,
+  "coordinate_convention": "xyxy_half_open",
+  "images": [
+    {
+      "image_id": "exemplo_sintetico",
+      "width": 100,
+      "height": 80,
+      "review_status": "pending",
+      "reviewer": null,
+      "reference_complete": false,
+      "whole_image_label": null,
+      "positives": [
+        {"annotation_id": "p1", "bbox": [10, 20, 30, 40]},
+        {"annotation_id": "p2", "point": [70, 50]}
+      ],
+      "negative_regions": []
+    }
+  ]
+}
+```
+
+Cada objeto positivo contém **ou** `bbox` **ou** `point`, nunca ambos. `review_status` é `pending` ou `reviewed`; uma revisão concluída exige `reviewer` identificado. `reference_complete: true` declara cobertura suficiente de toda a imagem para contabilizar referências não detectadas e falsos positivos. Não marcar automaticamente uma lista vazia como referência completa.
+
+`whole_image_label` é `null` enquanto desconhecido; valores `0` e `1` são rótulos explícitos de ausência/presença no nível da imagem, confirmados por revisão. Detecção exige referência revisada e completa; métricas binárias exigem revisão e rótulo inteiro explícito. Uma anotação parcial não autoriza chamar regiões não anotadas de negativas.
+
+Regiões negativas confirmadas usam:
+
+```json
+{
+  "annotation_id": "n1",
+  "bbox": [40, 0, 60, 20],
+  "review_status": "reviewed",
+  "reviewer": "identificador_do_revisor"
+}
+```
+
+Um recorte negativo precisa estar coberto por região negativa confirmada e não pode intersectar qualquer positivo. Para pontos, testar contenção do ponto no recorte; para caixas, testar a área de interseção de toda a caixa do recorte. Distância entre centros é insuficiente. `unknown` não é uma terceira classe experimental nem uma classe negativa: significa candidato sem rótulo utilizável, que deve ser excluído do treino supervisionado.
+
+A revisão deve ser realizada por alguém qualificado da equipe. Previsões do modelo podem ajudar a encontrar candidatos para inspeção, mas não são referência independente e não devem preencher o teste como se fossem marcações humanas.
+
+## Organização dos artefatos
+
+```text
 data/
-├── raw/                          # Imagens originais do Zenodo + anotações
-│   ├── train/                    # *.jpg (split do próprio dataset)
-│   ├── test/                     # *.jpg (split do próprio dataset)
-│   └── annotations/
-│       ├── supply.csv            # Data S1 (anotações)
-│       └── supply2.csv           # (opcional)
-├── processed/                    # ROIs recortadas (script gerar_rois.py)
-│   ├── train/
-│   │   ├── positivo/             # *.png
-│   │   └── negativo/             # *.png
-│   ├── test/
-│   │   ├── positivo/             # *.png
-│   │   └── negativo/             # *.png
-│   └── manifest.csv              # metadados das ROIs geradas
-└── splits/                       # Divisões treino/val/teste (CSVs)
-  ├── train.csv                 # colunas: path,label
-  ├── val.csv
-  └── test.csv
+  raw/                 # originais ou referência aos ZIPs preservados
+  protocol/            # inventory.csv, exclusões, metadados do inventário
+  annotations/         # referência JSON e proveniência/revisão
+  splits/              # images.csv e escolhas de grupos/semente
+  processed/           # recortes com vínculo ao image_id e partição
 ```
 
-## Download do dataset Zenodo
+Não confiar em nomes antigos `raw/train` e `raw/test` para definir o protocolo deste TCC: sua origem deve ser verificada e a atribuição por grupo persistida. Não gerar recortes primeiro para depois dividi-los aleatoriamente.
 
-**Fonte:** Morais, M. C. C., Silva, D. M. da, Oliveira, M. T., Lana, M. de, & Nakaya, H. I. (2021). *Image dataset from Automatic analysis of Trypanosoma cruzi: A machine learning approach for the detection of blood trypomastigotes in low resolution images*. Zenodo. https://doi.org/10.5281/zenodo.5123062
+## Interfaces de preparação
 
-**Licença:** Creative Commons CC-BY 4.0 (atribuição obrigatória)
+Os comandos seguintes descrevem a interface da implementação desta revisão. Substituir os caminhos de exemplo por caminhos locais reais e conferir `--help`; a execução efetiva deve ser registrada no [checklist](../docs/checklist_execucao.md).
 
-### Via interface web
-
-1. Acesse https://zenodo.org/records/5123062
-2. Baixe `trypoastigote_images.zip` (~1,3 GB)
-3. Descompacte em `data/raw/` de forma que existam as pastas `data/raw/train/` e `data/raw/test/`
-
-Observação: dependendo de como o ZIP vem organizado, pode ser necessário mover os arquivos após descompactar.
-
-### Via linha de comando
-
-```bash
-cd data/raw/
-wget https://zenodo.org/records/5123062/files/trypoastigote_images.zip
-unzip trypoastigote_images.zip
-rm trypoastigote_images.zip
+```powershell
+python scripts/prepare_data.py inventory --input CAMINHO_DO_LOTE --output-dir data/protocol
+python scripts/prepare_data.py annotation-template --inventory data/protocol/inventory.csv --output data/annotations/reference.json
+python scripts/prepare_data.py split --inventory data/protocol/inventory.csv --assignments grupos.csv --output-dir data/splits --seed 42
+python scripts/prepare_data.py validate --splits data/splits/images.csv --annotations data/annotations/reference.json
 ```
 
-### Verificação de integridade
+Gerar um template cria campos pendentes, **não anotações confiáveis**. O CSV `grupos.csv` depende da inspeção de grupos e classes. Quando contagens forem usadas no lugar de atribuições explícitas, precisam ser justificadas e persistidas; não há porcentagem padrão adotada pelo protocolo.
 
-```bash
-# MD5 oficial do arquivo
-echo "3434fa22df03956c256f1203b683517e  trypoastigote_images.zip" | md5sum -c
+## Contrato de predições e comparação
+
+A saída por sistema contém `system: "A"` ou `"B"` e uma lista `images` com `image_id`, `status`, `regions`, `candidates`, `original_decision` e `timings`. Cada região carrega `bbox`, `class_id` e `scores`; propostas ainda não classificadas aparecem em `candidates`. Caixas usam as mesmas coordenadas da referência. Escores não são denominados probabilidades calibradas.
+
+Comparar apenas os mesmos IDs definidos pelo manifesto. Estados de ausência de candidatos e erro também devem aparecer. Associação um a um usa IoU ≥ 0,5 para caixas e ponto contido para referência pontual; limiar e regra são fixados antes do teste. Critérios completos, incluindo referência incompleta, FN por falha de localização e imagem inteira, estão na [metodologia](../docs/metodologia.md).
+
+```powershell
+python scripts/compare_systems.py --manifest data/splits/images.csv --annotations data/annotations/reference.json --predictions-a experiments/runs/a_test/predictions.json --predictions-b experiments/runs/b_test/predictions.json --output experiments/runs/comparacao.json --split test --iou-threshold 0.5
 ```
 
-## Datasets complementares (opcional)
-
-- **ASH Image Bank — T. cruzi trypomastigote:** https://imagebank.hematology.org/
-
-  Imagens adicionais para validação cruzada em domínio externo, se houver tempo.
-
-## Próximos passos após download
-
-Após colocar as imagens em `data/raw/train` e `data/raw/test`, rode o gerador de ROIs:
-
-```bash
-python notebooks/gerar_rois.py --dry-run
-python notebooks/gerar_rois.py
-```
-
-Isso vai preencher `data/processed/` e criar `data/processed/manifest.csv`.
-
-Em seguida, para gerar `data/splits/*.csv` e treinar o Modelo B via CLI:
-
-```bash
-python scripts/train_model_b.py --config configs/model_b.yaml --run-name model_b
-```
+Sem rótulos revisados, o resultado válido é inventário/diagnóstico e verificação sintética da infraestrutura. Não publicar precisão, recall, F1 ou superioridade real com base em rótulos ausentes ou inventados.
