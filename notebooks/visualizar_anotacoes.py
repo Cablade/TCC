@@ -1,4 +1,6 @@
 """
+Utilitário legado para supply.csv externo, fora do fluxo atual A × B.
+Não confirma a validade das anotações nem define partições do experimento.
 Visualiza uma imagem do dataset com as anotações sobrepostas, colorindo
 cada estrutura de uma cor distinta. Ajuda a entender o que cada classe
 do supply.csv significa anatomicamente.
@@ -12,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 ANNOTATIONS = ROOT / "data" / "raw" / "annotations" / "supply.csv"
 IMAGES_TRAIN = ROOT / "data" / "raw" / "train"
-OUTPUT_DIR = ROOT / "data" / "raw" / "annotations"
+OUTPUT_DIR = ROOT / "experiments" / "validation" / "legacy_supply"
 
 # Imagem para visualizar (a que tem MAIS anotações para o exemplo ser rico)
 TARGET = None  # auto

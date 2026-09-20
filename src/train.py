@@ -1,89 +1,110 @@
-"""
-Loop de treino reutilizável para Modelo A e Modelo B.
-
-Carrega config YAML, executa fit() com callbacks de logging e
-early stopping, e salva o modelo + métricas em experiments/.
-"""
+"""Treino exclusivo do B; seleção e reabertura do mesmo best.keras por val_loss."""
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+from importlib import metadata
+import json
 from pathlib import Path
+import platform
+import shutil
+import time
 
-import tensorflow as tf
-import yaml
+import numpy as np
 
-
-def load_config(config_path: str | Path) -> dict:
-    """Carrega arquivo YAML de configuração."""
-    with open(config_path) as f:
-        return yaml.safe_load(f)
+from .data_pipeline import file_sha256
 
 
-def _get_training_cfg(config: dict) -> dict:
-    """Compat: aceita config flat (epochs, batch_size, ...) ou aninhado em 'training'."""
-    if "training" in config and isinstance(config["training"], dict):
-        return config["training"]
-    return config
+def load_config(config_path):
+    import yaml
+
+    with open(config_path, encoding="utf-8-sig") as stream:
+        return yaml.safe_load(stream)
 
 
-def get_callbacks(
-    checkpoint_path: str | Path,
-    log_dir: str | Path,
-    patience: int = 5,
-    extra_callbacks: list | None = None,
-) -> list:
-    """Callbacks padrão: checkpoint + early stopping + tensorboard."""
+def versions():
+    packages = {}
+    for name in ("tensorflow", "tensorflow-intel", "keras", "numpy", "opencv-python", "pandas"):
+        try:
+            packages[name] = metadata.version(name)
+        except metadata.PackageNotFoundError:
+            packages[name] = None
+    return {"python": platform.python_version(), "platform": platform.platform(), "packages": packages}
+
+
+def get_callbacks(checkpoint_path, log_dir, patience=5, extra_callbacks=None):
+    import tensorflow as tf
+
     callbacks = [
-        tf.keras.callbacks.ModelCheckpoint(
-            filepath=str(checkpoint_path),
-            monitor="val_accuracy",
-            save_best_only=True,
-            mode="max",
-        ),
-        tf.keras.callbacks.EarlyStopping(
-            monitor="val_loss",
-            patience=patience,
-            restore_best_weights=True,
-        ),
-        tf.keras.callbacks.TensorBoard(log_dir=str(log_dir)),
+        tf.keras.callbacks.ModelCheckpoint(str(checkpoint_path), monitor="val_loss",
+                                           mode="min", save_best_only=True),
+        # O único artefato selecionado será reaberto; não há restauração divergente em memória.
+        tf.keras.callbacks.EarlyStopping(monitor="val_loss", mode="min", patience=patience,
+                                         restore_best_weights=False),
+        tf.keras.callbacks.CSVLogger(str(Path(log_dir) / "epochs.csv")),
     ]
-    if extra_callbacks:
-        callbacks.extend(extra_callbacks)
-    return callbacks
+    return callbacks + list(extra_callbacks or [])
 
 
-def train_model(
-    model: tf.keras.Model,
-    train_ds: tf.data.Dataset,
-    val_ds: tf.data.Dataset,
-    config: dict,
-    run_name: str,
-) -> tf.keras.callbacks.History:
-    """
-    Executa o treino e retorna o histórico.
+@dataclass
+class TrainingResult:
+    loaded_model: object
+    history: dict
+    checkpoint_path: Path
+    run_dir: Path
 
-    Espera em config:
-        epochs, batch_size, patience, class_weights (opcional)
-    """
-    training_cfg = _get_training_cfg(config)
 
-    exp_root = Path("experiments")
-    (exp_root / "checkpoints").mkdir(parents=True, exist_ok=True)
-    (exp_root / "logs").mkdir(parents=True, exist_ok=True)
-    checkpoint_path = exp_root / "checkpoints" / f"{run_name}.keras"
-    log_dir = exp_root / "logs" / run_name
+def train_model(model, train_ds, val_ds, config, run_name, *, output_dir=None,
+                manifest_paths=None, extra_callbacks=None, synthetic=False):
+    import tensorflow as tf
 
-    callbacks = get_callbacks(
-        checkpoint_path=checkpoint_path,
-        log_dir=log_dir,
-        patience=training_cfg.get("patience", 5),
-    )
-
-    history = model.fit(
-        train_ds,
-        validation_data=val_ds,
-        epochs=training_cfg["epochs"],
-        callbacks=callbacks,
-        class_weight=config.get("class_weights"),
-    )
-    return history
+    if not run_name or Path(run_name).name != run_name or run_name in {".", ".."}:
+        raise ValueError("run_name deve ser um nome simples de diretório.")
+    run_dir = Path(output_dir or Path(__file__).resolve().parents[1] / "experiments" / "runs") / run_name
+    run_dir.mkdir(parents=True, exist_ok=False)
+    checkpoint = run_dir / "best.keras"
+    training = config["training"]
+    seed = int(config["data"]["seed"])
+    info = {
+        "run_name": run_name, "synthetic": bool(synthetic), "seed": seed,
+        "selection": {"monitor": "val_loss", "mode": "min", "artifact": "best.keras"},
+        "versions": versions(), "manifests": {},
+        "hardware": {"processor": platform.processor(),
+                     "devices": [device.name for device in tf.config.list_physical_devices()]},
+        "input": {"channels": "RGB", "dtype": "float32", "range": [0, 255]},
+        "classes": {"0": "negativo", "1": "suspeito"},
+        "status": "running",
+    }
+    (run_dir / "config.json").write_text(json.dumps(config, indent=2, ensure_ascii=False), encoding="utf-8")
+    for name, path in (manifest_paths or {}).items():
+        path = Path(path)
+        copy_to = run_dir / f"input_{name}{path.suffix}"
+        shutil.copyfile(path, copy_to)
+        info["manifests"][name] = {"source": str(path.resolve()), "copy": copy_to.name,
+                                    "sha256": file_sha256(copy_to)}
+    metadata_path = run_dir / "metadata.json"
+    metadata_path.write_text(json.dumps(info, indent=2, ensure_ascii=False), encoding="utf-8")
+    callbacks = get_callbacks(checkpoint, run_dir, int(training.get("patience", 5)), extra_callbacks)
+    t0 = time.perf_counter()
+    try:
+        history = model.fit(train_ds, validation_data=val_ds, epochs=int(training["epochs"]),
+                            callbacks=callbacks, class_weight=config.get("resolved_class_weights"),
+                            verbose=int(training.get("verbose", 2))).history
+        history = {key: [float(v) for v in values] for key, values in history.items()}
+        (run_dir / "history.json").write_text(json.dumps(history, indent=2), encoding="utf-8")
+        losses = np.asarray(history.get("val_loss", []), dtype=float)
+        if not losses.size or not np.isfinite(losses).all() or not checkpoint.is_file():
+            raise RuntimeError("Treino sem val_loss finita/checkpoint selecionado.")
+        info["training_seconds"] = time.perf_counter() - t0
+        # Avaliação/inferência sempre recebe o artefato persistido selecionado.
+        selected = tf.keras.models.load_model(checkpoint)
+        info.update(status="complete", selected_epoch=int(np.argmin(losses)) + 1,
+                    selected_val_loss=float(np.min(losses)),
+                    checkpoint_sha256=file_sha256(checkpoint), checkpoint_bytes=checkpoint.stat().st_size)
+    except Exception as exc:
+        info.update(status="error", error=f"{type(exc).__name__}: {exc}")
+        raise
+    finally:
+        info["elapsed_seconds"] = time.perf_counter() - t0
+        metadata_path.write_text(json.dumps(info, indent=2, ensure_ascii=False), encoding="utf-8")
+    return TrainingResult(selected, history, checkpoint, run_dir)

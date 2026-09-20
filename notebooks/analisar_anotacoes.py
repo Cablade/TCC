@@ -1,4 +1,6 @@
-# Análise exploratória do supply.csv (Data S1 do paper Morais et al. 2022).
+# Utilitário legado para um supply.csv externo, não disponível neste checkout.
+# Não define classes, partições ou referência do protocolo atual A × B.
+# A origem e o significado do arquivo exigem confirmação antes de reutilizá-lo.
 
 
 from collections import Counter
