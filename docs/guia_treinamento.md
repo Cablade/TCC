@@ -53,7 +53,7 @@ O treino real precisa destes arquivos, que têm funções diferentes:
 | Anotações (`reference.json`) | Positivos/negativos revisados, coordenadas, cobertura e responsável |
 | Manifesto de recortes (`crops.csv`) | Recortes gerados pelo localizador B, seus rótulos e imagens de origem |
 
-Hoje existe o inventário de 106 JPGs únicos em `data/protocol/all_available_jpg/inventory.csv`. O lote Luiz tem seu manifesto separado em `data/splits/luiz/images.csv`, com 58 imagens somente em `development`. O arquivo `data/annotations/luiz_pending.json` é um template **sem marcações confiáveis**. Usá-lo agora na extração produz candidatos sem rótulo, não um conjunto pronto para treinar.
+Hoje existe o inventário de 106 JPGs únicos em `data/protocol/all_available_jpg/inventory.csv`. O lote 1 tem seu manifesto separado em `data/splits/lote_1/images.csv`, com 58 imagens somente em `development`. O arquivo `data/annotations/lote_1_pending.json` é um template **sem marcações confiáveis**. Usá-lo agora na extração produz candidatos sem rótulo, não um conjunto pronto para treinar.
 
 Antes de seguir, alguém qualificado precisa revisar as marcações e confirmar os grupos de lâmina/animal. O projeto define o formato JSON, mas ainda não oferece uma interface gráfica de anotação. O formato e as coordenadas estão em [Dados e anotações](../data/README.md). Alterar apenas `pending` para `reviewed` não substitui essa revisão.
 
@@ -81,7 +81,7 @@ Se ainda não houver anotações para **esses mesmos IDs**, crie um template nov
 & $pythonTcc scripts/prepare_data.py annotation-template --inventory data/splits/experimento/images.csv --output data/annotations/experimento_reference.json
 ```
 
-Esse comando não sobrescreve arquivo existente. Não misture anotações do manifesto isolado do Luiz com IDs do inventário conjunto sem reconciliá-los. Depois da revisão:
+Esse comando não sobrescreve arquivo existente. Não misture anotações do manifesto isolado do Lote 1 com IDs do inventário conjunto sem reconciliá-los. Depois da revisão:
 
 ```powershell
 & $pythonTcc scripts/prepare_data.py validate --splits data/splits/experimento/images.csv --annotations data/annotations/experimento_reference.json

@@ -64,6 +64,6 @@ Os comandos experimentais exatos e artefatos estão no [relatório de execução
 
 Esta revisão começou pela atualização efetiva da documentação. A base inspecionada do TCC é o commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais preservadas. Código existente não equivale a teste concluído. O checklist distingue implementação, execução sintética, execução real e pendências.
 
-Nesta execução foram reconfirmados o carregamento do A, a preservação de 329 tensores na cópia normalizada e a ausência de regiões nas 58 imagens únicas do lote Luiz. O B passou por uma etapa sintética de treino, salvamento e recarga. Os cinco notebooks executaram em modo sintético. Esses testes novos estão separados dos relatos antigos no relatório. Sem anotações revisadas, não há métricas supervisionadas reais nem superioridade demonstrada do B.
+Nesta execução foram reconfirmados o carregamento do A, a preservação de 329 tensores na cópia normalizada e a ausência de regiões nas 58 imagens únicas do lote 1. O B passou por uma etapa sintética de treino, salvamento e recarga. Os cinco notebooks executaram em modo sintético. Esses testes novos estão separados dos relatos antigos no relatório. Sem anotações revisadas, não há métricas supervisionadas reais nem superioridade demonstrada do B.
 
 Dados, pesos e resultados volumosos permanecem fora do Git conforme a política do projeto. Consulte [LICENSE](LICENSE) para o código; registre a licença e a autorização de uso de cada fonte de dados sem deduzi-las apenas da disponibilidade local.

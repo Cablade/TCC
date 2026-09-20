@@ -14,10 +14,10 @@
 ## Dados e referência
 
 - [x] Inventário dos quatro ZIPs: 188 JPGs, 106 conteúdos únicos; 82 cópias controladas por manifesto.
-- [x] Lote Luiz: 59 arquivos, 58 únicos, uma duplicata por SHA-256; originais preservados.
-- [x] Partição persistida do lote Luiz somente em development; nenhuma proporção real inventada.
+- [x] Lote 1: 59 arquivos, 58 únicos, uma duplicata por SHA-256; originais preservados.
+- [x] Partição persistida do lote 1 somente em development; nenhuma proporção real inventada.
 - [x] Validação de grupos, hashes e coordenadas implementada e testada sinteticamente.
-- [x] Template Luiz com rótulos desconhecidos, revisão pendente e dimensões verificadas.
+- [x] Template 1 com rótulos desconhecidos, revisão pendente e dimensões verificadas.
 - [ ] Confirmar animal/lâmina e relações entre originais, CZI, convertidos e filtrados.
 - [ ] Anotações reais revisadas por pessoa qualificada, com positivos, negativos e cobertura.
 - [ ] Definir divisão viável por grupos/classes e teste independente; preservar os 58 hashes já usados em desenvolvimento.
@@ -60,4 +60,4 @@
 
 ## Próximo passo
 
-Revisar `data/annotations/luiz_pending.json` com alguém qualificado da equipe e confirmar os grupos de aquisição. As 58 imagens desse arquivo já pertencem ao desenvolvimento. Depois, justificar uma reserva independente considerando os 48 JPGs adicionais e suas possíveis relações com o material já inspecionado. Sem essas informações, treino real e conclusões de qualidade continuam pendentes.
+Revisar `data/annotations/Lote_1_pending.json` com alguém qualificado da equipe e confirmar os grupos de aquisição. As 58 imagens desse arquivo já pertencem ao desenvolvimento. Depois, justificar uma reserva independente considerando os 48 JPGs adicionais e suas possíveis relações com o material já inspecionado. Sem essas informações, treino real e conclusões de qualidade continuam pendentes.
