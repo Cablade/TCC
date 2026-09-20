@@ -21,6 +21,7 @@ O arquivo `.keras` do A representa somente o classificador. Segmentação, recor
 
 ## Documentação
 
+- [Guia prático de treinamento](docs/guia_treinamento.md): do primeiro teste rápido à preparação, treino real e comparação A × B.
 - [Proposta atual](docs/proposta_v3.md): problema, objetivos e hipóteses A × B; nome do arquivo mantido para preservar os links.
 - [Metodologia](docs/metodologia.md): protocolo central, regras de avaliação e limitações.
 - [Dados e anotações](data/README.md): inventário, partições e referência supervisionada.
