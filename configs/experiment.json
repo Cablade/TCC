@@ -1,0 +1,10 @@
+{
+  "name": "experimento",
+  "image_manifest": "data/splits/experimento/images.csv",
+  "annotations": "data/annotations/experimento_reference.json",
+  "crop_manifest": "data/processed/b_real_01/crops.csv",
+  "model_config": "configs/model_b.yaml",
+  "run_name": "b_real_01",
+  "output_dir": "experiments/runs",
+  "require_gpu": true
+}

@@ -4,7 +4,9 @@
 
 ## Fontes e inventário
 
-O lote de lâminas citado no plano e o artefato A foram localizados nesta revisão. Isso não confirma anotações, integridade de todo o conteúdo ou grupos independentes. A fonte Zenodo mencionada no histórico é uma possibilidade de dados adicionais, cuja disponibilidade, licença e conteúdo devem ser conferidos antes do uso. Não presumir que anotações estejam em um suplemento específico sem inspecioná-lo.
+A única base local ativa é `trypoastigote_images.zip`, correspondente ao depósito Zenodo 5123062. A auditoria encontrou 675 JPGs únicos, 674 decodificáveis e uma exclusão por integridade. Consulte [base atual](../docs/dataset_atual.md) para checksums, caminhos e reprodução. Todos os ZIPs anteriores foram descartados do experimento. O template atual é `data/annotations/trypomastigote_pending.json`; ele não contém rótulos revisados. As [fontes negativas pesquisadas](../docs/fontes_negativas.md) ainda não foram incorporadas.
+
+Use `data/protocol/trypomastigote_verified/eligible_inventory.csv` como ponto de partida, confirmando grupos antes das partições. Não usar o inventário completo com a imagem inválida como entrada de treino. A ausência de anotações dentro do ZIP não exclui suplementos externos; é necessário inspecionar e reconciliar qualquer anotação importada.
 
 O inventário é produzido antes de recortes e aumentos:
 

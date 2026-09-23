@@ -1,6 +1,6 @@
 # Checklist de execução — A × B
 
-> Atualizado em 20/09/2026. Evidências, comandos e artefatos no [relatório de execução](execucao_2026-09-20.md). Marcas concluídas indicam o nível de evidência descrito; testes sintéticos não demonstram qualidade real.
+> Atualizado em 22/09/2026. Fonte atual em [base ativa](dataset_atual.md); verificações técnicas anteriores no [histórico](historico/execucao_2026-09-20.md). Marcas concluídas indicam o nível de evidência descrito; testes sintéticos não demonstram qualidade real.
 
 ## Documentação e origem
 
@@ -13,15 +13,17 @@
 
 ## Dados e referência
 
-- [x] Inventário dos quatro ZIPs: 188 JPGs, 106 conteúdos únicos; 82 cópias controladas por manifesto.
-- [x] Lote 1: 59 arquivos, 58 únicos, uma duplicata por SHA-256; originais preservados.
-- [x] Partição persistida do lote 1 somente em development; nenhuma proporção real inventada.
+- [x] Base local única: `trypoastigote_images.zip`; ZIPs e manifestos anteriores excluídos do experimento.
+- [x] Origem Zenodo 5123062 confirmada pelo MD5 publicado; SHA-256 local registrado.
+- [x] Inventário de 675 JPGs únicos; decodificação completa de 674, uma exclusão de integridade; original preservado.
 - [x] Validação de grupos, hashes e coordenadas implementada e testada sinteticamente.
-- [x] Template 1 com rótulos desconhecidos, revisão pendente e dimensões verificadas.
-- [ ] Confirmar animal/lâmina e relações entre originais, CZI, convertidos e filtrados.
+- [x] Template da base ativa com 674 registros, rótulos desconhecidos e revisão pendente.
+- [x] Fontes públicas candidatas de negativos pesquisadas e limitações documentadas; nenhuma incorporada automaticamente.
+- [ ] Conferir anotações públicas/suplementos e sua correspondência com as imagens originais.
+- [ ] Confirmar animal/lâmina e independência dos campos do novo ZIP.
 - [ ] Anotações reais revisadas por pessoa qualificada, com positivos, negativos e cobertura.
-- [ ] Definir divisão viável por grupos/classes e teste independente; preservar os 58 hashes já usados em desenvolvimento.
-- [ ] Conversão/inspeção dos 48 CZI, se forem necessários ao experimento.
+- [ ] Definir divisão viável por grupos/classes e teste independente; pastas originais `train/test` não bastam.
+- [ ] Selecionar controles compatíveis, revisar o nível do rótulo e registrar licença/proveniência.
 
 ## Modelo A
 
@@ -29,7 +31,7 @@
 - [x] Artefato carregado com TensorFlow/Keras 2.15, sem retreinamento.
 - [x] Cópia normalizada auditada: 329 tensores preservados, original intacto; 320 tensores de camadas carregados confrontados.
 - [x] Dois casos sintéticos diferenciais com o código de referência; classificador real também executado com recorte sintético.
-- [x] Inferência real em 58 imagens: zero pixels no primeiro HSV, zero regiões, zero classificações e nenhum erro.
+- [ ] Inferência real na base atual, após definir partições. Diagnósticos da base descartada não contam como resultados atuais.
 - [x] Tabela, JSON, sobreposições e tempos; `sem_regioes` separado de classificação negativa.
 - [ ] Verificar compatibilidade em Linux caso esse seja o ambiente do experimento; não testado nesta máquina Windows.
 
@@ -42,7 +44,7 @@
 - [x] Fine-tuning, caso zero camadas e Batch Normalization congelada verificados.
 - [x] Seleção por val_loss e recarga do mesmo best.keras; config, seed, versões, hashes e histórico salvos.
 - [x] Smoke de uma etapa, pesos aleatórios, salvamento, recarga e inferência; sem treino completo.
-- [x] Diagnóstico real somente da localização: 9.603 candidatos, nenhum rótulo supervisionado criado.
+- [ ] Diagnóstico da localização na parcela de desenvolvimento da base atual, sem examinar o teste para ajustar parâmetros.
 - [ ] Calibrar localização usando apenas desenvolvimento/validação com referência revisada.
 - [ ] Treinamento supervisionado real e avaliação do checkpoint real no teste reservado.
 
@@ -54,10 +56,10 @@
 - [x] Origem, partição, hash do manifesto e treino sintético verificados na CLI de comparação.
 - [x] Métricas auxiliares de recortes separadas; AUC indisponível para classe única; nenhuma matriz de confusão sem referência.
 - [x] Custos e ambiente de smoke/diagnóstico registrados; treino A indisponível.
-- [x] 24 testes passaram; compilação e validação de notebooks registradas.
+- [x] Em 22/09: 25 testes passaram e cinco notebooks foram reexecutados em modo sintético; preparação do ZIP real auditada.
 - [ ] Comparação real com referência revisada e parâmetros fixados antes do teste.
 - [ ] Intervalos por grupos independentes somente se o planejamento e o número de grupos permitirem.
 
 ## Próximo passo
 
-Revisar `data/annotations/Lote_1_pending.json` com alguém qualificado da equipe e confirmar os grupos de aquisição. As 58 imagens desse arquivo já pertencem ao desenvolvimento. Depois, justificar uma reserva independente considerando os 48 JPGs adicionais e suas possíveis relações com o material já inspecionado. Sem essas informações, treino real e conclusões de qualidade continuam pendentes.
+Conferir as anotações públicas e revisar `data/annotations/trypomastigote_pending.json` com alguém qualificado da equipe. Confirmar os grupos e selecionar controles compatíveis usando a [pesquisa de fontes](fontes_negativas.md). Depois, preparar as partições e seguir o [guia de treinamento](guia_treinamento.md). Sem referência revisada, treino real e conclusões de qualidade continuam pendentes.

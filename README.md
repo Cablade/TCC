@@ -21,12 +21,14 @@ O arquivo `.keras` do A representa somente o classificador. Segmentação, recor
 
 ## Documentação
 
+- [Base ativa e auditoria do ZIP](docs/dataset_atual.md): única fonte local selecionada, integridade e pendências.
+- [Fontes candidatas de imagens negativas](docs/fontes_negativas.md): links, diferenças entre bases e critérios de uso.
 - [Guia prático de treinamento](docs/guia_treinamento.md): do primeiro teste rápido à preparação, treino real e comparação A × B.
 - [Proposta atual](docs/proposta_v3.md): problema, objetivos e hipóteses A × B; nome do arquivo mantido para preservar os links.
 - [Metodologia](docs/metodologia.md): protocolo central, regras de avaliação e limitações.
 - [Dados e anotações](data/README.md): inventário, partições e referência supervisionada.
 - [Checklist de execução](docs/checklist_execucao.md): entregas e dependências.
-- [Execução de 20/09/2026](docs/execucao_2026-09-20.md): comandos, testes novos, diagnóstico real e arquivos gerados.
+- [Execução histórica de 20/09/2026](docs/historico/execucao_2026-09-20.md): verificações técnicas; a base de dados daquela execução foi descartada.
 - [Decisões técnicas](docs/decisoes_tecnicas.md): escolhas atuais e sua justificativa.
 - [Cronograma](docs/cronograma.md): etapas condicionadas aos dados disponíveis.
 - [Referências](docs/referencias.md): bibliografia a conferir para o texto final.
@@ -58,12 +60,14 @@ Fluxo de trabalho, reutilizando os nomes existentes:
 4. [04_modelo_b_treino.ipynb](notebooks/04_modelo_b_treino.ipynb) — B, verificação curta e treinamento condicionado aos dados.
 5. [05_analise_estatistica.ipynb](notebooks/05_analise_estatistica.ipynb) — comparação dos sistemas em imagens inteiras.
 
-Os comandos experimentais exatos e artefatos estão no [relatório de execução](docs/execucao_2026-09-20.md). O [checklist](docs/checklist_execucao.md) separa o trabalho concluído das dependências humanas.
+Os comandos atuais estão no [guia de treinamento](docs/guia_treinamento.md). A preparação do novo ZIP está documentada em [base ativa](docs/dataset_atual.md). O [checklist](docs/checklist_execucao.md) separa o trabalho concluído das dependências humanas.
 
 ## Estado e limites
 
 Esta revisão começou pela atualização efetiva da documentação. A base inspecionada do TCC é o commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais preservadas. Código existente não equivale a teste concluído. O checklist distingue implementação, execução sintética, execução real e pendências.
 
-Nesta execução foram reconfirmados o carregamento do A, a preservação de 329 tensores na cópia normalizada e a ausência de regiões nas 58 imagens únicas do lote 1. O B passou por uma etapa sintética de treino, salvamento e recarga. Os cinco notebooks executaram em modo sintético. Esses testes novos estão separados dos relatos antigos no relatório. Sem anotações revisadas, não há métricas supervisionadas reais nem superioridade demonstrada do B.
+Desde 22/09/2026, a única base local ativa é `trypoastigote_images.zip`: 675 JPGs únicos, dos quais 674 passaram pela decodificação completa e um foi excluído por erro de leitura. Os dados anteriores não entram no experimento. Anotações revisadas e partições finais ainda estão pendentes; as pastas `train/test` da fonte não foram adotadas automaticamente.
+
+Permanecem as verificações técnicas anteriores do carregamento do A (329 tensores preservados), do treino sintético com salvamento/recarga de B e dos cinco notebooks em modo sintético. Diagnósticos reais feitos na base descartada não são resultados desta base. Sem anotações revisadas, não há métricas supervisionadas reais nem superioridade demonstrada do B.
 
 Dados, pesos e resultados volumosos permanecem fora do Git conforme a política do projeto. Consulte [LICENSE](LICENSE) para o código; registre a licença e a autorização de uso de cada fonte de dados sem deduzi-las apenas da disponibilidade local.

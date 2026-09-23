@@ -4,6 +4,8 @@
 
 ## Tema e problema
 
+Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dataset_atual.md) e a [pesquisa de controles negativos](fontes_negativas.md) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
+
 Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação, pois um parasita que não gera recorte nunca chega ao classificador.
 
 O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam, em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**

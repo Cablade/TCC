@@ -1,5 +1,4 @@
 """Inventário, exclusões, divisão por grupo e referência revisada (A × B)."""
-from src import data_protocol as dp
 import argparse
 import hashlib
 import json
@@ -7,6 +6,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src import data_protocol as dp  # noqa: E402 - raiz deve preceder import local
 
 
 def save_json(path, payload):

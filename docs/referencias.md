@@ -1,12 +1,18 @@
 # Referências Bibliográficas
 
-> Lista bibliográfica herdada do projeto. Conferir metadados, conteúdo e pertinência nas fontes primárias antes de incorporar ao texto final. Esta revisão documental não verificou os links nem comprova uso dos dados citados. Nenhum método estatístico é obrigatório apenas por constar nesta lista.
+> Lista bibliográfica herdada do projeto, com atualização da fonte de dados em 22/09/2026. As demais referências ainda exigem conferência de metadados, conteúdo e pertinência antes do texto final. Nenhum método estatístico é obrigatório apenas por constar nesta lista.
 
 ## Dataset e modelo de referência
 
 - Morais, M. C. C., Silva, D. M. da, Oliveira, M. T., Lana, M. de, & Nakaya, H. I. (2021). *Image dataset from Automatic analysis of Trypanosoma cruzi: A machine learning approach for the detection of blood trypomastigotes in low resolution images*. Zenodo. https://doi.org/10.5281/zenodo.5123062
 
-  Fonte mencionada no planejamento anterior; uso efetivo, licença, arquivos e anotações devem ser documentados no inventário antes do experimento.
+  Fonte da base local ativa, confirmada pelo MD5 publicado em 22/09/2026. Inventário e exclusões em [base atual](dataset_atual.md). Licença de reutilização, anotações e grupos devem ser registrados antes do experimento supervisionado.
+
+- Morais et al. (2022). *Automatic detection of the parasite Trypanosoma cruzi in blood smears using a machine learning approach applied to mobile phone images*. PeerJ, 10:e13470. [Artigo e suplementos](https://pmc.ncbi.nlm.nih.gov/articles/PMC9150695/).
+
+  O suplemento 1 descreve posições de parasitas e o suplemento 2, atributos e presença/ausência em regiões. Ainda não foram importados nem reconciliados com as coordenadas do TCC.
+
+Fontes candidatas de controles e suas limitações estão em [fontes negativas](fontes_negativas.md); sua citação não significa que foram incorporadas.
 
 ## Doença de Chagas
 

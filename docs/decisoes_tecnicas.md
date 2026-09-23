@@ -18,6 +18,8 @@
 
 ## Dados antes dos recortes
 
+**Atualização de 22/09/2026:** usar somente `trypoastigote_images.zip` como base local ativa, com origem confirmada por checksum no Zenodo 5123062. Nenhuma autoria ou procedência é inferida de nomes de pastas. Manifestos e diagnósticos reais anteriores foram descartados do experimento. Inventário elegível, falha de leitura e pendências estão em [base atual](dataset_atual.md). Fontes externas de negativos continuam candidatas e não foram misturadas à base.
+
 **Decisão:** inventário por imagem com hash e grupo; exclusão de duplicatas via manifesto, preservando arquivos; partições antes da geração de recortes e aumentos. Preferir animal/lâmina confirmados. Na ausência deles, agrupar por imagem original e declarar a limitação.
 
 **Motivo:** recortes da mesma origem compartilham características e não podem aparecer em treino e teste. Pastas e nomes de arquivo não demonstram independência dos grupos. Não escolher porcentagens/folds sem contar os grupos e classes.

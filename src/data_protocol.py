@@ -21,6 +21,7 @@ from typing import Mapping, Sequence
 
 UNKNOWN = "desconhecida"
 SPLITS = ("train", "val", "test", "development")
+GROUP_LEVELS = {"animal", "paciente", "lamina", "imagem_original"}
 INVENTORY_FIELDS = (
     "image_id", "path", "sha256", "width", "height", "source",
     "group_id", "group_level", "duplicate_of",
@@ -135,8 +136,8 @@ def build_inventory(inputs: Sequence[str | Path], metadata: Sequence[Mapping] = 
             errors.append({"image_id": image_id, "path": locator, "error": str(error)})
         meta = by_path.get(locator, {})
         group_id, group_level = _text(meta.get("group_id")), _text(meta.get("group_level"))
-        if group_id and group_level not in {"animal", "lamina", "imagem_original"}:
-            raise ValueError(f"group_level deve identificar animal, lamina ou imagem_original: {locator}")
+        if group_id and group_level not in GROUP_LEVELS:
+            raise ValueError(f"group_level deve identificar animal, paciente, lamina ou imagem_original: {locator}")
         if not group_id:
             group_id, group_level = image_id, "imagem_original"
         duplicate_of = first_by_hash.get(digest, "")
@@ -183,7 +184,7 @@ def validate_partitions(rows: Sequence[Mapping]) -> None:
             raise ValueError(f"Imagem ou conteúdo repetido nas partições: {image_id}")
         if group in groups and groups[group] != split:
             raise ValueError(f"Grupo presente em partições diferentes: {group}")
-        if _text(row.get("group_level")) not in {"animal", "lamina", "imagem_original"}:
+        if _text(row.get("group_level")) not in GROUP_LEVELS:
             raise ValueError(f"Nível de agrupamento inválido: {image_id}")
         for dimension in ("width", "height"):
             value = float(row.get(dimension, 0))

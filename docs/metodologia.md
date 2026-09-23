@@ -13,7 +13,7 @@ O arquivo `.keras` de A não representa sozinho o sistema: segmentação, recort
 - TCC inspecionado: commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais existentes preservadas antes da revisão.
 - Referência indicada pelo pedido: `Cablade/Vision`.
 - Referência local encontrada: repositório com remoto `Cablade/VisionCruzi`, commit `59b10244f2ce5cfabff7bece404cb5679668a45d`. A equivalência com a referência indicada precisa ser registrada após confronto; não é presumida.
-- Artefato `model_trained.keras` e ZIP do lote de lâminas foram localizados. Sua mera presença não comprova execução, anotações ou qualidade do modelo.
+- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dataset_atual.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
 
 Cada execução deve registrar commit e modificações locais relevantes, hash SHA-256 do modelo e dos dados, configuração, semente, manifestos, versões, hardware, tempos e caminhos de saída. Dados originais e pesos não devem ser sobrescritos nem incluídos automaticamente no Git.
 
@@ -26,6 +26,8 @@ Usar identificador de animal, ou de lâmina, quando confirmado; caso contrário,
 Separar antes de gerar recortes ou aumentos. Persistir a semente e as atribuições de grupo. Não há porcentagem padrão neste protocolo: primeiro examinar grupos e classes; então registrar uma divisão viável. Dados já usados para diagnóstico ou escolha de parâmetros pertencem ao desenvolvimento. Se não houver grupos suficientes para treino, validação e teste reservado, registrar a impossibilidade e não apresentar o lote de desenvolvimento como teste final.
 
 ## 4. Anotações e negativos
+
+As [fontes candidatas de negativos](fontes_negativas.md) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
 
 O formato de referência está em [data/README.md](../data/README.md). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
 
@@ -52,7 +54,7 @@ A localização deve ser executável, configurável e separada dos parâmetros c
 
 Para a EfficientNet do Keras com reescala interna, a entrada RGB mantém tipo e faixa compatíveis, sem segunda divisão por 255. Registrar a versão efetiva. Aumentos são aplicados apenas no treino; transformações devem respeitar a morfologia e aquisição. Registrar camadas congeladas, Batch Normalization, otimizador, taxa de aprendizado, regularização e semente. A configuração final deve refletir o código executado, não uma lista de técnicas prometidas.
 
-A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. A inspeção de uma imagem de desenvolvimento mostrou fundo claro, contraste desigual e estruturas escuras; isso motivou o protótipo, sem demonstrar especificidade. Os valores de `configs/model_b.yaml` são provisórios. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
+A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. Trata-se de um protótipo anterior à troca da base. Os valores de `configs/model_b.yaml` são provisórios e precisam ser examinados no desenvolvimento da base atual, sem transferir conclusões da base descartada. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
 
 Configuração efetiva: RGB float32 [0,255], resize bilinear TensorFlow comum ao treino e inferência, aumento apenas com rotações de 90 graus e espelhamentos. EfficientNet-B0, últimas 30 camadas elegíveis descongeladas (inclui camadas sem pesos na contagem), Batch Normalization congelada e base chamada com `training=False`, AdamW, LR inicial 1e-4, weight decay 1e-4, scheduler cosseno, dropout 0,3 e label smoothing 0,1. O smoke usa entrada 32 × 32, pesos aleatórios e base toda congelada, explicitamente para verificar execução.
 

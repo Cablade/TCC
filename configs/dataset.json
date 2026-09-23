@@ -1,0 +1,9 @@
+{
+  "dataset_id": "trypomastigote",
+  "archive": "C:/Users/PCZAO/Documents/Caio/trypoastigote_images.zip",
+  "source": "https://doi.org/10.5281/zenodo.5123062",
+  "expected_md5": "3434fa22df03956c256f1203b683517e",
+  "expected_sha256": "ce6408615b126178fa0ed96068308bee19a5e2a89330268bbb2e1f4ec88fed1b",
+  "output_dir": "data/protocol/trypomastigote_verified",
+  "annotations": "data/annotations/trypomastigote_pending.json"
+}
