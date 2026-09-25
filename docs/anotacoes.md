@@ -10,6 +10,32 @@ A referência positiva publicada já está importada; sua origem fica em [dados]
 
 ## Revisão visual
 
+### Pré-seleção disponível para olhar depois
+
+Foi preparado um lote com **20 regiões candidatas**, após triagem visual de 40 propostas em oito imagens reservadas para desenvolvimento. Vinte propostas foram deixadas de fora por borda escura, foco ruim ou ambiguidade. As sugestões restantes estão em sete dessas imagens e **continuam sem rótulo, pendentes de revisão humana**.
+
+Abra a [galeria de pré-seleção](../data/annotations/negative_preselection_v1/index.html) para olhar os recortes. Clique em um recorte para ampliá-lo. Para abrir cada sugestão sobre a imagem original e salvar uma confirmação, use o atalho `scripts\abrir_revisao.cmd` ou execute:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/review_annotations.py --batch data/annotations/negative_preselection_v1
+```
+
+Abra o endereço local exibido. Clique em **examinar** na candidata, confira a imagem ampliada, informe o revisor e confirme somente depois da avaliação. É possível desenhar outra área. Sugestões ignoradas não entram no treino. A saída humana fica em `data/annotations/negative_preselection_v1/reviewed.json`, separada da fonte; ela cobre apenas as oito imagens deste lote, não substitui automaticamente a referência completa do experimento.
+
+Não abra `scripts/review_ui.html` diretamente pelo Explorer (`file:///`). Essa página usa a API local para carregar as imagens; por isso o navegador precisa estar em `http://127.0.0.1:8765/` com o servidor aberto. O atalho inicia o servidor e mostra esse endereço.
+
+Depois de terminar a revisão, a referência completa foi gerada em `data/annotations/experimento_reference.json` com:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/merge_reviewed_reference.py
+```
+
+Ela reúne os 674 registros positivos publicados e as 29 regiões negativas revisadas por Caio. O arquivo não transforma as oito imagens em lâminas inteiramente negativas.
+
+`suggestions.json` conserva as candidatas pendentes; `assistant_triage.json` registra as exclusões da triagem. `development_reservation.json` registra IDs, hashes e grupos das oito imagens examinadas. **Essas oito imagens e suas cópias não podem compor um teste final intocado**, mesmo a que ficou sem sugestões. Preserve essa reserva ao definir as partições; a pasta `train` original foi usada apenas para evitar abrir o `test` da fonte, não como prova de independência biológica.
+
+As propostas usam estruturas detectadas e distância mínima de 200 pixels dos pontos positivos conhecidos. Essa distância não comprova ausência de parasitas não anotados. Nenhuma região foi confirmada biologicamente por esta triagem. Para gerar outro lote, use `scripts/preselect_negatives.py --output-dir NOVO_DESTINO`; a seleção automática não inclui a triagem visual feita neste primeiro lote e não sobrescreve saídas existentes.
+
 Esta ferramenta abre as imagens originais no navegador do próprio computador. Você desenha retângulos que examinou e registra seu nome como revisor. Os pontos positivos publicados continuam preservados. Nenhuma região recebe rótulo negativo automaticamente.
 
 ### Antes de começar

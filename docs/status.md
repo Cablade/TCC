@@ -10,16 +10,19 @@ Atualizado em 24/09/2026. Este é o único registro ativo de prontidão; resulta
 - Modelo A congelado: carregamento auditado e preservação de 329 tensores; mapeamento de classes registrado.
 - Modelo B: extração, treino, salvamento/recarga e comparação implementados; verificações sintéticas concluídas.
 - Ferramenta de revisão visual, transporte com SHA-256 e perfil CPU para Windows preparados.
+- Revisão humana concluída em 8 imagens: 29 regiões negativas foram incorporadas à referência completa `data/annotations/experimento_reference.json`; os pontos positivos publicados foram preservados.
 - Em 24/09, 60 testes passaram. Os cinco notebooks foram executados sinteticamente na revisão anterior. O ambiente CPU local foi conferido; o PC do amigo ainda não foi testado.
 
 ## Para iniciar o treino real
 
-1. Revisar negativos adequados na base principal, preservando os positivos públicos. A referência resultante deve ser `data/annotations/experimento_reference.json`; não partir do template vazio antigo. Consulte [anotações](anotacoes.md).
+O lote de [20 candidatas para revisão visual](anotacoes.md#revisao) já foi examinado. Oito imagens foram reservadas para desenvolvimento em `data/annotations/negative_preselection_v1/development_reservation.json`; exclua seus hashes do futuro teste final. A pré-seleção não elimina as etapas abaixo.
+
+1. Revisão negativa concluída para o lote selecionado. A referência resultante está em `data/annotations/experimento_reference.json`; as 29 regiões humanas são de desenvolvimento e não declaram lâminas inteiras sem Chagas. Consulte [anotações](anotacoes.md).
 2. Confirmar grupos e definir partições antes dos recortes e ajustes. Persistir `data/splits/experimento/images.csv`. Não repartir o único participante negativo externo para fabricar independência.
 3. Calibrar a localização somente em desenvolvimento/validação e gerar `data/processed/b_real_01/crops.csv`, com as duas classes em treino e validação.
 4. Conferir o computador e executar o lançador conforme o [guia de treinamento](guia_treinamento.md).
 
-Na última conferência, faltavam essas três entradas (partições, referência completada e recortes). **Nenhum treinamento supervisionado real nem comparação final foi concluído.** O número de testes aprovados não mede desempenho do modelo.
+Na última conferência, ainda faltam as partições e os recortes. **Nenhum treinamento supervisionado real nem comparação final foi concluído.** O número de testes aprovados não mede desempenho do modelo.
 
 ## Para concluir a avaliação e o texto
 

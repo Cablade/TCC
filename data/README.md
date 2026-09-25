@@ -9,4 +9,4 @@ As fontes e seus limites estão em [dados](../docs/dados.md). O formato dos mani
 - `processed/`: recortes;
 - `external_candidates/`: fontes externas avaliadas separadamente.
 
-Preserve os originais. Dados antigos não selecionados permanecem como registros locais; o experimento utiliza apenas os caminhos definidos na configuração e nos manifestos atuais.
+Preserve somente a fonte ativa `trypoastigote_images.zip` e os artefatos derivados dela. Fontes externas avaliadas ficam fora do treino principal; o experimento utiliza apenas os caminhos definidos na configuração e nos manifestos atuais.

@@ -9,7 +9,7 @@ data/splits/*.csv
 data/splits/*.json
 data/splits/**/*.json
 !data/splits/.gitkeep
-
+archive/*
 experiments/logs/
 experiments/runs/
 experiments/validation/

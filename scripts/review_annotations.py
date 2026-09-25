@@ -25,7 +25,7 @@ def digest(path):
 
 
 class ReviewStore:
-    def __init__(self, inventory, annotations, output):
+    def __init__(self, inventory, annotations, output, suggestions=None):
         self.inventory_path, self.source, self.output = map(Path, (inventory, annotations, output))
         if self.output.resolve() in {self.source.resolve(), self.inventory_path.resolve()}:
             raise ValueError("A saída deve ser diferente da referência original e do inventário.")
@@ -62,6 +62,30 @@ class ReviewStore:
         self.output_hash = digest(self.output) if self.output.exists() else None
         self.lock = threading.Lock()
         self.token = secrets.token_urlsafe(32)
+        self.suggestions = []
+        if suggestions is not None:
+            queue = json.loads(Path(suggestions).read_text(encoding="utf-8-sig"))
+            if queue.get("source_annotation_sha256") != self.source_hash:
+                raise ValueError("Sugestões não correspondem à referência original.")
+            seen = set()
+            for item in queue.get("candidates", []):
+                image_id = item.get("image_id")
+                row = self.by_id.get(image_id)
+                if row is None or row.get("split") != "development":
+                    raise ValueError("Sugestões exigem imagens reservadas para desenvolvimento.")
+                identifier = item.get("candidate_id")
+                if not identifier or identifier in seen:
+                    raise ValueError("Identificador de sugestão inválido/repetido.")
+                seen.add(identifier)
+                if item.get("review_status") != "pending" or item.get("label") is not None:
+                    raise ValueError("Sugestões devem permanecer pendentes e sem rótulo.")
+                if item.get("source_sha256") != row["sha256"]:
+                    raise ValueError("Hash da imagem da sugestão diverge.")
+                entry = original[image_id]
+                dp.validate_bbox(item.get("bbox"), entry["width"], entry["height"])
+                if not dp.validate_negative_box(item["bbox"], entry["positives"]):
+                    raise ValueError("Sugestão sobrepõe positivo conhecido.")
+                self.suggestions.append(deepcopy(item))
 
     def list_images(self):
         annotations = {entry["image_id"]: entry for entry in self.payload["images"]}
@@ -178,6 +202,7 @@ def make_server(store, port=8765):
                     image_id = query.get("id", [""])[0]
                     with store.lock:
                         annotation = deepcopy(store.annotation(image_id))
+                        annotation["suggestions"] = [item for item in store.suggestions if item["image_id"] == image_id]
                     if parts.path == "/api/annotation":
                         self.send_content(200, annotation)
                     else:
@@ -219,8 +244,15 @@ def main():
     parser.add_argument("--annotations", type=Path, default=ROOT / "data/annotations/public_import/public_points.json")
     parser.add_argument("--output", type=Path, default=ROOT / "data/annotations/experimento_reference.json")
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--suggestions", type=Path)
+    parser.add_argument("--batch", type=Path, help="Pasta gerada por preselect_negatives.py.")
     args = parser.parse_args()
-    store = ReviewStore(args.inventory, args.annotations, args.output)
+    if args.batch:
+        args.inventory = args.batch / "inventory.csv"
+        args.annotations = args.batch / "source_annotations.json"
+        args.output = args.batch / "reviewed.json"
+        args.suggestions = args.batch / "suggestions.json"
+    store = ReviewStore(args.inventory, args.annotations, args.output, args.suggestions)
     server = make_server(store, args.port)
     print(f"Abra http://127.0.0.1:{server.server_port}/ no navegador.", flush=True)
     print(f"Revisões serão salvas somente após sua confirmação em: {store.output}", flush=True)
