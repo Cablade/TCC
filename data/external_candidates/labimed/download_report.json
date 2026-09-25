@@ -1,0 +1,37 @@
+{
+  "source": "https://zenodo.org/records/15007339",
+  "paper": "https://doi.org/10.1371/journal.pntd.0012955",
+  "license": "CC-BY-NC-4.0",
+  "metadata_md5": {
+    "assets.csv": "b13a71d6e73c0008041225aa6307c923",
+    "bboxes.csv": "9fa2f1c0025d5c0280c440d5f0be3be5",
+    "images.zip": "cdcc1c803eaf1a8857be555fc1134822"
+  },
+  "selected": 36,
+  "positive": 23,
+  "negative": 13,
+  "case_ids": [
+    "8RGvX4eyf1",
+    "EkTCPvQKmR",
+    "NEjC0RzC4K",
+    "iCN9FDDeVI"
+  ],
+  "sample_ids": [
+    "3xhBMm8I2f",
+    "9HK1aenWBy",
+    "ALT7zPz0Na",
+    "Add7P1YX4E",
+    "Faf2WPGJP6",
+    "G2QUaKsbeD",
+    "L2I0WwNxTO",
+    "MD5I2Ju4Ds",
+    "eQLktCaLZ6",
+    "mah9lievkH",
+    "r6WzyqAScf",
+    "rLaIgCHwRO",
+    "uHbqcrGOSz"
+  ],
+  "compressed_bytes": 201146544,
+  "metadata_only": false,
+  "limitations": "All donors positive. Field labels use the published reference; no independent local expert review. External human acquisition differs from active murine data. No training split automatically assigned. Full ZIP MD5 not verified by selective download; entry CRC32 and local SHA256 recorded."
+}

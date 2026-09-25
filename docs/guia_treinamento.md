@@ -1,6 +1,8 @@
 # Guia prático: treinar o B e comparar com o A
 
-Este é o roteiro para sair do ZIP e chegar ao primeiro treinamento real. Os comandos PowerShell abaixo preparam o projeto nesta máquina Windows; o treinamento será feito no computador com GPU escolhido por você, depois de conferir o ambiente e transportar os caminhos dos dados. **Somente B será treinado; A usa os pesos originais fixos.** O código pronto e o teste artificial não substituem imagens rotuladas: a liberação do treino depende dos arquivos conferidos pelo verificador da seção 5.
+Este é o roteiro para sair do ZIP e chegar ao primeiro treinamento real. Atualizado em 23/09/2026 para o Windows do seu amigo com RX 6600. **Somente B será treinado; A usa os pesos originais fixos.** Neste projeto, a opção preparada para esse computador é CPU; a placa AMD não deve ser considerada uma aceleradora compatível. Instalação, justificativa e alternativa com GPU estão em [treinamento no PC com RX 6600](ambiente.md#windows).
+
+Use o [README](../README.md) para a sequência curta. Já estão disponíveis **674 imagens e 2.715 pontos positivos publicados**, auditados em [anotações públicas](dados.md#anotacoes-publicas). O que ainda impede o treino binário são negativos adequados, partições e recortes preparados; isso não se resolve só instalando a GPU. A liberação técnica é conferida pelo lançador da seção 6.
 
 | Etapa | Resultado que permite avançar |
 | --- | --- |
@@ -12,7 +14,7 @@ Este é o roteiro para sair do ZIP e chegar ao primeiro treinamento real. Os com
 | Treinar B | `best.keras` e execução concluída em `metadata.json` |
 | Comparar com A | Ambos executados nas mesmas imagens de teste reservadas |
 
-Não é preciso criar marcações do zero se houver anotações públicas compatíveis. O [roteiro de anotação](roteiro_anotacao.md) explica como aproveitá-las e o que precisa ser conferido. As [fontes negativas](fontes_negativas.md) distinguem campos sem parasitas de lâminas ou doadores negativos.
+Não é preciso criar marcações do zero se houver anotações públicas compatíveis. O [roteiro de anotação](anotacoes.md#criterios) explica como aproveitá-las e o que precisa ser conferido. As [fontes negativas](dados.md#negativos) distinguem campos sem parasitas de lâminas ou doadores negativos.
 
 ## 1. Abrir o projeto no PowerShell
 
@@ -65,11 +67,11 @@ O treino real precisa destes arquivos, que têm funções diferentes:
 | Anotações (`reference.json`) | Positivos/negativos revisados, coordenadas, cobertura e responsável |
 | Manifesto de recortes (`crops.csv`) | Recortes gerados pelo localizador B, seus rótulos e imagens de origem |
 
-A única base ativa é `trypoastigote_images.zip`. A auditoria leu os pixels de 675 JPGs únicos: **674 aprovados e um excluído por erro**. O inventário elegível está em `data/protocol/trypomastigote_verified/eligible_inventory.csv`; o template `data/annotations/trypomastigote_pending.json` contém 674 registros **sem marcações confiáveis**. Partições finais ainda não foram criadas. Consulte [base atual](dataset_atual.md). Os ZIPs e manifestos anteriores estão fora do experimento.
+A base principal continua `trypoastigote_images.zip`. A auditoria leu os pixels de 675 JPGs únicos: **674 aprovados e um excluído por erro**. O inventário elegível está em `data/protocol/trypomastigote_verified/eligible_inventory.csv`; a referência positiva utilizável está em `data/annotations/public_import/public_points.json`. O template antigo `trypomastigote_pending.json` foi preservado vazio de rótulos, mas não é a referência positiva importada. Partições finais ainda não foram criadas. Consulte [base atual](dados.md#base). Os ZIPs e manifestos descartados permanecem fora do experimento.
 
-Antes de seguir, é preciso reconciliar as marcações disponíveis e registrar a revisão por alguém qualificado. O projeto define o formato JSON; o [roteiro de anotação](roteiro_anotacao.md) detalha a revisão, incluindo a identificação dos grupos de lâmina/animal quando disponível. Alterar apenas `pending` para `reviewed` não substitui essa revisão. Se a fonte não permitir identificar o animal ou a lâmina, registre o nível `imagem_original` e declare a limitação de independência.
+Antes de seguir, é preciso reconciliar as marcações disponíveis e registrar a revisão por alguém qualificado. O projeto define o formato JSON; o [roteiro de anotação](anotacoes.md#criterios) detalha a revisão, incluindo a identificação dos grupos de lâmina/animal quando disponível. Alterar apenas `pending` para `reviewed` não substitui essa revisão. Se a fonte não permitir identificar o animal ou a lâmina, registre o nível `imagem_original` e declare a limitação de independência.
 
-Imagens usadas para ajustar o sistema não podem virar teste final. A auditoria de integridade não realizou inferência nem ajuste de parâmetros. As pastas originais `train/test` do ZIP não demonstram independência entre animais/lâminas. Para obter negativos, consulte [fontes e critérios de uso](fontes_negativas.md); não é obrigatório que cada recorte negativo venha de uma lâmina negativa, mas ele precisa ser revisado e não conter parasitas.
+Imagens usadas para ajustar o sistema não podem virar teste final. A auditoria de integridade não realizou inferência nem ajuste de parâmetros. As pastas originais `train/test` do ZIP não demonstram independência entre animais/lâminas. Para obter negativos, consulte [fontes e critérios de uso](dados.md#negativos); não é obrigatório que cada recorte negativo venha de uma lâmina negativa, mas ele precisa ser revisado e não conter parasitas.
 
 ## 4. Preparar os arquivos do experimento real
 
@@ -87,7 +89,9 @@ Com o inventário e as atribuições prontos:
 
 O comando cria `data/splits/experimento/images.csv` e o registro da divisão. Grupos não atribuídos ficam em `development`; eles não serão automaticamente usados para treinar.
 
-Se ainda não houver anotações para **esses mesmos IDs**, crie um template novo e providencie sua revisão:
+Para a base atual, use as marcações públicas existentes e acrescente regiões negativas com a [ferramenta de revisão visual](anotacoes.md#revisao). Ela conserva os pontos e a origem da publicação e salva o trabalho em outro arquivo. Não comece por um template vazio quando já houver a referência positiva.
+
+Somente para outra base sem anotações para **esses mesmos IDs**, crie um template novo e providencie sua revisão:
 
 ```powershell
 & $pythonTcc scripts/prepare_data.py annotation-template --inventory data/splits/experimento/images.csv --output data/annotations/experimento_reference.json
@@ -105,7 +109,7 @@ A validação confere estrutura e separação; ela não certifica a correção b
 
 ## 5. Gerar os recortes do B
 
-Primeiro, fixe os parâmetros de localização usando desenvolvimento/validação. A configuração fica em [configs/model_b.yaml](../configs/model_b.yaml); os valores atuais são provisórios e ainda não foram avaliados no novo ZIP.
+Primeiro, fixe os parâmetros de localização usando desenvolvimento/validação. A configuração fica em [configs/model_b_cpu.yaml](../configs/model_b_cpu.yaml); os valores atuais são provisórios e ainda não foram avaliados no novo ZIP.
 
 Para calibrar a localização sem acessar o teste, use o arquivo `development.csv` gerado na divisão. Crie uma referência que contenha apenas esses IDs, preservando os rótulos já revisados:
 
@@ -121,7 +125,7 @@ $referenciaDesenvolvimento | ConvertTo-Json -Depth 20 | Set-Content $destinoRefe
 Este comando processa somente o desenvolvimento:
 
 ```powershell
-& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/development.csv --annotations data/annotations/experimento_development.json --config configs/model_b.yaml --output-dir data/processed/b_desenvolvimento_01
+& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/development.csv --annotations data/annotations/experimento_development.json --config configs/model_b_cpu.yaml --output-dir data/processed/b_desenvolvimento_01
 ```
 
 Examine os recortes e `extraction_report.json` com a referência. O campo `missed_positive_ids` ajuda a encontrar parasitas que a localização não alcançou; ele não é a métrica final de detecção. Se alterar os parâmetros, use outro destino, como `b_desenvolvimento_02`. Caso não exista grupo de desenvolvimento reservado, planeje a calibração somente na validação e documente esse uso; não use o teste para suprir essa falta.
@@ -129,13 +133,13 @@ Examine os recortes e `extraction_report.json` com a referência. O campo `misse
 Depois de fixar os parâmetros, confira a extração final sem gravar recortes:
 
 ```powershell
-& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/images.csv --annotations data/annotations/experimento_reference.json --config configs/model_b.yaml --output-dir data/processed/b_real_01 --dry-run
+& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/images.csv --annotations data/annotations/experimento_reference.json --config configs/model_b_cpu.yaml --output-dir data/processed/b_real_01 --dry-run
 ```
 
 Quando os dados e parâmetros estiverem preparados, retire `--dry-run`:
 
 ```powershell
-& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/images.csv --annotations data/annotations/experimento_reference.json --config configs/model_b.yaml --output-dir data/processed/b_real_01
+& $pythonTcc notebooks/gerar_rois.py --image-manifest data/splits/experimento/images.csv --annotations data/annotations/experimento_reference.json --config configs/model_b_cpu.yaml --output-dir data/processed/b_real_01
 ```
 
 A saída contém os recortes, `crops.csv` e `extraction_report.json`. Candidatos sem rótulo confiável não viram negativos. O classificador exige recortes das duas classes em **treino e validação**. Se `labeled_crops` for zero, ainda não há dados utilizáveis para o treino.
@@ -145,28 +149,28 @@ O extrator percorre as partições presentes no manifesto; os recortes de teste 
 Agora execute a conferência que antecede o treinamento:
 
 ```powershell
-& $pythonTcc scripts/check_training_ready.py
+& $pythonTcc scripts/check_training_ready.py --config configs/experiment_cpu.json
 ```
 
-Os caminhos dessa conferência ficam em `configs/experiment.json` e correspondem aos nomes deste guia. Se você escolher nomes diferentes, atualize essa configuração. O relatório indica arquivos ausentes, revisão pendente, separação dos grupos e disponibilidade dos recortes. **Uma validação de estrutura bem-sucedida na seção 4 não significa que já há dados suficientes para treinar.** Resolva os bloqueios relacionados ao treino antes da seção 6; requisitos de avaliação também precisam ser atendidos antes da comparação final.
+Os caminhos para o PC do seu amigo ficam em `configs/experiment_cpu.json` e correspondem aos nomes deste guia; `configs/experiment.json` exige GPU compatível. Se você escolher nomes diferentes, atualize a configuração usada. O relatório indica arquivos ausentes, revisão pendente, separação dos grupos e disponibilidade dos recortes. **Uma validação de estrutura bem-sucedida na seção 4 não significa que já há dados suficientes para treinar.** Resolva os bloqueios relacionados ao treino antes da seção 6; requisitos de avaliação também precisam ser atendidos antes da comparação final.
 
 Para conferir também o TensorFlow e o hardware visível neste ambiente:
 
 ```powershell
-& $pythonTcc scripts/check_training_ready.py --check-runtime
+& $pythonTcc scripts/start_training.py --experiment configs/experiment_cpu.json --check-only
 ```
 
 Esse comando não treina o modelo. A ausência de GPU visível pode significar treinamento pela CPU; não conclua que há aceleração só porque o computador possui placa de vídeo. O tempo depende do hardware efetivamente reconhecido e da quantidade de recortes.
 
 ## 6. Treinar com os recortes reais
 
-Depois das etapas anteriores:
+Depois das etapas anteriores, o lançador confere os dados e o ambiente e usa exatamente os caminhos da configuração selecionada:
 
 ```powershell
-& $pythonTcc scripts/train_model_b.py --image-manifest data/splits/experimento/images.csv --crop-manifest data/processed/b_real_01/crops.csv --annotations data/annotations/experimento_reference.json --config configs/model_b.yaml --run-name b_real_01
+& $pythonTcc scripts/start_training.py --experiment configs/experiment_cpu.json
 ```
 
-Os arquivos ficam em `experiments/runs/b_real_01/`. Na configuração atual, o limite é 40 épocas, lote de 32 recortes e parada antecipada após 7 épocas sem melhora de `val_loss`. A duração real depende dos dados e hardware; o tempo do smoke não permite estimá-la. O treino padrão usa pesos ImageNet e pode precisar baixá-los na primeira execução.
+Os arquivos deste perfil ficam em `experiments/runs/b_real_cpu_01/`. O limite é 40 épocas, lote inicial de 8 recortes e parada antecipada após 7 épocas sem melhora de `val_loss`. A duração real depende dos dados e hardware; o tempo do smoke não permite estimá-la. O treino usa pesos ImageNet e pode precisar baixá-los na primeira execução. O perfil GPU conserva lote de 32. A localização é inicialmente igual nos dois perfis; se ajustá-la, atualize o perfil usado no treino e gere os recortes com essa mesma configuração.
 
 Durante o treino, `loss` mede o erro no treino e `val_loss` o erro na validação. O checkpoint escolhido é o de menor `val_loss`, que pode não ser o da última época. Acurácia de recortes não equivale à detecção de parasitas na imagem inteira.
 
@@ -174,7 +178,7 @@ Deixe o terminal aberto até o fim. Para acompanhar as épocas em outro PowerShe
 
 ```powershell
 Set-Location 'C:\Users\PCZAO\Documents\Caio\TCC\TCC'
-Get-Content experiments/runs/b_real_01/epochs.csv -Tail 10 -Wait
+Get-Content experiments/runs/b_real_cpu_01/epochs.csv -Tail 10 -Wait
 ```
 
 Esse acompanhamento funciona depois de `epochs.csv` ser criado. `Ctrl+C` **nesse segundo terminal** encerra apenas a leitura; no terminal do treino, interrompe o treinamento.
@@ -182,13 +186,13 @@ Esse acompanhamento funciona depois de `epochs.csv` ser criado. `Ctrl+C` **nesse
 Ao terminar, confira:
 
 ```powershell
-Get-Content experiments/runs/b_real_01/metadata.json -Raw | ConvertFrom-Json | Select-Object status, synthetic, selected_epoch, selected_val_loss, training_seconds
-Test-Path experiments/runs/b_real_01/best.keras
+Get-Content experiments/runs/b_real_cpu_01/metadata.json -Raw | ConvertFrom-Json | Select-Object status, synthetic, selected_epoch, selected_val_loss, training_seconds
+Test-Path experiments/runs/b_real_cpu_01/best.keras
 ```
 
 O resultado esperado é `status = complete`, `synthetic = False` e o arquivo presente (`True`). Isso confirma uma execução real concluída, ainda sem demonstrar qualidade no teste. `history.json` guarda todas as épocas concluídas; `metadata.json` informa qual foi selecionada. Preserve a pasta inteira da execução, incluindo configuração e cópias dos manifestos, ao guardar ou transferir o modelo.
 
-Para repetir, use outro nome, por exemplo `b_real_02`. Não reutilize um diretório existente. Se mudar localização ou anotações, gere novos recortes antes de treinar: os hashes são conferidos. O comando não oferece retomada automática de treino interrompido; `best.keras` e o histórico parcial, quando existentes, ficam disponíveis para inspeção.
+Para repetir, altere `run_name` em `configs/experiment_cpu.json`, por exemplo para `b_real_cpu_02`. Não reutilize um diretório existente. Se mudar localização ou anotações, gere novos recortes antes de treinar: os hashes são conferidos. O comando não oferece retomada automática de treino interrompido; `best.keras` e o histórico parcial, quando existentes, ficam disponíveis para inspeção.
 
 Se houver interrupção antes de completar uma época, pode não existir checkpoint. Após interrupção manual ou fechamento do processo, o registro pode ainda mostrar `running`; a existência de `best.keras` sozinha não confirma conclusão. Corrija o problema e inicie uma nova execução com outro nome. A lista `runs.seeds` da configuração não dispara cinco treinamentos automaticamente: o comando usa apenas `data.seed` em cada execução.
 
@@ -199,7 +203,7 @@ Somente depois de definir o teste independente e fixar as escolhas do B:
 ```powershell
 $modeloOriginalA = 'C:\Users\PCZAO\Documents\Caio\ChagasVizion\Backend\fuzzylab_app\decision\services\model_trained.keras'
 & $pythonTcc scripts/run_model_a.py --manifest data/splits/experimento/images.csv --model $modeloOriginalA --split test --output-dir experiments/runs/a_test_01 --overlays
-& $pythonTcc scripts/run_model_b.py --manifest data/splits/experimento/images.csv --checkpoint experiments/runs/b_real_01/best.keras --split test --output-dir experiments/runs/b_test_01
+& $pythonTcc scripts/run_model_b.py --manifest data/splits/experimento/images.csv --checkpoint experiments/runs/b_real_cpu_01/best.keras --split test --output-dir experiments/runs/b_test_01
 ```
 
 O A não treina. O B utiliza a configuração salva junto do checkpoint. Cada execução gera `predictions.json`, tabela por imagem e sobreposições. A ausência de regiões permanece registrada, assim como eventuais falhas.
@@ -247,4 +251,4 @@ Para voltar ao teste artificial, use `$env:TCC_RUN_MODE = 'synthetic'` e reinici
 | `epochs.csv` ainda não existe | Aguardar o início da primeira época; confira no terminal principal se está baixando pesos ou carregando dados |
 | `status` ficou `running` depois de fechar o treino | Tratar como execução interrompida; não declarar conclusão apenas porque existe um checkpoint |
 
-A [auditoria da base atual](dataset_atual.md) registra a preparação do novo ZIP. O [checklist](checklist_execucao.md) registra as pendências para o experimento real. Verificações técnicas anteriores permanecem no [histórico](historico/execucao_2026-09-20.md), cujos dados foram descartados.
+As fontes ficam em [dados](dados.md) e as pendências em [status](status.md).

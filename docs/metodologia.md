@@ -13,7 +13,7 @@ O arquivo `.keras` de A não representa sozinho o sistema: segmentação, recort
 - TCC inspecionado: commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais existentes preservadas antes da revisão.
 - Referência indicada pelo pedido: `Cablade/Vision`.
 - Referência local encontrada: repositório com remoto `Cablade/VisionCruzi`, commit `59b10244f2ce5cfabff7bece404cb5679668a45d`. A equivalência com a referência indicada precisa ser registrada após confronto; não é presumida.
-- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dataset_atual.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
+- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md#base); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
 
 Cada execução deve registrar commit e modificações locais relevantes, hash SHA-256 do modelo e dos dados, configuração, semente, manifestos, versões, hardware, tempos e caminhos de saída. Dados originais e pesos não devem ser sobrescritos nem incluídos automaticamente no Git.
 
@@ -27,9 +27,9 @@ Separar antes de gerar recortes ou aumentos. Persistir a semente e as atribuiç�
 
 ## 4. Anotações e negativos
 
-As [fontes candidatas de negativos](fontes_negativas.md) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
+As [fontes candidatas de negativos](dados.md#negativos) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
 
-O formato de referência está em [data/README.md](../data/README.md). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
+O formato de referência está em [data/README.md](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
 
 A referência exige revisão de alguém qualificado da equipe. Não gerar referência de avaliação a partir das próprias previsões. Regiões negativas devem ser explicitamente confirmadas; verificar a interseção de **todo o recorte** com positivos, inclusive bordas. Distância entre centros não basta. Regiões não anotadas continuam desconhecidas, salvo cobertura completa e negativa confirmada.
 
@@ -87,8 +87,6 @@ Intervalos de confiança, quando viáveis, devem reamostrar grupos independentes
 
 Histórico de treinamento do A incompleto, possível sobreposição com seu treino, poucos grupos independentes, aquisição/resolução heterogêneas, possível diferença de domínio e ausência ou incompletude de anotações. A igualdade dos IDs de avaliação **não implica igualdade da quantidade de imagens de treinamento**. O experimento compara sistemas completos; não identifica isoladamente a causa de uma diferença.
 
-## 9. Relatos anteriores e evidência atual
+## 9. Evidências e execução
 
-Carregamento do A em TensorFlow/Keras 2.15 com normalização temporária de caminhos e 329 tensores preservados, treino de uma época do B com dados sintéticos, lote de 59 arquivos/58 únicos com resolução 2452 × 2056 e ausência de candidatos no HSV foram relatados em sessão anterior. Devem ser confrontados com novos relatórios, sem serem apresentados como testes executados nesta revisão. A suspeita histórica sobre máscaras de treino também exige confirmar sua ligação com os pesos entregues.
-
-Os testes novos e suas saídas estão no [relatório de 20/09/2026](execucao_2026-09-20.md). Consultar também o [checklist de execução](checklist_execucao.md) para implementação, verificações concluídas e dependências de dados ou confirmação humana.
+O [status atual](status.md) separa implementação, verificações técnicas e pendências do experimento. Diagnósticos de bases descartadas não são resultados da base atual. Registros anteriores foram preservados no [arquivo histórico](../archive/README.md).

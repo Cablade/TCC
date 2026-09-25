@@ -1,10 +1,10 @@
 # Proposta atual do TCC — sistemas A × B
 
-> Revisão de 2026-09-20. O nome deste arquivo foi mantido para preservar referências existentes. O desenho anterior foi substituído; sua cópia, incluindo alterações locais, está em [histórico](historico/proposta_anterior.md).
+> Proposta vigente. O protocolo detalhado está na [metodologia](metodologia.md).
 
 ## Tema e problema
 
-Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dataset_atual.md) e a [pesquisa de controles negativos](fontes_negativas.md) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
+Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
 
 Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação, pois um parasita que não gera recorte nunca chega ao classificador.
 
@@ -55,4 +55,4 @@ O histórico de treinamento do A é incompleto; não se afirma igualdade do tama
 
 ## Entregas
 
-Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino supervisionado real e comparação final dependem dos dados revisados e do conjunto reservado. O [cronograma](cronograma.md) e o [checklist](checklist_execucao.md) detalham essa sequência.
+Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino supervisionado real e comparação final dependem dos dados revisados e do conjunto reservado. O [cronograma](status.md#cronograma) e o [checklist](status.md) detalham essa sequência.

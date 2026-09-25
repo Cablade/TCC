@@ -96,7 +96,7 @@ def check_runtime(require_gpu=False):
         if not tf.__version__.startswith("2.15.") or not keras.__version__.startswith("2.15."):
             raise RuntimeError("Este projeto foi preparado para TensorFlow/Keras 2.15; use as dependências fornecidas.")
         if require_gpu and not devices:
-            raise RuntimeError("TensorFlow não encontrou GPU. No Windows com NVIDIA, use Linux/WSL2 conforme docs/treinamento_gpu.md.")
+            raise RuntimeError("TensorFlow não encontrou GPU. Consulte docs/ambiente.md para CPU no Windows ou GPU NVIDIA em Linux/WSL2.")
         if devices:
             for device in devices:
                 tf.config.experimental.set_memory_growth(device, True)
