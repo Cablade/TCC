@@ -14,7 +14,9 @@ O estudo compara dois sistemas em imagens microscópicas inteiras: **A**, com in
 2. [Seguir o guia de treinamento](docs/guia_treinamento.md): preparar os dados, treinar B e comparar com A.
 3. [Consultar o que falta](docs/status.md): prontidão e próximos passos.
 
-As 674 imagens utilizáveis já têm 2.715 pontos positivos importados. Ainda faltam negativos adequados, partições e recortes para o treino real. Os negativos externos encontrados são campos de doadores positivos e não resolvem sozinhos a independência dos grupos.
+O primeiro treino real está preparado: 674 imagens utilizáveis, divididas em 455 para treino, 114 para validação e 105 reservadas para teste; 7.019 recortes de treino/validação. A referência combina 2.715 pontos positivos publicados e 29 regiões negativas revisadas em oito imagens. **Somente o ZIP público autorizado entra no treinamento.** A divisão é por imagem, sem independência entre animais comprovada; os poucos negativos e a referência incompleta do teste limitam a avaliação científica.
+
+Para enviar ao amigo, use `entrega_modelo_b_20260925.zip` junto do ZIP original de imagens. O [guia](docs/guia_treinamento.md) explica instalação, ajuste automático de caminhos e treinamento. Não copie o ambiente Python nem os históricos locais.
 
 ## Organização
 

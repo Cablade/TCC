@@ -39,6 +39,9 @@ def check_data(config, root=ROOT):
     try:
         images = dp.read_manifest(paths["image_manifest"])
         dp.validate_partitions(images)
+        from src.dataset_policy import validate_active_images
+        validate_active_images(images, root=root)
+        check("authorized_source", True, "ZIP público, IDs e reserva do teste conferidos.")
         check("partitions", True, "IDs, hashes e grupos sem duplicação entre partições.")
         result["counts"]["images"] = dict(Counter(row["split"] for row in images))
         result["counts"]["groups"] = {
@@ -60,6 +63,11 @@ def check_data(config, root=ROOT):
             labels = crops.loc[crops["split"] == split, "label"].astype(int)
             counts = {str(label): int(count) for label, count in labels.value_counts().items()}
             result["counts"][f"{split}_crops"] = counts
+            origins = {str(label): int(crops.loc[(crops["split"] == split) & (crops["label"] == label),
+                                                "image_id"].nunique()) for label in (0, 1)}
+            result["counts"][f"{split}_source_images_by_class"] = origins
+            if origins["0"] < 10:
+                result["warnings"].append(f"{split}: negativos vêm de apenas {origins['0']} imagens; muitos recortes não representam muitos animais independentes.")
             check(f"{split}_classes", set(labels) == {0, 1}, f"Recortes por classe em {split}: {counts}")
         for split in dp.SPLITS:
             ids = [row["image_id"] for row in images if row["split"] == split]

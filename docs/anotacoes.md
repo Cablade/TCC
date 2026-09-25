@@ -12,7 +12,7 @@ A referência positiva publicada já está importada; sua origem fica em [dados]
 
 ### Pré-seleção disponível para olhar depois
 
-Foi preparado um lote com **20 regiões candidatas**, após triagem visual de 40 propostas em oito imagens reservadas para desenvolvimento. Vinte propostas foram deixadas de fora por borda escura, foco ruim ou ambiguidade. As sugestões restantes estão em sete dessas imagens e **continuam sem rótulo, pendentes de revisão humana**.
+Foi preparado um lote com **20 regiões candidatas**, após triagem visual de 40 propostas em oito imagens reservadas para desenvolvimento. Vinte propostas foram deixadas de fora por borda escura, foco ruim ou ambiguidade. As sugestões restantes estão em sete dessas imagens e permanecem como propostas no arquivo original; a revisão humana posterior está em `reviewed.json`, com 29 regiões salvas incluindo áreas desenhadas manualmente.
 
 Abra a [galeria de pré-seleção](../data/annotations/negative_preselection_v1/index.html) para olhar os recortes. Clique em um recorte para ampliá-lo. Para abrir cada sugestão sobre a imagem original e salvar uma confirmação, use o atalho `scripts\abrir_revisao.cmd` ou execute:
 
@@ -24,10 +24,10 @@ Abra o endereço local exibido. Clique em **examinar** na candidata, confira a i
 
 Não abra `scripts/review_ui.html` diretamente pelo Explorer (`file:///`). Essa página usa a API local para carregar as imagens; por isso o navegador precisa estar em `http://127.0.0.1:8765/` com o servidor aberto. O atalho inicia o servidor e mostra esse endereço.
 
-Depois de terminar a revisão, a referência completa foi gerada em `data/annotations/experimento_reference.json` com:
+Depois de terminar a revisão, a referência completa foi gerada em `data/annotations/experimento_reference_v2.json` com:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/merge_reviewed_reference.py
+.\.venv\Scripts\python.exe scripts/merge_reviewed_reference.py --output data/annotations/experimento_reference_v2.json
 ```
 
 Ela reúne os 674 registros positivos publicados e as 29 regiões negativas revisadas por Caio. O arquivo não transforma as oito imagens em lâminas inteiramente negativas.
@@ -54,7 +54,7 @@ Na pasta do projeto, com o ambiente Python instalado:
 
 Abra **http://127.0.0.1:8765/** no navegador. Mantenha o terminal aberto durante a revisão. O servidor aceita conexões somente deste computador.
 
-Os padrões carregam `data/protocol/trypomastigote_verified/eligible_inventory.csv` e `data/annotations/public_import/public_points.json`. A saída é `data/annotations/experimento_reference.json`; o arquivo publicado de entrada permanece intacto.
+Os padrões carregam `data/protocol/trypomastigote_verified/eligible_inventory.csv` e `data/annotations/public_import/public_points.json`. A saída é `data/annotations/experimento_reference_v2.json`; o arquivo publicado de entrada permanece intacto.
 
 Para usar o manifesto com as partições já aprovadas:
 
@@ -62,7 +62,7 @@ Para usar o manifesto com as partições já aprovadas:
 .\.venv\Scripts\python.exe scripts\review_annotations.py `
   --inventory data\splits\experimento\images.csv `
   --annotations data\annotations\public_import\public_points.json `
-  --output data\annotations\experimento_reference.json
+  --output data\annotations\experimento_reference_v2.json
 ```
 
 Esse manifesto precisa existir e conter exatamente os IDs presentes na referência. O comando não cria nem aprova a divisão. Se a porta estiver ocupada, acrescente `--port 8766` e abra o endereço mostrado no terminal.

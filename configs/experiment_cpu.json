@@ -1,7 +1,7 @@
 {
   "name": "experimento_cpu",
   "image_manifest": "data/splits/experimento/images.csv",
-  "annotations": "data/annotations/experimento_reference.json",
+  "annotations": "data/annotations/experimento_reference_v2.json",
   "crop_manifest": "data/processed/b_real_01/crops.csv",
   "model_config": "configs/model_b_cpu.yaml",
   "run_name": "b_real_cpu_01",

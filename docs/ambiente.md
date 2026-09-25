@@ -148,18 +148,20 @@ A GPU não resolve falta de anotações ou de negativos confiáveis. O [guia pri
 
 ## Transferir para outro computador
 
+**Para o pacote inicial já preparado em 25/09/2026, siga o [guia de treinamento](guia_treinamento.md).** Ele usa `scripts/prepare_received.py --archive CAMINHO_DO_ZIP` para ajustar imagens e recortes e gerar `configs/experiment_cpu_local.json` automaticamente. Abaixo fica a alternativa manual para outras estruturas de pastas.
+
 O exemplo usa `D:\TCC` como pasta do projeto no destino. Substitua essa pasta se necessário. Faça a [instalação Windows](ambiente.md#windows) no computador de destino; a sua `.venv` não deve ser copiada.
 
 ### O que copiar
 
-Copie o código (`src`, `scripts`, `configs`, `notebooks`, `requirements.txt`, documentação) e os dados necessários. As pastas abaixo ficam total ou parcialmente fora do Git: baixar apenas o repositório não as transporta.
+Copie o código (`src`, `scripts`, `configs`, `notebooks`, `tests`, `requirements.txt`, documentação) e somente os dados listados abaixo. Não envie a pasta inteira: `.cache`, `.venv`, `.git`, históricos em `archive`, resultados antigos em `experiments` e candidatos externos não são necessários para iniciar B. As pastas abaixo ficam total ou parcialmente fora do Git: baixar apenas o repositório não as transporta.
 
 - `data/protocol/trypomastigote_verified/`, com o inventário elegível;
 - `data/annotations/public_import/`, com as marcações positivas e sua origem;
-- `data/annotations/experimento_reference.json`, se a revisão já tiver sido salva;
-- `data/splits/experimento/`, quando as partições estiverem preparadas;
-- `data/processed/b_real_01/`, quando os recortes estiverem preparados;
-- `data/external_candidates/labimed/` e `data/annotations/labimed_public/`, se for consultar a referência externa;
+- `data/annotations/experimento_reference_v2.json`, com a revisão preservada;
+- `data/splits/experimento/`, com a divisão inicial congelada;
+- `data/processed/b_real_01/`, com os recortes de treino/validação;
+- `data/annotations/negative_preselection_v1/`, com o histórico da revisão e a reserva obrigatória das imagens já examinadas;
 - o ZIP original `trypoastigote_images.zip`, por exemplo em `D:\TCC\dados\trypoastigote_images.zip`.
 
 O modelo A só será necessário para a comparação; copie o artefato auditado de `ChagasVizion\Backend\fuzzylab_app\decision\services\model_trained.keras` e conserve seu hash. Nunca substitua o modelo por outro arquivo com o mesmo nome.
@@ -178,7 +180,7 @@ O comando valida os bytes de cada imagem pelo SHA-256 e gera `data/protocol/inve
 Para revisar usando esse inventário:
 
 ```powershell
-& $pythonTcc scripts/review_annotations.py --inventory data/protocol/inventario_neste_pc/images.csv
+& $pythonTcc scripts/review_annotations.py --inventory data/protocol/inventario_neste_pc/images.csv --annotations data/annotations/experimento_reference_v2.json --output data/annotations/revisao_neste_pc.json
 ```
 
 Se as partições já existirem, use seu `images.csv` no lugar do inventário inicial. Não refaça o inventário por outro caminho apenas para mudar de computador: isso criaria IDs diferentes.
@@ -189,7 +191,7 @@ Se as partições já existirem, use seu `images.csv` no lugar do inventário in
 & $pythonTcc scripts/relocate_experiment.py --images data/splits/experimento/images.csv --crops data/processed/b_real_01/crops.csv --output-dir data/protocol/experimento_neste_pc --map 'C:/Users/PCZAO/Documents/Caio/trypoastigote_images.zip=D:/TCC/dados/trypoastigote_images.zip' --map 'C:/Users/PCZAO/Documents/Caio/TCC/TCC=D:/TCC'
 ```
 
-Uma saída existente é recusada; para repetir, use outra pasta. Se houver imagens adicionais guardadas fora da pasta do projeto, acrescente o mapeamento correspondente. Arquivos ausentes ou com conteúdo diferente impedem a conclusão.
+Uma saída existente é recusada; para repetir, use outra pasta. A única fonte de pixels permitida é o ZIP público com o SHA-256 configurado. O transporte pode mudar o caminho, mas deve preservar os bytes. Arquivos ausentes ou com conteúdo diferente impedem a conclusão.
 
 Em `configs/experiment_cpu.json`, ajuste:
 

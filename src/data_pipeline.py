@@ -54,6 +54,10 @@ def validate_crop_manifest(crops, images, annotations, localization_sha256, anno
         raise ValueError(f"Manifesto de recortes incompleto: {sorted(required - set(crops.columns))}")
     if crops["crop_id"].duplicated().any():
         raise ValueError("crop_id duplicado.")
+    # IDs diferentes não tornam pixels idênticos amostras independentes.
+    for key in ("crop_sha256", "path"):
+        if (crops.groupby(key)["split"].nunique() > 1).any():
+            raise ValueError("Mesmo recorte presente em partições diferentes.")
     for row in crops.to_dict("records"):
         source = by_id.get(row["image_id"])
         if source is None:
@@ -67,7 +71,7 @@ def validate_crop_manifest(crops, images, annotations, localization_sha256, anno
         annotation = annotations.get(row["image_id"])
         bbox = json.loads(row["bbox"]) if isinstance(row["bbox"], str) else row["bbox"]
         expected = candidate_label(bbox, annotation) if annotation is not None else None
-        if row["review_status"] != "reviewed" or expected is None or int(row["label"]) != expected:
+        if row["review_status"] != "reviewed" or expected is None or str(row["label"]) != str(expected):
             raise ValueError("Crop sem rótulo revisado ou incompatível com as anotações.")
         crop_path = Path(row["path"])
         if not crop_path.is_absolute():

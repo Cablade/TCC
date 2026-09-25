@@ -1,48 +1,42 @@
 # Estado do experimento e próximos passos
 
-Atualizado em 24/09/2026. Este é o único registro ativo de prontidão; resultados antigos não são tratados como resultados da base atual.
+Atualizado em 25/09/2026. **O conjunto inicial está tecnicamente pronto para treinar B pela CPU.** O treino real completo e a avaliação final ainda não foram executados. No computador do amigo, a instalação e a conferência precisam passar novamente.
 
-## Concluído
+## Revisão e correções
 
-- Base principal: 675 JPGs únicos, 674 decodificáveis e uma exclusão documentada.
-- Referência positiva: 2.715 pontos em 674 imagens; suplementos conferidos byte a byte.
-- Fonte externa LABIMED: 36 campos auditados (13 negativos, 23 positivos), com 30 caixas; todos os negativos finos pertencem a um participante.
-- Modelo A congelado: carregamento auditado e preservação de 329 tensores; mapeamento de classes registrado.
-- Modelo B: extração, treino, salvamento/recarga e comparação implementados; verificações sintéticas concluídas.
-- Ferramenta de revisão visual, transporte com SHA-256 e perfil CPU para Windows preparados.
-- Revisão humana concluída em 8 imagens: 29 regiões negativas foram incorporadas à referência completa `data/annotations/experimento_reference.json`; os pontos positivos publicados foram preservados.
-- Em 24/09, 60 testes passaram. Os cinco notebooks foram executados sinteticamente na revisão anterior. O ambiente CPU local foi conferido; o PC do amigo ainda não foi testado.
+- Removidos resultados antigos que ainda continham 58 imagens privadas de sobreposição, além dos registros associados. O pacote de envio inclui apenas recortes do ZIP público autorizado.
+- A referência v2 conserva os 2.715 pontos publicados, as 29 áreas negativas revisadas e o histórico da revisão humana. A incorporação da revisão agora confere inventário, origem, dimensões e positivos, preservando negativos já existentes.
+- A preparação e o treino real verificam o SHA-256 do ZIP autorizado e a reserva das imagens examinadas para desenvolvimento. Recortes idênticos não podem atravessar partições; rótulos fracionários ou incompatíveis são rejeitados.
+- A extração de treinamento exclui o teste. Checkpoints sintéticos, incompletos ou alterados são bloqueados para o teste real. Interrupções passam a registrar `interrupted`.
+- O limite de dois núcleos fica restrito ao teste curto; o treino real permite que o TensorFlow gerencie o paralelismo da CPU.
+- O transporte ganhou um comando que preserva IDs, rótulos e divisão e confere os arquivos no novo caminho.
 
-## Para iniciar o treino real
+## Dados preparados
 
-O lote de [20 candidatas para revisão visual](anotacoes.md#revisao) já foi examinado. Oito imagens foram reservadas para desenvolvimento em `data/annotations/negative_preselection_v1/development_reservation.json`; exclua seus hashes do futuro teste final. A pré-seleção não elimina as etapas abaixo.
+| Conjunto | Imagens | Recortes positivos | Recortes negativos | Imagens com negativos revisados |
+| --- | ---: | ---: | ---: | ---: |
+| Treino | 455 | 5.012 | 625 | 6 |
+| Validação | 114 | 1.196 | 186 | 2 |
+| Teste reservado | 105 | Não extraídos | Não extraídos | 0 |
 
-1. Revisão negativa concluída para o lote selecionado. A referência resultante está em `data/annotations/experimento_reference.json`; as 29 regiões humanas são de desenvolvimento e não declaram lâminas inteiras sem Chagas. Consulte [anotações](anotacoes.md).
-2. Confirmar grupos e definir partições antes dos recortes e ajustes. Persistir `data/splits/experimento/images.csv`. Não repartir o único participante negativo externo para fabricar independência.
-3. Calibrar a localização somente em desenvolvimento/validação e gerar `data/processed/b_real_01/crops.csv`, com as duas classes em treino e validação.
-4. Conferir o computador e executar o lançador conforme o [guia de treinamento](guia_treinamento.md).
+São 7.019 recortes. O manifesto está em `data/splits/experimento/images.csv`, os recortes em `data/processed/b_real_01` e a referência em `data/annotations/experimento_reference_v2.json`. O relatório do lançador registra `ready_to_train: true` no ambiente CPU local e `evaluation_reference_ready: false`.
 
-Na última conferência, ainda faltam as partições e os recortes. **Nenhum treinamento supervisionado real nem comparação final foi concluído.** O número de testes aprovados não mede desempenho do modelo.
+A divisão preserva o teste original do ZIP; as demais imagens foram separadas em treino/validação com semente 42, estratificando a disponibilidade de negativos revisados. As oito imagens já examinadas não entram no teste.
 
-## Para concluir a avaliação e o texto
+## Verificação técnica
 
-- Obter referência suficiente para a avaliação final e manter o teste reservado.
-- Registrar a limitação de grupos por imagem quando não houver identificação biológica.
-- Esclarecer histórico de treino do A e possível sobreposição com o teste; confirmar a relação entre os repositórios Vision e VisionCruzi.
-- Executar A e B nos mesmos IDs, registrar falhas, custo e métricas previstas na [metodologia](metodologia.md).
-- Conferir bibliografia e escrever resultados sem antecipar superioridade do B.
+Passaram 77 testes automatizados e os cinco notebooks executaram em modo sintético. O relatório da suíte está em `experiments/validation/review_20260925_tests.xml`. O treino sintético completo salvou e reabriu o checkpoint, com `reload_equal: true`, em `experiments/runs/b_smoke_review_20260925`. Isso demonstra execução do programa, sem medir desempenho real. O treino completo com pesos ImageNet ainda será executado no destino; o primeiro uso pode exigir download.
 
-<a id="cronograma"></a>
+## Próximo passo
 
-## Cronograma
+A transferência foi simulada em outra pasta: ajuste automático de caminhos e conferência do conjunto real passaram. Registro local: `experiments/validation/transfer_readiness_20260925.json`. O ambiente Python utilizado nessa simulação foi o desta máquina; o computador do amigo ainda precisa ser validado.
 
-Metas indicativas herdadas do planejamento; confirmar prazos institucionais com o orientador.
+Envie `entrega_modelo_b_20260925.zip` e o ZIP original `trypoastigote_images.zip`. Seu amigo deve seguir o [guia de treinamento](guia_treinamento.md): instalar Python/dependências, ajustar os caminhos, executar o teste curto, conferir os dados e iniciar o treino. Ao terminar, devolve a pasta inteira `experiments/runs/b_real_cpu_01`.
 
-| Etapa | Meta indicativa | Entrega e condição de conclusão |
-| --- | --- | --- |
-| Documentação e protocolo | Setembro/2026 | Proposta A × B, metodologia, checklist e separação entre relatos e testes atuais |
-| Inventário e anotações | Setembro/2026 | Hashes, duplicatas, origens/grupos, referência revisada e estratégia viável de reserva |
-| A original e infraestrutura B | Setembro–outubro/2026 | A instrumentado; B com localização e treino coerentes; verificações sintéticas e diagnóstico real |
-| Treino real e comparação | Outubro/2026, condicionado aos dados | Referência qualificada, treino/validação separados, teste reservado; critérios congelados antes da avaliação |
-| Análise e texto | Outubro–novembro/2026 | Resultados ou limitações documentados, figuras, discussão de falhas e custos |
-| Revisão e apresentação | Novembro–dezembro/2026 | Texto revisto com orientador e apresentação conforme calendário institucional |
+## Limitações para o TCC
+
+- A fonte descreve sangue de camundongos, mas não temos o vínculo de cada imagem com animal/lâmina individual. `imagem_original` não comprova independência biológica; a divisão poderá precisar de nova versão se esses IDs forem obtidos.
+- Os negativos são áreas revisadas de campos positivos, provenientes de apenas oito imagens. Centenas de recortes não equivalem a centenas de amostras independentes. Ampliar a revisão é importante para uma avaliação robusta.
+- A localização inicial intersectou 26 de 28 pontos conhecidos nas oito imagens de desenvolvimento. Houve duas falhas; esse diagnóstico não é sensibilidade de detecção. Nenhum parâmetro foi escolhido com base no teste.
+- O teste atual contém somente campos positivos, com referência não exaustiva. Não permite concluir especificidade em lâminas negativas nem completar todas as métricas A × B.
+- O histórico de treinamento do A e possível sobreposição com esta base ainda precisam ser esclarecidos antes da comparação final. Consulte a [metodologia](metodologia.md).

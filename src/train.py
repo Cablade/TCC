@@ -101,8 +101,9 @@ def train_model(model, train_ds, val_ds, config, run_name, *, output_dir=None,
         info.update(status="complete", selected_epoch=int(np.argmin(losses)) + 1,
                     selected_val_loss=float(np.min(losses)),
                     checkpoint_sha256=file_sha256(checkpoint), checkpoint_bytes=checkpoint.stat().st_size)
-    except Exception as exc:
-        info.update(status="error", error=f"{type(exc).__name__}: {exc}")
+    except (Exception, KeyboardInterrupt) as exc:
+        info.update(status="interrupted" if isinstance(exc, KeyboardInterrupt) else "error",
+                    error=f"{type(exc).__name__}: {exc}")
         raise
     finally:
         info["elapsed_seconds"] = time.perf_counter() - t0

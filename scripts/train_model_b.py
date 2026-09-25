@@ -33,8 +33,9 @@ def main():
     from src.segmentation import localization_hash
 
     # Limita recursos do smoke e torna ordem de execução explícita.
-    tf.config.threading.set_inter_op_parallelism_threads(2)
-    tf.config.threading.set_intra_op_parallelism_threads(2)
+    if args.smoke:
+        tf.config.threading.set_inter_op_parallelism_threads(2)
+        tf.config.threading.set_intra_op_parallelism_threads(2)
     cfg = train.load_config(args.config)
     for key, expected in {"optimizer": "AdamW", "loss": "categorical_crossentropy",
                           "selection_monitor": "val_loss", "selection_mode": "min"}.items():
@@ -69,6 +70,8 @@ def main():
     else:
         from src.data_protocol import load_annotations, read_manifest
         images = read_manifest(args.image_manifest)
+        from src.dataset_policy import validate_active_images
+        validate_active_images(images)
         annotations = load_annotations(args.annotations, images)
         crops = data_pipeline.load_split(args.crop_manifest)
         data_pipeline.validate_crop_manifest(

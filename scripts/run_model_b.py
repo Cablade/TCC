@@ -39,6 +39,11 @@ def main():
                          if training_metadata_path.exists() else {})
     if training_metadata.get("synthetic") and args.split == "test":
         raise ValueError("Checkpoint sintético não pode produzir resultado de teste real; use development para smoke.")
+    if args.split == "test":
+        if training_metadata.get("synthetic") is not False or training_metadata.get("status") != "complete":
+            raise ValueError("Teste real exige treinamento concluído e metadados de origem reais.")
+        if training_metadata.get("checkpoint_sha256") != file_sha256(checkpoint):
+            raise ValueError("Checkpoint difere do artefato selecionado no treino.")
     saved_config = json.loads(saved_config_path.read_text(encoding="utf-8")) if saved_config_path.exists() else None
     cfg = load_config(args.config) if args.config else saved_config
     if cfg is None:
@@ -47,6 +52,9 @@ def main():
         raise ValueError("Localização difere da configuração que gerou os recortes de treino.")
     rows = read_manifest(args.manifest)
     validate_partitions(rows)
+    if args.split == "test":
+        from src.dataset_policy import validate_active_images
+        validate_active_images(rows)
     rows = [row for row in rows if row["split"] == args.split]
     if not rows:
         raise ValueError(f"Nenhuma imagem na partição {args.split}; não usar development como test.")

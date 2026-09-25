@@ -22,7 +22,8 @@ CROP_FIELDS = ["crop_id", "image_id", "path", "label", "split", "group_id",
                "annotation_sha256", "review_status"]
 
 
-def generate_crops(image_manifest, annotations_path, config, output_dir, dry_run=False):
+def generate_crops(image_manifest, annotations_path, config, output_dir, dry_run=False,
+                   splits=("train", "val", "development")):
     from PIL import Image
     from src.data_protocol import (read_manifest, load_annotations, validate_partitions,
                                    read_image_rgb, read_image_bytes, candidate_label,
@@ -33,6 +34,11 @@ def generate_crops(image_manifest, annotations_path, config, output_dir, dry_run
     images = read_manifest(image_manifest)
     validate_partitions(images)
     annotations = load_annotations(annotations_path, images)
+    if not splits or set(splits) - {"train", "val", "development"}:
+        raise ValueError("Extração para treinamento aceita somente train, val e development.")
+    selected = [row for row in images if row["split"] in splits]
+    if not selected:
+        raise ValueError("Nenhuma imagem nas partições selecionadas para extração.")
     localization = config["localization"]
     config_hash = localization_hash(localization)
     annotation_hash = file_sha256(annotations_path)
@@ -42,7 +48,7 @@ def generate_crops(image_manifest, annotations_path, config, output_dir, dry_run
         if (output_dir / "crops.csv").exists():
             raise FileExistsError("crops.csv já existe; use outro --output-dir para preservar a extração.")
     rows, reports = [], []
-    for source in images:
+    for source in selected:
         if hashlib.sha256(read_image_bytes(source["path"])).hexdigest() != source["sha256"]:
             raise ValueError(f"Conteúdo da origem mudou: {source['image_id']}")
         image = read_image_rgb(source["path"])
@@ -85,6 +91,8 @@ def generate_crops(image_manifest, annotations_path, config, output_dir, dry_run
     report = {"image_manifest_sha256": file_sha256(image_manifest),
               "annotation_sha256": annotation_hash, "localization_sha256": config_hash,
               "localization": localization, "dry_run": dry_run, "images": reports,
+              "processed_splits": sorted(set(splits)),
+              "excluded_images": len(images) - len(selected),
               "labeled_crops": len(rows), "unlabeled_is_negative": False}
     if not dry_run:
         with (output_dir / "crops.csv").open("w", newline="", encoding="utf-8") as stream:
@@ -103,10 +111,15 @@ def main():
     parser.add_argument("--config", default=str(ROOT / "configs/model_b.yaml"))
     parser.add_argument("--output-dir", default=str(ROOT / "data/processed/b"))
     parser.add_argument("--dry-run", action="store_true", help="Diagnostica candidatos sem salvar recortes.")
+    parser.add_argument("--splits", nargs="+", choices=["train", "val", "development"],
+                        default=["train", "val", "development"], help="Teste nunca é extraído para treinamento.")
     args = parser.parse_args()
+    from src.dataset_policy import validate_active_images
+    from src.data_protocol import read_manifest
+    validate_active_images(read_manifest(args.image_manifest))
     from src.train import load_config
     report = generate_crops(args.image_manifest, args.annotations, load_config(args.config),
-                            args.output_dir, args.dry_run)
+                            args.output_dir, args.dry_run, splits=args.splits)
     print(json.dumps({"images": len(report["images"]), "labeled_crops": report["labeled_crops"],
                       "dry_run": args.dry_run, "output_dir": args.output_dir}, ensure_ascii=False))
     return 0

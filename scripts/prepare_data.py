@@ -44,6 +44,8 @@ def main():
         result = dp.build_inventory(inputs, dp.read_manifest(
             args.metadata) if args.metadata else [])
         output = Path(args.output_dir)
+        if (output / 'inventory.csv').exists():
+            raise FileExistsError('Inventário existente; use outro destino.')
         dp.write_manifest(result['images'], output/'inventory.csv')
         dp.write_manifest(result['exclusions'], output /
                           'exclusions.csv', [*dp.INVENTORY_FIELDS, 'reason'])
@@ -67,6 +69,10 @@ def main():
         partitions = dp.assign_splits(
             rows, assignments=assignments, counts=counts, seed=args.seed)
         output = Path(args.output_dir)
+        if output.exists():
+            raise FileExistsError('Partições existentes; use outro destino para preservar a divisão.')
+        from src.dataset_policy import validate_active_images
+        validate_active_images(partitions)
         dp.write_manifest(partitions, output/'images.csv')
         for name in dp.SPLITS:
             dp.write_manifest([row for row in partitions if row['split'] == name],

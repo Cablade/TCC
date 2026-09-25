@@ -122,3 +122,10 @@ def test_whole_image_cli_and_synthetic_test_guard(tmp_path):
     assert set(comparison["image_ids"]) == {row["image_id"] for row in sources}
     denied = subprocess.run(command + ["--split", "test"], capture_output=True, text=True, timeout=60)
     assert denied.returncode != 0 and "Checkpoint sintético" in denied.stderr
+    (tmp_path / "metadata.json").write_text(json.dumps({"synthetic": False, "status": "running"}))
+    denied = subprocess.run(command + ["--split", "test"], capture_output=True, text=True, timeout=60)
+    assert denied.returncode != 0 and "treinamento concluído" in denied.stderr
+    (tmp_path / "metadata.json").write_text(json.dumps({"synthetic": False, "status": "complete",
+                                                        "checkpoint_sha256": "wrong"}))
+    denied = subprocess.run(command + ["--split", "test"], capture_output=True, text=True, timeout=60)
+    assert denied.returncode != 0 and "artefato selecionado" in denied.stderr

@@ -27,7 +27,7 @@ O nome, tamanho e MD5 do ZIP local correspondem ao depósito [Zenodo 5123062](ht
 | Organização original | 570 arquivos em `train`, 105 em `test` |
 | Anotações dentro do ZIP | Nenhum arquivo; somente imagens |
 
-As pastas originais são registradas como organização da fonte. Elas **não comprovam independência por animal/lâmina** e não foram adotadas automaticamente como partições finais do TCC.
+As pastas originais **não comprovam independência por animal/lâmina**. Na rodada inicial de 25/09/2026, as 105 imagens de `test` foram mantidas reservadas e as 569 imagens legíveis de `train` foram separadas em 455 para treino e 114 para validação. A divisão é por imagem original, com semente 42 e negativos revisados em ambos os conjuntos. O protocolo está em `data/splits/experimento/split_report.json`; não é uma divisão comprovadamente independente por animal.
 
 ### Integridade e arquivos preparados
 
@@ -42,7 +42,7 @@ A auditoria fez leitura completa dos pixels, sem habilitar recuperação de JPEG
 
 O arquivo `train/field0156.jpg` apresentou `Truncated File Read`. Não será usado sem obter uma cópia válida e registrar uma nova auditoria. Elegibilidade técnica não confirma foco, qualidade biológica ou presença/ausência de parasitas.
 
-O template conserva rótulos nulos e revisão pendente. Não foi criado `data/splits/trypomastigote/images.csv`: a divisão depende dos grupos e das classes revisadas. Ainda não houve treino supervisionado nem comparação A × B nesta base. Os parâmetros atuais de localização do B são um protótipo e precisam ser examinados no desenvolvimento desta base.
+O template antigo conserva rótulos nulos e revisão pendente. A referência ativa é `data/annotations/experimento_reference_v2.json` e a divisão está em `data/splits/experimento/images.csv`. Foram preparados 7.019 recortes de treino/validação. Ainda não houve treino real completo nem comparação A × B nesta base. Os parâmetros de localização foram mantidos nesta rodada inicial; o diagnóstico nas oito imagens de desenvolvimento encontrou interseção para 26 de 28 pontos conhecidos, com duas falhas. Isso não constitui sensibilidade de detecção nem otimização validada.
 
 ### Como reproduzir a preparação
 
@@ -136,7 +136,7 @@ Na pasta principal do projeto, usando o ambiente instalado:
 
 O importador recusa sobrescrever uma saída existente, verifica os hashes das fontes e confere o inventário elegível. Se o inventário for relocalizado para outro computador, passe seu caminho com `--inventory`. Use a referência produzida para o mesmo inventário ou preserve os IDs na transferência.
 
-Para o experimento, copie a referência positiva como ponto de partida de `data/annotations/experimento_reference.json`, acrescente apenas negativos sustentados pela fonte/revisão e preserve a procedência de ambos. Depois siga o [guia de treinamento](guia_treinamento.md). Só os pontos positivos, isoladamente, ainda não permitem treinar o classificador binário.
+Para o experimento, copie a referência positiva como ponto de partida de `data/annotations/experimento_reference_v2.json`, acrescente apenas negativos sustentados pela fonte/revisão e preserve a procedência de ambos. Depois siga o [guia de treinamento](guia_treinamento.md). Só os pontos positivos, isoladamente, ainda não permitem treinar o classificador binário.
 
 <a id="negativos"></a>
 

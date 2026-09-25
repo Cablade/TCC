@@ -72,6 +72,10 @@ def test_reviewed_crops_preserve_partitions_and_reject_wrong_labels(tmp_path):
                         "reference_complete": True, "whole_image_label": label,
                         "positives": [{"annotation_id": "p1", "point": [48, 38]}] if label else [],
                         "negative_regions": []})
+    # O teste permanece no manifesto/referência, mas seus pixels não podem ser abertos.
+    sources.append({**sources[0], "image_id": "heldout", "group_id": "heldout",
+                    "sha256": "f" * 64, "split": "test", "path": str(tmp_path / "must_not_read.png")})
+    entries.append({**entries[0], "image_id": "heldout"})
     manifest = tmp_path / "images.csv"
     write_manifest(sources, manifest)
     annotation_path = tmp_path / "annotations.json"
@@ -81,12 +85,26 @@ def test_reviewed_crops_preserve_partitions_and_reject_wrong_labels(tmp_path):
     output = tmp_path / "crops"
     report = generate_crops(manifest, annotation_path, cfg, output)
     assert report["labeled_crops"] == 4
+    assert report["excluded_images"] == 1
+    assert all(row["split"] != "test" for row in report["images"])
+    with pytest.raises(ValueError, match="somente train"):
+        generate_crops(manifest, annotation_path, cfg, tmp_path / "forbidden", splits=["test"])
     crops = pd.read_csv(output / "crops.csv", keep_default_na=False)
     annotations = load_annotations(annotation_path, sources)
     validate_crop_manifest(crops, sources, annotations, localization_hash(cfg["localization"]),
                            file_sha256(annotation_path))
     assert set(crops[crops["split"] == "train"]["image_id"]) == {"synthetic_0", "synthetic_1"}
     assert set(crops[crops["split"] == "val"]["image_id"]) == {"synthetic_2", "synthetic_3"}
+    fractional = crops.astype({"label": float})
+    fractional.loc[0, "label"] = 0.5
+    with pytest.raises(ValueError, match="rótulo"):
+        validate_crop_manifest(fractional, sources, annotations, localization_hash(cfg["localization"]),
+                               file_sha256(annotation_path))
+    repeated = crops.copy()
+    repeated.loc[2, "crop_sha256"] = repeated.loc[0, "crop_sha256"]
+    with pytest.raises(ValueError, match="partições diferentes"):
+        validate_crop_manifest(repeated, sources, annotations, localization_hash(cfg["localization"]),
+                               file_sha256(annotation_path))
     crops.loc[0, "label"] = 1 - int(crops.loc[0, "label"])
     with pytest.raises(ValueError, match="rótulo"):
         validate_crop_manifest(crops, sources, annotations, localization_hash(cfg["localization"]),
