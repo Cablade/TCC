@@ -1,0 +1,41 @@
+{
+  "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+  "artifact_bytes": 94985071,
+  "keras_metadata": {
+    "keras_version": "2.15.0",
+    "date_saved": "2025-12-28@21:39:04"
+  },
+  "tensorflow": "2.15.0",
+  "keras": "2.15.0",
+  "opencv": "4.9.0",
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "hardware": {
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "devices": [
+      "/physical_device:CPU:0"
+    ]
+  },
+  "reference_repository": "",
+  "reference_commit": "",
+  "class_labels": [
+    "0",
+    "1"
+  ],
+  "class_mapping_source": "label_encoder.dat classes_=['0','1']; API _build_summary",
+  "normalized_copy": false,
+  "training_time_seconds": null,
+  "preservation": {
+    "tensor_count": 329,
+    "original_unchanged": true
+  },
+  "model_weight_count": 320,
+  "synthetic_forward_check": {
+    "shape": [
+      1,
+      2
+    ],
+    "finite": true,
+    "measures_real_performance": false
+  }
+}

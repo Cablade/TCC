@@ -14,6 +14,8 @@ O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador Res
 
 Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo a localização e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
 
+O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para uma nova proposta: A permanece original, sem retreinamento. O contexto de 2024 informado pelo autor deve ser documentado antes de vincular essa data ao artefato. Não se presume que A tenha sido o melhor sistema disponível naquele ano. A magnitude de eventual melhoria será expressa por métricas específicas e custo computacional, com seus limites, sem antecipar a vitória de B ou atribuir todo o efeito à arquitetura.
+
 ## Objetivos específicos
 
 1. Inventariar os dados, controlar duplicatas e documentar aquisição, grupos e disponibilidade de anotações.

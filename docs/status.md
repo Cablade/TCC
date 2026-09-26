@@ -1,6 +1,6 @@
 # Estado do experimento e próximos passos
 
-Atualizado em 25/09/2026. **O conjunto inicial está tecnicamente pronto para treinar B pela CPU.** O treino real completo e a avaliação final ainda não foram executados. No computador do amigo, a instalação e a conferência precisam passar novamente.
+Atualizado em 26/09/2026. **O primeiro treinamento real do B foi concluído e recebido.** O modelo foi reaberto nesta máquina e reproduziu 98,70% de acerto nos recortes de validação. A avaliação final permanece pendente; as 105 imagens de teste não foram avaliadas. Consulte o [relatório da execução](../experiments/validation/b_real_cpu_01_received_20260926/relatorio.md).
 
 ## Revisão e correções
 
@@ -19,19 +19,19 @@ Atualizado em 25/09/2026. **O conjunto inicial está tecnicamente pronto para tr
 | Validação | 114 | 1.196 | 186 | 2 |
 | Teste reservado | 105 | Não extraídos | Não extraídos | 0 |
 
-São 7.019 recortes. O manifesto está em `data/splits/experimento/images.csv`, os recortes em `data/processed/b_real_01` e a referência em `data/annotations/experimento_reference_v2.json`. O relatório do lançador registra `ready_to_train: true` no ambiente CPU local e `evaluation_reference_ready: false`.
+São 7.019 recortes. O manifesto está em `data/splits/experimento/images.csv`, os recortes em `data/processed/b_real_01` e a referência em `data/annotations/experimento_reference_v2.json`. O relatório de prontidão de 25/09 aprovou os dados e o ambiente; após receber a execução, o mesmo nome de pasta fica bloqueado para evitar sobrescrita. A referência de avaliação final continua incompleta.
 
 A divisão preserva o teste original do ZIP; as demais imagens foram separadas em treino/validação com semente 42, estratificando a disponibilidade de negativos revisados. As oito imagens já examinadas não entram no teste.
 
 ## Verificação técnica
 
-Passaram 77 testes automatizados e os cinco notebooks executaram em modo sintético. O relatório da suíte está em `experiments/validation/review_20260925_tests.xml`. O treino sintético completo salvou e reabriu o checkpoint, com `reload_equal: true`, em `experiments/runs/b_smoke_review_20260925`. Isso demonstra execução do programa, sem medir desempenho real. O treino completo com pesos ImageNet ainda será executado no destino; o primeiro uso pode exigir download.
+Na revisão de 25/09, passaram 77 testes automatizados e os cinco notebooks executaram em modo sintético. O relatório da suíte está em `experiments/validation/review_20260925_tests.xml`. Em 26/09, foram conferidos o ZIP recebido, os hashes do checkpoint e dos manifestos, as anotações, a configuração, as partições e o histórico. O checkpoint real foi reaberto e a validação reproduzida: 1.364/1.382 acertos, com cinco falsos positivos e treze falsos negativos em recortes. Auditoria: `experiments/validation/b_real_cpu_01_received_20260926/audit.json`.
 
 ## Próximo passo
 
-A transferência foi simulada em outra pasta: ajuste automático de caminhos e conferência do conjunto real passaram. Registro local: `experiments/validation/transfer_readiness_20260925.json`. O ambiente Python utilizado nessa simulação foi o desta máquina; o computador do amigo ainda precisa ser validado.
+O modelo real está em `experiments/runs/b_real_cpu_01/best.keras`, junto de todo o histórico recebido. Foram concluídas 26 épocas na CPU em aproximadamente 52 minutos; a melhor foi a época 19, seguida por sete épocas sem melhora. Não é necessário refazer esse treino. Preserve a execução; qualquer rodada futura deve usar outro nome.
 
-Envie `entrega_modelo_b_20260925.zip` e o ZIP original `trypoastigote_images.zip`. Seu amigo deve seguir o [guia de treinamento](guia_treinamento.md): instalar Python/dependências, ajustar os caminhos, executar o teste curto, conferir os dados e iniciar o treino. Ao terminar, devolve a pasta inteira `experiments/runs/b_real_cpu_01`.
+Examine os erros e o comportamento em imagens inteiras de desenvolvimento/validação. Prepare a referência necessária para a comparação A × B e esclareça a independência das amostras e o histórico do A antes de avaliar o teste reservado. A acurácia de recortes de validação não substitui essa etapa.
 
 ## Limitações para o TCC
 

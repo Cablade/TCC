@@ -20,7 +20,13 @@ def main():
     parser.add_argument("--config", help="Por padrão usa config.json salvo junto de best.keras.")
     parser.add_argument("--split", choices=["train", "val", "test", "development"], default="test")
     parser.add_argument("--output-dir", required=True)
+    parser.add_argument("--compiled", action="store_true", help="Executa a mesma rede em grafo TensorFlow; registra o modo nos resultados.")
+    image_options = parser.add_mutually_exclusive_group()
+    image_options.add_argument("--image-mode", choices=['original', 'overlay', 'none'], default='original',
+                               help="Padrão: PNG inteiro sem marcações; overlay desenha caixas; none não grava PNG.")
+    image_options.add_argument("--no-overlays", action="store_true", help="Compatibilidade: equivale a --image-mode none.")
     args = parser.parse_args()
+    image_mode = 'none' if args.no_overlays else args.image_mode
     import tensorflow as tf
     from PIL import Image, ImageDraw
     from src.data_protocol import read_manifest, validate_partitions, read_image_rgb, read_image_bytes
@@ -28,6 +34,7 @@ def main():
     from src.model_b import predict_image_b
     from src.segmentation import localization_hash
     from src.train import load_config, versions
+    from src.prediction_exports import save_original_png, write_review_csvs
     import hashlib
 
     tf.config.threading.set_inter_op_parallelism_threads(2)
@@ -68,9 +75,15 @@ def main():
     load_seconds = time.perf_counter() - load_start
     if tuple(classifier.input_shape[1:]) != tuple(cfg["model"]["input_shape"]):
         raise ValueError("Entrada do checkpoint difere da configuração.")
+    if args.compiled:
+        from src.model_b import compiled_inference
+        classifier = compiled_inference(classifier, tuple(cfg["model"]["input_shape"]))
     predictions = []
-    for row in rows:
+    exports = {}
+    for image_index, row in enumerate(rows, 1):
+        print(f"[{image_index}/{len(rows)}] {row['image_id']}: processando...", flush=True)
         start = time.perf_counter()
+        image = None
         try:
             if hashlib.sha256(read_image_bytes(row["path"])).hexdigest() != row["sha256"]:
                 raise ValueError("Hash da imagem difere do manifesto.")
@@ -79,25 +92,46 @@ def main():
                 raise ValueError("Dimensões diferem do inventário.")
             result = predict_image_b(image, classifier, cfg, row["image_id"])
             result["timings"]["io_and_inference_seconds"] = time.perf_counter() - start
-            overlay = Image.fromarray(image)
-            draw = ImageDraw.Draw(overlay)
-            for region in result["regions"]:
-                x1, y1, x2, y2 = region["bbox"]
-                draw.rectangle((x1, y1, x2 - 1, y2 - 1),
-                               outline="red" if region["class_id"] == 1 else "blue", width=3)
-            safe_id = hashlib.sha256(str(row["image_id"]).encode()).hexdigest()[:16]
-            overlay.save(output_dir / f"{safe_id}_overlay.png")
         except Exception as exc:
             result = {"image_id": row["image_id"], "status": "erro", "regions": [], "candidates": [],
                       "original_decision": None, "error": f"{type(exc).__name__}: {exc}",
                       "timings": {"io_and_inference_seconds": time.perf_counter() - start}}
+        # A falha na gravação não altera uma decisão já calculada pelo modelo.
+        export_start = time.perf_counter()
+        exported = {'image_file': '', 'export_error': ''}
+        try:
+            if image is not None and image_mode == 'original':
+                exported['image_file'] = save_original_png(image, output_dir, row['image_id'])
+            elif image is not None and image_mode == 'overlay':
+                overlay = Image.fromarray(image)
+                draw = ImageDraw.Draw(overlay)
+                for region in result["regions"]:
+                    x1, y1, x2, y2 = region["bbox"]
+                    draw.rectangle((x1, y1, x2 - 1, y2 - 1),
+                                   outline="red" if region["class_id"] == 1 else "blue", width=3)
+                safe_id = hashlib.sha256(str(row["image_id"]).encode()).hexdigest()[:16]
+                overlay.save(output_dir / f"{safe_id}_overlay.png")
+                exported['image_file'] = f"{safe_id}_overlay.png"
+        except Exception as exc:
+            exported['export_error'] = f'{type(exc).__name__}: {exc}'
+        exported['export_seconds'] = time.perf_counter() - export_start if image_mode != 'none' else 0.0
+        exports[row['image_id']] = exported
+        result['timings']['overlay_seconds'] = exported['export_seconds'] if image_mode == 'overlay' else 0.0
         predictions.append(result)
+        print(f"[{image_index}/{len(rows)}] {result['status']}; "
+              f"{len(result['candidates'])} candidatos; "
+              f"{result['timings']['io_and_inference_seconds']:.1f}s", flush=True)
     metadata = {"system": "B", "split": args.split, "manifest_sha256": file_sha256(args.manifest),
                 "trained_on_synthetic_data": training_metadata.get("synthetic"),
                 "checkpoint_sha256": file_sha256(checkpoint), "checkpoint_bytes": checkpoint.stat().st_size,
                 "config": cfg, "versions": versions(), "model_load_seconds": load_seconds,
                 "hardware": [device.name for device in tf.config.list_physical_devices()],
                 "scores_are_calibrated_probabilities": False, "decision_rule": "any argmax(scores)==1"}
+    metadata['execution_mode'] = 'tf_function' if args.compiled else 'eager'
+    metadata['overlays_saved'] = image_mode == 'overlay'
+    metadata['image_mode'] = image_mode
+    metadata['export_errors'] = sum(bool(entry['export_error']) for entry in exports.values())
+    metadata['tensorflow_threads'] = {'intra_op': 2, 'inter_op': 2}
     payload = {"schema_version": 1, "system": "B", "images": predictions, "artifact": metadata}
     predictions_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     fields = ["image_id", "status", "candidates", "classified_regions", "positive_regions",
@@ -112,10 +146,11 @@ def main():
                           "total_seconds": row["timings"]["io_and_inference_seconds"],
                           "error": row.get("error", "")} for row in predictions)
     (output_dir / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    write_review_csvs(predictions, output_dir, exports)
     errors = sum(r["status"] == "erro" for r in predictions)
     print(json.dumps({"images": len(predictions), "errors": errors,
                       "predictions": str(predictions_path)}, ensure_ascii=False))
-    return int(errors > 0)
+    return int(errors > 0 or metadata['export_errors'] > 0)
 
 
 if __name__ == "__main__":

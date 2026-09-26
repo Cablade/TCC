@@ -1,0 +1,11 @@
+{
+  "artifact": "model_trained.keras",
+  "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+  "bytes": 94985071,
+  "copied_from": "C:\\Users\\PCZAO\\Documents\\Caio\\ChagasVizion\\Backend\\fuzzylab_app\\decision\\services\\model_trained.keras",
+  "copied_at_utc": "2026-09-26T15:22:05.537781+00:00",
+  "reference_repository": "https://github.com/Cablade/VisionCruzi",
+  "reference_commit": "59b10244f2ce5cfabff7bece404cb5679668a45d",
+  "weights_modified": false,
+  "purpose": "Modelo A congelado para comparação com B; não é treinado neste projeto."
+}

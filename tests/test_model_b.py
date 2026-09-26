@@ -45,6 +45,17 @@ def test_augmentation_rejected_outside_train(tmp_path):
         data_pipeline.make_dataset(df, augment_fn=lambda x: x, partition="val")
 
 
+def test_compiled_inference_preserves_scores_for_full_and_partial_batches():
+    tf.keras.utils.set_random_seed(42)
+    model = model_b.build_model_b(input_shape=(32,32,3), weights=None, unfreeze_last_n=0)
+    compiled = model_b.compiled_inference(model, (32,32,3))
+    for size in (2,1):
+        pixels = np.random.default_rng(size).uniform(0,255,(size,32,32,3)).astype(np.float32)
+        np.testing.assert_allclose(compiled(pixels), model(pixels,training=False), rtol=1e-5, atol=1e-6)
+    with pytest.raises(ValueError, match='inferência'):
+        compiled(pixels,training=True)
+
+
 def test_split_by_crop_disabled():
     with pytest.raises(ValueError, match="Dividir recortes"):
         data_pipeline.build_splits("unused", "unused")
@@ -111,6 +122,16 @@ def test_whole_image_cli_and_synthetic_test_guard(tmp_path):
     payload = json.loads((out / "predictions.json").read_text(encoding="utf-8"))
     assert payload["system"] == "B" and payload["schema_version"] == 1
     assert payload["artifact"]["trained_on_synthetic_data"] is True
+    assert payload['artifact']['image_mode'] == 'original'
+    assert payload['artifact']['overlays_saved'] is False
+    import csv
+    with (out / 'images.csv').open(encoding='utf-8-sig') as stream:
+        exported_images = list(csv.DictReader(stream))
+    for source, exported in zip(sources, exported_images):
+        np.testing.assert_array_equal(np.asarray(Image.open(source['path'])),
+                                      np.asarray(Image.open(out / exported['image_file'])))
+    assert (out / 'regions.csv').is_file()
+    assert not list(out.glob('*_overlay.png'))
     predictions = load_predictions(out / "predictions.json", "B")
     assert [row["image_id"] for row in predictions] == [row["image_id"] for row in sources]
     assert predictions[0]["status"] == "sem_regioes"
