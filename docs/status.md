@@ -1,5 +1,11 @@
 # Estado do experimento e próximos passos
 
+## Comparação de validação concluída em 26/09/2026
+
+A original e B reduzido terminaram as mesmas 114 imagens sem erros. Tempo do algoritmo: 32,37 s (A) e 281,87 s (B). B gerou 25.695 candidatos. No diagnóstico adicional dos 450 pontos publicados, regiões suspeitas corresponderam a 0 pontos em A e 424 em B, com associação um a um. A ausência de correspondências de A precisa de inspeção; as 7.334 regiões suspeitas de B sem associação não podem ser tratadas automaticamente como falsos positivos, pois a referência é parcial. Todas as imagens são positivas, portanto o acerto de 100% por imagem de B não prova capacidade de rejeitar negativos. Consulte a [leitura dos resultados](../experiments/results/comparacao_val_reduced_01_leitura.md). O teste final permanece reservado; os registros anteriores abaixo são históricos.
+
+> **B ativo substituído em 26/09/2026:** `experiments/runs/b_real_cpu_01/best.keras` agora contém o novo treino com união de regiões até 224 pixels. O modelo anterior foi removido a pedido do autor. Dados atuais: `data/processed/b_real_02_reduced/crops.csv` (3.129 treino, 778 validação); configuração: `configs/model_b_cpu_reduced.yaml`. Os resultados antigos de 98,70% e as instruções de transporte de `b_real_01` abaixo são históricos e não descrevem esse novo modelo. Conferência do novo checkpoint: `experiments/validation/b_replacement_20260926/verification.json`.
+
 Atualizado em 26/09/2026. **O primeiro treinamento real do B foi concluído e recebido.** O modelo foi reaberto nesta máquina e reproduziu 98,70% de acerto nos recortes de validação. A avaliação final permanece pendente; as 105 imagens de teste não foram avaliadas. Consulte o [relatório da execução](../experiments/validation/b_real_cpu_01_received_20260926/relatorio.md).
 
 ## Revisão e correções

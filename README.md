@@ -1,5 +1,7 @@
 # TCC — comparação A × B para detecção de Trypanosoma cruzi
 
+> **B ativo substituído em 26/09/2026:** `experiments/runs/b_real_cpu_01/best.keras` agora contém o novo treino com união de regiões até 224 pixels. O modelo anterior foi removido a pedido do autor. Dados atuais: `data/processed/b_real_02_reduced/crops.csv` (3.129 treino, 778 validação); configuração: `configs/model_b_cpu_reduced.yaml`. Os resultados antigos de 98,70% e as instruções de transporte de `b_real_01` abaixo são históricos e não descrevem esse novo modelo. Conferência do novo checkpoint: `experiments/validation/b_replacement_20260926/verification.json`.
+
 **Autores:** Victor Jacques e Caio Milão
 
 **Orientador:** Prof. Rogério Mandelli

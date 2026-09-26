@@ -1,5 +1,7 @@
 # Guia de treinamento do Modelo B
 
+> **B ativo substituído em 26/09/2026:** `experiments/runs/b_real_cpu_01/best.keras` agora contém o novo treino com união de regiões até 224 pixels. O modelo anterior foi removido a pedido do autor. Dados atuais: `data/processed/b_real_02_reduced/crops.csv` (3.129 treino, 778 validação); configuração: `configs/model_b_cpu_reduced.yaml`. Os resultados antigos de 98,70% e as instruções de transporte de `b_real_01` abaixo são históricos e não descrevem esse novo modelo. Conferência do novo checkpoint: `experiments/validation/b_replacement_20260926/verification.json`.
+
 Atualizado em 26/09/2026. A primeira execução real foi recebida e conferida; o modelo está em `experiments/runs/b_real_cpu_01`. Este guia permanece como roteiro de instalação e treinamento. Para uma nova rodada, escolha outro `run_name` antes de começar, conforme a seção 6, e preserve o modelo recebido. O perfil fornecido usa **CPU no Windows**; a RX 6600 não acelera esta instalação de TensorFlow/Keras 2.15.
 
 ## 1. Receber os arquivos
