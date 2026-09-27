@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard Comparativo - TCC Visão Computacional na detecção de Trypanosoma cruzi">
+    <title>Dashboard Comparativo: Modelo A vs Modelo B</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
+    <!-- Data & Custom JS -->
+    <script src="./js/data.js" defer></script>
+    <script src="./js/main.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Painel de Resultados Científicos - TCC</h1>
+        <p>Análise Comparativa: Detecção de <i>Trypanosoma cruzi</i> (105 amostras clínicas)</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Model A Performance Card -->
+        <div class="glass-card fade-in" style="animation-delay: 0.1s;">
+            <div class="card-header">
+                <h2 class="card-title model-a-title">Modelo A (Baseline)</h2>
+                <span class="badge badge-a">Visão Clássica</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Acertos (Verdadeiros Positivos)</span>
+                <span class="metric-value" id="val-a-tp">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Erros (Falsos Negativos)</span>
+                <span class="metric-value" id="val-a-fn" style="color: var(--accent-a);">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">F1-Score Geral</span>
+                <span class="metric-value" id="val-a-f1" style="color: var(--accent-a);">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Tempo Total de Processamento</span>
+                <span class="metric-value" id="val-a-time">--</span>
+            </div>
+        </div>
+
+        <!-- Model B Performance Card -->
+        <div class="glass-card fade-in" style="animation-delay: 0.2s;">
+            <div class="card-header">
+                <h2 class="card-title model-b-title">Modelo B (Proposto)</h2>
+                <span class="badge badge-b">EfficientNet-B0</span>
+            </div>
+            
+            <div class="metric">
+                <span class="metric-label">Acertos (Verdadeiros Positivos)</span>
+                <span class="metric-value" id="val-b-tp" style="color: var(--accent-b);">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Erros (Falsos Negativos)</span>
+                <span class="metric-value" id="val-b-fn">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">F1-Score Geral</span>
+                <span class="metric-value" id="val-b-f1" style="color: var(--accent-b);">--</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Tempo Total de Processamento</span>
+                <span class="metric-value" id="val-b-time" style="color: var(--accent-a);">--</span>
+            </div>
+        </div>
+
+        <!-- Charts Container -->
+        <div class="glass-card fade-in charts-wrapper" style="animation-delay: 0.3s; grid-column: 1 / -1;">
+            <div class="chart-section">
+                <h2 class="card-title text-center">Eficácia Diagnóstica (Imagens)</h2>
+                <div class="chart-container">
+                    <canvas id="accuracyChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h2 class="card-title text-center">Custo Computacional (Segundos)</h2>
+                <div class="chart-container">
+                    <canvas id="timeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion Card -->
+        <div class="glass-card conclusion fade-in" style="animation-delay: 0.4s;">
+            <h2>Análise do Trade-off (Custo vs Benefício)</h2>
+            <p>
+                O <strong>Modelo A</strong> apresentou alta velocidade (média de 0,28s por imagem), porém seu limiar heurístico restrito resultou em uma taxa inaceitável de falsos negativos (Recall de apenas 17.1%). 
+                <br><br>
+                O <strong>Modelo B</strong> adotou segmentação de altíssima sensibilidade com filtragem neural (EfficientNet-B0). Embora o tempo de processamento tenha saltado para quase <span style="color: var(--accent-a);">61 segundos por imagem</span>, o modelo alcançou <strong>100% de Sensibilidade e F1-Score Perfeito</strong>, demonstrando que o pesado custo computacional é tecnicamente justificável e clinicamente necessário para garantir a segurança no diagnóstico primário de Chagas.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
