@@ -6,13 +6,13 @@
 
 Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
 
-Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação, pois um parasita que não gera recorte nunca chega ao classificador.
+Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação da imagem, pois um parasita que não gera recorte nunca chega ao classificador.
 
-O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam, em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
+O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam (um metodo antigo contra um metodo novo), em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
 
 ## Objetivo geral
 
-Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo a localização e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
+Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo o resultado gerado e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
 
 O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para uma nova proposta: A permanece original, sem retreinamento. O contexto de 2024 informado pelo autor deve ser documentado antes de vincular essa data ao artefato. Não se presume que A tenha sido o melhor sistema disponível naquele ano. A magnitude de eventual melhoria será expressa por métricas específicas e custo computacional, com seus limites, sem antecipar a vitória de B ou atribuir todo o efeito à arquitetura.
 
@@ -33,7 +33,7 @@ O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para u
 | Localização | Fluxo e parâmetros originais do Vision | Fluxo configurável definido no desenvolvimento |
 | Classificador | ResNet-50, sujeito à inspeção do artefato | EfficientNet-B0, já presente no código-base |
 | Entrada principal | Imagem microscópica inteira | A mesma imagem microscópica inteira |
-| Saída | Regiões, escores, classes e decisão original | Regiões, escores, classes e decisão definida na validação |
+| Saída | Status se possui ou não parasito ,decisão definida de acordo com o modelo ,quantidade de candidatos ,quantidade classificado ,segundos que levou, erros | Regiões, escores, classes e decisão definida de acordo com o modelo |
 
 Há exatamente duas abordagens. Repetições do B com sementes distintas não constituem novos modelos. Não há obrigação de ablações, detector complexo, número fixo de folds ou número pré-fixado de treinos.
 

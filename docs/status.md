@@ -1,48 +1,43 @@
-# Estado do experimento e próximos passos
+# Estado do experimento — 27/09/2026
 
-## Comparação de validação concluída em 26/09/2026
+Veja a [revisão geral](revisao_geral.md) para achados, gráficos possíveis e limpeza. A documentação anterior está preservada em `archive/documentacao_pre_revisao_20260927.zip`, com hashes conferidos.
 
-A original e B reduzido terminaram as mesmas 114 imagens sem erros. Tempo do algoritmo: 32,37 s (A) e 281,87 s (B). B gerou 25.695 candidatos. No diagnóstico adicional dos 450 pontos publicados, regiões suspeitas corresponderam a 0 pontos em A e 424 em B, com associação um a um. A ausência de correspondências de A precisa de inspeção; as 7.334 regiões suspeitas de B sem associação não podem ser tratadas automaticamente como falsos positivos, pois a referência é parcial. Todas as imagens são positivas, portanto o acerto de 100% por imagem de B não prova capacidade de rejeitar negativos. Consulte a [leitura dos resultados](../experiments/results/comparacao_val_reduced_01_leitura.md). O teste final permanece reservado; os registros anteriores abaixo são históricos.
+## Versão vigente
 
-> **B ativo substituído em 26/09/2026:** `experiments/runs/b_real_cpu_01/best.keras` agora contém o novo treino com união de regiões até 224 pixels. O modelo anterior foi removido a pedido do autor. Dados atuais: `data/processed/b_real_02_reduced/crops.csv` (3.129 treino, 778 validação); configuração: `configs/model_b_cpu_reduced.yaml`. Os resultados antigos de 98,70% e as instruções de transporte de `b_real_01` abaixo são históricos e não descrevem esse novo modelo. Conferência do novo checkpoint: `experiments/validation/b_replacement_20260926/verification.json`.
+- A original: `models/model_a/model_trained.keras`, sem retreinamento.
+- B reduzido: `experiments/runs/b_real_cpu_01/best.keras`; hash `5ff1aba014490a5ca8fbc6435e764b417e3e6af687a61245ae8d5337a150ed1a`.
+- Configuração: `configs/model_b_cpu_reduced.yaml`; 30 épocas realizadas, melhor época 23; 1.063,54 segundos de treino registrados.
+- Treino: 455 imagens, 3.129 recortes (3.053 positivos / 76 negativos).
+- Validação: 114 imagens, 778 recortes (740 positivos / 38 negativos).
+- Teste reservado: 105 imagens; não executar para escolher parâmetros.
+- Referência: `data/annotations/experimento_reference_v2.json`; independência por animal/lâmina e referência exaustiva não demonstradas.
 
-Atualizado em 26/09/2026. **O primeiro treinamento real do B foi concluído e recebido.** O modelo foi reaberto nesta máquina e reproduziu 98,70% de acerto nos recortes de validação. A avaliação final permanece pendente; as 105 imagens de teste não foram avaliadas. Consulte o [relatório da execução](../experiments/validation/b_real_cpu_01_received_20260926/relatorio.md).
+Os 25.695 candidatos são a saída de inferência do B nas 114 imagens inteiras, não o tamanho do treino. Os números de 7.019 recortes, 98,70% e época 19 pertencem à versão anterior.
 
-## Revisão e correções
+## Resultados disponíveis
 
-- Removidos resultados antigos que ainda continham 58 imagens privadas de sobreposição, além dos registros associados. O pacote de envio inclui apenas recortes do ZIP público autorizado.
-- A referência v2 conserva os 2.715 pontos publicados, as 29 áreas negativas revisadas e o histórico da revisão humana. A incorporação da revisão agora confere inventário, origem, dimensões e positivos, preservando negativos já existentes.
-- A preparação e o treino real verificam o SHA-256 do ZIP autorizado e a reserva das imagens examinadas para desenvolvimento. Recortes idênticos não podem atravessar partições; rótulos fracionários ou incompatíveis são rejeitados.
-- A extração de treinamento exclui o teste. Checkpoints sintéticos, incompletos ou alterados são bloqueados para o teste real. Interrupções passam a registrar `interrupted`.
-- O limite de dois núcleos fica restrito ao teste curto; o treino real permite que o TensorFlow gerencie o paralelismo da CPU.
-- O transporte ganhou um comando que preserva IDs, rótulos e divisão e confere os arquivos no novo caminho.
+| Medida | A | B |
+| --- | ---: | ---: |
+| Validação: imagens sinalizadas / 114 | 27 | 114 |
+| Validação: regiões positivas | 42 | 7.758 |
+| Validação: tempo do algoritmo | 32,37 s | 281,87 s |
+| Externas LABIMED: imagens sinalizadas / 33 | 20 | 33 |
+| Externas LABIMED: regiões positivas | 140 | 5.277 |
 
-## Dados preparados
+Fontes: `experiments/results/comparacao_val_reduced_01.json` e `experiments/runs/{a,b}_labimed_neg_20260927/predictions.json`. O diagnóstico pontual anterior registra 0/450 pontos associados às regiões positivas de A e 424/450 de B. Referência parcial impede chamar todas as regiões sem associação de falsos positivos. A auditoria das 42 regiões do A reproduziu as coordenadas dentro dos arquivos, incluindo bordas escuras do campo circular.
 
-| Conjunto | Imagens | Recortes positivos | Recortes negativos | Imagens com negativos revisados |
-| --- | ---: | ---: | ---: | ---: |
-| Treino | 455 | 5.012 | 625 | 6 |
-| Validação | 114 | 1.196 | 186 | 2 |
-| Teste reservado | 105 | Não extraídos | Não extraídos | 0 |
+Os 33 campos externos são desenvolvimento, não teste independente. Caio declarou na conversa ausência de parasita visível nos campos e nos 99 recortes selecionados. Os JSONs e HTMLs dessa revisão estão ausentes nesta cópia local: recuperar o vínculo individual antes de publicar a análise reproduzível dos 99 recortes.
 
-São 7.019 recortes. O manifesto está em `data/splits/experimento/images.csv`, os recortes em `data/processed/b_real_01` e a referência em `data/annotations/experimento_reference_v2.json`. O relatório de prontidão de 25/09 aprovou os dados e o ambiente; após receber a execução, o mesmo nome de pasta fica bloqueado para evitar sobrescrita. A referência de avaliação final continua incompleta.
+## Verificação atual
 
-A divisão preserva o teste original do ZIP; as demais imagens foram separadas em treino/validação com semente 42, estratificando a disponibilidade de negativos revisados. As oito imagens já examinadas não entram no teste.
+86 testes existentes e 3 testes adicionais do gráfico passaram. A auditoria conferiu os quatro hashes de entrada do relatório, o checkpoint B e o pareamento dos 114 e dos 33 IDs. Registro: `experiments/validation/revisao_geral_20260927/audit.json`. O gerador separa erros, ausência de regiões e regiões sem suspeita e exporta sem depender de janela Tcl/Tk. Os testes adicionais estão em `tests/test_tcc_figures.py`.
 
-## Verificação técnica
+## Próximos passos e cronograma
 
-Na revisão de 25/09, passaram 77 testes automatizados e os cinco notebooks executaram em modo sintético. O relatório da suíte está em `experiments/validation/review_20260925_tests.xml`. Em 26/09, foram conferidos o ZIP recebido, os hashes do checkpoint e dos manifestos, as anotações, a configuração, as partições e o histórico. O checkpoint real foi reaberto e a validação reproduzida: 1.364/1.382 acertos, com cinco falsos positivos e treze falsos negativos em recortes. Auditoria: `experiments/validation/b_real_cpu_01_received_20260926/audit.json`.
+Sequência por entregas, sem datas presumidas:
 
-## Próximo passo
-
-O modelo real está em `experiments/runs/b_real_cpu_01/best.keras`, junto de todo o histórico recebido. Foram concluídas 26 épocas na CPU em aproximadamente 52 minutos; a melhor foi a época 19, seguida por sete épocas sem melhora. Não é necessário refazer esse treino. Preserve a execução; qualquer rodada futura deve usar outro nome.
-
-Examine os erros e o comportamento em imagens inteiras de desenvolvimento/validação. Prepare a referência necessária para a comparação A × B e esclareça a independência das amostras e o histórico do A antes de avaliar o teste reservado. A acurácia de recortes de validação não substitui essa etapa.
-
-## Limitações para o TCC
-
-- A fonte descreve sangue de camundongos, mas não temos o vínculo de cada imagem com animal/lâmina individual. `imagem_original` não comprova independência biológica; a divisão poderá precisar de nova versão se esses IDs forem obtidos.
-- Os negativos são áreas revisadas de campos positivos, provenientes de apenas oito imagens. Centenas de recortes não equivalem a centenas de amostras independentes. Ampliar a revisão é importante para uma avaliação robusta.
-- A localização inicial intersectou 26 de 28 pontos conhecidos nas oito imagens de desenvolvimento. Houve duas falhas; esse diagnóstico não é sensibilidade de detecção. Nenhum parâmetro foi escolhido com base no teste.
-- O teste atual contém somente campos positivos, com referência não exaustiva. Não permite concluir especificidade em lâminas negativas nem completar todas as métricas A × B.
-- O histórico de treinamento do A e possível sobreposição com esta base ainda precisam ser esclarecidos antes da comparação final. Consulte a [metodologia](metodologia.md).
+1. Recuperar os registros individuais e os geradores das galerias ausentes; conferir contra as predições preservadas.
+2. Consolidar gráficos descritivos e discutir os alarmes externos separadamente da cobertura dos pontos de validação.
+3. Fechar com o orientador o nível da referência e os limites de generalização. O TCC não depende de B vencer A.
+4. Se necessário, planejar outra versão de B com negativos de desenvolvimento. Campos usados para corrigir B não servirão de teste independente dessa versão.
+5. Congelar o protocolo e completar a referência antes da avaliação final; redigir resultados e limitações.

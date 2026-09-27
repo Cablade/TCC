@@ -6,11 +6,32 @@ import csv
 import json
 from pathlib import Path
 
+import matplotlib
+
+# Exportação de arquivos não depende de janela gráfica nem da instalação Tcl/Tk.
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+STATUS_LABELS = {
+    "predicao_positiva": "Sinalizada",
+    "sem_regioes": "Sem regiões",
+    "regioes_sem_predicao_positiva": "Regiões sem suspeita",
+    "erro": "Erro",
+}
+
+
+def status_counts(system: dict) -> dict:
+    counts = system["status_counts"]
+    if set(counts) - set(STATUS_LABELS):
+        raise ValueError("Estado de execução desconhecido; atualizar a legenda.")
+    if any(value < 0 for value in counts.values()) or sum(counts.values()) != system["n_images"]:
+        raise ValueError("Contagem de estados incompatível com o número de imagens.")
+    return {key: counts.get(key, 0) for key in STATUS_LABELS}
 
 
 def load_inputs(result_path: Path, epochs_path: Path) -> tuple[dict, list[dict]]:
@@ -24,10 +45,10 @@ def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
     systems = result["systems"]
     names = ["A original", "B reduzido"]
     colors = ["#2f6690", "#d1495b"]
-    positive = [systems[name[0]]["status_counts"].get("predicao_positiva", 0)
-                for name in names]
-    no_regions = [systems[name[0]]["n_images"] - value
-                  for name, value in zip(names, positive)]
+    counts = [status_counts(systems[name[0]]) for name in names]
+    n_images = systems["A"]["n_images"]
+    if n_images != systems["B"]["n_images"]:
+        raise ValueError("A e B devem ter o mesmo número de imagens.")
     figure, axes = plt.subplots(
         2, 2, figsize=(11, 7.2), constrained_layout=True)
 
@@ -39,17 +60,24 @@ def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
                     for row in epochs], label="Validação", color="#d1495b")
     axes[0, 0].set(title="(A) Acurácia do treinamento de B",
                    xlabel="Época", ylabel="Acurácia")
-    axes[0, 0].set_ylim(0.7, 1.01)
+    axes[0, 0].set_ylim(0, 1.01)
     axes[0, 0].legend(frameon=False)
 
     # Painel B: decisão por imagem. Todas as imagens desta validação têm referência positiva.
     x = np.arange(len(names))
-    axes[0, 1].bar(x, positive, label="Sinalizadas", color=colors)
-    axes[0, 1].bar(x, no_regions, bottom=positive,
-                   label="Sem regiões", color="#d9d9d9")
-    axes[0, 1].set(title="(B) Decisão em 114 imagens",
+    bottom = np.zeros(len(names))
+    for status, color in zip(STATUS_LABELS, ("#2f6690", "#d9d9d9", "#75aa78", "#d1495b")):
+        values = np.array([item[status] for item in counts])
+        if values.sum():
+            axes[0, 1].bar(x, values, bottom=bottom, label=STATUS_LABELS[status], color=color)
+            for index, value in enumerate(values):
+                if value:
+                    axes[0, 1].text(index, bottom[index] + value / 2, str(value),
+                                    ha="center", va="center", color="black" if status == "sem_regioes" else "white")
+        bottom += values
+    axes[0, 1].set(title=f"(B) Estados em {n_images} imagens",
                    ylabel="Número de imagens", xticks=x, xticklabels=names)
-    axes[0, 1].set_ylim(0, 125)
+    axes[0, 1].set_ylim(0, max(n_images * 1.1, 1))
     axes[0, 1].legend(frameon=False)
 
     # Painel C: propostas e regiões classificadas, sem chamar desconhecidos de negativos.
@@ -59,12 +87,16 @@ def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
                         for name in names]
     other_regions = [total - positive for total,
                      positive in zip(candidates, positive_regions)]
-    axes[1, 0].bar(x, positive_regions, label="Suspeitas", color=colors)
+    axes[1, 0].bar(x, positive_regions, label="Suspeitas", color="#2f6690")
     axes[1, 0].bar(x, other_regions, bottom=positive_regions,
                    label="Outras propostas", color="#d9d9d9")
     axes[1, 0].set(title="(C) Regiões propostas e classificadas",
                    ylabel="Regiões", xticks=x, xticklabels=names)
-    axes[1, 0].set_ylim(0, max(candidates) * 1.08)
+    axes[1, 0].set_ylim(0, max(max(candidates) * 1.18, 1))
+    for index, (total, positive) in enumerate(zip(candidates, positive_regions)):
+        axes[1, 0].text(index, total + max(candidates) * .02,
+                        f"{total:,} propostas\n{positive:,} suspeitas".replace(",", "."),
+                        ha="center", va="bottom", fontsize=9)
     axes[1, 0].legend(frameon=False)
 
     # Painel D: tempo da inferência sem leitura/escrita de imagens.
@@ -94,14 +126,15 @@ def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
             name[0]: {
                 "candidate_regions": sum(item["n_candidates"] for item in systems[name[0]]["per_image"]),
                 "positive_regions": sum(item["n_positive_regions"] for item in systems[name[0]]["per_image"]),
-                "no_region_images": systems[name[0]]["n_images"] - systems[name[0]]["status_counts"].get("predicao_positiva", 0),
+                "no_region_images": status_counts(systems[name[0]])["sem_regioes"],
+                "status_counts": status_counts(systems[name[0]]),
                 "mean_seconds_per_image": systems[name[0]]["timing_seconds"]["total_seconds"]["mean"],
             }
             for name in names
         },
         "limitations": [
-            "As 114 imagens pertencem à validação e participaram da seleção de B.",
-            "A referência de pontos não é exaustiva; pontos não associados não são automaticamente falsos positivos.",
+            "As imagens pertencem à validação e participaram da seleção de B.",
+            "A referência de pontos não é exaustiva; regiões não associadas não são automaticamente falsos positivos.",
             "Todas as imagens têm referência positiva; não há estimativa de especificidade.",
             "O teste reservado não foi avaliado.",
         ],

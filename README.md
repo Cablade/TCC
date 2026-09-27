@@ -16,9 +16,9 @@ O estudo compara dois sistemas em imagens microscópicas inteiras: **A**, com in
 2. [Seguir o guia de treinamento](docs/guia_treinamento.md): preparar os dados, treinar B e comparar com A.
 3. [Consultar o que falta](docs/status.md): prontidão e próximos passos.
 
-O primeiro treino real foi concluído e conferido em 26/09/2026: o checkpoint da época 19 reproduziu **98,70% de acerto nos recortes de validação**, sem avaliar o teste final. São 674 imagens utilizáveis, divididas em 455 para treino, 114 para validação e 105 reservadas para teste; 7.019 recortes de treino/validação. A referência combina 2.715 pontos positivos publicados e 29 regiões negativas revisadas em oito imagens. **Somente o ZIP público autorizado entra no treinamento.** A divisão é por imagem, sem independência entre animais comprovada; os poucos negativos e a referência incompleta do teste limitam a avaliação científica.
+O B atual completou 30 épocas; a época 23 foi selecionada pela menor perda de validação. São 674 imagens, divididas em 455 de treino, 114 de validação e 105 reservadas. O treino reduzido usa 3.129 recortes (3.053 positivos e 76 negativos); a validação usa 778 (740 positivos e 38 negativos). **Somente o ZIP público autorizado entra no treinamento.** A divisão é por imagem, sem independência entre animais comprovada. Os 98,70% pertenciam ao B anterior.
 
-O modelo recebido e seu histórico estão em `experiments/runs/b_real_cpu_01`. Consulte o [relatório da execução](experiments/validation/b_real_cpu_01_received_20260926/relatorio.md) e os [próximos passos](docs/status.md). O pacote `entrega_modelo_b_20260925.zip` conserva a preparação original para transporte; uma nova rodada precisa de outro nome de execução, conforme o [guia](docs/guia_treinamento.md).
+O modelo atual e seu histórico estão em `experiments/runs/b_real_cpu_01`. Consulte a [revisão geral](docs/revisao_geral.md) e os [próximos passos](docs/status.md). Há resultados pareados de 114 campos de validação e de 33 campos externos LABIMED, analisados separadamente. Faltam arquivos das galerias recentes nesta cópia local; sua recuperação está pendente. O painel `dashboard/` contém exemplos demonstrativos e não é fonte de resultados.
 
 ## Organização
 
