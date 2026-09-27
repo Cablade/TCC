@@ -18,7 +18,7 @@ O estudo compara dois sistemas em imagens microscópicas inteiras: **A**, com in
 
 O B atual completou 30 épocas; a época 23 foi selecionada pela menor perda de validação. São 674 imagens, divididas em 455 de treino, 114 de validação e 105 reservadas. O treino reduzido usa 3.129 recortes (3.053 positivos e 76 negativos); a validação usa 778 (740 positivos e 38 negativos). **Somente o ZIP público autorizado entra no treinamento.** A divisão é por imagem, sem independência entre animais comprovada. Os 98,70% pertenciam ao B anterior.
 
-O modelo atual e seu histórico estão em `experiments/runs/b_real_cpu_01`. Consulte a [revisão geral](docs/revisao_geral.md) e os [próximos passos](docs/status.md). Há resultados pareados de 114 campos de validação e de 33 campos externos LABIMED, analisados separadamente. Faltam arquivos das galerias recentes nesta cópia local; sua recuperação está pendente. O painel `dashboard/` contém exemplos demonstrativos e não é fonte de resultados.
+O modelo atual e seu histórico estão em `experiments/runs/b_real_cpu_01`. Consulte a [revisão geral](docs/revisao_geral.md), as [11 figuras com legendas](tcc/figuras/consolidado_20260927/index.html) e o [texto de resultados preliminares](tcc/resultados_preliminares.md). Há resultados pareados de 114 campos de validação e de 33 campos externos LABIMED, analisados separadamente. Três galerias foram reconstruídas a partir dos arquivos preservados; os registros da avaliação de Caio declaram explicitamente sua reconstrução da conversa. O painel demonstrativo foi arquivado e retirado do fluxo ativo.
 
 ## Organização
 

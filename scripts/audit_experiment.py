@@ -60,12 +60,17 @@ def audit(root):
     paired = {label: {"same_unique_ids": set(runs[a]["image_ids"]) == set(runs[b]["image_ids"])
                      and all(len(runs[n]["image_ids"]) == len(set(runs[n]["image_ids"])) for n in (a, b)),
                      "n_images": len(runs[a]["image_ids"])} for label, a, b in pairs}
+    reconstructed = ["experiments/reviews/ab_external_negatives_20260927/review_reconstructed.json",
+                     "experiments/reviews/b_external_false_positives_20260927_v2/review_reconstructed.json",
+                     "experiments/validation/consolidacao_20260927/recovery.json"]
     return {"purpose": "local_artifact_audit_not_model_evaluation", "comparison_inputs": checks,
             "checkpoint_B_matches_metadata": digest(root / "experiments/runs/b_real_cpu_01/best.keras") == meta["checkpoint_sha256"],
             "selected_epoch": meta["selected_epoch"], "training_seconds": meta["training_seconds"],
             "crops": {f"{split}/{label}": count for (split, label), count in counts.items()},
             "paired": paired, "runs": runs, "scripts": inventory,
             "missing_expected_artifacts": [p for p in expected if not (root / p).is_file()],
+            "reconstructed_records": {p: digest(root / p) for p in reconstructed if (root / p).is_file()},
+            "reconstruction_note": "Originais ausentes continuam listados por transparência. recover_reviews.py fornece galerias e registros reconstruídos; não são os bytes originais.",
             "limitations": ["Ausência de referência textual não comprova desuso de um script.",
                             "Integridade de artefatos não confirma rótulos biológicos nem independência entre animais."]}
 

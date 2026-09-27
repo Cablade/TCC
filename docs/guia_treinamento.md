@@ -31,6 +31,12 @@ Para gerar a figura a partir do relatório já existente, sem executar os modelo
 
 As figuras são de validação preliminar. Todas as 114 imagens são positivas; métricas de detecção com referência parcial não permitem concluir superioridade geral. Os campos externos ficam em análise separada. Veja [revisão geral](revisao_geral.md).
 
+Para consultar o conjunto completo já gerado, abra [as figuras e legendas](../tcc/figuras/consolidado_20260927/index.html). Para reproduzi-lo em pasta nova:
+
+```powershell
+& $pythonTcc scripts/generate_tcc_figures.py --complete --output-dir tcc/figuras/nova_edicao
+```
+
 ## Nova rodada de treinamento, somente com objetivo definido
 
 Preserve o B atual. Copie `configs/experiment_cpu.json` para outro nome, atribua um `run_name` novo e confira `crop_manifest` e `model_config`. A configuração principal aponta para o B reduzido; o nome de execução existente fica bloqueado contra sobrescrita.

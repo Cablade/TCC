@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "reconstructed_at": "2026-09-27T19:58:48.353909+00:00",
+  "original_review_file_recovered": false,
+  "basis": "explicit_user_statements_in_conversation",
+  "reviewer": "Caio",
+  "new_expert_review": false,
+  "manifest_sha256": "3bb4969d77bfb06cc54cc94bb0ce98dba129289187171a62f2c985972ed4abc2",
+  "predictions_B_sha256": "ddcb8660df7d80fd53b59fa28617e48470ecc8ef84eab22aab459b0a53015e35",
+  "training_changed": false,
+  "annotations_changed": false,
+  "user_statement": "nenhum desses 33 campos tem parasita!",
+  "images": [
+    {
+      "image_id": "labimed_6b6b49b055396c8c09a92123",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_9996642e5ac2f4f0f79a9685",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_199590057469f42f09d0a847",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_ff40b307ffce33e1eae09d61",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_eaaff9801995406c7549abff",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_29c137561f89e024b1deaeeb",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_407526d259ff2e731b719c7a",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_4a36e1d92287dbc7a68fb346",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_a638c6ee4e064976dd2b7473",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_2ab47a2dce1728e59d33a74e",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_651a9fb7fe6101982184d619",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_f99f4154080ab2ff7a00e5fa",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_e1c1a001f382e5281cebf091",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_24f1975e3e02726678a908e3",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_37e77c230ee225ac7558693a",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_9bcf84404db807342dbc8c52",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_c433f07ee5da2de177fa929a",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_15cedede07d0f5071406fe00",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_439614febdf7c3766131357a",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_aafb9ed8b8e1ac6ad2614ff5",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_c928ecabe6e33f33e8473f9e",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_effcccd8d30b302affd6bdf9",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_410366c3f0a83f1fa9c502c3",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_0e042e8376371fd58e84591c",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_c0abaf521a35cb93bed798c4",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_182de1506aaaa4f25af86b94",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_92ab3a366ab561a7e019f0ee",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_f60593247dc00925f0b92c65",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_7c596dee75c582148b917917",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_79340902d68fdea35bcbf259",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_62774c2859f80d40cffd6de2",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_fd81bfd0d4fab13683f3da72",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    },
+    {
+      "image_id": "labimed_2e830382f407487c625371f1",
+      "decision": "no_visible_parasite",
+      "decision_basis": "user_global_statement"
+    }
+  ]
+}

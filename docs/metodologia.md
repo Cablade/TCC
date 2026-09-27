@@ -2,6 +2,8 @@
 
 > Protocolo ativo, iniciado em 2026-09-20. Substitui os desenhos históricos. Este documento define o experimento; a evidência do que foi efetivamente executado deve ficar no checklist e nos relatórios de execução.
 
+Consolidação de 27/09/2026: as execuções atuais são análise exploratória de validação (114 campos murinos) e diagnóstico externo de desenvolvimento (33 campos LABIMED humanos, um caso, oito lâminas), apresentados separadamente. O [texto de resultados](../tcc/resultados_preliminares.md) e as [figuras](../tcc/figuras/consolidado_20260927/index.html) não equivalem à avaliação final prevista neste protocolo. As declarações visuais de Caio foram reconstruídas da conversa com proveniência explícita; não constituem nova adjudicação especializada. O protocolo de teste permanece condicionado à referência e ao congelamento das escolhas.
+
 ## 1. Unidade de comparação
 
 Comparar exatamente dois sistemas completos de localização e classificação de regiões suspeitas de *Trypanosoma cruzi*. O A usa os pesos já treinados e reproduz a inferência original. O B é a proposta, com localização configurável e EfficientNet-B0. Ambos recebem os mesmos IDs de **imagens inteiras** do conjunto reservado. Nenhum retreinamento do A será realizado. As etapas de localização não precisam ser iguais.

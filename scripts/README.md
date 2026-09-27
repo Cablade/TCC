@@ -14,7 +14,8 @@ Executar na raiz do projeto. Para o fluxo diário, consultar `docs/guia_treiname
 | Exportar/figuras | `export_prediction_review.py`, `generate_tcc_figures.py` | Manter; exportar após inferência para não interferir no tempo. |
 | Auditar/verificar | `audit_model_a.py`, `audit_experiment.py`, `validate_notebooks.py`, `notebook_support.py` | Manter; suporte dos notebooks não é descartável. |
 | Reproduzir escolha geométrica | `tune_region_merging.py` | Histórico útil, não rotina diária. |
-| Protótipo de painel | `update_dashboard.py` | Fora do fluxo vigente; caminho de entrada desatualizado e conversão de indisponível em zero. Candidato a arquivamento com `dashboard/`. |
+| Reconstruir revisões | `recover_reviews.py` | Valida hashes/pixels e reconstrói três galerias sem executar modelos; protege saídas existentes. |
+| Protótipo de painel | `update_dashboard.py` e `dashboard/` (arquivados) | Removidos do fluxo ativo; cópia verificada em `archive/dashboard_demonstrativo_20260927.zip`. |
 
 Auditoria sem carregar os modelos:
 
@@ -22,4 +23,12 @@ Auditoria sem carregar os modelos:
 .\.venv\Scripts\python.exe scripts/audit_experiment.py --output experiments/validation/nova_auditoria/audit.json
 ```
 
-Escolher destino novo. O relatório lista hashes, pareamento, contagens e referências textuais dos scripts. Não trata ausência de referência textual como prova de desuso. Os geradores das galerias recentes citados na conversa não estão nesta cópia; sua ausência é registrada e precisa de recuperação.
+Escolher destino novo. O relatório lista hashes, pareamento, contagens e referências textuais dos scripts. Não trata ausência de referência textual como prova de desuso. `recover_reviews.py` substitui a necessidade dos geradores antigos ausentes para as três galerias reconstruídas; não recupera os bytes dos registros originais.
+
+Conjunto completo de figuras, sem executar redes nem abrir imagens do teste:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/generate_tcc_figures.py --complete --output-dir tcc/figuras/nova_edicao
+```
+
+A pasta deve ser nova. O modo completo usa as execuções auditadas, exporta PDF/PNG, duas tabelas CSV, legendas e hashes em `summary.json`. O modo simples anterior permanece disponível.

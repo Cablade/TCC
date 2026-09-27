@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -15,6 +16,7 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 
 STATUS_LABELS = {
@@ -147,6 +149,8 @@ def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--complete", action="store_true", help="Gera todas as figuras, CSVs, legendas e índice a partir das execuções auditadas.")
+    parser.add_argument("--output-dir", type=Path, help="Pasta nova obrigatória com --complete.")
     parser.add_argument("--result", type=Path, default=ROOT /
                         "experiments/results/comparacao_val_reduced_01.json")
     parser.add_argument("--epochs", type=Path, default=ROOT /
@@ -154,6 +158,13 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=ROOT /
                         "tcc/figuras/figura_comparacao_validacao")
     args = parser.parse_args()
+    if args.complete:
+        if args.output_dir is None:
+            parser.error("--complete exige --output-dir com uma pasta nova")
+        from src.tcc_reporting import build_report
+        summary = build_report(ROOT, args.output_dir)
+        print(json.dumps({"figures": len(summary["figures"]), "coverage": summary["coverage"], "output": str(args.output_dir)}, ensure_ascii=False))
+        return 0
     args.output.parent.mkdir(parents=True, exist_ok=True)
     result, epochs = load_inputs(args.result, args.epochs)
     summary = make_figure(result, epochs, args.output)

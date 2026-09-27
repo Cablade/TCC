@@ -26,18 +26,18 @@ Os 25.695 candidatos são a saída de inferência do B nas 114 imagens inteiras,
 
 Fontes: `experiments/results/comparacao_val_reduced_01.json` e `experiments/runs/{a,b}_labimed_neg_20260927/predictions.json`. O diagnóstico pontual anterior registra 0/450 pontos associados às regiões positivas de A e 424/450 de B. Referência parcial impede chamar todas as regiões sem associação de falsos positivos. A auditoria das 42 regiões do A reproduziu as coordenadas dentro dos arquivos, incluindo bordas escuras do campo circular.
 
-Os 33 campos externos são desenvolvimento, não teste independente. Caio declarou na conversa ausência de parasita visível nos campos e nos 99 recortes selecionados. Os JSONs e HTMLs dessa revisão estão ausentes nesta cópia local: recuperar o vínculo individual antes de publicar a análise reproduzível dos 99 recortes.
+Os 33 campos externos são desenvolvimento, não teste independente. Caio declarou na conversa ausência de parasita visível nos campos e nos 99 recortes selecionados. As galerias foram reconstruídas. O vínculo dos 99 recortes foi conferido pixel a pixel contra as imagens originais e suas caixas. Os arquivos `review_reconstructed.json` registram a declaração da conversa; não são os JSONs originais perdidos nem uma nova revisão especializada. Registro técnico: `experiments/validation/consolidacao_20260927/recovery.json`.
 
 ## Verificação atual
 
-86 testes existentes e 3 testes adicionais do gráfico passaram. A auditoria conferiu os quatro hashes de entrada do relatório, o checkpoint B e o pareamento dos 114 e dos 33 IDs. Registro: `experiments/validation/revisao_geral_20260927/audit.json`. O gerador separa erros, ausência de regiões e regiões sem suspeita e exporta sem depender de janela Tcl/Tk. Os testes adicionais estão em `tests/test_tcc_figures.py`.
+Os 92 testes da suíte passaram após a consolidação. A auditoria conferiu os quatro hashes de entrada do relatório, o checkpoint B e o pareamento dos 114 e dos 33 IDs. A cobertura pontual foi recalculada: 425 propostas e 424 regiões positivas associadas para B; zero para A. O gerador separa os estados de execução, usa associação um a um e exporta sem depender de janela Tcl/Tk. Os registros atuais estão em `experiments/validation/consolidacao_20260927/`.
 
 ## Próximos passos e cronograma
 
 Sequência por entregas, sem datas presumidas:
 
-1. Recuperar os registros individuais e os geradores das galerias ausentes; conferir contra as predições preservadas.
-2. Consolidar gráficos descritivos e discutir os alarmes externos separadamente da cobertura dos pontos de validação.
+1. Concluído: três galerias reconstruídas (33 campos externos, 99 regiões B e 456 recortes comuns), com hashes/pixels conferidos.
+2. Concluído: 11 figuras em PDF/PNG, CSVs, legendas e índice em `tcc/figuras/consolidado_20260927`; texto em `tcc/resultados_preliminares.md`. Painel demonstrativo e atualizador arquivados em ZIP verificado.
 3. Fechar com o orientador o nível da referência e os limites de generalização. O TCC não depende de B vencer A.
 4. Se necessário, planejar outra versão de B com negativos de desenvolvimento. Campos usados para corrigir B não servirão de teste independente dessa versão.
 5. Congelar o protocolo e completar a referência antes da avaliação final; redigir resultados e limitações.
