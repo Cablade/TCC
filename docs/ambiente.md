@@ -164,7 +164,7 @@ Copie o código (`src`, `scripts`, `configs`, `notebooks`, `tests`, `requirement
 - `data/annotations/negative_preselection_v1/`, com o histórico da revisão e a reserva obrigatória das imagens já examinadas;
 - o ZIP original `trypoastigote_images.zip`, por exemplo em `D:\TCC\dados\trypoastigote_images.zip`.
 
-O modelo A só será necessário para a comparação; copie o artefato auditado de `ChagasVizion\Backend\fuzzylab_app\decision\services\model_trained.keras` e conserve seu hash. Nunca substitua o modelo por outro arquivo com o mesmo nome.
+Para a comparação, o Modelo A já está disponível dentro do TCC em `models/model_a/model_trained.keras`, acompanhado de `provenance.json`. A cópia foi conferida byte a byte com o original do ChagasVizion; os pesos permanecem congelados. Ao transportar o experimento A × B, inclua a pasta `models/model_a` e a execução completa do B em `experiments/runs/b_real_cpu_01`. O pacote inicial de 25/09, destinado apenas ao treinamento do B, não contém esses dois modelos. Arquivos `.keras` não acompanham automaticamente o Git.
 
 ### Antes de gerar recortes no PC novo
 

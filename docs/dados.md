@@ -42,7 +42,7 @@ A auditoria fez leitura completa dos pixels, sem habilitar recuperação de JPEG
 
 O arquivo `train/field0156.jpg` apresentou `Truncated File Read`. Não será usado sem obter uma cópia válida e registrar uma nova auditoria. Elegibilidade técnica não confirma foco, qualidade biológica ou presença/ausência de parasitas.
 
-O template antigo conserva rótulos nulos e revisão pendente. A referência ativa é `data/annotations/experimento_reference_v2.json` e a divisão está em `data/splits/experimento/images.csv`. Foram preparados 7.019 recortes de treino/validação. Ainda não houve treino real completo nem comparação A × B nesta base. Os parâmetros de localização foram mantidos nesta rodada inicial; o diagnóstico nas oito imagens de desenvolvimento encontrou interseção para 26 de 28 pontos conhecidos, com duas falhas. Isso não constitui sensibilidade de detecção nem otimização validada.
+O template antigo conserva rótulos nulos e revisão pendente. A referência ativa é `data/annotations/experimento_reference_v2.json` e a divisão está em `data/splits/experimento/images.csv`. Foram preparados 7.019 recortes de treino/validação. O primeiro treino real foi concluído e recebido em 26/09/2026; a comparação A × B permanece pendente. Consulte o relatório em `experiments/validation/b_real_cpu_01_received_20260926/relatorio.md`. Os parâmetros de localização foram mantidos nesta rodada inicial; o diagnóstico nas oito imagens de desenvolvimento encontrou interseção para 26 de 28 pontos conhecidos, com duas falhas. Isso não constitui sensibilidade de detecção nem otimização validada.
 
 ### Como reproduzir a preparação
 

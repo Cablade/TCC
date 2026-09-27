@@ -3,7 +3,7 @@ system: A
 mode: inference_only
 reference_repository: https://github.com/Cablade/VisionCruzi
 reference_commit: 59b10244f2ce5cfabff7bece404cb5679668a45d
-artifact: model_trained.keras
+artifact: models/model_a/model_trained.keras
 artifact_sha256: 9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f
 class_labels: ['0', '1']
 positive_label: '1'

@@ -57,6 +57,19 @@ def get_cosine_scheduler(initial_lr=1e-4, total_epochs=30):
     )
 
 
+def compiled_inference(classifier, input_shape):
+    """Mesmo classificador em grafo; lote variável evita retraçar o último lote."""
+    import tensorflow as tf
+    compiled = tf.function(lambda batch: classifier(batch, training=False),
+                           input_signature=[tf.TensorSpec((None, *input_shape), tf.float32)])
+
+    def call(batch, training=False):
+        if training:
+            raise ValueError("Execução compilada é exclusiva para inferência.")
+        return compiled(tf.convert_to_tensor(batch, dtype=tf.float32))
+    return call
+
+
 def predict_image_b(image_rgb, classifier, config=None, image_id="unknown") -> dict:
     """Inferência em imagem inteira, mantendo sem_regioes e erros explícitos."""
     from .segmentation import propose_regions, crop_region

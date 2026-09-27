@@ -26,6 +26,7 @@ class LocalizationConfig:
     min_crop_size: int = 100
     context_fraction: float = 0.5
     border_policy: str = "clip"
+    merge_max_size: int | None = None
 
     def __post_init__(self):
         if self.method != "blackhat_otsu" or self.border_policy != "clip":
@@ -38,6 +39,9 @@ class LocalizationConfig:
             raise ValueError("Intervalo de áreas inválido.")
         if self.min_crop_size < 1 or self.context_fraction < 0:
             raise ValueError("Contexto/tamanho de recorte inválido.")
+        if self.merge_max_size is not None and (isinstance(self.merge_max_size, bool)
+                or not isinstance(self.merge_max_size, int) or self.merge_max_size < self.min_crop_size):
+            raise ValueError("merge_max_size deve ser inteiro >= min_crop_size ou null.")
 
 
 def localization_config(config: dict | LocalizationConfig | None = None) -> LocalizationConfig:
@@ -47,8 +51,54 @@ def localization_config(config: dict | LocalizationConfig | None = None) -> Loca
 
 
 def localization_hash(config: dict | LocalizationConfig | None = None) -> str:
-    content = json.dumps(asdict(localization_config(config)), sort_keys=True).encode()
+    values = asdict(localization_config(config))
+    # A opção desativada preserva os hashes de todos os recortes/checkpoints antigos.
+    if values["merge_max_size"] is None:
+        values.pop("merge_max_size")
+    content = json.dumps(values, sort_keys=True).encode()
     return hashlib.sha256(content).hexdigest()
+
+
+def merge_overlapping_regions(candidates, max_size):
+    """Agrupa caixas sobrepostas sem descartar a cobertura de nenhuma proposta.
+
+    A união retangular é limitada em largura e altura; caixas originalmente
+    maiores são preservadas. Não usa rótulos, escores da rede ou limite top-K.
+    A ordem geométrica e os desempates são determinísticos.
+    """
+    if not candidates:
+        return []
+    ordered = sorted(candidates, key=lambda row: (*row["bbox"][1::-1], row["bbox"][3], row["bbox"][2]))
+    boxes = np.empty((len(ordered), 4), dtype=np.int64)
+    groups = []
+    for candidate in ordered:
+        box = np.asarray(candidate["bbox"], dtype=np.int64)
+        current = boxes[:len(groups)]
+        lower = np.maximum(current[:, :2], box[:2])
+        upper = np.minimum(current[:, 2:], box[2:])
+        intersection = np.prod(np.maximum(0, upper - lower), axis=1)
+        union_box = np.concatenate((np.minimum(current[:, :2], box[:2]),
+                                    np.maximum(current[:, 2:], box[2:])), axis=1)
+        feasible = (intersection > 0) & np.all(union_box[:, 2:] - union_box[:, :2] <= max_size, axis=1)
+        choices = np.flatnonzero(feasible)
+        if len(choices):
+            areas = np.prod(current[choices, 2:] - current[choices, :2], axis=1)
+            area = np.prod(box[2:] - box[:2])
+            scores = intersection[choices] / (areas + area - intersection[choices])
+            index = int(choices[int(np.argmax(scores))])
+            boxes[index] = union_box[index]
+            group = groups[index]
+            group["bbox"] = boxes[index].tolist()
+            a, b = group["proposal_bbox"], candidate["proposal_bbox"]
+            group["proposal_bbox"] = [min(a[0], b[0]), min(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3])]
+            group["area"] += candidate["area"]
+            group["merged_candidates"] += 1
+        else:
+            boxes[len(groups)] = box
+            groups.append({**candidate, "bbox": list(candidate["bbox"]),
+                           "proposal_bbox": list(candidate["proposal_bbox"]), "merged_candidates": 1})
+    groups.sort(key=lambda row: (row["bbox"][1], row["bbox"][0], row["bbox"][3], row["bbox"][2]))
+    return groups
 
 
 def validate_rgb(image_rgb: np.ndarray) -> None:
@@ -105,6 +155,9 @@ def propose_regions(image_rgb: np.ndarray, config=None) -> tuple[list[dict], dic
         seen.add(bbox)
         candidates.append({"bbox": list(bbox), "proposal_bbox": proposal_bbox, "area": int(area)})
     candidates.sort(key=lambda row: (row["bbox"][1], row["bbox"][0], row["bbox"][3], row["bbox"][2]))
+    before_merge = len(candidates)
+    if cfg.merge_max_size is not None:
+        candidates = merge_overlapping_regions(candidates, cfg.merge_max_size)
     diagnostics = {
         "method": cfg.method,
         "parameters_status": "provisorios_nao_calibrados",
@@ -113,5 +166,7 @@ def propose_regions(image_rgb: np.ndarray, config=None) -> tuple[list[dict], dic
         "components": int(count - 1),
         "accepted_components": accepted_components,
         "candidates": len(candidates),
+        "candidates_before_merge": before_merge,
+        "merged_redundant_candidates": before_merge - len(candidates),
     }
     return candidates, diagnostics

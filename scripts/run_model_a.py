@@ -16,12 +16,20 @@ from src.model_a import load_original_model, infer_image, draw_overlay, file_sha
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', required=True)
-    parser.add_argument('--model', required=True)
+    parser.add_argument('--model', default=str(ROOT / 'models/model_a/model_trained.keras'),
+                        help='Modelo A congelado; padrão: models/model_a/model_trained.keras no TCC.')
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--split', default='development')
     parser.add_argument('--limit', type=int)
     parser.add_argument('--overlays', action='store_true')
+    parser.add_argument('--threads', type=int, default=0, help='Threads intra/inter-op do TensorFlow; 0 mantém automático.')
     args = parser.parse_args()
+    if args.threads < 0:
+        parser.error('--threads deve ser >= 0')
+    if args.threads:
+        import tensorflow as tf
+        tf.config.threading.set_intra_op_parallelism_threads(args.threads)
+        tf.config.threading.set_inter_op_parallelism_threads(args.threads)
     from src.data_protocol import read_image_bytes, validate_partitions
     with open(args.manifest, encoding='utf-8-sig', newline='') as file:
         rows = list(csv.DictReader(file))
@@ -40,6 +48,8 @@ def main():
     start = time.perf_counter()
     model, artifact = load_original_model(args.model)
     artifact['load_seconds'] = time.perf_counter()-start
+    artifact['tensorflow_threads'] = {'intra_op': args.threads, 'inter_op': args.threads}
+    artifact['overlays_saved'] = args.overlays
     results = []
     for row in rows:
         start = time.perf_counter()

@@ -90,3 +90,42 @@ Histórico de treinamento do A incompleto, possível sobreposição com seu trei
 ## 9. Evidências e execução
 
 O [status atual](status.md) separa implementação, verificações técnicas e pendências do experimento. Diagnósticos de bases descartadas não são resultados da base atual. Registros anteriores foram preservados no [arquivo histórico](../archive/README.md).
+
+## 10. Revisão da paridade experimental — 26/09/2026
+
+Esta revisão explicita o alcance das conclusões; não autoriza retreinar ou substituir o A original. A superioridade do B é uma hipótese a testar, não uma premissa do trabalho. Uma comparação válida pode encontrar vantagem do A, do B ou um compromisso entre erros e custo de execução.
+
+### Duas perguntas diferentes
+
+| Pergunta | Desenho necessário | Conclusão possível |
+| --- | --- | --- |
+| Qual sistema pronto funciona melhor nesta base? | A original e B proposto recebem as mesmas imagens inteiras, referência, regras de pontuação e condições de execução. Cada um conserva seu processamento próprio. | Comparação dos sistemas como implementados, sujeita à história de treino e diferença de domínio. Não isola o efeito da arquitetura. |
+| Qual arquitetura aprende melhor sob condições semelhantes? | Treinar uma nova versão da arquitetura de A e B com os mesmos exemplos rotulados, partições e regras de seleção; orçamento de ajuste comparável e inicialização/pretreino documentados. Recortes devem ser definidos por regra comum independente das previsões de ambos. | Comparação controlada de aprendizagem, ainda sujeita à independência dos dados e aos fatores que não puderem ser igualados. |
+
+**Decisão de escopo confirmada por Caio em 26/09/2026:** adotar o primeiro desenho, preservando A original como referência histórica e avaliando a evolução representada pelo sistema B. Não retreinar A. O segundo desenho foi discutido como alternativa e não será adotado neste escopo. O diagnóstico com recortes comuns permanece auxiliar, não substitui a comparação dos sistemas completos.
+
+O ano de 2024 foi informado por Caio como contexto do A; sua associação ao artefato/versão deve ser confirmada por documentação do trabalho original. Não descrever A como "a melhor tecnologia de 2024" ou representante de todo o estado da arte sem revisão bibliográfica que sustente essa afirmação. A formulação é "sistema de referência desenvolvido anteriormente" e, após comprovação da data, "sistema desenvolvido em 2024". A diferença entre A e B reflete o conjunto das mudanças de dados, treinamento, localização e classificação, não uma medida isolada do avanço tecnológico entre anos.
+
+### Como expressar a evolução
+
+Apresentar valores absolutos de cada sistema, denominadores e diferença em uma métrica definida. "X vezes melhor" sem identificar a métrica não é uma conclusão válida. Exemplos exclusivamente ilustrativos: recall de 40% para 80% corresponde a +40 pontos percentuais e razão 2 entre recalls; falsos positivos de 10 para 5 por imagem correspondem a redução de 50%; tempo de 2 para 6 segundos por imagem representa duração 3 vezes maior. Razões exigem denominador não nulo e estimativas válidas. Um ganho em detecção pode acompanhar maior custo ou mais alarmes falsos; apresentar ambos.
+
+Esse desenho pode sustentar melhoria do sistema proposto sobre a referência histórica nas condições avaliadas. Não demonstra superioridade universal da EfficientNet-B0 sobre outra arquitetura nem garante generalização clínica. Diferenças de treino e possível sobreposição de dados do A devem continuar explícitas.
+
+### O que a execução atual permite
+
+A validação usa as mesmas 114 imagens inteiras. A gerou 42 candidatos; a configuração inicial de B gera 140.005. São regiões propostas dentro das imagens, não 140.005 imagens independentes ou novas amostras de avaliação. A diferença de candidatos é uma propriedade dos localizadores e explica parte do custo. Não descartar arbitrariamente propostas de B nem avaliar somente imagens em que A encontrou candidatos para aproximar os resultados.
+
+A regra de presença de qualquer região positiva favorece decisões positivas quando há muitas propostas. Como os campos atuais têm referência positiva, marcar quase tudo como suspeito pode aparentar bom resultado por imagem mesmo com muitos alarmes indevidos. É necessário medir falsos positivos em referência suficiente para esse fim; o conjunto atual não permite estimar especificidade em lâminas negativas. Mais candidatos, mais decisões positivas e maior tempo não demonstram maior qualidade.
+
+O diagnóstico suplementar de classificadores nos mesmos recortes de validação é apenas exploratório: os recortes foram selecionados pelo localizador B e seus pixels brutos diferem das regiões mascaradas usadas pelo A original. Dar os mesmos recortes a redes prontas não corrige históricos de treino diferentes nem torna esse diagnóstico uma comparação neutra de arquiteturas. Não o usar como resultado principal de superioridade.
+
+### Condições para a comparação principal
+
+- Fixar pergunta, conjunto de avaliação, regras de correspondência e métricas antes do teste. A validação pode orientar ajustes; o teste reservado não pode orientar a escolha do modelo. Essa separação segue as [recomendações de prevenção de vazamento do scikit-learn](https://scikit-learn.org/1.8/common_pitfalls.html#data-leakage).
+- Manter todas as imagens elegíveis e contabilizar casos sem regiões e falhas. Quantificar cobertura de localização separadamente dos erros de classificação.
+- Comparar tempo e qualidade conjuntamente. Registrar mesma máquina, recursos de CPU/GPU, modo de execução e aquecimento. Separar carregamento, leitura/gravação e algoritmo; a medição atual é exploratória e inclui primeiras chamadas.
+- Para detecção, revisar a referência necessária para identificar falsos positivos; não transformar regiões não anotadas em negativas. Para diagnóstico por lâmina, obter lâminas negativas e rótulos compatíveis antes de afirmar especificidade.
+- Esclarecer possível sobreposição do treino de A com a base e a identidade animal/lâmina. O uso de IDs iguais na avaliação não resolve essas pendências.
+
+O treino reduzido do B já autorizado é uma experiência de eficiência no desenvolvimento. Na conferência de 26/09 às 15:39, o processo da comparação de referência já não existia, o log estava parado desde 13:43 e não havia resultado final; o novo treino não havia iniciado. A causa da interrupção não foi determinada. Uma futura conclusão desse treino não aprova, por si, o desenho final do TCC. A avaliação final permanece reservada. Não alterar dados, limites ou métricas para garantir que B vença ou para aproximar artificialmente os resultados dos modelos.

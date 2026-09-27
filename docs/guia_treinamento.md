@@ -1,6 +1,6 @@
 # Guia de treinamento do Modelo B
 
-Atualizado em 25/09/2026. O conjunto inicial já está separado e os recortes foram preparados. O treino real será executado no computador do seu amigo. O perfil fornecido usa **CPU no Windows**; a RX 6600 não acelera esta instalação de TensorFlow/Keras 2.15.
+Atualizado em 26/09/2026. A primeira execução real foi recebida e conferida; o modelo está em `experiments/runs/b_real_cpu_01`. Este guia permanece como roteiro de instalação e treinamento. Para uma nova rodada, escolha outro `run_name` antes de começar, conforme a seção 6, e preserve o modelo recebido. O perfil fornecido usa **CPU no Windows**; a RX 6600 não acelera esta instalação de TensorFlow/Keras 2.15.
 
 ## 1. Receber os arquivos
 
@@ -94,3 +94,54 @@ Altere `crop_manifest` e `run_name` na configuração da nova execução. Preser
 Não execute o teste reservado para escolher parâmetros. Antes da comparação final, defina com o orientador a cobertura da referência, as limitações de independência e o histórico de treino do A. A referência atual não libera uma avaliação completa.
 
 Quando esses requisitos estiverem resolvidos, use o mesmo manifesto transportado e as mesmas imagens para `scripts/run_model_a.py`, `scripts/run_model_b.py` e `scripts/compare_systems.py`. Consulte `--help` e a [metodologia](metodologia.md). O Modelo A mantém os pesos originais; somente B recebe treinamento.
+
+### Comparação preliminar na validação — computador do Caio
+
+Com os dois modelos já disponíveis, execute os blocos abaixo, um por vez, esperando cada comando terminar. Eles aplicam A e B às mesmas **114 imagens inteiras de validação**. As 105 imagens de teste permanecem reservadas. Se um comando falhar, pare e examine o erro antes de continuar.
+
+```powershell
+Set-Location 'C:\Users\PCZAO\Documents\Caio\TCC\TCC'
+$pythonTcc = '.\.venv\Scripts\python.exe'
+```
+
+Execute o A:
+
+```powershell
+& $pythonTcc scripts/run_model_a.py --manifest data/splits/experimento/images.csv --model models/model_a/model_trained.keras --split val --output-dir experiments/runs/a_val_01 --overlays
+```
+
+Execute o B:
+
+```powershell
+& $pythonTcc scripts/run_model_b.py --manifest data/splits/experimento/images.csv --checkpoint experiments/runs/b_real_cpu_01/best.keras --split val --output-dir experiments/runs/b_val_01
+```
+
+Gere o relatório pareado:
+
+```powershell
+& $pythonTcc scripts/compare_systems.py --manifest data/splits/experimento/images.csv --annotations data/annotations/experimento_reference_v2.json --predictions-a experiments/runs/a_val_01/predictions.json --predictions-b experiments/runs/b_val_01/predictions.json --split val --output experiments/results/comparacao_val_01.json
+```
+
+As pastas `a_val_01` e `b_val_01` contêm predições por imagem. O A desenha caixas e status quando recebe `--overlays`; as imagens ficam em `a_val_01/overlays`. O B agora salva, por padrão, PNGs inteiros **sem marcações**, em `b_val_01/images`, e os CSVs descritos abaixo. Execuções antigas do B podem conter arquivos `_overlay.png`; eles são preservados. O relatório combinado fica em `experiments/results/comparacao_val_01.json`. Ele informa decisões por imagem, regiões propostas, falhas e tempos. As métricas de detecção que exigem referência exaustiva ficam indisponíveis (`null`) com as anotações atuais; isso não significa desempenho zero. Como todas as imagens têm referência positiva, o relatório não permite estimar especificidade em lâminas negativas nem concluir superioridade geral de um sistema.
+
+A validação já participou da seleção do B; essa execução é um diagnóstico preliminar. Para repetir, escolha destinos novos e atualize os caminhos dos dois arquivos de predições no último comando. Ao transportar para outro computador, use nos três comandos o mesmo manifesto de imagens ajustado para esse computador.
+
+### Consultar os resultados sem marcações nas imagens
+
+Nas novas execuções do B, `--image-mode original` é o padrão. Ele salva um PNG RGB por imagem inteira, com os mesmos pixels decodificados, sem caixas, textos, redimensionamento ou arquivos de recortes individuais. Os nomes são identificadores seguros; a coluna `image_file` liga cada PNG ao seu `image_id`.
+
+- `images.csv`: uma linha por imagem. As primeiras colunas seguem o A: `image_id`, `status`, `original_decision`, `candidates`, `classified`, `seconds`, `error`. Depois aparecem as contagens de regiões positivas/negativas, o caminho do PNG e o tempo/erro de exportação.
+- `regions.csv`: uma linha por candidato, começando por `image_id` e `candidate_id`. Inclui classificação (`suspeita` ou `sem_suspeita`), classe 1/0, coordenadas e escores das duas classes. Um candidato não classificado por falha fica explícito e não vira negativo. Coordenadas começam em zero; `x2` e `y2` são limites exclusivos.
+- `predictions.json`: resultado completo usado na comparação automática. `per_image.csv` continua disponível no formato anterior do B para compatibilidade.
+
+`seconds` mede o algoritmo, sem leitura nem gravação de imagens, como no CSV do A. `image_seconds` em cada região repete o tempo da imagem inteira; não é o tempo individual daquela região e não deve ser somado. O B processa regiões em lotes e não mede tempos individuais. `export_seconds` fica separado, e `export_error` não altera a decisão do modelo. Os escores não são probabilidades calibradas. `sem_regioes` significa que o localizador não encontrou candidatos; não comprova ausência do parasita.
+
+Para medir desempenho dos dois sistemas, execute A sem `--overlays` e B com `--image-mode none` (ou o equivalente antigo `--no-overlays`). Para solicitar caixas no B explicitamente, use `--image-mode overlay`.
+
+É possível produzir os PNGs e os dois CSVs **depois da comparação**, sem executar a rede novamente. O comando abaixo aceita resultados tanto do A quanto do B e exige uma pasta nova:
+
+```powershell
+& $pythonTcc scripts/export_prediction_review.py --manifest data/splits/experimento/images.csv --predictions experiments/runs/b_val_01_compiled/predictions.json --output-dir experiments/runs/b_val_01_compiled/review
+```
+
+Use esse comando somente quando `predictions.json` estiver concluído. Não há necessidade de treinar novamente para mudar a apresentação dos resultados.
