@@ -5,6 +5,7 @@ data/raw/
 data/processed/
 data/protocol/
 data/annotations/
+data/external_candidates/**/*.zip
 data/splits/*.csv
 data/splits/*.json
 data/splits/**/*.json
@@ -28,6 +29,7 @@ experiments/results/*.csv
 *.onnx
 *.csv
 *.odt
+*.pdf
 
 # =========================================================
 # JUPYTER

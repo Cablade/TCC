@@ -1,301 +1,148 @@
-"""Figuras descritivas rastreáveis; não executa modelos nem abre o teste reservado."""
-from collections import Counter
+"""Relatório da comparação A original × B atual, sem executar modelos."""
 import csv
 import hashlib
 import html
-import io
 import json
 from pathlib import Path
-
+from collections import Counter
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
 import numpy as np
 from PIL import Image
-
-from .data_protocol import read_image_bytes
-from .detection_evaluation import load_prediction_run, match_one_to_one
-
-COLORS = ["#28628e", "#c64d50"]
-NAMES = ["A original", "B reduzido"]
+from .detection_evaluation import load_prediction_run, match_one_to_one, evaluate_system
+from .data_protocol import read_manifest, load_annotations, read_image_rgb
+COLORS=['#28628e','#c64d50']
+NAMES=['A original','B atual']
 
 
-def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def read_json(path):
-    return json.loads(path.read_text(encoding="utf-8-sig"))
-
-
-def read_csv(path):
-    with path.open(encoding="utf-8-sig", newline="") as stream:
-        return list(csv.DictReader(stream))
-
-
-def write_csv(path, rows):
-    with path.open("w", encoding="utf-8-sig", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def paired_ids(a, b, expected):
-    ids = []
-    for rows in (a, b):
-        current = [x["image_id"] for x in rows]
-        if len(current) != len(set(current)) or set(current) != set(expected):
-            raise ValueError("IDs ausentes, extras ou duplicados no pareamento.")
-        ids.append(current)
+def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def read_json(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
+def save_json(path,value): Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+def write_csv(path,rows):
+    with Path(path).open('w',encoding='utf-8-sig',newline='') as stream:
+        writer=csv.DictWriter(stream,fieldnames=list(rows[0])); writer.writeheader(); writer.writerows(rows)
+def paired_ids(a,b,expected):
+    for rows in (a,b):
+        ids=[r['image_id'] for r in rows]
+        if len(ids)!=len(set(ids)) or set(ids)!=set(expected): raise ValueError('IDs ausentes, extras ou repetidos.')
     return sorted(expected)
+def coverage_rows(predictions,annotations):
+    result=[]
+    for system,items in predictions.items():
+        for image_id,item in sorted(items.items()):
+            refs=annotations[image_id]['positives']; valid=item.get('status')!='erro'
+            boxes=[r['bbox'] for r in item['regions'] if r['class_id']==1] if valid else []
+            proposals=item['candidates'] if valid else []
+            result.append(dict(system=system,image_id=image_id,reference_points=len(refs),matched_proposals=len(match_one_to_one(proposals,refs)['pairs']),matched_positive_regions=len(match_one_to_one(boxes,refs)['pairs'])))
+    return result
 
 
-def coverage_rows(predictions, annotations):
-    output = []
-    for system, items in predictions.items():
-        for image_id in sorted(items):
-            item = items[image_id]
-            refs = annotations[image_id]["positives"]
-            boxes = [r["bbox"] for r in item["regions"] if r["class_id"] == 1]
-            proposals = [r["bbox"] for r in item["candidates"]]
-            output.append(dict(system=system, image_id=image_id, reference_points=len(refs),
-                               matched_proposals=len(match_one_to_one(proposals, refs)["pairs"]),
-                               matched_positive_regions=len(match_one_to_one(boxes, refs)["pairs"])))
-    return output
+def cohort_metrics(rows,annotations,predictions):
+    evaluated=evaluate_system(rows,annotations,predictions)
+    details=evaluated['per_image']; by_id={r['image_id']:r for r in predictions}
+    for row in details:
+        ref=annotations[row['image_id']]; item=by_id[row['image_id']]; valid=row['status']!='erro'
+        boxes=[r['bbox'] for r in item['regions'] if r['class_id']==1] if valid else []
+        refs=ref.get('positives',[])
+        row.update(reference_points=len(refs),matched_proposals=len(match_one_to_one(item['candidates'] if valid else [],refs)['pairs']),matched_positive_regions=len(match_one_to_one(boxes,refs)['pairs']))
+        row['false_positive_regions']=(len(boxes) if valid else None) if ref.get('whole_image_label')==0 else None
+    times=[r['timings']['total_seconds'] for r in details if isinstance(r['timings'].get('total_seconds'),(int,float))]
+    negative=all(annotations[r['image_id']].get('whole_image_label')==0 for r in rows)
+    metrics=dict(n_images=len(rows),status_counts=evaluated['status_counts'],signaled_images=sum(r['status']=='predicao_positiva' for r in details),errors=sum(r['status']=='erro' for r in details),candidates=sum(r['n_candidates'] for r in details),positive_regions=sum(r['n_positive_regions'] for r in details),false_alarm_images=sum(r['status']=='predicao_positiva' for r in details) if negative else None,rejected_negative_images=sum(r['status'] in {'sem_regioes','regioes_sem_predicao_positiva'} for r in details) if negative else None,false_positive_regions=sum(r['false_positive_regions'] or 0 for r in details) if negative else None,reference_points=sum(r['reference_points'] for r in details),matched_proposals=sum(r['matched_proposals'] for r in details),matched_positive_regions=sum(r['matched_positive_regions'] for r in details),algorithm_seconds=sum(times),median_seconds=float(np.median(times)) if times else None,timing_count=len(times))
+    return metrics,details
 
 
-def build_report(root, output):
-    if output.exists():
-        raise FileExistsError("Escolha pasta nova para preservar a edição anterior.")
-    manifest = root / "data/splits/experimento/images.csv"
-    external_manifest = root / "data/protocol/labimed_external_20260927/images.csv"
-    annotations_path = root / "data/annotations/experimento_reference_v2.json"
-    comparison_path = root / "experiments/results/comparacao_val_reduced_01.json"
-    epochs_path = root / "experiments/runs/b_real_cpu_01/epochs.csv"
-    metadata_path = root / "experiments/runs/b_real_cpu_01/metadata.json"
-    review_path = root / "experiments/reviews/b_external_false_positives_20260927_v2/review_reconstructed.json"
-    field_review_path = root / "experiments/reviews/ab_external_negatives_20260927/review_reconstructed.json"
-    inputs = [manifest, external_manifest, annotations_path, comparison_path, epochs_path, metadata_path,
-              review_path, field_review_path]
-    images = read_csv(manifest)
-    external_images = read_csv(external_manifest)
-    refs = {x["image_id"]: x for x in read_json(annotations_path)["images"]}
-    val_ids = {x["image_id"] for x in images if x["split"] == "val"}
-    external_ids = {x["image_id"] for x in external_images}
-    predictions, external = {}, {}
-    source_paths = {}
-    for system, val_name, ext_name in [("A", "a_val_02_controlled", "a_labimed_neg_20260927"),
-                                       ("B", "b_val_reduced_01", "b_labimed_neg_20260927")]:
-        for name, dest, split, source_manifest in [(val_name, predictions, "val", manifest),
-                                                   (ext_name, external, "development", external_manifest)]:
-            path = root / "experiments/runs" / name / "predictions.json"
-            entries, provenance = load_prediction_run(path, system, split, sha(source_manifest))
-            inputs.append(path)
-            dest[system] = {row["image_id"]: row for row in entries}
-            # Verificar antes que dicionários possam ocultar duplicatas.
-            if len(dest[system]) != len(entries):
-                raise ValueError("Predições duplicadas.")
-            source_paths[name] = path
-    ordered = paired_ids(list(predictions["A"].values()), list(predictions["B"].values()), val_ids)
-    paired_ids(list(external["A"].values()), list(external["B"].values()), external_ids)
-    comparison = read_json(comparison_path)
-    for key, path in {"manifest": manifest, "annotations": annotations_path,
-                      "predictions_a": source_paths["a_val_02_controlled"],
-                      "predictions_b": source_paths["b_val_reduced_01"]}.items():
-        if comparison["input_sha256"][key] != sha(path):
-            raise ValueError("Relatório não corresponde às entradas atuais.")
-    meta = read_json(metadata_path)
-    checkpoint = root / "experiments/runs/b_real_cpu_01/best.keras"
-    if sha(checkpoint) != meta["checkpoint_sha256"]:
-        raise ValueError("Checkpoint B alterado.")
-    inputs.append(checkpoint)
-    epochs = read_csv(epochs_path)
-    crops_path = root / "data/processed/b_real_02_reduced/crops.csv"
-    inputs.append(crops_path)
-    crops = read_csv(crops_path)
-    recovered = read_json(review_path)
-    field_review = read_json(field_review_path)
-    if (recovered["predictions_B_sha256"] != sha(source_paths["b_labimed_neg_20260927"])
-            or recovered["manifest_sha256"] != sha(external_manifest)
-            or field_review["manifest_sha256"] != sha(external_manifest)
-            or {x["image_id"] for x in field_review["images"]} != external_ids):
-        raise ValueError("Revisão reconstruída não corresponde aos dados externos.")
-    output.mkdir(parents=True)
-    figures = []
-
-    def save(fig, name, caption):
+def build_report(root,comparison):
+    manifest=comparison/'images.csv'; reference=comparison/'annotations.json'
+    images=read_manifest(manifest); annotations=load_annotations(reference,images); protocol=read_json(comparison/'protocol.json')
+    if set(protocol['checkpoint'])!={'A','B'}: raise ValueError('Somente A e B atual são permitidos.')
+    predictions={}; provenance={}; inputs=[manifest,reference,comparison/'protocol.json']
+    for system in ('A','B'):
+        path=comparison/system/'predictions.json'; entries,origin=load_prediction_run(path,system,'development',sha(manifest))
+        expected=protocol['checkpoint'][system]['sha256']
+        if origin['artifact'].get('checkpoint_sha256',origin['artifact'].get('sha256'))!=expected or sha(Path(protocol['checkpoint'][system]['path']))!=expected: raise ValueError('Checkpoint divergente.')
+        predictions[system]={r['image_id']:r for r in entries}
+        if len(entries)!=len(predictions[system]): raise ValueError('IDs repetidos.')
+        provenance[system]=origin; inputs.append(path)
+    paired_ids(list(predictions['A'].values()),list(predictions['B'].values()),{r['image_id'] for r in images})
+    cohorts=list(protocol['cohorts']); labels={'positive_val':'Validação positiva','kaggle_negative_val':'Negativos Kaggle (validação)','barcelona_negative':'Negativos Barcelona (comparação)'}
+    if not {'positive_val','kaggle_negative_val'}<=set(cohorts) or set(cohorts)-set(labels):
+        raise ValueError('A comparação exige positivas, originais Kaggle e somente fontes adicionais autorizadas.')
+    negative_cohorts=[c for c in cohorts if c!='positive_val']
+    summary={}; table=[]; per_image=[]
+    for cohort in cohorts:
+        rows=[r for r in images if r['cohort']==cohort]
+        if len(rows)!=protocol['cohorts'][cohort]: raise ValueError('Denominador do grupo divergente.')
+        summary[cohort]={}
+        for system in ('A','B'):
+            metrics,details=cohort_metrics(rows,annotations,[predictions[system][r['image_id']] for r in rows]); summary[cohort][system]=metrics
+            table.append(dict(cohort=cohort,system=system,**{k:v for k,v in metrics.items() if k!='status_counts'}))
+            for r in details:
+                per_image.append(dict(image_id=r['image_id'],cohort=cohort,system=system,status=r['status'],original_decision=r['original_decision'],candidates=r['n_candidates'],classified_regions=r['n_regions'],positive_regions=r['n_positive_regions'],false_positive_regions=r['false_positive_regions'],reference_points=r['reference_points'],matched_proposals=r['matched_proposals'],matched_positive_regions=r['matched_positive_regions'],algorithm_seconds=r['timings'].get('total_seconds'),error=r.get('error') or ''))
+    report=dict(summary=summary,protocol=protocol,provenance=provenance,input_sha256={str(p.relative_to(root)):sha(p) for p in inputs},paired_images=len(images),final_test_opened=False)
+    save_json(comparison/'report.json',report); write_csv(comparison/'summary.csv',table); write_csv(comparison/'per_image.csv',per_image)
+    from .prediction_exports import write_review_csvs
+    for system in ('A','B'): write_review_csvs(list(predictions[system].values()),comparison/system)
+    out=root/'tcc/figuras'/comparison.name; out.mkdir(parents=True,exist_ok=True); figures=[]
+    def save(fig,name,caption):
         for ax in fig.axes:
-            if ax.axison:
-                ax.spines[["top", "right"]].set_visible(False)
-        fig.savefig(output / (name + ".png"), dpi=230, bbox_inches="tight")
-        fig.savefig(output / (name + ".pdf"), bbox_inches="tight")
-        plt.close(fig)
-        figures.append({"name": name, "caption": caption})
-
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.4), layout="constrained")
-    splits = Counter(x["split"] for x in images)
-    bars = axes[0].bar(["Treino", "Validação", "Teste reservado"], [splits[k] for k in ("train", "val", "test")], color=[COLORS[0], COLORS[1], "#8d969e"])
-    axes[0].bar_label(bars)
-    axes[0].set(title="Imagens originais por partição", ylabel="Imagens", ylim=(0, max(splits.values()) * 1.16))
-    crop_counts = Counter((x["split"], x["label"]) for x in crops)
-    for i, label in enumerate(("1", "0")):
-        values = [crop_counts[(s,label)] for s in ("train", "val")]
-        bars = axes[1].bar(np.arange(2) + (i-.5)*.36, values, .36, label="Positivos" if label == "1" else "Negativos", color=COLORS[i])
-        axes[1].bar_label(bars)
-    axes[1].set(title="Recortes utilizados por B", xticks=[0,1], xticklabels=["Treino", "Validação"], ylabel="Recortes", ylim=(0,max(crop_counts.values())*1.25))
-    axes[1].legend(frameon=False)
-    save(fig, "01_composicao", "Divisão por imagem original. Recortes não são unidades biológicas independentes. O teste aparece apenas como contagem do manifesto; seus pixels não foram abertos.")
-
-    fig, ax = plt.subplots(figsize=(7, 4.8), layout="constrained")
-    bottom = np.zeros(2)
-    for status, label, color in [("predicao_positiva", "Sinalizada", COLORS[0]), ("sem_regioes", "Sem regiões", "#cad2d9"),
-                                  ("regioes_sem_predicao_positiva", "Regiões sem suspeita", "#7ea589"), ("erro", "Erro", COLORS[1])]:
-        vals = [sum(x["status"] == status for x in predictions[s].values()) for s in ("A", "B")]
-        if sum(vals):
-            ax.bar(NAMES, vals, bottom=bottom, label=label, color=color)
-            for i,v in enumerate(vals):
-                if v: ax.text(i, bottom[i]+v/2, str(v), ha="center", va="center")
-        bottom += vals
-    ax.set(title="Estados de execução na validação", ylabel="Imagens", ylim=(0, len(ordered)*1.22))
-    ax.legend(frameon=False, loc="upper left")
-    save(fig, "02_estados", "Estados nas mesmas 114 imagens positivas de validação. Sinalizar um campo não comprova localizar seu parasita; não há especificidade estimável neste conjunto.")
-
-    coverage = coverage_rows(predictions, refs)
-    write_csv(output / "cobertura_por_imagem.csv", coverage)
-    coverage_totals = {s: {key: sum(x[key] for x in coverage if x["system"] == s) for key in ("reference_points", "matched_proposals", "matched_positive_regions")} for s in ("A","B")}
-    fig, ax = plt.subplots(figsize=(8, 4.7), layout="constrained")
-    for i,key in enumerate(("matched_proposals", "matched_positive_regions")):
-        vals = [coverage_totals[s][key] for s in ("A","B")]
-        bars = ax.bar(np.arange(2)+(i-.5)*.35, vals, .35, label=["Cobertos pelas propostas", "Cobertos pelas regiões positivas"][i], color=COLORS[i])
-        ax.bar_label(bars)
-    total_points = coverage_totals["A"]["reference_points"]
-    ax.axhline(total_points, linestyle="--", color="#525c66", label=f"{total_points} pontos publicados")
-    ax.set(xticks=[0,1], xticklabels=NAMES, ylabel="Pontos associados uma única vez", ylim=(0,total_points*1.35), title="Cobertura dos pontos disponíveis")
-    ax.legend(frameon=False, loc="upper left")
-    save(fig, "03_cobertura", "Associação um a um de cardinalidade máxima; ponto contido na caixa com extremos direito/inferior exclusivos. Referência parcial: cobertura dos pontos disponíveis, não sensibilidade geral. Regiões sem associação não são automaticamente falsos positivos.")
-
-    per_image = []
-    for cohort, dataset in (("validacao", predictions), ("externos", external)):
-        for s in ("A", "B"):
-            for image_id in sorted(dataset[s]):
-                r = dataset[s][image_id]
-                per_image.append(dict(cohort=cohort, system=s, image_id=image_id, status=r["status"],
-                    candidates=len(r["candidates"]), positive_regions=sum(z["class_id"]==1 for z in r["regions"]),
-                    seconds=r["timings"]["total_seconds"],
-                    localization_seconds=r["timings"].get("localization_seconds"),
-                    classification_seconds=r["timings"].get("classification_seconds"),
-                    preprocessing_seconds=r["timings"].get("preprocessing_seconds")))
-    write_csv(output / "resultados_por_imagem.csv", per_image)
-    val = {s: [r for r in per_image if r["cohort"] == "validacao" and r["system"] == s] for s in ("A", "B")}
-    fig, axes = plt.subplots(1,2, figsize=(11,4.5), layout="constrained")
-    for ax, key, title in zip(axes, ("candidates", "positive_regions"), ("Propostas por imagem", "Regiões positivas por imagem")):
-        ax.boxplot([[r[key] for r in val[s]] for s in ("A","B")], labels=NAMES, showfliers=False)
-        for i,s in enumerate(("A","B"),1):
-            vals = [r[key] for r in val[s]]
-            ax.scatter(i+np.linspace(-.14,.14,len(vals)), vals, color=COLORS[i-1], s=10, alpha=.5)
-        ax.set(title=title, ylabel="Regiões", ylim=(0,None))
-    save(fig, "04_candidatos", "Cada ponto é uma imagem de validação. Caixas mostram quartis e mediana; pontos incluem os extremos. O volume de regiões não equivale ao número de parasitas.")
-
-    fig, axes = plt.subplots(1,3,figsize=(13,4.3),layout="constrained")
-    times = [[r["seconds"] for r in val[s]] for s in ("A","B")]
-    axes[0].boxplot(times, labels=NAMES)
-    axes[0].set(title="Tempo por imagem", ylabel="Segundos", ylim=(0,None))
-    axes[1].scatter(times[0], times[1], s=16, alpha=.7, color=COLORS[1])
-    maximum = max(max(times[0]), max(times[1]))*1.05
-    axes[1].plot([0,maximum],[0,maximum],"--",color="#666",label="Tempos iguais")
-    axes[1].set(title="Mesmas imagens pareadas", xlabel="A (s)", ylabel="B (s)", xlim=(0,maximum), ylim=(0,maximum))
-    axes[1].legend(frameon=False)
-    bottoms=np.zeros(2)
-    for key,label,color in [("localization_seconds","Localização",COLORS[0]),("classification_seconds","Classificação",COLORS[1]),("preprocessing_seconds","Pré-processamento","#dba650")]:
-        values=[sum(r[key] or 0 for r in val[s]) for s in ("A","B")]
-        axes[2].bar(NAMES,values,bottom=bottoms,label=label,color=color)
-        bottoms+=values
-    axes[2].set(title="Tempo acumulado por etapa", ylabel="Segundos")
-    axes[2].legend(frameon=False)
-    save(fig,"05_tempos","Tempos do algoritmo nas execuções registradas, sem exportação de imagens. Pareamento por image_id; inclui primeiras chamadas. Não é benchmark repetido com aquecimento. Etapas registradas podem não somar exatamente o total por haver overhead.")
-
-    fig,axes=plt.subplots(1,2,figsize=(10,4.5),layout="constrained")
-    n_external=len(external_ids)
-    alarms=[sum(r["status"]=="predicao_positiva" for r in external[s].values()) for s in ("A","B")]
-    bars=axes[0].bar(NAMES,alarms,color=COLORS)
-    axes[0].bar_label(bars,labels=[f"{n}/{n_external}" for n in alarms])
-    axes[0].set(title="Campos externos sinalizados",ylabel="Campos",ylim=(0,n_external*1.2))
-    axes[1].boxplot([[sum(r["class_id"]==1 for r in item["regions"]) for _,item in sorted(external[s].items())] for s in ("A","B")],labels=NAMES)
-    axes[1].set(title="Regiões positivas por campo externo",ylabel="Regiões",ylim=(0,None))
-    donors=len({r["case_id"] for r in external_images})
-    slides=len({r["slide_id"] for r in external_images})
-    save(fig,"06_externos",f"Diagnóstico separado: {n_external} campos LABIMED humanos, {donors} caso(s), {slides} lâminas. Ausência de parasita visível relatada por Caio; registro reconstruído da conversa. Não são pacientes negativos independentes nem teste intocado. Não misturar à validação murina.")
-
-    fig,axes=plt.subplots(1,2,figsize=(11,4.5),layout="constrained")
-    epoch=[int(r["epoch"])+1 for r in epochs]
-    for ax,key,title in [(axes[0],"accuracy","Acurácia nos recortes"),(axes[1],"loss","Perda de treinamento")]:
-        for prefix,label,color in [("","Treino",COLORS[0]),("val_","Validação",COLORS[1])]:
-            ax.plot(epoch,[float(r[prefix+key]) for r in epochs],label=label,color=color)
-        ax.axvline(meta["selected_epoch"],color="#666",linestyle="--",label=f'Época selecionada: {meta["selected_epoch"]}')
-        ax.set(title=title,xlabel="Época",ylabel=key)
-        ax.legend(frameon=False,fontsize=8)
-    axes[0].set_ylim(0,1.03)
-    save(fig,"07_treinamento","Histórico exclusivo do B reduzido. Checkpoint escolhido pela menor val_loss, não pela maior acurácia. Há 740 recortes positivos e 38 negativos na validação; acurácia isolada é insuficiente. Não há histórico comparável de treinamento de A.")
-
-    # Seleção determinística de exemplos, não amostra representativa de desempenho.
-    examples=[]
-    for category in ("A_suspeita_sem_ponto", "B_suspeita_com_ponto", "B_ponto_sem_deteccao"):
-        system="A" if category.startswith("A") else "B"
-        for image_id in ordered:
-            item=predictions[system][image_id]
-            positive=[r for r in item["regions"] if r["class_id"]==1]
-            match=match_one_to_one([r["bbox"] for r in positive],refs[image_id]["positives"])
-            if category=="A_suspeita_sem_ponto" and match["unmatched_predictions"]:
-                box=positive[match["unmatched_predictions"][0]]["bbox"]; point=None
-            elif category=="B_suspeita_com_ponto" and match["pairs"]:
-                pair=match["pairs"][0]; box=positive[pair["prediction_index"]]["bbox"]; point=refs[image_id]["positives"][pair["reference_index"]]["point"]
-            elif category=="B_ponto_sem_deteccao" and match["unmatched_references"]:
-                point=refs[image_id]["positives"][match["unmatched_references"][0]]["point"]
-                row=next(r for r in images if r["image_id"]==image_id)
-                box=[max(0,int(point[0])-112),max(0,int(point[1])-112),min(int(row["width"]),int(point[0])+112),min(int(row["height"]),int(point[1])+112)]
-            else: continue
-            examples.append(dict(category=category,image_id=image_id,bbox=box,point=point))
-            break
-    first=min(recovered["regions"],key=lambda r:r["id"])
-    examples.append(dict(category="B_externo_sem_parasita_visivel",image_id=first["image_id"],bbox=first["bbox"],point=None))
-    all_images={r["image_id"]:r for r in images+external_images}
-    labels={"A_suspeita_sem_ponto":"A: suspeita sem ponto associado", "B_suspeita_com_ponto":"B: suspeita associada a ponto", "B_ponto_sem_deteccao":"B: ponto sem região positiva associada", "B_externo_sem_parasita_visivel":"B externo: sem parasita visível (Caio)"}
-    for i,item in enumerate(examples,1):
-        row=all_images[item["image_id"]]
-        if row["split"] not in ("val","development"):
-            raise ValueError("Proibido abrir imagem de teste para ilustração.")
-        raw=read_image_bytes(row["path"])
-        if hashlib.sha256(raw).hexdigest()!=row["sha256"]: raise ValueError("Imagem fonte alterada.")
-        image=np.array(Image.open(io.BytesIO(raw)).convert("RGB"))
-        x1,y1,x2,y2=map(int,item["bbox"])
-        fig,axes=plt.subplots(1,2,figsize=(10,5.3),layout="constrained")
-        axes[0].imshow(image)
-        axes[0].add_patch(Rectangle((x1,y1),x2-x1,y2-y1,fill=False,edgecolor="#ffb000",linewidth=2))
-        axes[0].set_title("Campo e área de inspeção (amarelo)")
-        axes[1].imshow(image[y1:y2,x1:x2]); axes[1].set_title("Pixels originais do recorte")
-        if item["point"]:
-            px,py=item["point"]
-            axes[0].plot(px,py,"+",color="#00ffdd",ms=9)
-            axes[1].plot(px-x1,py-y1,"+",color="#00a89b",ms=12)
-        for ax in axes: ax.axis("off")
-        fig.suptitle(labels[item["category"]])
-        save(fig,f"08_exemplo_{i:02d}",f'{labels[item["category"]]}. Image ID: {item["image_id"]}; caixa {item["bbox"]}. Seleção pelo primeiro ID elegível ordenado (externo: FP001). Cruz indica ponto publicado quando disponível. Área amarela é de inspeção; no exemplo de ponto perdido, não é proposta do modelo. Sem associação não comprova falso positivo na referência parcial.')
-
-    metrics={s: dict(total_seconds=sum(r["seconds"] for r in val[s]),median_seconds=float(np.median([r["seconds"] for r in val[s]])),
-                     candidate_regions=sum(r["candidates"] for r in val[s]),positive_regions=sum(r["positive_regions"] for r in val[s])) for s in ("A","B")}
-    summary=dict(scope="exploratory_development_not_final_test", validation_images=len(ordered),external_images=n_external,
-                 coverage=coverage_totals,validation=metrics,external_signaled=dict(zip(("A","B"),alarms)),
-                 external_cases=donors,external_slides=slides,selected_epoch=meta["selected_epoch"],examples=examples,
-                 input_sha256={p.relative_to(root).as_posix():sha(p) for p in inputs},figures=figures,
-                 limitations=["Referência pontual parcial", "Validação usada na seleção de B", "Independência biológica desconhecida na base murina", "Externos de desenvolvimento e domínio diferente", "Revisões reconstruídas da declaração do usuário; não nova adjudicação especializada"])
-    (output/"summary.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    markdown=["# Figuras e legendas — comparação exploratória A × B", "", "Geradas de predições existentes, sem treino, nova inferência ou abertura de pixels do teste. Os CSVs e summary.json permitem conferir números e hashes.",""]
-    cards=[]
-    for f in figures:
-        name=f["name"]; caption=f["caption"]
-        markdown += [f"## {name}","",caption,"",f"[PDF]({name}.pdf) · [PNG]({name}.png)",""]
-        cards.append(f'<section><h2>{html.escape(name)}</h2><a href="{name}.pdf">PDF</a><p>{html.escape(caption)}</p><img loading="lazy" src="{name}.png" alt="{html.escape(name)}"></section>')
-    (output/"LEIA-ME.md").write_text("\n".join(markdown),encoding="utf-8")
-    (output/"index.html").write_text('<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Figuras do TCC</title><style>body{font:17px system-ui;max-width:1100px;margin:32px auto;padding:20px;color:#213547}img{width:100%}section{margin:40px 0;border-top:1px solid #ccd;padding-top:20px}p{line-height:1.6}</style><h1>Comparação exploratória A × B</h1><p>Validação e diagnóstico externo apresentados separadamente. Resultados não demonstram superioridade geral nem especificidade clínica.</p>'+''.join(cards)+'</html>',encoding="utf-8")
-    return summary
+            if ax.axison: ax.spines[['top','right']].set_visible(False)
+        fig.tight_layout(); fig.savefig(out/(name+'.png'),dpi=200,bbox_inches='tight'); fig.savefig(out/(name+'.pdf'),bbox_inches='tight'); plt.close(fig); figures.append(dict(name=name,caption=caption))
+    def bars(ax,values,title,ylabel):
+        b=ax.bar(NAMES,values,color=COLORS); ax.bar_label(b,fmt='%g',padding=3); ax.set(title=title,ylabel=ylabel,ylim=(0,max(values+[1])*1.25))
+    fig,axes=plt.subplots(1,len(cohorts),figsize=(5*len(cohorts),4)); axes=np.atleast_1d(axes)
+    for ax,c in zip(axes,cohorts): bars(ax,[summary[c][s]['signaled_images'] for s in ('A','B')],labels[c]+f" (n={protocol['cohorts'][c]})",'Imagens sinalizadas')
+    save(fig,'01_sinalizacoes','Mesmos IDs por grupo. Sinalização não comprova localização correta; nos negativos revisados, é falso alarme de desenvolvimento.')
+    fig,ax=plt.subplots(figsize=(8,4)); x=np.arange(2); width=.35
+    for offset,key,label,color in [(-width/2,'matched_proposals','Propostas','#91adc3'),(width/2,'matched_positive_regions','Regiões positivas','#c64d50')]:
+        b=ax.bar(x+offset,[summary['positive_val'][s][key] for s in ('A','B')],width,label=label,color=color); ax.bar_label(b,padding=3)
+    total=summary['positive_val']['A']['reference_points']; ax.axhline(total,color='#555',linestyle='--',label=f'{total} pontos publicados'); ax.set(xticks=x,xticklabels=NAMES,ylabel='Pontos associados uma única vez',ylim=(0,total*1.2),title='Cobertura da referência positiva parcial'); ax.legend(fontsize=8,loc='upper left')
+    save(fig,'02_cobertura','Associação de cardinalidade máxima um a um: ponto dentro da caixa semiaberta. Referência parcial; não é sensibilidade geral nem precisão de detecção.')
+    fig,axes=plt.subplots(1,len(negative_cohorts),figsize=(5*len(negative_cohorts),4)); axes=np.atleast_1d(axes)
+    for ax,c in zip(axes,negative_cohorts): bars(ax,[summary[c][s]['false_positive_regions'] for s in ('A','B')],labels[c],'Regiões positivas em campos negativos')
+    save(fig,'03_falsas_regioes','Regiões positivas nos negativos confirmados visualmente por Caio. Fontes separadas; regiões não são pacientes independentes.')
+    fig,axes=plt.subplots(1,len(cohorts),figsize=(5*len(cohorts),4)); axes=np.atleast_1d(axes)
+    for ax,c in zip(axes,cohorts): bars(ax,[round(summary[c][s]['algorithm_seconds'],2) for s in ('A','B')],labels[c],'Tempo do algoritmo (s)')
+    save(fig,'04_tempo','Tempo exclui leitura/exportação e inclui primeira imagem. Execução única em CPU, duas threads, B compilado; Tempos herdados da execução original quando houver derivação de subconjunto; consulte o protocolo. Não é benchmark repetido com aquecimento controlado.')
+    fig,axes=plt.subplots(1,len(cohorts),figsize=(5*len(cohorts),4)); axes=np.atleast_1d(axes)
+    for ax,c in zip(axes,cohorts):
+        series=[[r['algorithm_seconds'] for r in per_image if r['cohort']==c and r['system']==s and r['algorithm_seconds'] is not None] for s in ('A','B')]; ax.boxplot(series,labels=NAMES); ax.set(title=labels[c],ylabel='Segundos por imagem')
+    save(fig,'05_distribuicao_tempo','Dispersão por imagem; caixas não são intervalos de confiança e imagens não são unidades biológicas independentes.')
+    history=read_json(root/'experiments/runs/b_val_01/history.json'); meta=read_json(root/'experiments/runs/b_val_01/metadata.json'); fig,axes=plt.subplots(1,2,figsize=(10,4)); epochs=np.arange(1,len(history['loss'])+1)
+    for ax,key,title in [(axes[0],'loss','Perda'),(axes[1],'accuracy','Acurácia dos recortes')]:
+        ax.plot(epochs,history[key],label='Treino'); ax.plot(epochs,history['val_'+key],label='Validação'); ax.axvline(meta['selected_epoch'],linestyle='--',color='#555',label='Época selecionada'); ax.set(title=title,xlabel='Época'); ax.legend(fontsize=8)
+    save(fig,'06_treinamento_B','B atual: época escolhida por menor val_loss; validação com 1.070 recortes. Sem histórico comparável do A.')
+    # Exemplos com critério explícito, sem alterar pixels dos recortes.
+    selected=[]
+    for c in cohorts:
+        rows=[r for r in per_image if r['system']=='B' and r['cohort']==c]
+        key=(lambda r:(r['matched_positive_regions']-r['reference_points'],r['image_id'])) if c=='positive_val' else (lambda r:(-r['positive_regions'],r['image_id']))
+        selected.extend((r['image_id'],labels[c]) for r in sorted(rows,key=key)[:3])
+    assets=out/'exemplos'; assets.mkdir(exist_ok=True); cards=[]; examples=[]; lookup={r['image_id']:r for r in images}
+    for i,(image_id,category) in enumerate(selected,1):
+        pixels=read_image_rgb(lookup[image_id]['path']); preview=Image.fromarray(pixels); preview.thumbnail((1200,1200)); filename=f'exemplos/{i:02d}_campo.png'; preview.save(out/filename); details=[]
+        refs=annotations[image_id]['positives']
+        if refs:
+            px,py=map(int,refs[0]['point']); bbox=[max(0,px-112),max(0,py-112),min(pixels.shape[1],px+112),min(pixels.shape[0],py+112)]; x1,y1,x2,y2=bbox; fn=f'exemplos/{i:02d}_referencia.png'; Image.fromarray(pixels[y1:y2,x1:x2]).save(out/fn); details.append(f'<figure><img src="{fn}"><figcaption>Contexto do ponto publicado {refs[0]["point"]}; não é proposta.</figcaption></figure>')
+        for s in ('A','B'):
+            item=predictions[s][image_id]; regions=sorted((r for r in item['regions'] if r['class_id']==1),key=lambda r:-r['scores'][1])[:3]; details.append(f'<p>{s}: {item["status"]}; {sum(r["class_id"]==1 for r in item["regions"])} regiões positivas.</p>')
+            for j,r in enumerate(regions,1):
+                bbox=list(map(int,r['bbox'])); x1,y1,x2,y2=bbox; fn=f'exemplos/{i:02d}_{s}_{j}.png'; Image.fromarray(pixels[y1:y2,x1:x2]).save(out/fn); details.append(f'<figure><img src="{fn}"><figcaption>{s}, caixa {bbox}, escore {r["scores"][1]:.4f}</figcaption></figure>'); examples.append(dict(image_id=image_id,category=category,system=s,bbox=json.dumps(bbox),score_suspect=r['scores'][1],file=fn))
+        cards.append(f'<article><h3>{category}</h3><p>{html.escape(image_id)}</p><img class="campo" src="{filename}"><div class="recortes">'+''.join(details)+'</div></article>')
+    if examples: write_csv(out/'exemplos.csv',examples)
+    rows_html=''; text=f'# Comparação A original × B atual\n\nAvaliação exploratória de desenvolvimento. Mesmos {len(images)} IDs; fontes separadas e teste reservado. Negativos por revisão visual declarada de Caio; referência positiva parcial.\n\n| Grupo | Modelo | Imagens sinalizadas | Regiões positivas | Tempo (s) | Erros |\n| --- | --- | ---: | ---: | ---: | ---: |\n'
+    for c in cohorts:
+        for i,s in enumerate(('A','B')):
+            m=summary[c][s]; rows_html+=f'<tr><td>{labels[c]}</td><td>{NAMES[i]}</td><td>{m["signaled_images"]}/{m["n_images"]}</td><td>{m["positive_regions"]}</td><td>{m["algorithm_seconds"]:.2f}</td><td>{m["errors"]}</td></tr>'; text+=f'| {labels[c]} | {NAMES[i]} | {m["signaled_images"]}/{m["n_images"]} | {m["positive_regions"]} | {m["algorithm_seconds"]:.2f} | {m["errors"]} |\n'
+    text+='\n'+protocol.get('scope_change','')+'\n\n'+protocol['timing']+'\n'
+    if 'barcelona_negative' in cohorts:
+        text+='\nReservados 20 originais Barcelona para os negativos do próximo treino; somente os 180 restantes integram esta comparação, junto aos 73 Kaggle. O B mostrado ainda é o checkpoint anterior à reserva: nenhum novo treino foi executado. As 180 imagens já foram examinadas e constituem desenvolvimento, não teste final independente.\n'
+    text+=f'\nCobertura dos pontos publicados: A {summary["positive_val"]["A"]["matched_positive_regions"]}/{total}; B {summary["positive_val"]["B"]["matched_positive_regions"]}/{total}.\n\nTempo: execução única, CPU, duas threads, B em grafo; inclui primeira imagem e exclui leitura/exportação. Não atribuir ganhos causalmente apenas à arquitetura, não misturar fontes numa acurácia global nem concluir desempenho clínico. Exemplos escolhidos pelas maiores perdas de cobertura (positivos) e maiores alarmes do B (negativos); não são amostra aleatória.\n'
+    (root/'tcc/resultados_atuais.md').write_text(text,encoding='utf-8'); (out/'LEIA-ME.md').write_text(text+'\n'+''.join(f'\n- {f["name"]}: {f["caption"]}' for f in figures),encoding='utf-8'); save_json(out/'summary.json',dict(input_sha256=report['input_sha256'],summary=summary,figures=figures))
+    charts=''.join(f'<section><h2>{f["name"]}</h2><a href="{f["name"]}.pdf">PDF</a><img class="grafico" src="{f["name"]}.png"><p>{html.escape(f["caption"])}</p></section>' for f in figures)
+    page='<html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A original × B atual</title><style>body{font:16px system-ui;background:#edf2f5;color:#203548;margin:24px;line-height:1.5}section,article{background:white;padding:18px;margin:18px 0;border-radius:8px}table{border-collapse:collapse;background:white}td,th{padding:10px;border:1px solid #cdd7df}.grafico{display:block;max-width:100%;width:1100px}.campo{max-width:100%;max-height:500px}.recortes{display:flex;flex-wrap:wrap;gap:10px}.recortes figure{width:220px;margin:4px}.recortes img{width:100%}p{overflow-wrap:anywhere}</style><h1>A original × B atual</h1><p>'+str(len(images))+' imagens de desenvolvimento; teste reservado. Fontes separadas. Referência positiva parcial e negativos revisados visualmente por Caio.</p><table><tr><th>Grupo</th><th>Modelo</th><th>Sinalizadas</th><th>Regiões positivas</th><th>Tempo (s)</th><th>Erros</th></tr>'+rows_html+'</table><p>'+html.escape(protocol.get('scope_change',''))+'</p><p>'+html.escape(protocol['timing'])+'</p>'+charts+'<h2>Exemplos para conferência</h2><p>Campo sem marcações em prévia reduzida; recortes dos pixels originais. Seleção determinística pelas maiores perdas de cobertura e maiores alarmes do B. Escore não é probabilidade calibrada.</p>'+''.join(cards)+'</html>'
+    if 'barcelona_negative' in cohorts:
+        page=page.replace('<table>','<p><strong>Divisão preparada: 20 Barcelona para próximo treino; 180 Barcelona + 73 Kaggle para comparação negativa; 114 positivas.</strong> O B ainda não foi retreinado. Resultados abaixo reutilizam as previsões anteriores, antes da inclusão dos 20 negativos no treinamento.</p><table>',1)
+    (out/'index.html').write_text('<!doctype html>'+page,encoding='utf-8')
+    return report

@@ -1,0 +1,5012 @@
+{
+  "schema_version": 1,
+  "coordinate_convention": "xyxy_half_open",
+  "images": [
+    {
+      "image_id": "barcelona_original_19b9bc6f86b32a3547b567d5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_19b9bc6f86b32a3547b567d5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6e8d98a233d03d50e65f5923",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6e8d98a233d03d50e65f5923",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ab24789b61293a60337486e2",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ab24789b61293a60337486e2",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3b1061e9bce98e11ba3723cd",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3b1061e9bce98e11ba3723cd",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e582524121b284c40d039863",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e582524121b284c40d039863",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8e5f7ac1a0f6865df4331f04",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8e5f7ac1a0f6865df4331f04",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f30df26ba013b3fed2d02d88",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f30df26ba013b3fed2d02d88",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_caac9a93e3afd5dd8de33392",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_caac9a93e3afd5dd8de33392",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ec9a2576f3264aa1aea29c3b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ec9a2576f3264aa1aea29c3b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7f99f6dc4b67f9fc0fe4b78b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7f99f6dc4b67f9fc0fe4b78b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_09730d1d35847f90f80aff90",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_09730d1d35847f90f80aff90",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f3459d8ff9987bc03d0b5638",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f3459d8ff9987bc03d0b5638",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_97b58eebf533e3218e1b5457",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_97b58eebf533e3218e1b5457",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6467777cd9a63be7f5e1e3a6",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6467777cd9a63be7f5e1e3a6",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_234ad2692ad6a65584b877ea",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_234ad2692ad6a65584b877ea",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_fd844ac41a2d3b23f0a2cd5b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_fd844ac41a2d3b23f0a2cd5b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b9c240bc7268264bebf04364",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b9c240bc7268264bebf04364",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4037fda89b49e0b9af5cf3d0",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4037fda89b49e0b9af5cf3d0",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b092f9609d6ec78730b71bac",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b092f9609d6ec78730b71bac",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ca0d598c6eb3f03dadada32a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ca0d598c6eb3f03dadada32a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d2b0c84d119d9f8b7c01b1a7",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d2b0c84d119d9f8b7c01b1a7",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_bbf76da2cfa286b7ea9b3c78",
+      "width": 366,
+      "height": 369,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_bbf76da2cfa286b7ea9b3c78",
+          "bbox": [
+            0,
+            0,
+            366,
+            369
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9b0f6aac19b489bf3328afd8",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9b0f6aac19b489bf3328afd8",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6db00d861f56fb8c5784a731",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6db00d861f56fb8c5784a731",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_97dc7b932f0714fadababc38",
+      "width": 366,
+      "height": 369,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_97dc7b932f0714fadababc38",
+          "bbox": [
+            0,
+            0,
+            366,
+            369
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d7f1d9fd59a86990addd0f14",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d7f1d9fd59a86990addd0f14",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_91976d64657650ab582e4826",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_91976d64657650ab582e4826",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_1a6cd2fcf1b8fb9f8bd81471",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_1a6cd2fcf1b8fb9f8bd81471",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_28b44d5f90a1a651a71f5455",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_28b44d5f90a1a651a71f5455",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_1f8f027192d9cd62b317d466",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_1f8f027192d9cd62b317d466",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_806bff1d73fe6e932924a609",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_806bff1d73fe6e932924a609",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8c3eb32270007aaf523da855",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8c3eb32270007aaf523da855",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_23a68d0bc4225da4708f9c75",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_23a68d0bc4225da4708f9c75",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_12ced63ccdc60c57b18f7f49",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_12ced63ccdc60c57b18f7f49",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_5eb9ef81853e9cdc24452518",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_5eb9ef81853e9cdc24452518",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9e7c21411fd238788154a10e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9e7c21411fd238788154a10e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d448822da419d1277b1150cf",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d448822da419d1277b1150cf",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_36e2fb3ce943f0b80c4e8a45",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_36e2fb3ce943f0b80c4e8a45",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d1f4eeda40aefc1d15c0e15a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d1f4eeda40aefc1d15c0e15a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_76bf4e8125c0bad6db3245d1",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_76bf4e8125c0bad6db3245d1",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_69ddf3974df0bc5a936e2074",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_69ddf3974df0bc5a936e2074",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_19d1d1c0ca4cc9c79d3d0a32",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_19d1d1c0ca4cc9c79d3d0a32",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_35bbc734db8867f3261a0ffb",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_35bbc734db8867f3261a0ffb",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b45c42a31de4d4165173ffff",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b45c42a31de4d4165173ffff",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d75471648a5ed019d644c62b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d75471648a5ed019d644c62b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_bb151c2159aeabb3fc7d2983",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_bb151c2159aeabb3fc7d2983",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_03bb5b470bf9e09db6ece8db",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_03bb5b470bf9e09db6ece8db",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e42bd465718d4bb1b55dab51",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e42bd465718d4bb1b55dab51",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_24bc9d9d8f8b017725ad2162",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_24bc9d9d8f8b017725ad2162",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_199298cc071040ccaa7af091",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_199298cc071040ccaa7af091",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_63e57742c608e232e5f2f714",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_63e57742c608e232e5f2f714",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_5d42356b50eea5154670cb09",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_5d42356b50eea5154670cb09",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_5fd1325e06f216781ca1cf4a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_5fd1325e06f216781ca1cf4a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e1403d664df24e427935a95e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e1403d664df24e427935a95e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9a5b609b37c2ddc541d68468",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9a5b609b37c2ddc541d68468",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ed138c7fe1a6dfe1993555a3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ed138c7fe1a6dfe1993555a3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f2dc91baa7d47bc25fd27476",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f2dc91baa7d47bc25fd27476",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ab90cd5fb28891f38c823034",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ab90cd5fb28891f38c823034",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_97f44e2f8f0d0dfa31683fc3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_97f44e2f8f0d0dfa31683fc3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_033d8286460e8638cefbbb2b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_033d8286460e8638cefbbb2b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7f20fc172faae94b42bafa4a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7f20fc172faae94b42bafa4a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_55a07c1193cdb2d087f471f6",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_55a07c1193cdb2d087f471f6",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_43cb26a9bec07609ddb96eb9",
+      "width": 360,
+      "height": 360,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_43cb26a9bec07609ddb96eb9",
+          "bbox": [
+            0,
+            0,
+            360,
+            360
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3990fe59af9255d289d754e6",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3990fe59af9255d289d754e6",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_74699ae561a2fba8b712d89b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_74699ae561a2fba8b712d89b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c588e0e40e60af33867a59c2",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c588e0e40e60af33867a59c2",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_0e9b4012b747b31cfa14919a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_0e9b4012b747b31cfa14919a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4b6ee7a53a99b86037734428",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4b6ee7a53a99b86037734428",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4eb7e3e3ed04ae0d2f10a3a7",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4eb7e3e3ed04ae0d2f10a3a7",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_49eccd0948cbb25176d4d12f",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_49eccd0948cbb25176d4d12f",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b21b99fd6f868f56cd852163",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b21b99fd6f868f56cd852163",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_a73272a31ded305f221deb44",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_a73272a31ded305f221deb44",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ac776b2c8a8a09820b21c066",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ac776b2c8a8a09820b21c066",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4a2eb4044f0a79e3469bcc61",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4a2eb4044f0a79e3469bcc61",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_dd1a0cacdd862c85a4b48901",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_dd1a0cacdd862c85a4b48901",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ba276485e0ef2da23fb3a500",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ba276485e0ef2da23fb3a500",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7066719218fe66c9df8602fc",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7066719218fe66c9df8602fc",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_acf0c379813ac1e6e5d88e38",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_acf0c379813ac1e6e5d88e38",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_406934a26ed7a92faa2ac271",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_406934a26ed7a92faa2ac271",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c50823fb179eef6b12b8d97b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c50823fb179eef6b12b8d97b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_a796d5487cfa702852ad90f5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_a796d5487cfa702852ad90f5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c88101494bff98e44bf1d562",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c88101494bff98e44bf1d562",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_afe8a3b8ef9ccaf171b66750",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_afe8a3b8ef9ccaf171b66750",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c7f755000e4ab8a79079253f",
+      "width": 360,
+      "height": 360,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c7f755000e4ab8a79079253f",
+          "bbox": [
+            0,
+            0,
+            360,
+            360
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3ade4c3bf2f506e0de234463",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3ade4c3bf2f506e0de234463",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f8c1df36a10f0ea67b986078",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f8c1df36a10f0ea67b986078",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_86ecb9e2bf58da6445c7c21c",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_86ecb9e2bf58da6445c7c21c",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_803543f32bf3558b6298a65f",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_803543f32bf3558b6298a65f",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_1ac430e3843f12af3636b595",
+      "width": 360,
+      "height": 360,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_1ac430e3843f12af3636b595",
+          "bbox": [
+            0,
+            0,
+            360,
+            360
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4d96cbc0ddc61cb3e11ca3a9",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4d96cbc0ddc61cb3e11ca3a9",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8a4802e0eb621c415a312bb6",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8a4802e0eb621c415a312bb6",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3cb797ff98f0e396c515943b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3cb797ff98f0e396c515943b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f2028112b748c90c83cbf442",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f2028112b748c90c83cbf442",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f24c4c4f9874c1c9465917cd",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f24c4c4f9874c1c9465917cd",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_0c2b103339ef559e08acb7e3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_0c2b103339ef559e08acb7e3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_2a0bb712f3826c30f0c351f1",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_2a0bb712f3826c30f0c351f1",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_dea226ab6f9cac3541790cb1",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_dea226ab6f9cac3541790cb1",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_637a981df699a729505c6a9d",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_637a981df699a729505c6a9d",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_abcb03e701ac9e8657faa139",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_abcb03e701ac9e8657faa139",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_07c3bb63e0fa17360308a196",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_07c3bb63e0fa17360308a196",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8b0a6f6fea38fc55dc184529",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8b0a6f6fea38fc55dc184529",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8c56dc4f37c9b900aa262fbb",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8c56dc4f37c9b900aa262fbb",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9ad66b34f3bcb7ddbca0881a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9ad66b34f3bcb7ddbca0881a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_090d5e0aeb080bbfe0c42947",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_090d5e0aeb080bbfe0c42947",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_07165d4f9ab6fded9350239a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_07165d4f9ab6fded9350239a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_47e1a0492042949c1b11e5c5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_47e1a0492042949c1b11e5c5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f2c4ddb804e4026025bdb1fb",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f2c4ddb804e4026025bdb1fb",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d3ced6dc8097b5ce93dcc009",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d3ced6dc8097b5ce93dcc009",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_2f0e3e83b75871b4365296f9",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_2f0e3e83b75871b4365296f9",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_550122f2510037b5fc708134",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_550122f2510037b5fc708134",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_89e05da149d07ff83f757daa",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_89e05da149d07ff83f757daa",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e6648542aef6e5a1259ad45f",
+      "width": 366,
+      "height": 369,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e6648542aef6e5a1259ad45f",
+          "bbox": [
+            0,
+            0,
+            366,
+            369
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_2fe4144ab7091b4e87732b27",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_2fe4144ab7091b4e87732b27",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_0ad870372feb00f54b0626f2",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_0ad870372feb00f54b0626f2",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_5e1e54cd0aa079b82fb8c984",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_5e1e54cd0aa079b82fb8c984",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f373906b9da3ae9d5a81c10d",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f373906b9da3ae9d5a81c10d",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d2c062c7ddaaac54274361f0",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d2c062c7ddaaac54274361f0",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_069843fa88a968d3775707ad",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_069843fa88a968d3775707ad",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3e3c8e9ffa346b3d6a27d19a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3e3c8e9ffa346b3d6a27d19a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e5be3fa104563a5ce7f59254",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e5be3fa104563a5ce7f59254",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_df0147c2e6725449d492a781",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_df0147c2e6725449d492a781",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_af67b804b0cb8ba07b678e2b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_af67b804b0cb8ba07b678e2b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4d32c3b177338fdaaf3652d4",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4d32c3b177338fdaaf3652d4",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c3360bee9522266eb301939f",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c3360bee9522266eb301939f",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_254a628069ea2ab8fc63e6cc",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_254a628069ea2ab8fc63e6cc",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_69515a6bef3d2ea8c954eb20",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_69515a6bef3d2ea8c954eb20",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_cce74227f1d6f19d6cc360ef",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_cce74227f1d6f19d6cc360ef",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_55e4177e3c9bf450df7132b9",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_55e4177e3c9bf450df7132b9",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3b2858126c383ae96f05c04a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3b2858126c383ae96f05c04a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4eaef842c6f52c3316ee4c49",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4eaef842c6f52c3316ee4c49",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8f55c0acdf9e7ebeab65b062",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8f55c0acdf9e7ebeab65b062",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_93605b03a343956110b1f8d1",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_93605b03a343956110b1f8d1",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_2c7aad64875f29fea3e4d77a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_2c7aad64875f29fea3e4d77a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8f1ae9528af99b5638c959c5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8f1ae9528af99b5638c959c5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_4c344101a6955b03c56ebe3a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_4c344101a6955b03c56ebe3a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_967c18781f39e378f2796a19",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_967c18781f39e378f2796a19",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7fd3ac08ea3ebac1ab636bf8",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7fd3ac08ea3ebac1ab636bf8",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_08a315a66b81a0bfc0c6141e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_08a315a66b81a0bfc0c6141e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_fd6c7be0942e09d7d6303306",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_fd6c7be0942e09d7d6303306",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_8432ce5e109a1aab9c61fd5b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_8432ce5e109a1aab9c61fd5b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_73a7440b960471eae313a962",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_73a7440b960471eae313a962",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_37563f001da0dff9d5d063fb",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_37563f001da0dff9d5d063fb",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_791257637662d54e224693c7",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_791257637662d54e224693c7",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_2636314b93d1981145a30377",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_2636314b93d1981145a30377",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_99825894eac52fda223626c2",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_99825894eac52fda223626c2",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_13919903f58479757e33e0da",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_13919903f58479757e33e0da",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d15c57822717f31463a90f12",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d15c57822717f31463a90f12",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3237275ca1ebff863b42b983",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3237275ca1ebff863b42b983",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7857dff1cc6807e83519e9e6",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7857dff1cc6807e83519e9e6",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6da0f4b33415fccdb31250d0",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6da0f4b33415fccdb31250d0",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ef3b5a4222d637d5ce2a56cf",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ef3b5a4222d637d5ce2a56cf",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7c2f7db8a3bdb7e75d202bc8",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7c2f7db8a3bdb7e75d202bc8",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_cc043e644cb7ccf7a45bebaf",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_cc043e644cb7ccf7a45bebaf",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d3045ea3120a6a6518f2384e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d3045ea3120a6a6518f2384e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e3f9a07fd2a885430e94683a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e3f9a07fd2a885430e94683a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6d2a8dab2c4cd36b5c549b79",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6d2a8dab2c4cd36b5c549b79",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_96a2dbf764652675009911c3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_96a2dbf764652675009911c3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_a2a9d64e14db856bd23eab79",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_a2a9d64e14db856bd23eab79",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_426308993e4d3ea0af9591fe",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_426308993e4d3ea0af9591fe",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e27c717d707e36997f50f907",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e27c717d707e36997f50f907",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9d536db015dd8f238d87276e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9d536db015dd8f238d87276e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6da86ecdd8157c01e4a82eca",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6da86ecdd8157c01e4a82eca",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_02f60bef8fe065bab17885df",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_02f60bef8fe065bab17885df",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_85decea20aae25ef796fe5ab",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_85decea20aae25ef796fe5ab",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_440c1deee0d480e5b68b3908",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_440c1deee0d480e5b68b3908",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e39e65fb98089a162ef84c50",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e39e65fb98089a162ef84c50",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_511d29fe3b05abc5cdb2c3e3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_511d29fe3b05abc5cdb2c3e3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_7f88ab53db937768c3ae2cbe",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_7f88ab53db937768c3ae2cbe",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_ee326119fb854399e1f4cd4f",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_ee326119fb854399e1f4cd4f",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_47b31622088a62bb03f1ab61",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_47b31622088a62bb03f1ab61",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_d37f11c5de620a81fc1d6c59",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_d37f11c5de620a81fc1d6c59",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_56bd75ae2b331f63e5be7e84",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_56bd75ae2b331f63e5be7e84",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b452ec38ee7bd9701a0a9636",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b452ec38ee7bd9701a0a9636",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_adf3e96d9eddfc459ab0ae0c",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_adf3e96d9eddfc459ab0ae0c",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_0a6120a52470e5e65d10c3d3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_0a6120a52470e5e65d10c3d3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_443670343367d84569cd2db3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_443670343367d84569cd2db3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_bf4eb7d12960076413b2870a",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_bf4eb7d12960076413b2870a",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_6227e67fbd71e7c50df906f3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_6227e67fbd71e7c50df906f3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_3f6f7ebb6654b07f49e4e5d4",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_3f6f7ebb6654b07f49e4e5d4",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_e4a4c1b35995fa60c09a3355",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_e4a4c1b35995fa60c09a3355",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_b9af7ea9b939d5e52ceaee37",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_b9af7ea9b939d5e52ceaee37",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_dcd8ca659c3aed99407f65e5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_dcd8ca659c3aed99407f65e5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_eebfe59ea3452679a5871ee9",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_eebfe59ea3452679a5871ee9",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_01b7c6cd88c031177b694cb0",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_01b7c6cd88c031177b694cb0",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_f9cb5d2e3775322978b50261",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_f9cb5d2e3775322978b50261",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_5a2fc17b5385ce2a67b67d3b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_5a2fc17b5385ce2a67b67d3b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_72f99a2bacccc555935adb75",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_72f99a2bacccc555935adb75",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_cac654bc2d3442b445a34a83",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_cac654bc2d3442b445a34a83",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_39cd8fc833d5622b6094b3ef",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_39cd8fc833d5622b6094b3ef",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_dd539933b08d686c0c37647b",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_dd539933b08d686c0c37647b",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_85155c8bc1112939272922e1",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_85155c8bc1112939272922e1",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_954db7380078c8343fdac6cb",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_954db7380078c8343fdac6cb",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_740e2726d2b60b809523dfde",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_740e2726d2b60b809523dfde",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_25353786ceb725c1fac5d36e",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_25353786ceb725c1fac5d36e",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_98e81528de93311ee16df9af",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_98e81528de93311ee16df9af",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_31bf1bb85cf8fae3fa0654e3",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_31bf1bb85cf8fae3fa0654e3",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_65bc436ff4644d638097adc5",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_65bc436ff4644d638097adc5",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_c86ea715bcca352aed959afd",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_c86ea715bcca352aed959afd",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_0b2775c423c8808b12d5e454",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_0b2775c423c8808b12d5e454",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    },
+    {
+      "image_id": "barcelona_original_9370944e05d8c1ff100c24da",
+      "width": 360,
+      "height": 363,
+      "review_status": "reviewed",
+      "reviewer": "Caio",
+      "reference_complete": true,
+      "whole_image_label": 0,
+      "positives": [],
+      "negative_regions": [
+        {
+          "annotation_id": "human_whole_barcelona_original_9370944e05d8c1ff100c24da",
+          "bbox": [
+            0,
+            0,
+            360,
+            363
+          ],
+          "review_status": "reviewed",
+          "reviewer": "Caio"
+        }
+      ],
+      "review_basis": "human_visual_review_reported_by_user",
+      "review_usage": "development"
+    }
+  ],
+  "human_approval": {
+    "reviewer": "Caio",
+    "review_basis": "explicit_user_statement",
+    "review_scope": "all_200_original_images",
+    "clinical_diagnosis": false
+  }
+}

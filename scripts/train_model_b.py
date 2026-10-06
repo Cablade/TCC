@@ -14,12 +14,13 @@ sys.path.insert(0, str(ROOT))
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", default=str(ROOT / "configs/model_b.yaml"))
+    parser.add_argument("--config", default=str(ROOT / "configs/model_b_cpu_original_negatives.yaml"))
     parser.add_argument("--run-name")
     parser.add_argument("--output-dir", default=str(ROOT / "experiments/runs"))
     parser.add_argument("--image-manifest")
     parser.add_argument("--crop-manifest")
     parser.add_argument("--annotations")
+    parser.add_argument("--supplementary-policy", help="Política explícita de originais externos autorizados e hashes.")
     parser.add_argument("--no-augment", action="store_true")
     parser.add_argument("--smoke", action="store_true",
                         help="Uma etapa sintética; pesos aleatórios, sem download e sem desempenho real.")
@@ -70,14 +71,17 @@ def main():
     else:
         from src.data_protocol import load_annotations, read_manifest
         images = read_manifest(args.image_manifest)
-        from src.dataset_policy import validate_active_images
-        validate_active_images(images)
+        from src.dataset_policy import validate_active_images, validate_supplementary_crops
+        validate_active_images(images, supplementary_policy=args.supplementary_policy)
         annotations = load_annotations(args.annotations, images)
         crops = data_pipeline.load_split(args.crop_manifest)
         data_pipeline.validate_crop_manifest(
             crops, images, annotations, localization_hash(cfg["localization"]),
             data_pipeline.file_sha256(args.annotations),
         )
+        if args.supplementary_policy:
+            validate_supplementary_crops(crops, args.supplementary_policy)
+            manifests["supplementary_policy"] = args.supplementary_policy
         train_df = crops[crops["split"] == "train"].copy()
         val_df = crops[crops["split"] == "val"].copy()
         if train_df.empty or val_df.empty:
@@ -98,11 +102,12 @@ def main():
             val_df, image_size, cfg["training"]["batch_size"], shuffle=False, partition="val")
         train_ds = train_ds.map(lambda x, y: (x, tf.one_hot(y, 2)), num_parallel_calls=1)
         val_ds = val_ds.map(lambda x, y: (x, tf.one_hot(y, 2)), num_parallel_calls=1)
-        if cfg.get("class_weights") == "auto":
-            counts = train_df["label"].astype(int).value_counts()
-            cfg["resolved_class_weights"] = {int(k): float(len(train_df) / (2 * v)) for k, v in counts.items()}
-        else:
-            cfg["resolved_class_weights"] = cfg.get("class_weights")
+        from src.class_balance import resolve_class_weights
+        cfg["resolved_class_weights"] = resolve_class_weights(train_df["label"].astype(int),
+            cfg.get("class_weights"), cfg["training"].get("max_class_weight"))
+        cfg["sampling"] = {"policy": "all_crops_once_per_epoch", "oversampling": False,
+                           "undersampling": False, "train_counts": {
+                               str(k): int(v) for k,v in train_df["label"].astype(int).value_counts().items()}}
         cfg["dataset_counts"] = {"train": len(train_df), "val": len(val_df)}
         manifests.update(images=args.image_manifest, crops=args.crop_manifest, annotations=args.annotations)
 

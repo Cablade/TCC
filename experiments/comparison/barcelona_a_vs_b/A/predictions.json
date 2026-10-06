@@ -1,0 +1,5126 @@
+{
+  "schema_version": 1,
+  "system": "A",
+  "split": "development",
+  "manifest_sha256": "b58d0db22775609afc7ab0d8b1c99e01a05676a560fba10ef624a90783827677",
+  "artifact": {
+    "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+    "artifact_bytes": 94985071,
+    "keras_metadata": {
+      "keras_version": "2.15.0",
+      "date_saved": "2025-12-28@21:39:04"
+    },
+    "tensorflow": "2.15.0",
+    "keras": "2.15.0",
+    "opencv": "4.9.0",
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "hardware": {
+      "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+      "devices": [
+        "/physical_device:CPU:0"
+      ]
+    },
+    "reference_repository": "https://github.com/Cablade/VisionCruzi",
+    "reference_commit": "59b10244f2ce5cfabff7bece404cb5679668a45d",
+    "class_labels": [
+      "0",
+      "1"
+    ],
+    "class_mapping_source": "label_encoder.dat classes_=['0','1']; API _build_summary",
+    "normalized_copy": false,
+    "training_time_seconds": null,
+    "preservation": {
+      "tensor_count": 329,
+      "original_unchanged": true
+    },
+    "model_weight_count": 320,
+    "load_seconds": 6.407414499997685,
+    "tensorflow_threads": {
+      "intra_op": 2,
+      "inter_op": 2
+    },
+    "overlays_saved": false
+  },
+  "images": [
+    {
+      "image_id": "barcelona_original_19b9bc6f86b32a3547b567d5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0067400000007182825,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.006749399999534944,
+        "decode_seconds": 0.0028382999989844393,
+        "pipeline_seconds": 0.00959109999894281
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 32,
+        "morphology_pixels": 16774,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6e8d98a233d03d50e65f5923",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014033000006747898,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001408899999660207,
+        "decode_seconds": 0.0052260999982536305,
+        "pipeline_seconds": 0.0066377000002830755
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 76,
+        "morphology_pixels": 22931,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ab24789b61293a60337486e2",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015378999996755738,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015421000025526155,
+        "decode_seconds": 0.003184799999871757,
+        "pipeline_seconds": 0.004728600000817096
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 22,
+        "morphology_pixels": 21816,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 162,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3b1061e9bce98e11ba3723cd",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014355000021168962,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014401000007637776,
+        "decode_seconds": 0.003004700000019511,
+        "pipeline_seconds": 0.004446700000698911
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 83,
+        "morphology_pixels": 20477,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e582524121b284c40d039863",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014067999982216861,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014117999999143649,
+        "decode_seconds": 0.0026217000013275538,
+        "pipeline_seconds": 0.004035400001157541
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 35,
+        "morphology_pixels": 17530,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8e5f7ac1a0f6865df4331f04",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013799000007566065,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013842000007571187,
+        "decode_seconds": 0.0031921000008878764,
+        "pipeline_seconds": 0.004577900002914248
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 44,
+        "morphology_pixels": 17593,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f30df26ba013b3fed2d02d88",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015448999984073453,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015493999999307562,
+        "decode_seconds": 0.0028710000005958136,
+        "pipeline_seconds": 0.004422300000442192
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 12183,
+        "area_filtered_pixels": 12183,
+        "nucleus_pixels": 6260,
+        "components_before_area_filter": 40,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_caac9a93e3afd5dd8de33392",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014720999970450066,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014797999974689446,
+        "decode_seconds": 0.0025118999983533286,
+        "pipeline_seconds": 0.003995700000814395
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16,
+        "morphology_pixels": 16355,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ec9a2576f3264aa1aea29c3b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013718000009248499,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013761000009253621,
+        "decode_seconds": 0.0025902999987010844,
+        "pipeline_seconds": 0.003967599997849902
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 12,
+        "morphology_pixels": 16224,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7f99f6dc4b67f9fc0fe4b78b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013834999990649521,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013870000002498273,
+        "decode_seconds": 0.002540699999372009,
+        "pipeline_seconds": 0.0039288000007218216
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 50,
+        "morphology_pixels": 21022,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_09730d1d35847f90f80aff90",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015311999995901715,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015347999978985172,
+        "decode_seconds": 0.0026780000007420313,
+        "pipeline_seconds": 0.004214399999909801
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 88,
+        "morphology_pixels": 21736,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f3459d8ff9987bc03d0b5638",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016398000007029623,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016439000028185546,
+        "decode_seconds": 0.002770899998722598,
+        "pipeline_seconds": 0.004416499999933876
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 9,
+        "morphology_pixels": 16788,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_97b58eebf533e3218e1b5457",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 1,
+          "bbox": [
+            220,
+            177,
+            250,
+            230
+          ],
+          "class_id": 1,
+          "scores": [
+            0.034184373915195465,
+            0.9658156037330627
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 1,
+          "bbox": [
+            220,
+            177,
+            250,
+            230
+          ],
+          "area": 794
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.001354299998638453,
+        "classification_seconds": 0.5583208999996714,
+        "preprocessing_seconds": 0.0015052999988256488,
+        "total_seconds": 0.5612447999992582,
+        "decode_seconds": 0.0026145000010728836,
+        "pipeline_seconds": 0.5638629000022775
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 823,
+        "components_before_area_filter": 6,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "barcelona_original_6467777cd9a63be7f5e1e3a6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001689300002908567,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016959999993559904,
+        "decode_seconds": 0.0034231999998155516,
+        "pipeline_seconds": 0.005121899997902801
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 74,
+        "morphology_pixels": 18863,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_234ad2692ad6a65584b877ea",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001575599999341648,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015820999979041517,
+        "decode_seconds": 0.003617800000938587,
+        "pipeline_seconds": 0.005202200001804158
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 9497,
+        "area_filtered_pixels": 9497,
+        "nucleus_pixels": 5175,
+        "components_before_area_filter": 18,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_fd844ac41a2d3b23f0a2cd5b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017561999993631616,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017642000020714477,
+        "decode_seconds": 0.0045119999995222315,
+        "pipeline_seconds": 0.006279099998209858
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 27,
+        "morphology_pixels": 18027,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b9c240bc7268264bebf04364",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001567100000102073,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015721000017947517,
+        "decode_seconds": 0.004243200000928482,
+        "pipeline_seconds": 0.005816799999593059
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 14242,
+        "area_filtered_pixels": 14242,
+        "nucleus_pixels": 7072,
+        "components_before_area_filter": 20,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4037fda89b49e0b9af5cf3d0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016101000001071952,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016170000017154962,
+        "decode_seconds": 0.003047599999263184,
+        "pipeline_seconds": 0.0046665000008943025
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 25,
+        "morphology_pixels": 14676,
+        "area_filtered_pixels": 14676,
+        "nucleus_pixels": 7973,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b092f9609d6ec78730b71bac",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012798000025213696,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012851000028604176,
+        "decode_seconds": 0.003153800000291085,
+        "pipeline_seconds": 0.004440199998498429
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ca0d598c6eb3f03dadada32a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014234000009309966,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001428300001862226,
+        "decode_seconds": 0.0034374999995634425,
+        "pipeline_seconds": 0.004867200001172023
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 54,
+        "morphology_pixels": 18042,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d2b0c84d119d9f8b7c01b1a7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001614499997231178,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016202000006160233,
+        "decode_seconds": 0.0034393999994790647,
+        "pipeline_seconds": 0.0050639000000956
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 16249,
+        "area_filtered_pixels": 16249,
+        "nucleus_pixels": 6242,
+        "components_before_area_filter": 30,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_bbf76da2cfa286b7ea9b3c78",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017967000021599233,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0018022000003838912,
+        "decode_seconds": 0.003113300001132302,
+        "pipeline_seconds": 0.004917199999908917
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 1550,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9b0f6aac19b489bf3328afd8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0018791000002238434,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001884299999801442,
+        "decode_seconds": 0.0034926000007544644,
+        "pipeline_seconds": 0.005378699999710079
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 60,
+        "morphology_pixels": 21955,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6db00d861f56fb8c5784a731",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014186000007612165,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014235999988159165,
+        "decode_seconds": 0.0032760999965830706,
+        "pipeline_seconds": 0.0047011999995447695
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 32,
+        "morphology_pixels": 19078,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_97dc7b932f0714fadababc38",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014788999978918582,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001485000000684522,
+        "decode_seconds": 0.0035363000024517532,
+        "pipeline_seconds": 0.005023000001528999
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d7f1d9fd59a86990addd0f14",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001626699999178527,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016312000007019378,
+        "decode_seconds": 0.0029518000010284595,
+        "pipeline_seconds": 0.0045845999993616715
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 12,
+        "morphology_pixels": 15235,
+        "area_filtered_pixels": 15235,
+        "nucleus_pixels": 4566,
+        "components_before_area_filter": 43,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_91976d64657650ab582e4826",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001666199997998774,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016740999999456108,
+        "decode_seconds": 0.003729099997144658,
+        "pipeline_seconds": 0.005405500000051688
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_1a6cd2fcf1b8fb9f8bd81471",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012711999988823663,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012772000009135809,
+        "decode_seconds": 0.0030412999985856004,
+        "pipeline_seconds": 0.004320199997891905
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_28b44d5f90a1a651a71f5455",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014494000024569687,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014539000003424007,
+        "decode_seconds": 0.003381200000148965,
+        "pipeline_seconds": 0.004836399999476271
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 10410,
+        "area_filtered_pixels": 10410,
+        "nucleus_pixels": 4838,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_1f8f027192d9cd62b317d466",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014487999978882726,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001452099997550249,
+        "decode_seconds": 0.0038528999975824263,
+        "pipeline_seconds": 0.0053063999985170085
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 12435,
+        "area_filtered_pixels": 12435,
+        "nucleus_pixels": 4503,
+        "components_before_area_filter": 19,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_806bff1d73fe6e932924a609",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015219000015349593,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015287999995052814,
+        "decode_seconds": 0.0031476000003749505,
+        "pipeline_seconds": 0.004678299999795854
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 15841,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8c3eb32270007aaf523da855",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001543300000776071,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015476000007765833,
+        "decode_seconds": 0.0032613000003038906,
+        "pipeline_seconds": 0.004810500002349727
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 14450,
+        "area_filtered_pixels": 14450,
+        "nucleus_pixels": 6110,
+        "components_before_area_filter": 29,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_23a68d0bc4225da4708f9c75",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014391999975487124,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014425999979721382,
+        "decode_seconds": 0.003453199999057688,
+        "pipeline_seconds": 0.004897200000414159
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 5977,
+        "area_filtered_pixels": 5977,
+        "nucleus_pixels": 3134,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_12ced63ccdc60c57b18f7f49",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001258099997357931,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012626999996427912,
+        "decode_seconds": 0.003388400000403635,
+        "pipeline_seconds": 0.004652800002077129
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_5eb9ef81853e9cdc24452518",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014817000010225456,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001486600001953775,
+        "decode_seconds": 0.0029539000024669804,
+        "pipeline_seconds": 0.004441799999767682
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 7934,
+        "area_filtered_pixels": 7934,
+        "nucleus_pixels": 3748,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9e7c21411fd238788154a10e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013327999986358918,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001337400000920752,
+        "decode_seconds": 0.0030755000007047784,
+        "pipeline_seconds": 0.004414499999256805
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1545,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d448822da419d1277b1150cf",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001863900000898866,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0018697000014071818,
+        "decode_seconds": 0.0032769000026746653,
+        "pipeline_seconds": 0.005148399999598041
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 7021,
+        "area_filtered_pixels": 7021,
+        "nucleus_pixels": 4366,
+        "components_before_area_filter": 15,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_36e2fb3ce943f0b80c4e8a45",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001403599999321159,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001408700001775287,
+        "decode_seconds": 0.0027943999994022306,
+        "pipeline_seconds": 0.004204500000923872
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 94,
+        "morphology_pixels": 22887,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d1f4eeda40aefc1d15c0e15a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011816000005637761,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011860000013257377,
+        "decode_seconds": 0.0032629000015731435,
+        "pipeline_seconds": 0.004450200001883786
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_76bf4e8125c0bad6db3245d1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012846999998146202,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012907000018458348,
+        "decode_seconds": 0.0034411999986332376,
+        "pipeline_seconds": 0.004733300000225427
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_69ddf3974df0bc5a936e2074",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014835000001767185,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001488899997639237,
+        "decode_seconds": 0.0036021000014443416,
+        "pipeline_seconds": 0.005092300001706462
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 12697,
+        "area_filtered_pixels": 12697,
+        "nucleus_pixels": 5219,
+        "components_before_area_filter": 11,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_19d1d1c0ca4cc9c79d3d0a32",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001446499998564832,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014501000005111564,
+        "decode_seconds": 0.003244800001994008,
+        "pipeline_seconds": 0.00469629999861354
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 14,
+        "morphology_pixels": 14410,
+        "area_filtered_pixels": 14410,
+        "nucleus_pixels": 5296,
+        "components_before_area_filter": 20,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_35bbc734db8867f3261a0ffb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014353000005939975,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014393000019481406,
+        "decode_seconds": 0.0029063999973004684,
+        "pipeline_seconds": 0.004347199999756413
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b45c42a31de4d4165173ffff",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014258000010158867,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014291000006778631,
+        "decode_seconds": 0.0024941999981820118,
+        "pipeline_seconds": 0.00392439999995986
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 11329,
+        "area_filtered_pixels": 11329,
+        "nucleus_pixels": 5291,
+        "components_before_area_filter": 18,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d75471648a5ed019d644c62b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017841000008047558,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017876999991131015,
+        "decode_seconds": 0.0027584000017668586,
+        "pipeline_seconds": 0.004547500000626314
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 12985,
+        "area_filtered_pixels": 12985,
+        "nucleus_pixels": 5957,
+        "components_before_area_filter": 13,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_bb151c2159aeabb3fc7d2983",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.00149789999704808,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015016999968793243,
+        "decode_seconds": 0.003027700000529876,
+        "pipeline_seconds": 0.004530900001554983
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 30,
+        "morphology_pixels": 17163,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_03bb5b470bf9e09db6ece8db",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014346999996632803,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014381000000867061,
+        "decode_seconds": 0.0025166999985231087,
+        "pipeline_seconds": 0.0039557999989483505
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 14,
+        "morphology_pixels": 11791,
+        "area_filtered_pixels": 11791,
+        "nucleus_pixels": 4628,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e42bd465718d4bb1b55dab51",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016257999996014405,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016292000000248663,
+        "decode_seconds": 0.002824499999405816,
+        "pipeline_seconds": 0.004455099999177037
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 10692,
+        "area_filtered_pixels": 7369,
+        "nucleus_pixels": 4516,
+        "components_before_area_filter": 6,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_24bc9d9d8f8b017725ad2162",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016150000010384247,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016217999982472975,
+        "decode_seconds": 0.002752700002019992,
+        "pipeline_seconds": 0.004375900000013644
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 2316,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_199298cc071040ccaa7af091",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014462999970419332,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014494999995804392,
+        "decode_seconds": 0.0037026999998488463,
+        "pipeline_seconds": 0.005153900001459988
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 13,
+        "morphology_pixels": 14059,
+        "area_filtered_pixels": 14059,
+        "nucleus_pixels": 4913,
+        "components_before_area_filter": 30,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_63e57742c608e232e5f2f714",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012440000027709175,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012480000004870817,
+        "decode_seconds": 0.002373099996475503,
+        "pipeline_seconds": 0.0036223999995854683
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_5d42356b50eea5154670cb09",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013579000005847774,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013615999996545725,
+        "decode_seconds": 0.002442299999529496,
+        "pipeline_seconds": 0.0038052999989304226
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 2280,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_5fd1325e06f216781ca1cf4a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014382000008481555,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001441500000510132,
+        "decode_seconds": 0.0030177000007824972,
+        "pipeline_seconds": 0.004460899999685353
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 2252,
+        "components_before_area_filter": 31,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e1403d664df24e427935a95e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011435000014898833,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011472000005596783,
+        "decode_seconds": 0.002399400000285823,
+        "pipeline_seconds": 0.0035475000004225876
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9a5b609b37c2ddc541d68468",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001330999999481719,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013341000012587756,
+        "decode_seconds": 0.0023718000011285767,
+        "pipeline_seconds": 0.0037069999998493586
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 15,
+        "morphology_pixels": 6883,
+        "area_filtered_pixels": 6883,
+        "nucleus_pixels": 3221,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ed138c7fe1a6dfe1993555a3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015023000014480203,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015055000003485475,
+        "decode_seconds": 0.0024379999995289836,
+        "pipeline_seconds": 0.003944600000977516
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 8487,
+        "area_filtered_pixels": 8487,
+        "nucleus_pixels": 4654,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f2dc91baa7d47bc25fd27476",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014147000001685228,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00141770000118413,
+        "decode_seconds": 0.0032085999991977587,
+        "pipeline_seconds": 0.0046274999986053444
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 9,
+        "morphology_pixels": 9976,
+        "area_filtered_pixels": 9976,
+        "nucleus_pixels": 3610,
+        "components_before_area_filter": 41,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ab90cd5fb28891f38c823034",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014169999994919635,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014206999985617585,
+        "decode_seconds": 0.002860799999325536,
+        "pipeline_seconds": 0.004283199999917997
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 8057,
+        "area_filtered_pixels": 8057,
+        "nucleus_pixels": 3218,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_97f44e2f8f0d0dfa31683fc3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001313000000664033,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013163000003260095,
+        "decode_seconds": 0.002468300001055468,
+        "pipeline_seconds": 0.0037856999988434836
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1898,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_033d8286460e8638cefbbb2b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012309999983699527,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012354999998933636,
+        "decode_seconds": 0.002450799998769071,
+        "pipeline_seconds": 0.003687699998408789
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7f20fc172faae94b42bafa4a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013858999991498422,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013900000012654345,
+        "decode_seconds": 0.003326300000480842,
+        "pipeline_seconds": 0.004717700001492631
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1546,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_55a07c1193cdb2d087f471f6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0019353999996383209,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0019387000029382762,
+        "decode_seconds": 0.0027317999993101694,
+        "pipeline_seconds": 0.004672200000641169
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 18,
+        "morphology_pixels": 14311,
+        "area_filtered_pixels": 11008,
+        "nucleus_pixels": 4565,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_43cb26a9bec07609ddb96eb9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013550000003306195,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013604000014311168,
+        "decode_seconds": 0.0023342999993474223,
+        "pipeline_seconds": 0.0036963999991712626
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3990fe59af9255d289d754e6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013436000008368865,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013475000014295802,
+        "decode_seconds": 0.002849100001185434,
+        "pipeline_seconds": 0.004198500002530636
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_74699ae561a2fba8b712d89b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001367299999401439,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013706999998248648,
+        "decode_seconds": 0.002373200000874931,
+        "pipeline_seconds": 0.0037452000033226795
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 2540,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_c588e0e40e60af33867a59c2",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011761999994632788,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001179700000648154,
+        "decode_seconds": 0.0024914999994507525,
+        "pipeline_seconds": 0.0036724999990838114
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_0e9b4012b747b31cfa14919a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013923000005888753,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001395899998897221,
+        "decode_seconds": 0.00304379999943194,
+        "pipeline_seconds": 0.004441199998836964
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4b6ee7a53a99b86037734428",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012884999996458646,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001292100001592189,
+        "decode_seconds": 0.002395499999693129,
+        "pipeline_seconds": 0.0036890000010316726
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 3369,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4eb7e3e3ed04ae0d2f10a3a7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012180000012449455,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012218000010761898,
+        "decode_seconds": 0.0024789999988570344,
+        "pipeline_seconds": 0.003702099998918129
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_49eccd0948cbb25176d4d12f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011812000011559576,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011849000002257526,
+        "decode_seconds": 0.0023579000007885043,
+        "pipeline_seconds": 0.003544399998645531
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b21b99fd6f868f56cd852163",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014101000015216414,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014143000007607043,
+        "decode_seconds": 0.002480200000718469,
+        "pipeline_seconds": 0.003895600002579158
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 14,
+        "morphology_pixels": 17499,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_a73272a31ded305f221deb44",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014913000013621058,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014952000019547995,
+        "decode_seconds": 0.0025480000003881287,
+        "pipeline_seconds": 0.004044900000735652
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ac776b2c8a8a09820b21c066",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014322999995783903,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001437199996871641,
+        "decode_seconds": 0.0028710000005958136,
+        "pipeline_seconds": 0.0043097999987367075
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1955,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4a2eb4044f0a79e3469bcc61",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012585000004037283,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012616999993042555,
+        "decode_seconds": 0.002923600000940496,
+        "pipeline_seconds": 0.0041865999992296565
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_dd1a0cacdd862c85a4b48901",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001310600000579143,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013134000000718515,
+        "decode_seconds": 0.0024671999999554828,
+        "pipeline_seconds": 0.0037818000018887687
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 7674,
+        "area_filtered_pixels": 7674,
+        "nucleus_pixels": 4105,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ba276485e0ef2da23fb3a500",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014160000027914066,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014197000018612016,
+        "decode_seconds": 0.0024069999999483116,
+        "pipeline_seconds": 0.003828000000794418
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 11,
+        "morphology_pixels": 23173,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7066719218fe66c9df8602fc",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014948999996704515,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001500599999417318,
+        "decode_seconds": 0.002776500001345994,
+        "pipeline_seconds": 0.0042791000014403835
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_acf0c379813ac1e6e5d88e38",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013724999989790376,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013756000007560942,
+        "decode_seconds": 0.002462999997078441,
+        "pipeline_seconds": 0.0038397999996959697
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 5906,
+        "area_filtered_pixels": 5906,
+        "nucleus_pixels": 3601,
+        "components_before_area_filter": 28,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_406934a26ed7a92faa2ac271",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014714999997522682,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014759000005142298,
+        "decode_seconds": 0.003585200000088662,
+        "pipeline_seconds": 0.005062299998826347
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 8518,
+        "area_filtered_pixels": 8518,
+        "nucleus_pixels": 5064,
+        "components_before_area_filter": 19,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_c50823fb179eef6b12b8d97b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014058999986445997,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014099999971222132,
+        "decode_seconds": 0.0035314999986439943,
+        "pipeline_seconds": 0.004942799998389091
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 22,
+        "morphology_pixels": 17155,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_a796d5487cfa702852ad90f5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014317999994091224,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014348000004247297,
+        "decode_seconds": 0.003065799999603769,
+        "pipeline_seconds": 0.004501600000367034
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 7553,
+        "area_filtered_pixels": 7553,
+        "nucleus_pixels": 4390,
+        "components_before_area_filter": 31,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_c88101494bff98e44bf1d562",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0021763999975519255,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0021793999985675327,
+        "decode_seconds": 0.002713199999561766,
+        "pipeline_seconds": 0.004893900000752183
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 10957,
+        "area_filtered_pixels": 10957,
+        "nucleus_pixels": 6210,
+        "components_before_area_filter": 50,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_afe8a3b8ef9ccaf171b66750",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016969999996945262,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017010000010486692,
+        "decode_seconds": 0.0029720999991695862,
+        "pipeline_seconds": 0.00467469999784953
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 25,
+        "morphology_pixels": 21608,
+        "area_filtered_pixels": 21608,
+        "nucleus_pixels": 10544,
+        "components_before_area_filter": 47,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_c7f755000e4ab8a79079253f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011999999987892807,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012041999980283435,
+        "decode_seconds": 0.0026424999996379483,
+        "pipeline_seconds": 0.0038480000002891757
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3ade4c3bf2f506e0de234463",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001468800001021009,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014722000014444347,
+        "decode_seconds": 0.003195199999026954,
+        "pipeline_seconds": 0.004668699999456294
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 6962,
+        "area_filtered_pixels": 6962,
+        "nucleus_pixels": 3956,
+        "components_before_area_filter": 10,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f8c1df36a10f0ea67b986078",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014668000003439374,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001470100000005914,
+        "decode_seconds": 0.0031381000007968396,
+        "pipeline_seconds": 0.004609600000549108
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 6962,
+        "area_filtered_pixels": 6962,
+        "nucleus_pixels": 3770,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_86ecb9e2bf58da6445c7c21c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014601999973820057,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014641999987361487,
+        "decode_seconds": 0.003023199999006465,
+        "pipeline_seconds": 0.004489099999773316
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 9871,
+        "area_filtered_pixels": 9871,
+        "nucleus_pixels": 4461,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_803543f32bf3558b6298a65f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014376999970409088,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001441199998225784,
+        "decode_seconds": 0.0035472000017762184,
+        "pipeline_seconds": 0.004989600001863437
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 36,
+        "morphology_pixels": 14451,
+        "area_filtered_pixels": 14451,
+        "nucleus_pixels": 7522,
+        "components_before_area_filter": 33,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_1ac430e3843f12af3636b595",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001215500000398606,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012189999979455024,
+        "decode_seconds": 0.0035600000010163058,
+        "pipeline_seconds": 0.004780200000823243
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4d96cbc0ddc61cb3e11ca3a9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017503000017313752,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017532000019855332,
+        "decode_seconds": 0.002981599998747697,
+        "pipeline_seconds": 0.004736199996841606
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 5176,
+        "area_filtered_pixels": 5176,
+        "nucleus_pixels": 2518,
+        "components_before_area_filter": 25,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8a4802e0eb621c415a312bb6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012887000011687633,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001292100001592189,
+        "decode_seconds": 0.0029799000003549736,
+        "pipeline_seconds": 0.004273599999578437
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3cb797ff98f0e396c515943b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013622999977087602,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013676999988092575,
+        "decode_seconds": 0.002562900001066737,
+        "pipeline_seconds": 0.003932200001145247
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f2028112b748c90c83cbf442",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016207000007852912,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001623799998924369,
+        "decode_seconds": 0.0027592000005824957,
+        "pipeline_seconds": 0.004384399999253219
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 10301,
+        "area_filtered_pixels": 10301,
+        "nucleus_pixels": 5920,
+        "components_before_area_filter": 31,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f24c4c4f9874c1c9465917cd",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 1,
+          "bbox": [
+            23,
+            285,
+            49,
+            313
+          ],
+          "class_id": 1,
+          "scores": [
+            0.038246676325798035,
+            0.9617533683776855
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 1,
+          "bbox": [
+            23,
+            285,
+            49,
+            313
+          ],
+          "area": 488
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.0014963000030547846,
+        "classification_seconds": 0.08464680000179214,
+        "preprocessing_seconds": 0.00027970000155619346,
+        "total_seconds": 0.08646620000217808,
+        "decode_seconds": 0.0026030000008177012,
+        "pipeline_seconds": 0.0890730999999505
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 78,
+        "morphology_pixels": 23395,
+        "area_filtered_pixels": 4181,
+        "nucleus_pixels": 492,
+        "components_before_area_filter": 4,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "barcelona_original_0c2b103339ef559e08acb7e3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017126999991887715,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017240999986825045,
+        "decode_seconds": 0.004767099999298807,
+        "pipeline_seconds": 0.006493699998827651
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_2a0bb712f3826c30f0c351f1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014583000011043623,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014622999988205265,
+        "decode_seconds": 0.004267100001015933,
+        "pipeline_seconds": 0.005730600001697894
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 10926,
+        "area_filtered_pixels": 10926,
+        "nucleus_pixels": 5665,
+        "components_before_area_filter": 25,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_dea226ab6f9cac3541790cb1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014176000004226808,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014211999987310264,
+        "decode_seconds": 0.0032226000002992805,
+        "pipeline_seconds": 0.004645000000891741
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 10317,
+        "area_filtered_pixels": 10317,
+        "nucleus_pixels": 5154,
+        "components_before_area_filter": 14,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_637a981df699a729505c6a9d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001484699998400174,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001488899997639237,
+        "decode_seconds": 0.0029590999984066,
+        "pipeline_seconds": 0.00444939999943017
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 17,
+        "morphology_pixels": 15645,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_abcb03e701ac9e8657faa139",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015559999992547091,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015591999981552362,
+        "decode_seconds": 0.002539600001910003,
+        "pipeline_seconds": 0.004099900001165224
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 8,
+        "morphology_pixels": 15412,
+        "area_filtered_pixels": 15412,
+        "nucleus_pixels": 6827,
+        "components_before_area_filter": 67,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_07c3bb63e0fa17360308a196",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015318000005208887,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015347999978985172,
+        "decode_seconds": 0.003178700000717072,
+        "pipeline_seconds": 0.004714499998954125
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 21056,
+        "area_filtered_pixels": 21056,
+        "nucleus_pixels": 13629,
+        "components_before_area_filter": 39,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8b0a6f6fea38fc55dc184529",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015643000006093644,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001567400002386421,
+        "decode_seconds": 0.002782600000500679,
+        "pipeline_seconds": 0.004351300001872005
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 38,
+        "morphology_pixels": 17397,
+        "area_filtered_pixels": 17397,
+        "nucleus_pixels": 5969,
+        "components_before_area_filter": 22,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8c56dc4f37c9b900aa262fbb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015473999992536847,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015509000004385598,
+        "decode_seconds": 0.002420400000119116,
+        "pipeline_seconds": 0.003972400001657661
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 19,
+        "morphology_pixels": 16376,
+        "area_filtered_pixels": 14134,
+        "nucleus_pixels": 6711,
+        "components_before_area_filter": 34,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9ad66b34f3bcb7ddbca0881a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015085999984876253,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015123999983188696,
+        "decode_seconds": 0.0029833000007783994,
+        "pipeline_seconds": 0.004497300000366522
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 5523,
+        "area_filtered_pixels": 5523,
+        "nucleus_pixels": 4165,
+        "components_before_area_filter": 8,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_090d5e0aeb080bbfe0c42947",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014134999983070884,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014172000010148622,
+        "decode_seconds": 0.0034774999985529575,
+        "pipeline_seconds": 0.004895899997791275
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 15,
+        "morphology_pixels": 13637,
+        "area_filtered_pixels": 13637,
+        "nucleus_pixels": 5713,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_07165d4f9ab6fded9350239a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014163999985612463,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014197999989846721,
+        "decode_seconds": 0.002631299998029135,
+        "pipeline_seconds": 0.004052299998875242
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 10606,
+        "area_filtered_pixels": 10606,
+        "nucleus_pixels": 5785,
+        "components_before_area_filter": 20,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_47e1a0492042949c1b11e5c5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001396200001181569,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014007999998284504,
+        "decode_seconds": 0.0024187000017263927,
+        "pipeline_seconds": 0.0038209000013011973
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 2271,
+        "components_before_area_filter": 5,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f2c4ddb804e4026025bdb1fb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014043000010133255,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014093999998294748,
+        "decode_seconds": 0.002677100001164945,
+        "pipeline_seconds": 0.004088000001502223
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 27,
+        "morphology_pixels": 17160,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d3ced6dc8097b5ce93dcc009",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013781999987259042,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013819999985571485,
+        "decode_seconds": 0.003296599999885075,
+        "pipeline_seconds": 0.004680099998950027
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 7493,
+        "area_filtered_pixels": 7493,
+        "nucleus_pixels": 4349,
+        "components_before_area_filter": 5,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_2f0e3e83b75871b4365296f9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014527999992424157,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014561999996658415,
+        "decode_seconds": 0.002968900000269059,
+        "pipeline_seconds": 0.004426600000442704
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 2099,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_550122f2510037b5fc708134",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001347200002783211,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00135009999939939,
+        "decode_seconds": 0.0024760999986028764,
+        "pipeline_seconds": 0.0038275000006251503
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 5581,
+        "area_filtered_pixels": 5581,
+        "nucleus_pixels": 3545,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_89e05da149d07ff83f757daa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015517000028921757,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015545000023848843,
+        "decode_seconds": 0.0027685999993991572,
+        "pipeline_seconds": 0.004324699999415316
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 5944,
+        "area_filtered_pixels": 5944,
+        "nucleus_pixels": 54,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e6648542aef6e5a1259ad45f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015851999996812083,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015888999987510033,
+        "decode_seconds": 0.0023629999996046536,
+        "pipeline_seconds": 0.003953200000978541
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_2fe4144ab7091b4e87732b27",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014360999994096346,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014394999998330604,
+        "decode_seconds": 0.0026539999998931307,
+        "pipeline_seconds": 0.004095100000995444
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_0ad870372feb00f54b0626f2",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014446000022871885,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014484999992419034,
+        "decode_seconds": 0.0025703999999677762,
+        "pipeline_seconds": 0.004020199998194585
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 8602,
+        "area_filtered_pixels": 8602,
+        "nucleus_pixels": 5528,
+        "components_before_area_filter": 15,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_5e1e54cd0aa079b82fb8c984",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001388000000588363,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013910000016039703,
+        "decode_seconds": 0.002586200000223471,
+        "pipeline_seconds": 0.003978500000812346
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 9,
+        "morphology_pixels": 9317,
+        "area_filtered_pixels": 9317,
+        "nucleus_pixels": 5508,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f373906b9da3ae9d5a81c10d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001406199997290969,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014091999983065762,
+        "decode_seconds": 0.003238100001908606,
+        "pipeline_seconds": 0.0046485000020766165
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 29,
+        "morphology_pixels": 13506,
+        "area_filtered_pixels": 13506,
+        "nucleus_pixels": 6064,
+        "components_before_area_filter": 29,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d2c062c7ddaaac54274361f0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015368000022135675,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015403000033984426,
+        "decode_seconds": 0.002502499999536667,
+        "pipeline_seconds": 0.0040439999975205865
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16,
+        "morphology_pixels": 12347,
+        "area_filtered_pixels": 12347,
+        "nucleus_pixels": 6647,
+        "components_before_area_filter": 40,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_069843fa88a968d3775707ad",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001476500001444947,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014795999995840248,
+        "decode_seconds": 0.0024868000000424217,
+        "pipeline_seconds": 0.003967600001487881
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 11,
+        "morphology_pixels": 7717,
+        "area_filtered_pixels": 7717,
+        "nucleus_pixels": 4457,
+        "components_before_area_filter": 10,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3e3c8e9ffa346b3d6a27d19a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001397500000166474,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014005000011820812,
+        "decode_seconds": 0.002501200000551762,
+        "pipeline_seconds": 0.003902899999957299
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 2145,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e5be3fa104563a5ce7f59254",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014597999979741871,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014625000003434252,
+        "decode_seconds": 0.0028612000023713335,
+        "pipeline_seconds": 0.004325200003222562
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 8242,
+        "area_filtered_pixels": 8242,
+        "nucleus_pixels": 6216,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_df0147c2e6725449d492a781",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014856000016152393,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001488699999754317,
+        "decode_seconds": 0.0024207999995269347,
+        "pipeline_seconds": 0.003910700001142686
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 23,
+        "morphology_pixels": 11973,
+        "area_filtered_pixels": 11973,
+        "nucleus_pixels": 5506,
+        "components_before_area_filter": 11,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_af67b804b0cb8ba07b678e2b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001564700000017183,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015679999996791594,
+        "decode_seconds": 0.002968099997815443,
+        "pipeline_seconds": 0.0045376999987638555
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 18,
+        "morphology_pixels": 12849,
+        "area_filtered_pixels": 12849,
+        "nucleus_pixels": 6358,
+        "components_before_area_filter": 19,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4d32c3b177338fdaaf3652d4",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013918000004196074,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013948000014352147,
+        "decode_seconds": 0.0026026000014098827,
+        "pipeline_seconds": 0.003998500000307104
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 11,
+        "morphology_pixels": 9874,
+        "area_filtered_pixels": 9874,
+        "nucleus_pixels": 5280,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_c3360bee9522266eb301939f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015153999993344769,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015185000011115335,
+        "decode_seconds": 0.0031439000013051555,
+        "pipeline_seconds": 0.004663899999286514
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 11769,
+        "area_filtered_pixels": 11769,
+        "nucleus_pixels": 5597,
+        "components_before_area_filter": 43,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_254a628069ea2ab8fc63e6cc",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014799000018683728,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014843999997538049,
+        "decode_seconds": 0.003023199999006465,
+        "pipeline_seconds": 0.004509099999268074
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1621,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_69515a6bef3d2ea8c954eb20",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015912000017124228,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015945000013743993,
+        "decode_seconds": 0.003830400000879308,
+        "pipeline_seconds": 0.005425999999715714
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 18016,
+        "area_filtered_pixels": 18016,
+        "nucleus_pixels": 7305,
+        "components_before_area_filter": 24,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_cce74227f1d6f19d6cc360ef",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012599000001500826,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001263699999981327,
+        "decode_seconds": 0.0030374000016308855,
+        "pipeline_seconds": 0.004302199999074219
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_55e4177e3c9bf450df7132b9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012408000002324115,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012452000009943731,
+        "decode_seconds": 0.0024688999983482063,
+        "pipeline_seconds": 0.0037157000006118324
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3b2858126c383ae96f05c04a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012362999987090006,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012399999977787957,
+        "decode_seconds": 0.003254800001741387,
+        "pipeline_seconds": 0.004495900000620168
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4eaef842c6f52c3316ee4c49",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014585999997507315,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014620000001741573,
+        "decode_seconds": 0.003220099999452941,
+        "pipeline_seconds": 0.004683499999373453
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 5323,
+        "area_filtered_pixels": 5323,
+        "nucleus_pixels": 2158,
+        "components_before_area_filter": 14,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8f55c0acdf9e7ebeab65b062",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013680000010936055,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013736000000790227,
+        "decode_seconds": 0.002482600000803359,
+        "pipeline_seconds": 0.003857700001390185
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_93605b03a343956110b1f8d1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015038999990792945,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001507000000856351,
+        "decode_seconds": 0.003098199998930795,
+        "pipeline_seconds": 0.0046062999972491525
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 13836,
+        "area_filtered_pixels": 13836,
+        "nucleus_pixels": 8679,
+        "components_before_area_filter": 28,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_2c7aad64875f29fea3e4d77a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014615000000048894,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014645000010204967,
+        "decode_seconds": 0.0025014999991981313,
+        "pipeline_seconds": 0.003967100001318613
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 11827,
+        "area_filtered_pixels": 11827,
+        "nucleus_pixels": 6313,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8f1ae9528af99b5638c959c5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014517000017804094,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014546999991580378,
+        "decode_seconds": 0.0030972999993537087,
+        "pipeline_seconds": 0.004553099999611732
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 8,
+        "morphology_pixels": 10448,
+        "area_filtered_pixels": 10448,
+        "nucleus_pixels": 6924,
+        "components_before_area_filter": 24,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_4c344101a6955b03c56ebe3a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014265999998315237,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014301999981398694,
+        "decode_seconds": 0.0031025999996927567,
+        "pipeline_seconds": 0.00453429999834043
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 30,
+        "morphology_pixels": 20417,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_967c18781f39e378f2796a19",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014941000008548144,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014976000020396896,
+        "decode_seconds": 0.0034617999990587123,
+        "pipeline_seconds": 0.004960700000083307
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 7723,
+        "area_filtered_pixels": 7723,
+        "nucleus_pixels": 5908,
+        "components_before_area_filter": 8,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7fd3ac08ea3ebac1ab636bf8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014025000018591527,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014054999992367812,
+        "decode_seconds": 0.0031096999991859775,
+        "pipeline_seconds": 0.004516500001045642
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 2723,
+        "components_before_area_filter": 5,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_08a315a66b81a0bfc0c6141e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015562999979010783,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015591000010317657,
+        "decode_seconds": 0.0028717999994114507,
+        "pipeline_seconds": 0.004432199999428121
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 14061,
+        "area_filtered_pixels": 14061,
+        "nucleus_pixels": 8102,
+        "components_before_area_filter": 13,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_fd6c7be0942e09d7d6303306",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.00120249999963562,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012076999992132187,
+        "decode_seconds": 0.0025640999992901925,
+        "pipeline_seconds": 0.0037731999982497655
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_8432ce5e109a1aab9c61fd5b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.00160659999892232,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016113999990921002,
+        "decode_seconds": 0.003502600000501843,
+        "pipeline_seconds": 0.0051151000006939285
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 15965,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_73a7440b960471eae313a962",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013179000015952624,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013213000020186882,
+        "decode_seconds": 0.0034372000009170733,
+        "pipeline_seconds": 0.004759700001159217
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_37563f001da0dff9d5d063fb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014933000020391773,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014966000017011538,
+        "decode_seconds": 0.0031624000002921093,
+        "pipeline_seconds": 0.004660200000216719
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 19,
+        "morphology_pixels": 20521,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_791257637662d54e224693c7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016350000005331822,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016379999979108106,
+        "decode_seconds": 0.0028101999996579252,
+        "pipeline_seconds": 0.00444939999943017
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 8,
+        "morphology_pixels": 12711,
+        "area_filtered_pixels": 12711,
+        "nucleus_pixels": 8312,
+        "components_before_area_filter": 42,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_2636314b93d1981145a30377",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014432999996643048,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001446300000679912,
+        "decode_seconds": 0.002490099999704398,
+        "pipeline_seconds": 0.0039374999978463165
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 12849,
+        "area_filtered_pixels": 12849,
+        "nucleus_pixels": 7791,
+        "components_before_area_filter": 18,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_99825894eac52fda223626c2",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015155000000959262,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015187999997579027,
+        "decode_seconds": 0.002867399998649489,
+        "pipeline_seconds": 0.004387600001791725
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 9,
+        "morphology_pixels": 16863,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_13919903f58479757e33e0da",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014129999981378205,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014169999994919635,
+        "decode_seconds": 0.0024344999983441085,
+        "pipeline_seconds": 0.0038528999975824263
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1387,
+        "components_before_area_filter": 46,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d15c57822717f31463a90f12",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015314000011130702,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015395000009448268,
+        "decode_seconds": 0.0033601000031922013,
+        "pipeline_seconds": 0.004902399999991758
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 2437,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3237275ca1ebff863b42b983",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016843999983393587,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016918000001169275,
+        "decode_seconds": 0.00507120000111172,
+        "pipeline_seconds": 0.006764699999621371
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 13096,
+        "area_filtered_pixels": 13096,
+        "nucleus_pixels": 8255,
+        "components_before_area_filter": 15,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7857dff1cc6807e83519e9e6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015131000000110362,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015201000023807865,
+        "decode_seconds": 0.004802200000995072,
+        "pipeline_seconds": 0.006324000001768582
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 9792,
+        "area_filtered_pixels": 9792,
+        "nucleus_pixels": 4927,
+        "components_before_area_filter": 14,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6da0f4b33415fccdb31250d0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016451999981654808,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016514999988430645,
+        "decode_seconds": 0.0044104999979026616,
+        "pipeline_seconds": 0.006063599998014979
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 6800,
+        "area_filtered_pixels": 6800,
+        "nucleus_pixels": 4127,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ef3b5a4222d637d5ce2a56cf",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001634200001717545,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016385000017180573,
+        "decode_seconds": 0.004102999999304302,
+        "pipeline_seconds": 0.0057430999986536335
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 9895,
+        "area_filtered_pixels": 9895,
+        "nucleus_pixels": 3822,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7c2f7db8a3bdb7e75d202bc8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015402999997604638,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015493999999307562,
+        "decode_seconds": 0.004860400000325171,
+        "pipeline_seconds": 0.006411900001694448
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_cc043e644cb7ccf7a45bebaf",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015610999980708584,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015657999974791892,
+        "decode_seconds": 0.003926299999875482,
+        "pipeline_seconds": 0.005493699998623924
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 5942,
+        "area_filtered_pixels": 5942,
+        "nucleus_pixels": 2610,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d3045ea3120a6a6518f2384e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016829000014695339,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016873000022314955,
+        "decode_seconds": 0.0042421999969519675,
+        "pipeline_seconds": 0.005931299998337636
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 9477,
+        "area_filtered_pixels": 9477,
+        "nucleus_pixels": 4545,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e3f9a07fd2a885430e94683a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001292299999477109,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012984999993932433,
+        "decode_seconds": 0.004216099998302525,
+        "pipeline_seconds": 0.005516500001249369
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6d2a8dab2c4cd36b5c549b79",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016497999968123622,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001654799998505041,
+        "decode_seconds": 0.004230099999404047,
+        "pipeline_seconds": 0.00588659999993979
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1396,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_96a2dbf764652675009911c3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001622199997655116,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016271999993477948,
+        "decode_seconds": 0.004048999999213265,
+        "pipeline_seconds": 0.005678099998476682
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 4855,
+        "area_filtered_pixels": 4855,
+        "nucleus_pixels": 1982,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_a2a9d64e14db856bd23eab79",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017987999999604654,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0018055000000458676,
+        "decode_seconds": 0.0038856000028317794,
+        "pipeline_seconds": 0.005693600000086008
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 5782,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1797,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_426308993e4d3ea0af9591fe",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0019237999986216892,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0019336999976076186,
+        "decode_seconds": 0.00549949999913224,
+        "pipeline_seconds": 0.007435999999870546
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 7865,
+        "area_filtered_pixels": 7865,
+        "nucleus_pixels": 3626,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e27c717d707e36997f50f907",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0017034999982570298,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0017080999969039112,
+        "decode_seconds": 0.005009300002711825,
+        "pipeline_seconds": 0.006719300003169337
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 6530,
+        "area_filtered_pixels": 6530,
+        "nucleus_pixels": 3792,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9d536db015dd8f238d87276e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016326999975717627,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001639199999772245,
+        "decode_seconds": 0.004311000000598142,
+        "pipeline_seconds": 0.005952700001216726
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 13,
+        "morphology_pixels": 12141,
+        "area_filtered_pixels": 12141,
+        "nucleus_pixels": 4847,
+        "components_before_area_filter": 6,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6da86ecdd8157c01e4a82eca",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014015999986440875,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014086999981373083,
+        "decode_seconds": 0.004953100000420818,
+        "pipeline_seconds": 0.006363799999235198
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_02f60bef8fe065bab17885df",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013948000014352147,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014001000017742626,
+        "decode_seconds": 0.004263300001184689,
+        "pipeline_seconds": 0.005665000000590226
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_85decea20aae25ef796fe5ab",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001879300001746742,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0018841000019165222,
+        "decode_seconds": 0.0035410999989835545,
+        "pipeline_seconds": 0.005426600000646431
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7,
+        "morphology_pixels": 15363,
+        "area_filtered_pixels": 15363,
+        "nucleus_pixels": 7100,
+        "components_before_area_filter": 16,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_440c1deee0d480e5b68b3908",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016469999973196536,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016544999998586718,
+        "decode_seconds": 0.004682900002080714,
+        "pipeline_seconds": 0.006339899999147747
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1440,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e39e65fb98089a162ef84c50",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015572000011161435,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0015626000022166409,
+        "decode_seconds": 0.004492600000958191,
+        "pipeline_seconds": 0.006057200000213925
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 3540,
+        "area_filtered_pixels": 3540,
+        "nucleus_pixels": 1831,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_511d29fe3b05abc5cdb2c3e3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016212999980780296,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016238999996858183,
+        "decode_seconds": 0.001194799999211682,
+        "pipeline_seconds": 0.0028197999999974854
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 9363,
+        "area_filtered_pixels": 9363,
+        "nucleus_pixels": 4305,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_7f88ab53db937768c3ae2cbe",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014651999990746845,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001467999998567393,
+        "decode_seconds": 0.0011486000003060326,
+        "pipeline_seconds": 0.00261780000073486
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5,
+        "morphology_pixels": 11834,
+        "area_filtered_pixels": 11834,
+        "nucleus_pixels": 5512,
+        "components_before_area_filter": 13,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_ee326119fb854399e1f4cd4f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012802000019291881,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001283600002352614,
+        "decode_seconds": 0.0010644000030879397,
+        "pipeline_seconds": 0.00234910000290256
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_47b31622088a62bb03f1ab61",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0015687999984947965,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001573699999426026,
+        "decode_seconds": 0.0011602000013226643,
+        "pipeline_seconds": 0.002735500002017943
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6,
+        "morphology_pixels": 8673,
+        "area_filtered_pixels": 8673,
+        "nucleus_pixels": 3414,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_d37f11c5de620a81fc1d6c59",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014221999990695622,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014250999993237201,
+        "decode_seconds": 0.0013919000011810567,
+        "pipeline_seconds": 0.0028180000008433126
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10,
+        "morphology_pixels": 12772,
+        "area_filtered_pixels": 12772,
+        "nucleus_pixels": 5289,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_56bd75ae2b331f63e5be7e84",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001233000002685003,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00123639999947045,
+        "decode_seconds": 0.00113729999793577,
+        "pipeline_seconds": 0.0023748999992676545
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b452ec38ee7bd9701a0a9636",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013557999991462566,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013589000009233132,
+        "decode_seconds": 0.0010605999996187165,
+        "pipeline_seconds": 0.002420600001642015
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3,
+        "morphology_pixels": 6630,
+        "area_filtered_pixels": 6630,
+        "nucleus_pixels": 3074,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_adf3e96d9eddfc459ab0ae0c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0014102000022830907,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014130000017757993,
+        "decode_seconds": 0.0011105999983556103,
+        "pipeline_seconds": 0.002524499999708496
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2,
+        "morphology_pixels": 6962,
+        "area_filtered_pixels": 6962,
+        "nucleus_pixels": 3724,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_0a6120a52470e5e65d10c3d3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001395899998897221,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013986999983899295,
+        "decode_seconds": 0.001108399999793619,
+        "pipeline_seconds": 0.0025081999992835335
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 8126,
+        "area_filtered_pixels": 8126,
+        "nucleus_pixels": 4467,
+        "components_before_area_filter": 8,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_443670343367d84569cd2db3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012133999989600852,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012189000008220319,
+        "decode_seconds": 0.0010106000008818228,
+        "pipeline_seconds": 0.0022310000022116583
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_bf4eb7d12960076413b2870a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012814000001526438,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012858000009146053,
+        "decode_seconds": 0.0014996999998402316,
+        "pipeline_seconds": 0.002786799999739742
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_6227e67fbd71e7c50df906f3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013045000014244579,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013079999989713542,
+        "decode_seconds": 0.0011611999980232213,
+        "pipeline_seconds": 0.0024704999996174593
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_3f6f7ebb6654b07f49e4e5d4",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013168000004952773,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013202000009187032,
+        "decode_seconds": 0.0011182000016560778,
+        "pipeline_seconds": 0.0024394000029133167
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_e4a4c1b35995fa60c09a3355",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012564999997266568,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012592999992193654,
+        "decode_seconds": 0.0010678999969968572,
+        "pipeline_seconds": 0.002328399998077657
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_b9af7ea9b939d5e52ceaee37",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012532000000646804,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012569999998959247,
+        "decode_seconds": 0.0012234999994689133,
+        "pipeline_seconds": 0.0024818999991111923
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_dcd8ca659c3aed99407f65e5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013249999974505045,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013287000001582783,
+        "decode_seconds": 0.001032100000884384,
+        "pipeline_seconds": 0.0023618999985046685
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_eebfe59ea3452679a5871ee9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013600000020232983,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001363400002446724,
+        "decode_seconds": 0.0010370999989390839,
+        "pipeline_seconds": 0.002401499998086365
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_01b7c6cd88c031177b694cb0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012369000032776967,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012399000006553251,
+        "decode_seconds": 0.0010496000031707808,
+        "pipeline_seconds": 0.002290500000526663
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_f9cb5d2e3775322978b50261",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012725000015052501,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012757000004057772,
+        "decode_seconds": 0.0010416999975859653,
+        "pipeline_seconds": 0.002318799997738097
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_5a2fc17b5385ce2a67b67d3b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012578999994730111,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012615999985428061,
+        "decode_seconds": 0.0010363000001234468,
+        "pipeline_seconds": 0.002298999999766238
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_72f99a2bacccc555935adb75",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012292999999772292,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012320999994699378,
+        "decode_seconds": 0.0010122000021510758,
+        "pipeline_seconds": 0.0022456000006059185
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_cac654bc2d3442b445a34a83",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012513000001490582,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012544000019261148,
+        "decode_seconds": 0.0010349000003770925,
+        "pipeline_seconds": 0.0022903999997652136
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_39cd8fc833d5622b6094b3ef",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012440000027709175,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001247000000148546,
+        "decode_seconds": 0.0010342000023229048,
+        "pipeline_seconds": 0.002282299999933457
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_dd539933b08d686c0c37647b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0012434000018402003,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012464000028558075,
+        "decode_seconds": 0.0010466000021551736,
+        "pipeline_seconds": 0.002294000001711538
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_85155c8bc1112939272922e1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011904000020876992,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011933000023418572,
+        "decode_seconds": 0.0010472000030858908,
+        "pipeline_seconds": 0.002241500002128305
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_954db7380078c8343fdac6cb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011620000004768372,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.001164900000730995,
+        "decode_seconds": 0.0009663000018917955,
+        "pipeline_seconds": 0.0021322000029613264
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_740e2726d2b60b809523dfde",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0013399000017670915,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0013425000033748802,
+        "decode_seconds": 0.0010911000026680995,
+        "pipeline_seconds": 0.002434700003504986
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 1815,
+        "components_before_area_filter": 7,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_25353786ceb725c1fac5d36e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001241699999809498,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012466000007407274,
+        "decode_seconds": 0.0010232000022369903,
+        "pipeline_seconds": 0.0022710000012011733
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_98e81528de93311ee16df9af",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011803000015788712,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011838000027637463,
+        "decode_seconds": 0.0011662000033538789,
+        "pipeline_seconds": 0.002351000002818182
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_31bf1bb85cf8fae3fa0654e3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0011932000015804078,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0011961000018345658,
+        "decode_seconds": 0.001042699997924501,
+        "pipeline_seconds": 0.002239900000859052
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_65bc436ff4644d638097adc5",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 11,
+          "bbox": [
+            171,
+            170,
+            208,
+            200
+          ],
+          "class_id": 1,
+          "scores": [
+            0.007585331331938505,
+            0.992414653301239
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 11,
+          "bbox": [
+            171,
+            170,
+            208,
+            200
+          ],
+          "area": 501
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.0014915000028850045,
+        "classification_seconds": 0.10273400000005495,
+        "preprocessing_seconds": 0.0003122000016446691,
+        "total_seconds": 0.1045832000017981,
+        "decode_seconds": 0.0010352000026614405,
+        "pipeline_seconds": 0.10562240000217571
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 3600,
+        "area_filtered_pixels": 3600,
+        "nucleus_pixels": 569,
+        "components_before_area_filter": 20,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "barcelona_original_c86ea715bcca352aed959afd",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0016859999996086117,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0016916999993554782,
+        "decode_seconds": 0.00119769999946584,
+        "pipeline_seconds": 0.002891300002374919
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_0b2775c423c8808b12d5e454",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001195600001665298,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0012103000008210074,
+        "decode_seconds": 0.0010996000019076746,
+        "pipeline_seconds": 0.0023111000009521376
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "barcelona_original_9370944e05d8c1ff100c24da",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.001450499999918975,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0014551999993273057,
+        "decode_seconds": 0.001046700002916623,
+        "pipeline_seconds": 0.0025034999998752028
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 5056,
+        "area_filtered_pixels": 5056,
+        "nucleus_pixels": 1435,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    }
+  ],
+  "note": "Diagnóstico de execução; escores não calibrados."
+}

@@ -1,0 +1,15 @@
+{
+  "output_dir": "experiments/comparison/a_vs_b_barcelona",
+  "barcelona_manifest": "data/protocol/barcelona_split_20261006/comparison.csv",
+  "barcelona_annotations": "data/protocol/barcelona_split_20261006/comparison_annotations.json",
+  "barcelona_authorization": "data/protocol/barcelona_split_20261006/authorization.json",
+  "barcelona_manifest_sha256": "fec9613df63ba2905c4e85b4c2e03383112e284216804b8ad5df48cc1a8062b6",
+  "barcelona_annotations_sha256": "56e4c0c080ac94e087baff3cdee75073bc52d72a024387b960e5439426d7d4ac",
+  "barcelona_authorization_sha256": "6bc8186e5ef1a5f68f2505a34bdec247cc2a2f0719ca1f4a549a46f4d646cbae",
+  "next_training_manifest": "data/processed/b_next/images.csv",
+  "expected_cohorts": {
+    "positive_val": 114,
+    "kaggle_negative_val": 73,
+    "barcelona_negative": 180
+  }
+}

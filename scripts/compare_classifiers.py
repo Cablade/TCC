@@ -28,10 +28,10 @@ def summarize(truth, predicted):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--experiment',type=Path,default=ROOT/'configs/experiment_cpu.json',
+    parser.add_argument('--experiment',type=Path,default=ROOT/'configs/experiment_b_original_negatives.json',
                         help='Define o conjunto comum de recortes; apenas val é avaliado.')
     parser.add_argument('--model-a',type=Path,default=ROOT/'models/model_a/model_trained.keras')
-    parser.add_argument('--checkpoint-b',type=Path,default=ROOT/'experiments/runs/b_real_cpu_01/best.keras')
+    parser.add_argument('--checkpoint-b',type=Path,default=ROOT/'experiments/runs/b_val_01/best.keras')
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--batch-size',type=int,default=8)
     parser.add_argument('--compiled',action='store_true',help='Executa ambas as redes em grafo TensorFlow.')
@@ -53,7 +53,11 @@ def main():
     experiment=json.loads(args.experiment.read_text(encoding='utf-8-sig'))
     paths=resolve_paths(experiment)
     images=dp.read_manifest(paths['image_manifest'])
-    validate_active_images(images)
+    policy = experiment.get('supplementary_policy')
+    if policy:
+        policy = Path(policy)
+        policy = policy if policy.is_absolute() else ROOT / policy
+    validate_active_images(images, supplementary_policy=policy)
     annotations=dp.load_annotations(paths['annotations'],images)
     cfg=load_config(paths['model_config'])
     crops=load_split(paths['crop_manifest'])

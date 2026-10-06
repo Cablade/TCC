@@ -2,7 +2,7 @@
 
 > Protocolo ativo, iniciado em 2026-09-20. Substitui os desenhos históricos. Este documento define o experimento; a evidência do que foi efetivamente executado deve ficar no checklist e nos relatórios de execução.
 
-Consolidação de 27/09/2026: as execuções atuais são análise exploratória de validação (114 campos murinos) e diagnóstico externo de desenvolvimento (33 campos LABIMED humanos, um caso, oito lâminas), apresentados separadamente. O [texto de resultados](../tcc/resultados_preliminares.md) e as [figuras](../tcc/figuras/consolidado_20260927/index.html) não equivalem à avaliação final prevista neste protocolo. As declarações visuais de Caio foram reconstruídas da conversa com proveniência explícita; não constituem nova adjudicação especializada. O protocolo de teste permanece condicionado à referência e ao congelamento das escolhas.
+Atualização de 05/10/2026: comparação exploratória de A original e B atual nas mesmas 114 imagens positivas e 73 negativas originais Kaggle da validação, com fontes separadas. O [estado atual](status.md) e os resultados em `experiments/comparison/a_vs_b/` descrevem a execução. O teste final depende da referência e do congelamento das escolhas. LABIMED foi retirado após inspeção dos resultados, a pedido do autor; o diagnóstico anterior permanece no arquivo histórico e a exclusão deve ser declarada no texto. O lote atual não é teste cego. Tempos do subconjunto são herdados da execução anterior, sem nova medição.
 
 ## 1. Unidade de comparação
 
@@ -15,7 +15,7 @@ O arquivo `.keras` de A não representa sozinho o sistema: segmentação, recort
 - TCC inspecionado: commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais existentes preservadas antes da revisão.
 - Referência indicada pelo pedido: `Cablade/Vision`.
 - Referência local encontrada: repositório com remoto `Cablade/VisionCruzi`, commit `59b10244f2ce5cfabff7bece404cb5679668a45d`. A equivalência com a referência indicada precisa ser registrada após confronto; não é presumida.
-- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md#base); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
+- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
 
 Cada execução deve registrar commit e modificações locais relevantes, hash SHA-256 do modelo e dos dados, configuração, semente, manifestos, versões, hardware, tempos e caminhos de saída. Dados originais e pesos não devem ser sobrescritos nem incluídos automaticamente no Git.
 
@@ -29,7 +29,7 @@ Separar antes de gerar recortes ou aumentos. Persistir a semente e as atribuiç�
 
 ## 4. Anotações e negativos
 
-As [fontes candidatas de negativos](dados.md#negativos) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
+As [fontes candidatas de negativos](dados.md#negativos-originais-suplementares) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
 
 O formato de referência está em [data/README.md](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
 
@@ -56,7 +56,7 @@ A localização deve ser executável, configurável e separada dos parâmetros c
 
 Para a EfficientNet do Keras com reescala interna, a entrada RGB mantém tipo e faixa compatíveis, sem segunda divisão por 255. Registrar a versão efetiva. Aumentos são aplicados apenas no treino; transformações devem respeitar a morfologia e aquisição. Registrar camadas congeladas, Batch Normalization, otimizador, taxa de aprendizado, regularização e semente. A configuração final deve refletir o código executado, não uma lista de técnicas prometidas.
 
-A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. Trata-se de um protótipo anterior à troca da base. Os valores de `configs/model_b.yaml` são provisórios e precisam ser examinados no desenvolvimento da base atual, sem transferir conclusões da base descartada. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
+A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. O perfil atual está em `configs/model_b_cpu_original_negatives.yaml`, com localização preservada no treino e na inferência. As escolhas foram feitas no desenvolvimento, sem transferir conclusões de fontes descartadas. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
 
 Configuração efetiva: RGB float32 [0,255], resize bilinear TensorFlow comum ao treino e inferência, aumento apenas com rotações de 90 graus e espelhamentos. EfficientNet-B0, últimas 30 camadas elegíveis descongeladas (inclui camadas sem pesos na contagem), Batch Normalization congelada e base chamada com `training=False`, AdamW, LR inicial 1e-4, weight decay 1e-4, scheduler cosseno, dropout 0,3 e label smoothing 0,1. O smoke usa entrada 32 × 32, pesos aleatórios e base toda congelada, explicitamente para verificar execução.
 
@@ -131,3 +131,19 @@ O diagnóstico suplementar de classificadores nos mesmos recortes de validação
 - Esclarecer possível sobreposição do treino de A com a base e a identidade animal/lâmina. O uso de IDs iguais na avaliação não resolve essas pendências.
 
 O treino reduzido do B já autorizado é uma experiência de eficiência no desenvolvimento. Na conferência de 26/09 às 15:39, o processo da comparação de referência já não existia, o log estava parado desde 13:43 e não havia resultado final; o novo treino não havia iniciado. A causa da interrupção não foi determinada. Uma futura conclusão desse treino não aprova, por si, o desenho final do TCC. A avaliação final permanece reservada. Não alterar dados, limites ou métricas para garantir que B vença ou para aproximar artificialmente os resultados dos modelos.
+
+## Teste adicional de robustez
+
+Aplicar a cada uma das 187 imagens de desenvolvimento (114 positivas/73 negativas) as mesmas três transformações predefinidas, sem escolher intensidade pelo resultado: rotação 90° anti-horária, espelho horizontal e brilho multiplicado por 0,85. Os modelos, dados de treino, limiares e localização permanecem congelados. Aumentar ambos os grupos evita assimetria de condições, mas não elimina confusão entre fontes, espécies e aquisição.
+
+As 561 versões herdam a referência do original; transformações geométricas transportam pontos e caixas para os pixels correspondentes. Comparar decisões e cobertura por original/condição; não computar 748 vistas como 748 unidades independentes nem atribuir intervalos de confiança independentes a versões do mesmo original. Imagens de treino e as 105 de teste não entram. Resultados são exploratórios e adicionais à comparação principal, sem seleção de melhores versões.
+
+## Reserva Barcelona para próximo treino — 06/10/2026
+
+Após aprovar e examinar o diagnóstico das 200 Barcelona, Caio solicitou reservar 20 para os negativos de treino e manter 180 na comparação com Kaggle. A reserva usa semente 42 e distribuição de duas ou três imagens por tipo celular; consulta somente IDs/tipos, sem filtrar pelos resultados de A/B. A decisão de mudar o uso do lote é posterior ao diagnóstico e deve permanecer descrita como desenvolvimento.
+
+Os 20 originais geraram 80 recortes negativos, no máximo quatro por imagem, com o mesmo localizador e regra de diversidade contextual dos negativos Kaggle. O próximo conjunto possui 4.381 recortes de treino (3.053 positivos/1.328 negativos); os 1.070 de validação permanecem iguais. Não houve novo treinamento, ajuste de pesos, limiar ou escolha de época nesta etapa. Os checkpoints atuais e os dados efetivamente usados no seu treinamento foram preservados.
+
+A comparação preparada contém os mesmos 367 IDs para A/B: 114 positivas, 73 negativas Kaggle da validação e somente as 180 Barcelona restantes. A disjunção dos 20 reservados é conferida por ID, hash dos arquivos, hash dos pixels e grupos; seus recortes/versões não podem integrar a comparação. Fontes continuam separadas nas métricas, pois células Barcelona enquadradas não equivalem aos campos positivos murinos. O diagnóstico anterior das 200 e o ensaio de robustez sobre 187 originais são históricos, não novas avaliações de um B retreinado.
+
+Foram reutilizadas previsões anteriores coincidentes em conteúdo, referências e checkpoints, sem alterar decisões ou tempos. Não interpretar a mudança de denominador 200→180 como melhoria dos pesos. Depois de novo treino, executar ambos os sistemas novamente na divisão fixada e substituir as previsões; rejeitar reutilização de previsões com checkpoint divergente. As 180 imagens já examinadas não são teste final independente; as 105 imagens do teste principal continuam reservadas.

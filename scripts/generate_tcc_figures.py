@@ -1,4 +1,4 @@
-"""Gera uma figura-resumo da validação preliminar A x B para o TCC."""
+"""Gera as figuras atuais de A original e B atual para o TCC."""
 from __future__ import annotations
 
 import argparse
@@ -19,6 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 
+def current_comparison():
+    setup=ROOT/'configs/comparison_a_vs_b.json'
+    return ROOT/json.loads(setup.read_text('utf-8-sig'))['output_dir'] if setup.exists() else ROOT/'experiments/comparison/a_vs_b'
+
+
 STATUS_LABELS = {
     "predicao_positiva": "Sinalizada",
     "sem_regioes": "Sem regiões",
@@ -36,141 +41,38 @@ def status_counts(system: dict) -> dict:
     return {key: counts.get(key, 0) for key in STATUS_LABELS}
 
 
-def load_inputs(result_path: Path, epochs_path: Path) -> tuple[dict, list[dict]]:
-    result = json.loads(result_path.read_text(encoding="utf-8-sig"))
-    with epochs_path.open(encoding="utf-8-sig", newline="") as stream:
-        epochs = list(csv.DictReader(stream))
-    return result, epochs
-
-
-def make_figure(result: dict, epochs: list[dict], output: Path) -> dict:
-    systems = result["systems"]
-    names = ["A original", "B reduzido"]
-    colors = ["#2f6690", "#d1495b"]
-    counts = [status_counts(systems[name[0]]) for name in names]
-    n_images = systems["A"]["n_images"]
-    if n_images != systems["B"]["n_images"]:
-        raise ValueError("A e B devem ter o mesmo número de imagens.")
-    figure, axes = plt.subplots(
-        2, 2, figsize=(11, 7.2), constrained_layout=True)
-
-    # Painel A: histórico do treinamento supervisionado do B.
-    epoch = np.array([int(row["epoch"]) + 1 for row in epochs])
-    axes[0, 0].plot(epoch, [float(row["accuracy"])
-                    for row in epochs], label="Treino", color="#2f6690")
-    axes[0, 0].plot(epoch, [float(row["val_accuracy"])
-                    for row in epochs], label="Validação", color="#d1495b")
-    axes[0, 0].set(title="(A) Acurácia do treinamento de B",
-                   xlabel="Época", ylabel="Acurácia")
-    axes[0, 0].set_ylim(0, 1.01)
-    axes[0, 0].legend(frameon=False)
-
-    # Painel B: decisão por imagem. Todas as imagens desta validação têm referência positiva.
-    x = np.arange(len(names))
-    bottom = np.zeros(len(names))
-    for status, color in zip(STATUS_LABELS, ("#2f6690", "#d9d9d9", "#75aa78", "#d1495b")):
-        values = np.array([item[status] for item in counts])
-        if values.sum():
-            axes[0, 1].bar(x, values, bottom=bottom, label=STATUS_LABELS[status], color=color)
-            for index, value in enumerate(values):
-                if value:
-                    axes[0, 1].text(index, bottom[index] + value / 2, str(value),
-                                    ha="center", va="center", color="black" if status == "sem_regioes" else "white")
-        bottom += values
-    axes[0, 1].set(title=f"(B) Estados em {n_images} imagens",
-                   ylabel="Número de imagens", xticks=x, xticklabels=names)
-    axes[0, 1].set_ylim(0, max(n_images * 1.1, 1))
-    axes[0, 1].legend(frameon=False)
-
-    # Painel C: propostas e regiões classificadas, sem chamar desconhecidos de negativos.
-    candidates = [sum(item["n_candidates"] for item in systems[name[0]]["per_image"])
-                  for name in names]
-    positive_regions = [sum(item["n_positive_regions"] for item in systems[name[0]]["per_image"])
-                        for name in names]
-    other_regions = [total - positive for total,
-                     positive in zip(candidates, positive_regions)]
-    axes[1, 0].bar(x, positive_regions, label="Suspeitas", color="#2f6690")
-    axes[1, 0].bar(x, other_regions, bottom=positive_regions,
-                   label="Outras propostas", color="#d9d9d9")
-    axes[1, 0].set(title="(C) Regiões propostas e classificadas",
-                   ylabel="Regiões", xticks=x, xticklabels=names)
-    axes[1, 0].set_ylim(0, max(max(candidates) * 1.18, 1))
-    for index, (total, positive) in enumerate(zip(candidates, positive_regions)):
-        axes[1, 0].text(index, total + max(candidates) * .02,
-                        f"{total:,} propostas\n{positive:,} suspeitas".replace(",", "."),
-                        ha="center", va="bottom", fontsize=9)
-    axes[1, 0].legend(frameon=False)
-
-    # Painel D: tempo da inferência sem leitura/escrita de imagens.
-    means = [systems[name[0]]["timing_seconds"]["total_seconds"]["mean"]
-             for name in names]
-    bars = axes[1, 1].bar(names, means, color=colors)
-    axes[1, 1].set(title="(D) Tempo médio por imagem",
-                   ylabel="Segundos", ylim=(0, max(means) * 1.25))
-    for bar, value in zip(bars, means):
-        axes[1, 1].text(bar.get_x() + bar.get_width() / 2, value,
-                        f"{value:.2f} s", ha="center", va="bottom")
-
-    for axis in axes.flat:
-        axis.spines[["top", "right"]].set_visible(False)
-        axis.grid(axis="y", alpha=0.2)
-        axis.set_axisbelow(True)
-    figure.suptitle(
-        "Comparação preliminar dos sistemas A e B na validação", fontsize=14)
-    figure.savefig(output.with_suffix(".png"), dpi=300, bbox_inches="tight")
-    figure.savefig(output.with_suffix(".pdf"), bbox_inches="tight")
-    plt.close(figure)
-
-    summary = {
-        "figure_scope": "validacao_preliminar",
-        "n_images": systems["A"]["n_images"],
-        "systems": {
-            name[0]: {
-                "candidate_regions": sum(item["n_candidates"] for item in systems[name[0]]["per_image"]),
-                "positive_regions": sum(item["n_positive_regions"] for item in systems[name[0]]["per_image"]),
-                "no_region_images": status_counts(systems[name[0]])["sem_regioes"],
-                "status_counts": status_counts(systems[name[0]]),
-                "mean_seconds_per_image": systems[name[0]]["timing_seconds"]["total_seconds"]["mean"],
-            }
-            for name in names
-        },
-        "limitations": [
-            "As imagens pertencem à validação e participaram da seleção de B.",
-            "A referência de pontos não é exaustiva; regiões não associadas não são automaticamente falsos positivos.",
-            "Todas as imagens têm referência positiva; não há estimativa de especificidade.",
-            "O teste reservado não foi avaliado.",
-        ],
-    }
-    output.with_name(output.name + "_summary.json").write_text(
-        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    return summary
-
-
-def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--complete", action="store_true", help="Gera todas as figuras, CSVs, legendas e índice a partir das execuções auditadas.")
-    parser.add_argument("--output-dir", type=Path, help="Pasta nova obrigatória com --complete.")
-    parser.add_argument("--result", type=Path, default=ROOT /
-                        "experiments/results/comparacao_val_reduced_01.json")
-    parser.add_argument("--epochs", type=Path, default=ROOT /
-                        "experiments/runs/b_real_cpu_01/epochs.csv")
-    parser.add_argument("--output", type=Path, default=ROOT /
-                        "tcc/figuras/figura_comparacao_validacao")
-    args = parser.parse_args()
-    if args.complete:
-        if args.output_dir is None:
-            parser.error("--complete exige --output-dir com uma pasta nova")
-        from src.tcc_reporting import build_report
-        summary = build_report(ROOT, args.output_dir)
-        print(json.dumps({"figures": len(summary["figures"]), "coverage": summary["coverage"], "output": str(args.output_dir)}, ensure_ascii=False))
-        return 0
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    result, epochs = load_inputs(args.result, args.epochs)
-    summary = make_figure(result, epochs, args.output)
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+def main():
+    parser=argparse.ArgumentParser(description="Gera figuras de A original e B atual a partir de inferências concluídas.")
+    parser.add_argument("--comparison",type=Path,default=current_comparison())
+    parser.add_argument('--all',action='store_true',help='Atualiza as três avaliações concluídas e cria a página de acesso às figuras.')
+    args=parser.parse_args()
+    from src.tcc_reporting import build_report
+    comparisons=([current_comparison(),ROOT/'experiments/comparison/robustez_a_vs_b',ROOT/'experiments/comparison/barcelona_a_vs_b']
+                 if args.all else [args.comparison.resolve()])
+    for comparison in comparisons:
+        protocol=json.loads((comparison/'protocol.json').read_text('utf-8-sig'))
+        if protocol['evaluation']=='development_robustness_only':
+            from scripts.compare_robustness import summarize
+            summarize(comparison)
+        elif protocol['evaluation']=='external_development_only':
+            from scripts.compare_external_negatives import summarize
+            summarize(comparison)
+        else:
+            report=build_report(ROOT,comparison)
+            print(json.dumps(report['summary'],ensure_ascii=False,indent=2))
+    if args.all:
+        out=ROOT/'tcc/figuras'
+        report=json.loads((current_comparison()/'report.json').read_text('utf-8-sig'))
+        cohorts=report['protocol']['cohorts']; expanded='barcelona_negative' in cohorts
+        link=current_comparison().name
+        comparison_text=(f"{cohorts['positive_val']} positivas e {cohorts['kaggle_negative_val']} negativas Kaggle"
+                         +(f" + {cohorts['barcelona_negative']} Barcelona." if expanded else '.'))
+        state=('20 imagens Barcelona reservadas para os negativos do próximo treino; 180 usadas na comparação. O B ainda não foi retreinado.'
+               if expanded else 'Nenhuma das 200 imagens Barcelona participa do treino.')
+        page=f'''<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figuras A × B para o TCC</title><style>body{{font:17px system-ui;max-width:900px;margin:40px auto;padding:20px;background:#edf2f5;color:#203548;line-height:1.6}}article{{background:white;border-radius:10px;padding:20px;margin:20px 0}}a{{color:#175c87}}</style><h1>Comparações A original × B atual</h1><p>Somente dois modelos. {state} Fontes apresentadas separadamente; desenvolvimento já examinado, sem independência de pacientes/lâminas demonstrada.</p><article><h2>Comparação atual — {report['paired_images']} originais</h2><p>{comparison_text} Mesmos IDs para A e B; cobertura positiva, falsos alarmes e tempo herdado. Resultados anteriores ao próximo treino.</p><a href="{link}/index.html">Abrir comparação atual</a></article><article><h2>Robustez nas duas classes — lote anterior</h2><p>114 positivas e 73 negativas Kaggle, com rotação 90°, espelho horizontal e brilho × 0,85: 561 versões. Relatório sobre 187 originais; Barcelona não está neste ensaio já concluído. Versões não contam como novos campos independentes.</p><a href="robustez_a_vs_b/index.html">Abrir robustez</a></article><article><h2>Histórico: diagnóstico das 200 Barcelona</h2><p>Diagnóstico anterior à reserva 20/180, com células individuais enquadradas. Não usar as 200 como denominador da comparação atual.</p><a href="barcelona_a_vs_b/index.html">Abrir diagnóstico anterior</a></article><article><h2>Histórico: comparação original de 187 imagens</h2><a href="a_vs_b/index.html">Abrir lote anterior sem Barcelona</a></article><p>As 105 imagens do teste final permanecem reservadas. LABIMED permanece no histórico, excluído após inspeção dos resultados a pedido do autor.</p></html>'''
+        (out/'index.html').write_text(page,encoding='utf-8')
+        print('INDEX '+str(out/'index.html'))
     return 0
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+if __name__=="__main__": raise SystemExit(main())

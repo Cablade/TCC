@@ -1,0 +1,5794 @@
+{
+  "schema_version": 1,
+  "system": "A",
+  "split": "development",
+  "manifest_sha256": "4e6611dbdcc5f206429f6b3091c077b2a86fb8eebc64a1376146d77c4162bad6",
+  "artifact": {
+    "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+    "artifact_bytes": 94985071,
+    "keras_metadata": {
+      "keras_version": "2.15.0",
+      "date_saved": "2025-12-28@21:39:04"
+    },
+    "tensorflow": "2.15.0",
+    "keras": "2.15.0",
+    "opencv": "4.9.0",
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "hardware": {
+      "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+      "devices": [
+        "/physical_device:CPU:0"
+      ]
+    },
+    "reference_repository": "https://github.com/Cablade/VisionCruzi",
+    "reference_commit": "59b10244f2ce5cfabff7bece404cb5679668a45d",
+    "class_labels": [
+      "0",
+      "1"
+    ],
+    "class_mapping_source": "label_encoder.dat classes_=['0','1']; API _build_summary",
+    "normalized_copy": false,
+    "training_time_seconds": null,
+    "preservation": {
+      "tensor_count": 329,
+      "original_unchanged": true
+    },
+    "model_weight_count": 320,
+    "load_seconds": 8.02332060000117,
+    "tensorflow_threads": {
+      "intra_op": 2,
+      "inter_op": 2
+    },
+    "overlays_saved": false
+  },
+  "images": [
+    {
+      "image_id": "img_3789a6275c770c17dfa2fb26",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 21,
+          "bbox": [
+            172,
+            2219,
+            207,
+            2265
+          ],
+          "class_id": 1,
+          "scores": [
+            0.00039576002745889127,
+            0.9996042847633362
+          ]
+        },
+        {
+          "component_id": 26,
+          "bbox": [
+            165,
+            2230,
+            185,
+            2286
+          ],
+          "class_id": 1,
+          "scores": [
+            0.0026655904948711395,
+            0.9973344802856445
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 21,
+          "bbox": [
+            172,
+            2219,
+            207,
+            2265
+          ],
+          "area": 510
+        },
+        {
+          "component_id": 26,
+          "bbox": [
+            165,
+            2230,
+            185,
+            2286
+          ],
+          "area": 582
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.1996251000000484,
+        "classification_seconds": 0.927251700000852,
+        "preprocessing_seconds": 0.00561569999990752,
+        "total_seconds": 1.133470299999317,
+        "decode_seconds": 0.07616690000031667,
+        "pipeline_seconds": 1.2103375000006054
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2531,
+        "morphology_pixels": 161950,
+        "area_filtered_pixels": 56485,
+        "nucleus_pixels": 34472,
+        "components_before_area_filter": 48,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_5a32795a75b37dc0afb18a41",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0703962000006868,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.07041150000077323,
+        "decode_seconds": 0.06472620000022289,
+        "pipeline_seconds": 0.13514810000015132
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 124,
+        "morphology_pixels": 14042,
+        "area_filtered_pixels": 14042,
+        "nucleus_pixels": 8326,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c84a2aee10eae2fbd2be0c70",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1429564999998547,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.14296900000044843,
+        "decode_seconds": 0.06632650000028661,
+        "pipeline_seconds": 0.20930170000065118
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 251853,
+        "morphology_pixels": 1276091,
+        "area_filtered_pixels": 45025,
+        "nucleus_pixels": 35028,
+        "components_before_area_filter": 15,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_46e883d3b056794383ccf152",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.10962250000011409,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.10963930000070832,
+        "decode_seconds": 0.061189699999886216,
+        "pipeline_seconds": 0.17084690000046976
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 796,
+        "morphology_pixels": 58046,
+        "area_filtered_pixels": 19903,
+        "nucleus_pixels": 14556,
+        "components_before_area_filter": 30,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2ac71e882251f7fe5272fe43",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 10,
+          "bbox": [
+            196,
+            2021,
+            232,
+            2044
+          ],
+          "class_id": 1,
+          "scores": [
+            0.07245795428752899,
+            0.9275420904159546
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 10,
+          "bbox": [
+            196,
+            2021,
+            232,
+            2044
+          ],
+          "area": 643
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.10442169999987527,
+        "classification_seconds": 0.09501280000040424,
+        "preprocessing_seconds": 0.00028840000049967784,
+        "total_seconds": 0.19978769999943324,
+        "decode_seconds": 0.06323350000093342,
+        "pipeline_seconds": 0.2635755999999674
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1651,
+        "morphology_pixels": 100835,
+        "area_filtered_pixels": 22796,
+        "nucleus_pixels": 11650,
+        "components_before_area_filter": 12,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_3850ab071e4e81ba71af72d7",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 7,
+          "bbox": [
+            1927,
+            832,
+            1968,
+            868
+          ],
+          "class_id": 1,
+          "scores": [
+            0.1900082528591156,
+            0.809991717338562
+          ]
+        },
+        {
+          "component_id": 24,
+          "bbox": [
+            2250,
+            905,
+            2287,
+            944
+          ],
+          "class_id": 1,
+          "scores": [
+            0.21191701292991638,
+            0.788083016872406
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 7,
+          "bbox": [
+            1927,
+            832,
+            1968,
+            868
+          ],
+          "area": 778
+        },
+        {
+          "component_id": 24,
+          "bbox": [
+            2250,
+            905,
+            2287,
+            944
+          ],
+          "area": 704
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3742185999999492,
+        "classification_seconds": 0.18285509999805072,
+        "preprocessing_seconds": 0.0005238000012468547,
+        "total_seconds": 0.5576887999995961,
+        "decode_seconds": 0.11836899999980233,
+        "pipeline_seconds": 0.6772624000004726
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 37574,
+        "morphology_pixels": 663430,
+        "area_filtered_pixels": 41275,
+        "nucleus_pixels": 23825,
+        "components_before_area_filter": 83,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_b8fb2decdcf4ec7910e5cf00",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.07374650000019756,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.07376180000028398,
+        "decode_seconds": 0.06707180000012158,
+        "pipeline_seconds": 0.1408436999990954
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16,
+        "morphology_pixels": 8976,
+        "area_filtered_pixels": 8976,
+        "nucleus_pixels": 4301,
+        "components_before_area_filter": 15,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e3fb10189d0bd0341cff46cd",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.38664799999969546,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3866596000007121,
+        "decode_seconds": 0.1236270000008517,
+        "pipeline_seconds": 0.5102922000005492
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 41779,
+        "morphology_pixels": 516261,
+        "area_filtered_pixels": 113939,
+        "nucleus_pixels": 94779,
+        "components_before_area_filter": 49,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_65ee15707a3a2ca407348d10",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.113716600000771,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.11373140000068815,
+        "decode_seconds": 0.12045729999954347,
+        "pipeline_seconds": 0.23419210000065505
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_dcd33a3a385baee86b992929",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 38,
+          "bbox": [
+            265,
+            1247,
+            289,
+            1281
+          ],
+          "class_id": 1,
+          "scores": [
+            0.020886866375803947,
+            0.9791131615638733
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 38,
+          "bbox": [
+            265,
+            1247,
+            289,
+            1281
+          ],
+          "area": 475
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.1432779999995546,
+        "classification_seconds": 0.1032387999985076,
+        "preprocessing_seconds": 0.00032529999953112565,
+        "total_seconds": 0.24689699999908044,
+        "decode_seconds": 0.067993500000739,
+        "pipeline_seconds": 0.31540640000093845
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 605,
+        "morphology_pixels": 133932,
+        "area_filtered_pixels": 61741,
+        "nucleus_pixels": 34253,
+        "components_before_area_filter": 55,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_ab4e660b6ea1b2e09ae92405",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 13,
+          "bbox": [
+            172,
+            2220,
+            198,
+            2253
+          ],
+          "class_id": 1,
+          "scores": [
+            0.0051820408552885056,
+            0.9948179125785828
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 13,
+          "bbox": [
+            172,
+            2220,
+            198,
+            2253
+          ],
+          "area": 458
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.230351400001382,
+        "classification_seconds": 0.10603450000053272,
+        "preprocessing_seconds": 0.0002731000004132511,
+        "total_seconds": 0.33670470000106434,
+        "decode_seconds": 0.06774290000066685,
+        "pipeline_seconds": 0.40508869999939634
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7488,
+        "morphology_pixels": 347537,
+        "area_filtered_pixels": 79799,
+        "nucleus_pixels": 38795,
+        "components_before_area_filter": 21,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_7ba2cb899f0fa35b4e4f49fa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.28253899999981513,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2825552999984211,
+        "decode_seconds": 0.12367770000128075,
+        "pipeline_seconds": 0.40623690000029455
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 32334,
+        "morphology_pixels": 392433,
+        "area_filtered_pixels": 17576,
+        "nucleus_pixels": 8674,
+        "components_before_area_filter": 72,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e24b4e5841e2743535bf6be7",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 49,
+          "bbox": [
+            629,
+            1106,
+            689,
+            1148
+          ],
+          "class_id": 1,
+          "scores": [
+            0.18062113225460052,
+            0.8193788528442383
+          ]
+        },
+        {
+          "component_id": 60,
+          "bbox": [
+            491,
+            1219,
+            551,
+            1279
+          ],
+          "class_id": 1,
+          "scores": [
+            0.10351794213056564,
+            0.8964821100234985
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 49,
+          "bbox": [
+            629,
+            1106,
+            689,
+            1148
+          ],
+          "area": 731
+        },
+        {
+          "component_id": 60,
+          "bbox": [
+            491,
+            1219,
+            551,
+            1279
+          ],
+          "area": 1100
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3887338999993517,
+        "classification_seconds": 0.18625389999942854,
+        "preprocessing_seconds": 0.0006170999986352399,
+        "total_seconds": 0.5757022999987385,
+        "decode_seconds": 0.12604989999999816,
+        "pipeline_seconds": 0.7029172999991715
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 64531,
+        "morphology_pixels": 765992,
+        "area_filtered_pixels": 52272,
+        "nucleus_pixels": 24513,
+        "components_before_area_filter": 136,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_ba93d72a1c000c216f834d2e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.39195789999939734,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3919690000002447,
+        "decode_seconds": 0.1226565999986633,
+        "pipeline_seconds": 0.5146296999992046
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 52497,
+        "morphology_pixels": 645560,
+        "area_filtered_pixels": 82486,
+        "nucleus_pixels": 55153,
+        "components_before_area_filter": 173,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_9f32920624463738c8272838",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 29,
+          "bbox": [
+            222,
+            1208,
+            261,
+            1236
+          ],
+          "class_id": 1,
+          "scores": [
+            0.035051651298999786,
+            0.9649484157562256
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 29,
+          "bbox": [
+            222,
+            1208,
+            261,
+            1236
+          ],
+          "area": 656
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.09866499999952794,
+        "classification_seconds": 0.09850050000022748,
+        "preprocessing_seconds": 0.0002899999999499414,
+        "total_seconds": 0.1975087999999232,
+        "decode_seconds": 0.06498570000076143,
+        "pipeline_seconds": 0.2630705999999918
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 422,
+        "morphology_pixels": 38781,
+        "area_filtered_pixels": 38781,
+        "nucleus_pixels": 25270,
+        "components_before_area_filter": 48,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_57ed077a64e8f9877d5b95aa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.17072899999948277,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.17074010000033013,
+        "decode_seconds": 0.0651293999999325,
+        "pipeline_seconds": 0.2358739000010246
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 99354,
+        "morphology_pixels": 454851,
+        "area_filtered_pixels": 21063,
+        "nucleus_pixels": 13438,
+        "components_before_area_filter": 29,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c5b8792f6f3b2f5523f7957f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.06107999999949243,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0610975999989023,
+        "decode_seconds": 0.06483639999896695,
+        "pipeline_seconds": 0.1259384000004502
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e008c183f68600f01f70014c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.17411790000005567,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1741280000005645,
+        "decode_seconds": 0.06636109999999462,
+        "pipeline_seconds": 0.24049269999886747
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7144,
+        "morphology_pixels": 369274,
+        "area_filtered_pixels": 50278,
+        "nucleus_pixels": 31629,
+        "components_before_area_filter": 17,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c3381f805bc42b64ba1a95e1",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.318537600000127,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3185468000010587,
+        "decode_seconds": 0.1258084000000963,
+        "pipeline_seconds": 0.44436039999891364
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 38192,
+        "morphology_pixels": 428843,
+        "area_filtered_pixels": 23201,
+        "nucleus_pixels": 20172,
+        "components_before_area_filter": 29,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_8797eb1e1cf972023b474071",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.13793009999972128,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.13794249999955355,
+        "decode_seconds": 0.059242200000880985,
+        "pipeline_seconds": 0.19718840000132332
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 26086,
+        "morphology_pixels": 466302,
+        "area_filtered_pixels": 14326,
+        "nucleus_pixels": 7704,
+        "components_before_area_filter": 16,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_85656b28a19f249d5f9ea5f4",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.18028269999922486,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.18029489999935322,
+        "decode_seconds": 0.06411769999976968,
+        "pipeline_seconds": 0.2444164999997156
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2983,
+        "morphology_pixels": 317172,
+        "area_filtered_pixels": 81340,
+        "nucleus_pixels": 45649,
+        "components_before_area_filter": 26,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_4378ef204dbb4dc08c11ab4c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.39154120000057446,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.39156309999998484,
+        "decode_seconds": 0.1308962999992218,
+        "pipeline_seconds": 0.5224693000000116
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 308985,
+        "morphology_pixels": 1170303,
+        "area_filtered_pixels": 60494,
+        "nucleus_pixels": 39176,
+        "components_before_area_filter": 202,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e625719b54ee2ebfb5406c35",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.08643179999853601,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.08644339999955264,
+        "decode_seconds": 0.07002079999983835,
+        "pipeline_seconds": 0.15647159999934956
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 28,
+        "morphology_pixels": 20168,
+        "area_filtered_pixels": 20168,
+        "nucleus_pixels": 11322,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2f9c9f526d6895cad1aeaf44",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.36192060000030324,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.36193009999988135,
+        "decode_seconds": 0.12170530000003055,
+        "pipeline_seconds": 0.48363870000139286
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1039,
+        "morphology_pixels": 210950,
+        "area_filtered_pixels": 94724,
+        "nucleus_pixels": 62115,
+        "components_before_area_filter": 291,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_b020605de110c547bac68c9b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.32371469999998226,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3237334000004921,
+        "decode_seconds": 0.11366719999932684,
+        "pipeline_seconds": 0.43740989999969315
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 8949,
+        "morphology_pixels": 343677,
+        "area_filtered_pixels": 85493,
+        "nucleus_pixels": 67583,
+        "components_before_area_filter": 157,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_3777549bdc1f008ac9f6cdbf",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1361776000012469,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1361949000001914,
+        "decode_seconds": 0.05986340000163182,
+        "pipeline_seconds": 0.1960625000010623
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2323,
+        "morphology_pixels": 157379,
+        "area_filtered_pixels": 57972,
+        "nucleus_pixels": 34774,
+        "components_before_area_filter": 39,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_f83b947fb3816cdf88dcc463",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.12319820000084292,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.12321180000071763,
+        "decode_seconds": 0.1155455999996775,
+        "pipeline_seconds": 0.23876199999904202
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 482,
+        "morphology_pixels": 16146,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2c2a5e2c4cadb0eaa44422e5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.15734650000013062,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.15735640000093554,
+        "decode_seconds": 0.06143100000008417,
+        "pipeline_seconds": 0.2187912999997934
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4441,
+        "morphology_pixels": 174515,
+        "area_filtered_pixels": 92169,
+        "nucleus_pixels": 67904,
+        "components_before_area_filter": 45,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_d4589511cb7d573fe545ad92",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.11754370000016934,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.11755249999987427,
+        "decode_seconds": 0.060490200001368066,
+        "pipeline_seconds": 0.17804660000001604
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2978,
+        "morphology_pixels": 135824,
+        "area_filtered_pixels": 48758,
+        "nucleus_pixels": 33544,
+        "components_before_area_filter": 20,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_d9eb5df8b492c1308306eb98",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2502175999998144,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2502306000005774,
+        "decode_seconds": 0.11217159999978321,
+        "pipeline_seconds": 0.36240559999896504
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 23237,
+        "morphology_pixels": 289220,
+        "area_filtered_pixels": 37151,
+        "nucleus_pixels": 28211,
+        "components_before_area_filter": 97,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_00cd93a7e14b9dc222e2298a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2212902999999642,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.22130040000047302,
+        "decode_seconds": 0.1152258999991318,
+        "pipeline_seconds": 0.33653099999901315
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4369,
+        "morphology_pixels": 98541,
+        "area_filtered_pixels": 24986,
+        "nucleus_pixels": 20823,
+        "components_before_area_filter": 20,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_dfdf7cbe11e129473fed0233",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.38029379999898083,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.38030609999987064,
+        "decode_seconds": 0.11102600000049279,
+        "pipeline_seconds": 0.4913364999993064
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 38502,
+        "morphology_pixels": 708014,
+        "area_filtered_pixels": 52499,
+        "nucleus_pixels": 27512,
+        "components_before_area_filter": 111,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c77f892b437514a491a810e6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1703589999997348,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1703722000002017,
+        "decode_seconds": 0.06480510000073991,
+        "pipeline_seconds": 0.2351806000006036
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 10065,
+        "morphology_pixels": 220693,
+        "area_filtered_pixels": 52860,
+        "nucleus_pixels": 39033,
+        "components_before_area_filter": 22,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c931017d7f1041a7c3bc8e99",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.09847780000018247,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0984879000006913,
+        "decode_seconds": 0.07142199999907461,
+        "pipeline_seconds": 0.16991439999947033
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1873,
+        "morphology_pixels": 85384,
+        "area_filtered_pixels": 7261,
+        "nucleus_pixels": 4905,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_4b5ea79e6f613043aafc5351",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.27551129999847035,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.27552509999986796,
+        "decode_seconds": 0.129011699998955,
+        "pipeline_seconds": 0.40454289999979665
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 5161,
+        "morphology_pixels": 101785,
+        "area_filtered_pixels": 38398,
+        "nucleus_pixels": 34446,
+        "components_before_area_filter": 11,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_be0f7565aad4f07d77d24cba",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.09104979999938223,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0910595999994257,
+        "decode_seconds": 0.06729140000061307,
+        "pipeline_seconds": 0.15835839999999735
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 815,
+        "morphology_pixels": 30952,
+        "area_filtered_pixels": 30952,
+        "nucleus_pixels": 20434,
+        "components_before_area_filter": 37,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_dd8848d3f2aa18f2a8792953",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.3046933000005083,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3047045999992406,
+        "decode_seconds": 0.12179759999889939,
+        "pipeline_seconds": 0.42650700000012876
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3935,
+        "morphology_pixels": 130728,
+        "area_filtered_pixels": 47203,
+        "nucleus_pixels": 39430,
+        "components_before_area_filter": 12,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_8a3330a144c37ab5f784b3ba",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 10,
+          "bbox": [
+            384,
+            2114,
+            412,
+            2162
+          ],
+          "class_id": 1,
+          "scores": [
+            0.08742791414260864,
+            0.9125720858573914
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 10,
+          "bbox": [
+            384,
+            2114,
+            412,
+            2162
+          ],
+          "area": 921
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.08279470000161382,
+        "classification_seconds": 0.08749539999917033,
+        "preprocessing_seconds": 0.00027289999889035244,
+        "total_seconds": 0.17061020000073768,
+        "decode_seconds": 0.05939540000144916,
+        "pipeline_seconds": 0.23058130000026722
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 81,
+        "morphology_pixels": 18385,
+        "area_filtered_pixels": 18385,
+        "nucleus_pixels": 10379,
+        "components_before_area_filter": 13,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_76ca0a03ba18e4475b086ef0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.13548939999964205,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.13550369999938994,
+        "decode_seconds": 0.061141399999542045,
+        "pipeline_seconds": 0.19664989999910176
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 3205,
+        "morphology_pixels": 137389,
+        "area_filtered_pixels": 34661,
+        "nucleus_pixels": 24336,
+        "components_before_area_filter": 23,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_79b1a4cb08d96a9fa6c54002",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 23,
+          "bbox": [
+            2208,
+            891,
+            2257,
+            927
+          ],
+          "class_id": 1,
+          "scores": [
+            0.23001645505428314,
+            0.7699835300445557
+          ]
+        },
+        {
+          "component_id": 42,
+          "bbox": [
+            2294,
+            924,
+            2334,
+            956
+          ],
+          "class_id": 1,
+          "scores": [
+            0.24180704355239868,
+            0.7581930160522461
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 23,
+          "bbox": [
+            2208,
+            891,
+            2257,
+            927
+          ],
+          "area": 494
+        },
+        {
+          "component_id": 42,
+          "bbox": [
+            2294,
+            924,
+            2334,
+            956
+          ],
+          "area": 463
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.4496997999995074,
+        "classification_seconds": 0.1784726000005321,
+        "preprocessing_seconds": 0.000495099999170634,
+        "total_seconds": 0.6287477999994735,
+        "decode_seconds": 0.11127140000098734,
+        "pipeline_seconds": 0.7412367000015365
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 50433,
+        "morphology_pixels": 848437,
+        "area_filtered_pixels": 92872,
+        "nucleus_pixels": 50125,
+        "components_before_area_filter": 189,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_be94715158da2ca5e08fa6ce",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.17058279999946535,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.17059340000014345,
+        "decode_seconds": 0.11244099999930768,
+        "pipeline_seconds": 0.2830383999989863
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4998,
+        "morphology_pixels": 190109,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_de5fe38cafad5108e8775aec",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.08002730000043812,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.08003850000022794,
+        "decode_seconds": 0.059142799998880946,
+        "pipeline_seconds": 0.13918589999957476
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 69,
+        "morphology_pixels": 15765,
+        "area_filtered_pixels": 13653,
+        "nucleus_pixels": 10621,
+        "components_before_area_filter": 14,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e5d6c3693a30ad647696a306",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1927881999999954,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.19280699999944773,
+        "decode_seconds": 0.11153769999873475,
+        "pipeline_seconds": 0.30434929999864835
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1928,
+        "morphology_pixels": 60980,
+        "area_filtered_pixels": 23370,
+        "nucleus_pixels": 18547,
+        "components_before_area_filter": 37,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_ed9fb70092e30adbfa83e09c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.12244979999923089,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.12246159999995143,
+        "decode_seconds": 0.06500819999928353,
+        "pipeline_seconds": 0.18747409999923548
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 330,
+        "morphology_pixels": 102730,
+        "area_filtered_pixels": 52878,
+        "nucleus_pixels": 33030,
+        "components_before_area_filter": 11,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_aac27162a071b508cf0fa72e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1843680999991193,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.18438359999890963,
+        "decode_seconds": 0.1208544000000984,
+        "pipeline_seconds": 0.3052416999998968
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1918,
+        "morphology_pixels": 48291,
+        "area_filtered_pixels": 32343,
+        "nucleus_pixels": 24988,
+        "components_before_area_filter": 26,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2198c3e884915f14e35fc578",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 4,
+          "bbox": [
+            1747,
+            801,
+            1806,
+            840
+          ],
+          "class_id": 1,
+          "scores": [
+            0.22077947854995728,
+            0.7792205214500427
+          ]
+        },
+        {
+          "component_id": 51,
+          "bbox": [
+            2244,
+            898,
+            2303,
+            942
+          ],
+          "class_id": 1,
+          "scores": [
+            0.17590641975402832,
+            0.8240935206413269
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 4,
+          "bbox": [
+            1747,
+            801,
+            1806,
+            840
+          ],
+          "area": 867
+        },
+        {
+          "component_id": 51,
+          "bbox": [
+            2244,
+            898,
+            2303,
+            942
+          ],
+          "area": 791
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.34090760000071896,
+        "classification_seconds": 0.20139580000250135,
+        "preprocessing_seconds": 0.0005490000021382002,
+        "total_seconds": 0.5429457999998704,
+        "decode_seconds": 0.12080120000064198,
+        "pipeline_seconds": 0.6649916999995185
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 63486,
+        "morphology_pixels": 761861,
+        "area_filtered_pixels": 39755,
+        "nucleus_pixels": 21652,
+        "components_before_area_filter": 93,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_99c3221ccd0310fe85494928",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 34,
+          "bbox": [
+            421,
+            3498,
+            447,
+            3535
+          ],
+          "class_id": 1,
+          "scores": [
+            0.027397798374295235,
+            0.972602128982544
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 34,
+          "bbox": [
+            421,
+            3498,
+            447,
+            3535
+          ],
+          "area": 477
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.24648179999894637,
+        "classification_seconds": 0.10341039999912027,
+        "preprocessing_seconds": 0.0004206000012345612,
+        "total_seconds": 0.3503713999998581,
+        "decode_seconds": 0.14002930000060587,
+        "pipeline_seconds": 0.49154170000110753
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 20298,
+        "morphology_pixels": 221204,
+        "area_filtered_pixels": 55190,
+        "nucleus_pixels": 40445,
+        "components_before_area_filter": 85,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_7e6ec178eb6d48c69ff9576e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.08929129999887664,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.08930159999908938,
+        "decode_seconds": 0.06130949999896984,
+        "pipeline_seconds": 0.15061709999827144
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 518,
+        "morphology_pixels": 59334,
+        "area_filtered_pixels": 59334,
+        "nucleus_pixels": 36540,
+        "components_before_area_filter": 70,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_34a3bbc1aa35ed7926bb3afe",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.12153159999979835,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.12154279999958817,
+        "decode_seconds": 0.059619800000291434,
+        "pipeline_seconds": 0.18116709999958402
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1790,
+        "morphology_pixels": 86768,
+        "area_filtered_pixels": 45405,
+        "nucleus_pixels": 33253,
+        "components_before_area_filter": 41,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_9fde60f257ca03c3d52b80c9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2785669999993843,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.27857769999900484,
+        "decode_seconds": 0.11680840000008175,
+        "pipeline_seconds": 0.39538900000115973
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 30193,
+        "morphology_pixels": 394886,
+        "area_filtered_pixels": 55607,
+        "nucleus_pixels": 38561,
+        "components_before_area_filter": 55,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_1a3b3b768c4acf205ea90892",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.14136510000025737,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.14138050000110525,
+        "decode_seconds": 0.06255460000102175,
+        "pipeline_seconds": 0.20394049999958952
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2253,
+        "morphology_pixels": 115605,
+        "area_filtered_pixels": 51525,
+        "nucleus_pixels": 39641,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2cb2279925acc8ebf5182c35",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1658487000004243,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.16586339999958,
+        "decode_seconds": 0.06367900000077498,
+        "pipeline_seconds": 0.22954650000065158
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4936,
+        "morphology_pixels": 216343,
+        "area_filtered_pixels": 64475,
+        "nucleus_pixels": 40552,
+        "components_before_area_filter": 13,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_10cbbfcb271e6b8dd0547da7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1435167999989062,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1435299999993731,
+        "decode_seconds": 0.11915679999947315,
+        "pipeline_seconds": 0.26269089999914286
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1108,
+        "morphology_pixels": 30780,
+        "area_filtered_pixels": 4772,
+        "nucleus_pixels": 3358,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c7510f7783b1de0a2ed01a13",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 2,
+          "bbox": [
+            2243,
+            897,
+            2303,
+            926
+          ],
+          "class_id": 1,
+          "scores": [
+            0.2853267192840576,
+            0.7146732211112976
+          ]
+        },
+        {
+          "component_id": 10,
+          "bbox": [
+            2340,
+            933,
+            2419,
+            972
+          ],
+          "class_id": 1,
+          "scores": [
+            0.1699964553117752,
+            0.8300034999847412
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 2,
+          "bbox": [
+            2243,
+            897,
+            2303,
+            926
+          ],
+          "area": 658
+        },
+        {
+          "component_id": 10,
+          "bbox": [
+            2340,
+            933,
+            2419,
+            972
+          ],
+          "area": 900
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.40414200000122946,
+        "classification_seconds": 0.20324280000022554,
+        "preprocessing_seconds": 0.0005091999992146157,
+        "total_seconds": 0.6079853999999614,
+        "decode_seconds": 0.12009609999950044,
+        "pipeline_seconds": 0.7293542999996134
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 52080,
+        "morphology_pixels": 767433,
+        "area_filtered_pixels": 66611,
+        "nucleus_pixels": 34996,
+        "components_before_area_filter": 99,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_982610fd73d5ae81cf39b711",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.16638039999998,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.16639550000036252,
+        "decode_seconds": 0.12779699999919103,
+        "pipeline_seconds": 0.29420140000001993
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 17139,
+        "morphology_pixels": 132083,
+        "area_filtered_pixels": 11170,
+        "nucleus_pixels": 10139,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_87a2b1109af8c2921f8dbd22",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.07965920000060578,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.07967110000026878,
+        "decode_seconds": 0.06531229999927746,
+        "pipeline_seconds": 0.14498769999954675
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 168,
+        "morphology_pixels": 37159,
+        "area_filtered_pixels": 14461,
+        "nucleus_pixels": 8540,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_f386f91a38f9c9ff3d2b2181",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2112593999991077,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.21126879999974335,
+        "decode_seconds": 0.0661407000006875,
+        "pipeline_seconds": 0.2774137000014889
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1738,
+        "morphology_pixels": 313970,
+        "area_filtered_pixels": 108348,
+        "nucleus_pixels": 64313,
+        "components_before_area_filter": 33,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_b4de97405bd8d77ed606181d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.23111209999842686,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.23112459999902057,
+        "decode_seconds": 0.12445289999959641,
+        "pipeline_seconds": 0.3555819999983214
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 130671,
+        "morphology_pixels": 992217,
+        "area_filtered_pixels": 3600,
+        "nucleus_pixels": 1807,
+        "components_before_area_filter": 8,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_47995a87d8b346108d368e8c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.15581530000054045,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.15582540000104927,
+        "decode_seconds": 0.061022899999443325,
+        "pipeline_seconds": 0.21685149999939313
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 19612,
+        "morphology_pixels": 542424,
+        "area_filtered_pixels": 18318,
+        "nucleus_pixels": 9888,
+        "components_before_area_filter": 4,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_1dc711f8a65387a38814a76f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.17244820000087202,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.17245700000057695,
+        "decode_seconds": 0.059919500001342385,
+        "pipeline_seconds": 0.23237990000052378
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16266,
+        "morphology_pixels": 221502,
+        "area_filtered_pixels": 86474,
+        "nucleus_pixels": 68352,
+        "components_before_area_filter": 68,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_6139452a0f81d2bf9a8d34fb",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 2,
+          "bbox": [
+            2250,
+            908,
+            2294,
+            958
+          ],
+          "class_id": 1,
+          "scores": [
+            0.08744023740291595,
+            0.9125597476959229
+          ]
+        },
+        {
+          "component_id": 56,
+          "bbox": [
+            3280,
+            2724,
+            3316,
+            2783
+          ],
+          "class_id": 1,
+          "scores": [
+            0.062341753393411636,
+            0.9376583099365234
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 2,
+          "bbox": [
+            2250,
+            908,
+            2294,
+            958
+          ],
+          "area": 870
+        },
+        {
+          "component_id": 56,
+          "bbox": [
+            3280,
+            2724,
+            3316,
+            2783
+          ],
+          "area": 794
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3052220000008674,
+        "classification_seconds": 0.18422669999927166,
+        "preprocessing_seconds": 0.0005074999990029028,
+        "total_seconds": 0.4900364000004629,
+        "decode_seconds": 0.1128071999992244,
+        "pipeline_seconds": 0.6039338999999018
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4655,
+        "morphology_pixels": 297710,
+        "area_filtered_pixels": 41597,
+        "nucleus_pixels": 25833,
+        "components_before_area_filter": 121,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_d10cc446717c7952ba0f4516",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.4544356999995216,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.4544482000001153,
+        "decode_seconds": 0.11341949999950884,
+        "pipeline_seconds": 0.5678781999995408
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7562,
+        "morphology_pixels": 556968,
+        "area_filtered_pixels": 78960,
+        "nucleus_pixels": 51429,
+        "components_before_area_filter": 159,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_3d41b0bad3a4fa196d32f644",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.36756720000084897,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3675793000002159,
+        "decode_seconds": 0.11244660000011208,
+        "pipeline_seconds": 0.48003000000062457
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 32072,
+        "morphology_pixels": 531252,
+        "area_filtered_pixels": 52581,
+        "nucleus_pixels": 30141,
+        "components_before_area_filter": 73,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_77442da66a685d51f579d53a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.07961000000068452,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.07961860000068555,
+        "decode_seconds": 0.061981900000319,
+        "pipeline_seconds": 0.1416045000005397
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 383,
+        "morphology_pixels": 29667,
+        "area_filtered_pixels": 29667,
+        "nucleus_pixels": 23187,
+        "components_before_area_filter": 11,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_08a6672864c52f975bfc3cfc",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.12353569999868341,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.12354589999995369,
+        "decode_seconds": 0.11986149999938789,
+        "pipeline_seconds": 0.24341269999968063
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 612,
+        "morphology_pixels": 18748,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_89b448229e1367f0ab5825be",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.23947320000115724,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.23948320000090462,
+        "decode_seconds": 0.11350160000074538,
+        "pipeline_seconds": 0.3529878000008466
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16031,
+        "morphology_pixels": 285478,
+        "area_filtered_pixels": 33104,
+        "nucleus_pixels": 21235,
+        "components_before_area_filter": 102,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_7fd346cb5912cddfc9d42e31",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.07628329999897687,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0762948999999935,
+        "decode_seconds": 0.06495320000067295,
+        "pipeline_seconds": 0.1412534000010055
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 18,
+        "morphology_pixels": 14185,
+        "area_filtered_pixels": 14185,
+        "nucleus_pixels": 8474,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_34d9f7aa9927fb4f17f90180",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 17,
+          "bbox": [
+            2254,
+            902,
+            2302,
+            934
+          ],
+          "class_id": 1,
+          "scores": [
+            0.28396162390708923,
+            0.7160384654998779
+          ]
+        },
+        {
+          "component_id": 26,
+          "bbox": [
+            389,
+            1380,
+            426,
+            1439
+          ],
+          "class_id": 1,
+          "scores": [
+            0.10621710121631622,
+            0.8937828540802002
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 17,
+          "bbox": [
+            2254,
+            902,
+            2302,
+            934
+          ],
+          "area": 525
+        },
+        {
+          "component_id": 26,
+          "bbox": [
+            389,
+            1380,
+            426,
+            1439
+          ],
+          "area": 1092
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.388792800000374,
+        "classification_seconds": 0.17634709999947518,
+        "preprocessing_seconds": 0.0005029999992984813,
+        "total_seconds": 0.5657274999994115,
+        "decode_seconds": 0.12297709999984363,
+        "pipeline_seconds": 0.6898371999996016
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 63255,
+        "morphology_pixels": 613565,
+        "area_filtered_pixels": 51451,
+        "nucleus_pixels": 27172,
+        "components_before_area_filter": 79,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_c96b348b5d5157360061dbd3",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 123,
+          "bbox": [
+            75,
+            2922,
+            106,
+            2958
+          ],
+          "class_id": 1,
+          "scores": [
+            0.38022494316101074,
+            0.6197750568389893
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 123,
+          "bbox": [
+            75,
+            2922,
+            106,
+            2958
+          ],
+          "area": 753
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.48433920000024955,
+        "classification_seconds": 0.09313939999992726,
+        "preprocessing_seconds": 0.00048659999993105885,
+        "total_seconds": 0.5780291999999463,
+        "decode_seconds": 0.12134419999892998,
+        "pipeline_seconds": 0.70059289999881
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 25302,
+        "morphology_pixels": 636258,
+        "area_filtered_pixels": 116354,
+        "nucleus_pixels": 67515,
+        "components_before_area_filter": 196,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_81e0df8de78a114efe1d99fa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.33643060000031255,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.3364500000006956,
+        "decode_seconds": 0.11664339999879303,
+        "pipeline_seconds": 0.4530981999996584
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16353,
+        "morphology_pixels": 349195,
+        "area_filtered_pixels": 36089,
+        "nucleus_pixels": 21934,
+        "components_before_area_filter": 127,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_5da971a098001d15ef36e0a9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.27677919999950973,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2768004999998084,
+        "decode_seconds": 0.12734939999972994,
+        "pipeline_seconds": 0.4041563999999198
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1905,
+        "morphology_pixels": 129897,
+        "area_filtered_pixels": 43158,
+        "nucleus_pixels": 25764,
+        "components_before_area_filter": 162,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_bc0d8893bdee8924b95864ef",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.3602502000012464,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.36026700000002165,
+        "decode_seconds": 0.1269841000012093,
+        "pipeline_seconds": 0.487256399999751
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 52739,
+        "morphology_pixels": 439632,
+        "area_filtered_pixels": 53034,
+        "nucleus_pixels": 41907,
+        "components_before_area_filter": 29,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_59b9510befa364e46f11defc",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 1,
+          "bbox": [
+            1915,
+            831,
+            1975,
+            858
+          ],
+          "class_id": 1,
+          "scores": [
+            0.30994242429733276,
+            0.690057635307312
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 1,
+          "bbox": [
+            1915,
+            831,
+            1975,
+            858
+          ],
+          "area": 897
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3234957000004215,
+        "classification_seconds": 0.10048149999965972,
+        "preprocessing_seconds": 0.0003968999990320299,
+        "total_seconds": 0.4244445000003907,
+        "decode_seconds": 0.11987870000120893,
+        "pipeline_seconds": 0.5457583999996132
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 30272,
+        "morphology_pixels": 683054,
+        "area_filtered_pixels": 22992,
+        "nucleus_pixels": 13222,
+        "components_before_area_filter": 59,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_aa96d98e59ad61b877dc9cff",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.11489329999858455,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.11491149999892514,
+        "decode_seconds": 0.07165469999927154,
+        "pipeline_seconds": 0.18657100000018545
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2422,
+        "morphology_pixels": 68036,
+        "area_filtered_pixels": 38047,
+        "nucleus_pixels": 30046,
+        "components_before_area_filter": 13,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_65a1c4e02b7cf03283c3fd66",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.13345949999893492,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1334759999990638,
+        "decode_seconds": 0.13620390000141924,
+        "pipeline_seconds": 0.2696839000000182
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 52,
+        "morphology_pixels": 11654,
+        "area_filtered_pixels": 11654,
+        "nucleus_pixels": 9494,
+        "components_before_area_filter": 2,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_38ce63f2460b8cab7e97e65d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2716266999996151,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2716393999999127,
+        "decode_seconds": 0.13686880000022938,
+        "pipeline_seconds": 0.408511699999508
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 11433,
+        "morphology_pixels": 415336,
+        "area_filtered_pixels": 18367,
+        "nucleus_pixels": 12666,
+        "components_before_area_filter": 37,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_94ae0cd7ac18884037d12d38",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.23133620000044175,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2313467000003584,
+        "decode_seconds": 0.1133879999997589,
+        "pipeline_seconds": 0.3447395000002871
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 198,
+        "morphology_pixels": 104824,
+        "area_filtered_pixels": 33374,
+        "nucleus_pixels": 22569,
+        "components_before_area_filter": 67,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_2bbc6438ce259d8abde0da30",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 3,
+          "bbox": [
+            1241,
+            2064,
+            1272,
+            2098
+          ],
+          "class_id": 1,
+          "scores": [
+            0.061774518340826035,
+            0.9382254481315613
+          ]
+        },
+        {
+          "component_id": 4,
+          "bbox": [
+            1266,
+            2066,
+            1299,
+            2122
+          ],
+          "class_id": 1,
+          "scores": [
+            0.052514173090457916,
+            0.9474858045578003
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 3,
+          "bbox": [
+            1241,
+            2064,
+            1272,
+            2098
+          ],
+          "area": 726
+        },
+        {
+          "component_id": 4,
+          "bbox": [
+            1266,
+            2066,
+            1299,
+            2122
+          ],
+          "area": 1086
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.09868319999986852,
+        "classification_seconds": 0.18439279999984137,
+        "preprocessing_seconds": 0.0005154000027687289,
+        "total_seconds": 0.2836782000013045,
+        "decode_seconds": 0.059965399999782676,
+        "pipeline_seconds": 0.3443807999992714
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1518,
+        "morphology_pixels": 94740,
+        "area_filtered_pixels": 26457,
+        "nucleus_pixels": 14539,
+        "components_before_area_filter": 7,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_5b99ec62f8d78d826c26a2a7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.16523399999823596,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.16524459999891405,
+        "decode_seconds": 0.05877940000027593,
+        "pipeline_seconds": 0.22402770000007877
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1166,
+        "morphology_pixels": 137709,
+        "area_filtered_pixels": 100865,
+        "nucleus_pixels": 75582,
+        "components_before_area_filter": 94,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_70a71c62d8ce7d9db896f39b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.16571450000083132,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.16573700000117242,
+        "decode_seconds": 0.13991840000016964,
+        "pipeline_seconds": 0.30565959999876213
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3481,
+        "area_filtered_pixels": 3481,
+        "nucleus_pixels": 2672,
+        "components_before_area_filter": 1,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_08ed0a56a6a4c6037b3d34c8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.41467890000058105,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.4147035000005417,
+        "decode_seconds": 0.1864822000006825,
+        "pipeline_seconds": 0.601190499999575
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2609,
+        "morphology_pixels": 50955,
+        "area_filtered_pixels": 14642,
+        "nucleus_pixels": 13949,
+        "components_before_area_filter": 5,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_ef21dbc6ca35c34376fa8a75",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.27859820000048785,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2786214999996446,
+        "decode_seconds": 0.12412439999934577,
+        "pipeline_seconds": 0.40274979999958305
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 699,
+        "morphology_pixels": 165951,
+        "area_filtered_pixels": 86113,
+        "nucleus_pixels": 42107,
+        "components_before_area_filter": 38,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_e1f081100c0e32af7da74c6a",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 18,
+          "bbox": [
+            434,
+            1610,
+            465,
+            1659
+          ],
+          "class_id": 1,
+          "scores": [
+            0.002068320522084832,
+            0.997931718826294
+          ]
+        },
+        {
+          "component_id": 62,
+          "bbox": [
+            435,
+            3506,
+            470,
+            3539
+          ],
+          "class_id": 1,
+          "scores": [
+            0.004938707686960697,
+            0.9950613379478455
+          ]
+        },
+        {
+          "component_id": 66,
+          "bbox": [
+            474,
+            3550,
+            518,
+            3600
+          ],
+          "class_id": 1,
+          "scores": [
+            0.017046043649315834,
+            0.9829539656639099
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 18,
+          "bbox": [
+            434,
+            1610,
+            465,
+            1659
+          ],
+          "area": 649
+        },
+        {
+          "component_id": 62,
+          "bbox": [
+            435,
+            3506,
+            470,
+            3539
+          ],
+          "area": 600
+        },
+        {
+          "component_id": 66,
+          "bbox": [
+            474,
+            3550,
+            518,
+            3600
+          ],
+          "area": 941
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.5971564999999828,
+        "classification_seconds": 0.4706501999989996,
+        "preprocessing_seconds": 0.0008897999996406725,
+        "total_seconds": 1.0688855000007607,
+        "decode_seconds": 0.14442760000019916,
+        "pipeline_seconds": 1.2150915000001987
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1715,
+        "morphology_pixels": 322087,
+        "area_filtered_pixels": 138845,
+        "nucleus_pixels": 100790,
+        "components_before_area_filter": 136,
+        "candidates": 3,
+        "classified_regions": 3
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_4a4c7249ca44ed4e94d044b2",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 21,
+          "bbox": [
+            119,
+            2218,
+            150,
+            2268
+          ],
+          "class_id": 1,
+          "scores": [
+            0.007127183023840189,
+            0.9928728342056274
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 21,
+          "bbox": [
+            119,
+            2218,
+            150,
+            2268
+          ],
+          "area": 699
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.288614699999016,
+        "classification_seconds": 0.14949890000025334,
+        "preprocessing_seconds": 0.0004384000003483379,
+        "total_seconds": 0.4386544999997568,
+        "decode_seconds": 0.09485140000106185,
+        "pipeline_seconds": 0.534232100000736
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2050,
+        "morphology_pixels": 159133,
+        "area_filtered_pixels": 30315,
+        "nucleus_pixels": 12863,
+        "components_before_area_filter": 29,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_b76186f8b61f5632c54958ac",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 51,
+          "bbox": [
+            3257,
+            2158,
+            3305,
+            2200
+          ],
+          "class_id": 1,
+          "scores": [
+            0.16447265446186066,
+            0.8355273604393005
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 51,
+          "bbox": [
+            3257,
+            2158,
+            3305,
+            2200
+          ],
+          "area": 814
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.48636549999901035,
+        "classification_seconds": 0.12692729999980656,
+        "preprocessing_seconds": 0.00033040000016626436,
+        "total_seconds": 0.6137019999987388,
+        "decode_seconds": 0.13964280000072904,
+        "pipeline_seconds": 0.7546306000003824
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 16773,
+        "morphology_pixels": 339489,
+        "area_filtered_pixels": 81853,
+        "nucleus_pixels": 48314,
+        "components_before_area_filter": 326,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_8521c937283dbcd90f1eee38",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.4185185999995156,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.4185355999998137,
+        "decode_seconds": 0.14573719999862078,
+        "pipeline_seconds": 0.5642797999989853
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 850990,
+        "morphology_pixels": 2090408,
+        "area_filtered_pixels": 26590,
+        "nucleus_pixels": 19143,
+        "components_before_area_filter": 36,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_d13c0e7db2bfaf876fd3ea9e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.3483592000011413,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.348375000001397,
+        "decode_seconds": 0.15621420000024955,
+        "pipeline_seconds": 0.5045945000001666
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 12854,
+        "morphology_pixels": 220229,
+        "area_filtered_pixels": 12512,
+        "nucleus_pixels": 9901,
+        "components_before_area_filter": 47,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_71f23c554dca400e39d20c06",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 70,
+          "bbox": [
+            466,
+            3555,
+            505,
+            3593
+          ],
+          "class_id": 1,
+          "scores": [
+            0.04390862211585045,
+            0.9560913443565369
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 70,
+          "bbox": [
+            466,
+            3555,
+            505,
+            3593
+          ],
+          "area": 710
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.4233721999989939,
+        "classification_seconds": 0.14547880000100122,
+        "preprocessing_seconds": 0.0004316000013204757,
+        "total_seconds": 0.5693587999994634,
+        "decode_seconds": 0.16240780000043742,
+        "pipeline_seconds": 0.7332246999994823
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 209,
+        "morphology_pixels": 78699,
+        "area_filtered_pixels": 55204,
+        "nucleus_pixels": 39686,
+        "components_before_area_filter": 95,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_025f647cc85ef3c81fada042",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 32,
+          "bbox": [
+            3280,
+            2097,
+            3310,
+            2118
+          ],
+          "class_id": 1,
+          "scores": [
+            0.32170864939689636,
+            0.6782913208007812
+          ]
+        },
+        {
+          "component_id": 36,
+          "bbox": [
+            3300,
+            2116,
+            3325,
+            2159
+          ],
+          "class_id": 1,
+          "scores": [
+            0.20396654307842255,
+            0.796033501625061
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 32,
+          "bbox": [
+            3280,
+            2097,
+            3310,
+            2118
+          ],
+          "area": 460
+        },
+        {
+          "component_id": 36,
+          "bbox": [
+            3300,
+            2116,
+            3325,
+            2159
+          ],
+          "area": 563
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3556023000001005,
+        "classification_seconds": 0.24335229999996955,
+        "preprocessing_seconds": 0.0005101000006106915,
+        "total_seconds": 0.5995493999998871,
+        "decode_seconds": 0.12985690000095929,
+        "pipeline_seconds": 0.7306571999997686
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 125462,
+        "morphology_pixels": 1008916,
+        "area_filtered_pixels": 41575,
+        "nucleus_pixels": 23232,
+        "components_before_area_filter": 72,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_bfcc1d84f12f690d866df209",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.16434529999969527,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1643595000005007,
+        "decode_seconds": 0.1334318000008352,
+        "pipeline_seconds": 0.29779600000074424
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 652,
+        "morphology_pixels": 39595,
+        "area_filtered_pixels": 5193,
+        "nucleus_pixels": 2962,
+        "components_before_area_filter": 3,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_f36eef38fb8c847373d1eab6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.10830119999991439,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.10831889999826672,
+        "decode_seconds": 0.21949039999890374,
+        "pipeline_seconds": 0.3278138999994553
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 915,
+        "morphology_pixels": 44424,
+        "area_filtered_pixels": 44424,
+        "nucleus_pixels": 27287,
+        "components_before_area_filter": 28,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_60d535f906a073a3ec78f564",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2522068999987823,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.25222609999946144,
+        "decode_seconds": 0.1424758999983169,
+        "pipeline_seconds": 0.39470649999930174
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 678,
+        "morphology_pixels": 66445,
+        "area_filtered_pixels": 29944,
+        "nucleus_pixels": 23211,
+        "components_before_area_filter": 35,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_f085c56265778f27ccc5898c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.07663390000016079,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.07664580000164278,
+        "decode_seconds": 0.09811049999916577,
+        "pipeline_seconds": 0.17476100000021688
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 362,
+        "morphology_pixels": 33363,
+        "area_filtered_pixels": 3894,
+        "nucleus_pixels": 2008,
+        "components_before_area_filter": 9,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_f02a1b7ec5702451f013351b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.25584820000040054,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2558647000005294,
+        "decode_seconds": 0.17486720000124478,
+        "pipeline_seconds": 0.4307360000002518
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6375,
+        "morphology_pixels": 147486,
+        "area_filtered_pixels": 35035,
+        "nucleus_pixels": 27461,
+        "components_before_area_filter": 50,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_374e896eae078875b2239728",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.13827969999874767,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1382999999987078,
+        "decode_seconds": 0.1480704000005062,
+        "pipeline_seconds": 0.2863742000008642
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2607,
+        "morphology_pixels": 113661,
+        "area_filtered_pixels": 37340,
+        "nucleus_pixels": 20429,
+        "components_before_area_filter": 24,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_31a08a659479c47c2696b2fb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.18101930000011635,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.18103270000028715,
+        "decode_seconds": 0.16738299999997253,
+        "pipeline_seconds": 0.3484212999992451
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 7000,
+        "morphology_pixels": 250373,
+        "area_filtered_pixels": 62549,
+        "nucleus_pixels": 45676,
+        "components_before_area_filter": 41,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_612a96c97f62a5dd98318207",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.14012840000032156,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1401399999995192,
+        "decode_seconds": 0.2521562999991147,
+        "pipeline_seconds": 0.39230029999998806
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 724,
+        "morphology_pixels": 134882,
+        "area_filtered_pixels": 54602,
+        "nucleus_pixels": 31663,
+        "components_before_area_filter": 81,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_7430fd01e6243c9b482e3192",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.18669689999842376,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.18670799999927112,
+        "decode_seconds": 0.24257960000068124,
+        "pipeline_seconds": 0.4292920999996568
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2874,
+        "morphology_pixels": 58811,
+        "area_filtered_pixels": 14100,
+        "nucleus_pixels": 7302,
+        "components_before_area_filter": 78,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_ab2ac4008e149fdef19628b2",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.11521219999849563,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.1152247999998508,
+        "decode_seconds": 0.09512630000062927,
+        "pipeline_seconds": 0.21035549999942305
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 298,
+        "morphology_pixels": 50074,
+        "area_filtered_pixels": 34142,
+        "nucleus_pixels": 17169,
+        "components_before_area_filter": 71,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_bb94eaa25189f790fc82a418",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.2123286999994889,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.21234259999982896,
+        "decode_seconds": 0.275895999999193,
+        "pipeline_seconds": 0.48824229999991076
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 30892,
+        "morphology_pixels": 207711,
+        "area_filtered_pixels": 20918,
+        "nucleus_pixels": 15855,
+        "components_before_area_filter": 6,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_c2c10418e60c3924e694ed73",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 1,
+          "bbox": [
+            2039,
+            839,
+            2098,
+            874
+          ],
+          "class_id": 1,
+          "scores": [
+            0.1701733022928238,
+            0.8298267126083374
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 1,
+          "bbox": [
+            2039,
+            839,
+            2098,
+            874
+          ],
+          "area": 990
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.3625437000009697,
+        "classification_seconds": 0.30562099999951897,
+        "preprocessing_seconds": 0.0004210999995848397,
+        "total_seconds": 0.6686406000007992,
+        "decode_seconds": 0.12290819999907399,
+        "pipeline_seconds": 0.7927968000003602
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 6993,
+        "morphology_pixels": 245041,
+        "area_filtered_pixels": 62905,
+        "nucleus_pixels": 41830,
+        "components_before_area_filter": 132,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_ab87f4195a1820d0d1319bf5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.1155324000010296,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.11554330000035407,
+        "decode_seconds": 0.2194631999991543,
+        "pipeline_seconds": 0.33501069999874744
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1946,
+        "morphology_pixels": 91756,
+        "area_filtered_pixels": 25813,
+        "nucleus_pixels": 15423,
+        "components_before_area_filter": 34,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_6d7d98a8224f427a3d1e1a7c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.13611399999899731,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.13615070000014384,
+        "decode_seconds": 0.42187120000016876,
+        "pipeline_seconds": 0.5580282999999326
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1672,
+        "morphology_pixels": 99641,
+        "area_filtered_pixels": 29533,
+        "nucleus_pixels": 20262,
+        "components_before_area_filter": 38,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_3ccc03d39853bbddbef31fb7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.11768579999989015,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.11769529999946826,
+        "decode_seconds": 0.21574760000112292,
+        "pipeline_seconds": 0.33344799999940733
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1483,
+        "morphology_pixels": 63860,
+        "area_filtered_pixels": 31641,
+        "nucleus_pixels": 23063,
+        "components_before_area_filter": 17,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_ced5b991af3107e17bf9b987",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.10004680000020016,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.10006160000011732,
+        "decode_seconds": 0.06468259999928705,
+        "pipeline_seconds": 0.16474749999906635
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 9,
+        "morphology_pixels": 15212,
+        "area_filtered_pixels": 15212,
+        "nucleus_pixels": 11714,
+        "components_before_area_filter": 10,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_a87ec3c49f2bf8c866ad7276",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 17,
+          "bbox": [
+            721,
+            1072,
+            771,
+            1121
+          ],
+          "class_id": 1,
+          "scores": [
+            0.17203159630298615,
+            0.8279683589935303
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 17,
+          "bbox": [
+            721,
+            1072,
+            771,
+            1121
+          ],
+          "area": 750
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.44685759999993024,
+        "classification_seconds": 0.11782970000058413,
+        "preprocessing_seconds": 0.0003874000012729084,
+        "total_seconds": 0.5651347000002716,
+        "decode_seconds": 0.18163469999853987,
+        "pipeline_seconds": 0.7480347999990045
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 67325,
+        "morphology_pixels": 628986,
+        "area_filtered_pixels": 52304,
+        "nucleus_pixels": 28172,
+        "components_before_area_filter": 104,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_551bc2a358a57be7d2467ec3",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.27760569999918516,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.27762020000045595,
+        "decode_seconds": 0.258198600000469,
+        "pipeline_seconds": 0.5358231000009255
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 14938,
+        "morphology_pixels": 250577,
+        "area_filtered_pixels": 46462,
+        "nucleus_pixels": 27831,
+        "components_before_area_filter": 85,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_bc94158627ec36761a895ff7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.28575699999964854,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.2857684999999037,
+        "decode_seconds": 0.3594389999998384,
+        "pipeline_seconds": 0.6452106000015192
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 896345,
+        "morphology_pixels": 1877079,
+        "area_filtered_pixels": 23907,
+        "nucleus_pixels": 14979,
+        "components_before_area_filter": 16,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_ceacfa10ce6ffd73090ea17f",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 1,
+          "bbox": [
+            1745,
+            810,
+            1806,
+            842
+          ],
+          "class_id": 1,
+          "scores": [
+            0.25324106216430664,
+            0.7467589974403381
+          ]
+        },
+        {
+          "component_id": 8,
+          "bbox": [
+            1960,
+            834,
+            2019,
+            870
+          ],
+          "class_id": 1,
+          "scores": [
+            0.21493224799633026,
+            0.7850677967071533
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 1,
+          "bbox": [
+            1745,
+            810,
+            1806,
+            842
+          ],
+          "area": 978
+        },
+        {
+          "component_id": 8,
+          "bbox": [
+            1960,
+            834,
+            2019,
+            870
+          ],
+          "area": 1011
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.4553367000007711,
+        "classification_seconds": 0.34208510000098613,
+        "preprocessing_seconds": 0.0007738999993307516,
+        "total_seconds": 0.7983352999999624,
+        "decode_seconds": 0.19574979999924835,
+        "pipeline_seconds": 0.9956180000008317
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 66808,
+        "morphology_pixels": 678704,
+        "area_filtered_pixels": 71326,
+        "nucleus_pixels": 42605,
+        "components_before_area_filter": 158,
+        "candidates": 2,
+        "classified_regions": 2
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_7b443faa885f71ccbf543dde",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.17911309999908553,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.17913690000023053,
+        "decode_seconds": 0.10641899999973248,
+        "pipeline_seconds": 0.2855611000013596
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 219,
+        "morphology_pixels": 75183,
+        "area_filtered_pixels": 34143,
+        "nucleus_pixels": 14484,
+        "components_before_area_filter": 70,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_66a9ebfe31849da754883b58",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 18,
+          "bbox": [
+            307,
+            1175,
+            334,
+            1205
+          ],
+          "class_id": 1,
+          "scores": [
+            0.008620847947895527,
+            0.9913791418075562
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 18,
+          "bbox": [
+            307,
+            1175,
+            334,
+            1205
+          ],
+          "area": 514
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.23154430000067805,
+        "classification_seconds": 0.15596329999971204,
+        "preprocessing_seconds": 0.0004687000000558328,
+        "total_seconds": 0.3880674000010913,
+        "decode_seconds": 0.08297589999892807,
+        "pipeline_seconds": 0.4717301000000589
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 2930,
+        "morphology_pixels": 279240,
+        "area_filtered_pixels": 62923,
+        "nucleus_pixels": 39871,
+        "components_before_area_filter": 68,
+        "candidates": 1,
+        "classified_regions": 1
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_062daa99db0e36daf3355362",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.26282999999966705,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.26317089999974996,
+        "decode_seconds": 0.08628130000033707,
+        "pipeline_seconds": 0.34945759999936854
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1002,
+        "morphology_pixels": 181017,
+        "area_filtered_pixels": 61460,
+        "nucleus_pixels": 31340,
+        "components_before_area_filter": 25,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "img_15654d375d5faf79f46020e9",
+      "status": "predicao_positiva",
+      "regions": [
+        {
+          "component_id": 9,
+          "bbox": [
+            2010,
+            836,
+            2067,
+            873
+          ],
+          "class_id": 1,
+          "scores": [
+            0.15694455802440643,
+            0.8430554270744324
+          ]
+        },
+        {
+          "component_id": 62,
+          "bbox": [
+            2245,
+            894,
+            2289,
+            920
+          ],
+          "class_id": 1,
+          "scores": [
+            0.21476170420646667,
+            0.7852382659912109
+          ]
+        },
+        {
+          "component_id": 87,
+          "bbox": [
+            565,
+            1185,
+            608,
+            1224
+          ],
+          "class_id": 1,
+          "scores": [
+            0.1456409990787506,
+            0.8543590307235718
+          ]
+        }
+      ],
+      "candidates": [
+        {
+          "component_id": 9,
+          "bbox": [
+            2010,
+            836,
+            2067,
+            873
+          ],
+          "area": 800
+        },
+        {
+          "component_id": 62,
+          "bbox": [
+            2245,
+            894,
+            2289,
+            920
+          ],
+          "area": 518
+        },
+        {
+          "component_id": 87,
+          "bbox": [
+            565,
+            1185,
+            608,
+            1224
+          ],
+          "area": 699
+        }
+      ],
+      "original_decision": "suspeita",
+      "timings": {
+        "localization_seconds": 0.9034921999991639,
+        "classification_seconds": 0.4434905999987677,
+        "preprocessing_seconds": 0.0011569999987841584,
+        "total_seconds": 1.3483276999995724,
+        "decode_seconds": 0.19963610000013432,
+        "pipeline_seconds": 1.5515458000008948
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 8950,
+        "morphology_pixels": 520326,
+        "area_filtered_pixels": 85451,
+        "nucleus_pixels": 50080,
+        "components_before_area_filter": 201,
+        "candidates": 3,
+        "classified_regions": 3
+      },
+      "image_prediction": 1
+    },
+    {
+      "image_id": "img_23299c2dc0a4b47a5c09967f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.5895980000004784,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.5896197000001848,
+        "decode_seconds": 0.16364360000079614,
+        "pipeline_seconds": 0.7532682000000932
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 12337,
+        "morphology_pixels": 296229,
+        "area_filtered_pixels": 75993,
+        "nucleus_pixels": 54479,
+        "components_before_area_filter": 216,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_e1dcc488889acba247a895df",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0035705000009329524,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003580500000680331,
+        "decode_seconds": 0.0740034000009473,
+        "pipeline_seconds": 0.07758740000099351
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_791ac5f11494bb9c0ce39080",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004600000000209548,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.004609600000549108,
+        "decode_seconds": 0.07065099999999802,
+        "pipeline_seconds": 0.07526379999944766
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_5d2b7aec254e54424feccff8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027462999987619696,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00275580000015907,
+        "decode_seconds": 0.0657532999994146,
+        "pipeline_seconds": 0.068512699999701
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_72c2d29469396feed85154df",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002999899999849731,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003009399999427842,
+        "decode_seconds": 0.046293199999126955,
+        "pipeline_seconds": 0.04930599999897822
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_42d1ac3d40be8d1d339d769c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0029269999995449325,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0029369999992923113,
+        "decode_seconds": 0.04707299999972747,
+        "pipeline_seconds": 0.05001350000020466
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_916d8d1cd4854a96809333ac",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004838799999561161,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.004849900000408525,
+        "decode_seconds": 0.0821328000001813,
+        "pipeline_seconds": 0.08698630000071716
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_9fe0083fb8d21143a87bbc0c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004061599998749443,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0040752000004431466,
+        "decode_seconds": 0.20820999999887135,
+        "pipeline_seconds": 0.21228879999944184
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_6152049fdc6f65e152d550b5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003942699999242905,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003954100000555627,
+        "decode_seconds": 0.08887959999992745,
+        "pipeline_seconds": 0.09283750000031432
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_3e78e5eceb2479640ad43464",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.005252299999483512,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.005262500000753789,
+        "decode_seconds": 0.08008990000053018,
+        "pipeline_seconds": 0.08535649999976158
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_8caeee271ae9bdfe63d5e161",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0037878999992244644,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0037967999996908475,
+        "decode_seconds": 0.07373660000121163,
+        "pipeline_seconds": 0.07753650000086054
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_5d8435480d4c89cf71c4bd9c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004786299999977928,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.004796100000021397,
+        "decode_seconds": 0.05933600000025763,
+        "pipeline_seconds": 0.06413489999977173
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_54780cf59f78ed2271d17fde",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004165599999396363,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.004176899999947636,
+        "decode_seconds": 0.053440400000908994,
+        "pipeline_seconds": 0.057620899999164976
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 1,
+        "morphology_pixels": 3068,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_8d339dedf80e69fecb8ff440",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0031851999992795754,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0031940999997459585,
+        "decode_seconds": 0.04717100000016217,
+        "pipeline_seconds": 0.050369700000373996
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_69b59c23469435d015295f14",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0034458999998605577,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0034589000006235437,
+        "decode_seconds": 0.05622919999950682,
+        "pipeline_seconds": 0.05969169999843871
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_89f9f4445b2a5a357d082073",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0057434999998804415,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00575580000077025,
+        "decode_seconds": 0.1671481000012136,
+        "pipeline_seconds": 0.1729076999999961
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_23bc1b3d19bd6f083f632269",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0039008999992802273,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003912599999239319,
+        "decode_seconds": 0.061177800000223215,
+        "pipeline_seconds": 0.06509449999975914
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_b57ff9b4317d6a33cee18026",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0032296999997925013,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003237799999624258,
+        "decode_seconds": 0.0662263999984134,
+        "pipeline_seconds": 0.06946729999981471
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_4027323d89a078db0a8cf6f0",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028488000007200753,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028619000004255213,
+        "decode_seconds": 0.04568900000049325,
+        "pipeline_seconds": 0.048555400000623195
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_3f9a2d31443e99f33c437b34",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003245500000048196,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0032547999999223975,
+        "decode_seconds": 0.043397299999924144,
+        "pipeline_seconds": 0.04665539999950852
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_3919ee2a16ee06e6ea52c1a7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0025210000003426103,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002528600000005099,
+        "decode_seconds": 0.043861199999810196,
+        "pipeline_seconds": 0.04639270000006945
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_cce70c5b721104ff68bff9f7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003269499999078107,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00327849999848695,
+        "decode_seconds": 0.04575249999834341,
+        "pipeline_seconds": 0.0490362999989884
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 4,
+        "morphology_pixels": 3153,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_a06b17a04a4fc89c190ced4b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.00341870000011113,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003428800000619958,
+        "decode_seconds": 0.0452700999994704,
+        "pipeline_seconds": 0.0487025000002177
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_736d4735e8bed3151a3d7c0a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0026140000009036157,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026240000006509945,
+        "decode_seconds": 0.1487613000008423,
+        "pipeline_seconds": 0.1513899000001402
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_6972df10543d85d833584371",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002648899999257992,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026567000004433794,
+        "decode_seconds": 0.044273199999224744,
+        "pipeline_seconds": 0.04693270000097982
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_4180f02c6494f3045751c19d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027135999989695847,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002720999998928164,
+        "decode_seconds": 0.044633599998633144,
+        "pipeline_seconds": 0.047357699999338365
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_a7778584434ca0dc115546f5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002825499999744352,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002832699999999022,
+        "decode_seconds": 0.04861380000147619,
+        "pipeline_seconds": 0.05144990000007965
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_25659472d002f8f9bfb5f1eb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028162999988126103,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002824499999405816,
+        "decode_seconds": 0.04460050000125193,
+        "pipeline_seconds": 0.047428000001673354
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_7de582e6ed55bb1d026d9eaf",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0026193000012426637,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026288000008207746,
+        "decode_seconds": 0.04260900000008405,
+        "pipeline_seconds": 0.045240800000101444
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_8d2fda122679af6959e548fa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.00279680000130611,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002804600000672508,
+        "decode_seconds": 0.042641899999580346,
+        "pipeline_seconds": 0.04544999999961874
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_11d2aa7385337655d08bef37",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0031001000006654067,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003112899999905494,
+        "decode_seconds": 0.051412300001175026,
+        "pipeline_seconds": 0.0545285000007425
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_2f27942363d6f325dbbc5371",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.005036100001234445,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.005057100001067738,
+        "decode_seconds": 0.16652980000071693,
+        "pipeline_seconds": 0.17159069999979693
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_9017631aa774ad56a51d94d7",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0035130999985995004,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0035243000002083136,
+        "decode_seconds": 0.058196900001348695,
+        "pipeline_seconds": 0.06172530000003462
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_9de741e95fe17b01d845805a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028388999999151565,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002848699999958626,
+        "decode_seconds": 0.04880629999934172,
+        "pipeline_seconds": 0.05165870000018913
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_318afa3f39825c5256b71bb9",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027645999998640036,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002773000000161119,
+        "decode_seconds": 0.04527380000035919,
+        "pipeline_seconds": 0.048049799999716925
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_052188b20794b44c19c78c7b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028072999994037673,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002814899999066256,
+        "decode_seconds": 0.04302739999911864,
+        "pipeline_seconds": 0.04584450000038487
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_e7c5c4b6f977f5a5915b51af",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002807099999699858,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028161999998701504,
+        "decode_seconds": 0.04788319999897794,
+        "pipeline_seconds": 0.05070259999956761
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_7fecd893d0a0926e01b55452",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028091999993193895,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028168999997433275,
+        "decode_seconds": 0.04318059999968682,
+        "pipeline_seconds": 0.046000499998626765
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_1d7a9da278928130d84af93e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0026729000001068925,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026804000008269213,
+        "decode_seconds": 0.04044339999927615,
+        "pipeline_seconds": 0.0431269999990036
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_1b7d8b772c5d3f32ff4b878d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027902999991056276,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028009999987261835,
+        "decode_seconds": 0.13812189999953262,
+        "pipeline_seconds": 0.14092600000003586
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_f9128fe266bcd5b0247136c8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002565300001151627,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002572300001702388,
+        "decode_seconds": 0.04372909999983676,
+        "pipeline_seconds": 0.04630399999950896
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_b3fec86778afc9000955a370",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003666799999336945,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003675999998449697,
+        "decode_seconds": 0.046854700000039884,
+        "pipeline_seconds": 0.05053349999980128
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_a70e2061dfb18415837a45c5",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028786000002583023,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028892000009363983,
+        "decode_seconds": 0.04828020000059041,
+        "pipeline_seconds": 0.05117229999996198
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_d090f948b72d99e1564f480a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0026462000005267328,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026555000004009344,
+        "decode_seconds": 0.04527540000162844,
+        "pipeline_seconds": 0.04793430000063381
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_de8f9be326e27e45b0ddfdcc",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027455999988887925,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002756500000032247,
+        "decode_seconds": 0.044584999999642605,
+        "pipeline_seconds": 0.04734509999980219
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_b685b1aab2e9be0b3352eb1a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0033437000001868,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0033535999991727294,
+        "decode_seconds": 0.04805310000119789,
+        "pipeline_seconds": 0.051410100000794046
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_dd9c6aca0ab34ee30c459f64",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0031323000002885237,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0031417999998666346,
+        "decode_seconds": 0.04895120000037423,
+        "pipeline_seconds": 0.052097300000241376
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_99b94818578fdd561fa2c48e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0032482999995409045,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003258099999584374,
+        "decode_seconds": 0.16981399999895075,
+        "pipeline_seconds": 0.17307549999895855
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_c9f4042a8b18107a53ed955d",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027563000003283378,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002764700000625453,
+        "decode_seconds": 0.06397959999958402,
+        "pipeline_seconds": 0.06674779999957536
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_c330858443e0d48b7d187ffb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003057400001125643,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003068100000746199,
+        "decode_seconds": 0.06560499999977765,
+        "pipeline_seconds": 0.06867670000065118
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_409dd13d76125dd6d548f14b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0030263999997259816,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003037399999811896,
+        "decode_seconds": 0.059244600000965875,
+        "pipeline_seconds": 0.0622851999996783
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_0dad533186094d10430a5cd4",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0031371999994007638,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003148699999655946,
+        "decode_seconds": 0.057135199998811004,
+        "pipeline_seconds": 0.06028679999872111
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_2b08b4b3b9abc4295f7abe97",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0030827999999019084,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003091599999606842,
+        "decode_seconds": 0.053159499999310356,
+        "pipeline_seconds": 0.05625460000010207
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_37a7d3611cf1e27e66340823",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0034601000006659888,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003470300000117277,
+        "decode_seconds": 0.046310099998663645,
+        "pipeline_seconds": 0.049784199998612166
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_9680609b2ab5c1683b7d0561",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0035139999999955762,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0035273999983473914,
+        "decode_seconds": 0.05649540000013076,
+        "pipeline_seconds": 0.060026299999663024
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_fc73c5d267c3f24a93218b7b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.004783599999427679,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0047945999995135935,
+        "decode_seconds": 0.06972729999870353,
+        "pipeline_seconds": 0.07452529999864055
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_efe962b99c56f04de41783d8",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028882999995403225,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0029514999987441115,
+        "decode_seconds": 0.16788249999990512,
+        "pipeline_seconds": 0.17083760000059556
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_cdc07b91b0d7ab88bd9042aa",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028853000003437046,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028941000000486383,
+        "decode_seconds": 0.05241150000074413,
+        "pipeline_seconds": 0.055310200001258636
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_7ef77f29a3537430e1e328e6",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0026242999992973637,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0026330000000598375,
+        "decode_seconds": 0.04734949999874516,
+        "pipeline_seconds": 0.049985300000116695
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_19c34a51dde7d67ac2c33cee",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0030815999998594634,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003090800000791205,
+        "decode_seconds": 0.0612249999994674,
+        "pipeline_seconds": 0.0643197000008513
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_b134c1d31c878a320a802e58",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002674499999557156,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002683499998965999,
+        "decode_seconds": 0.05267229999844858,
+        "pipeline_seconds": 0.055358999999953085
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_e57dd228ee5cf41780b7121f",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002984499999001855,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002993399999468238,
+        "decode_seconds": 0.05112910000025295,
+        "pipeline_seconds": 0.05412550000073679
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_e03f941e0ad31e5c491a71ad",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027012000009563053,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002710599999772967,
+        "decode_seconds": 0.04513479999877745,
+        "pipeline_seconds": 0.04784849999850849
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_95dc387233b9640adfee730c",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002892700000302284,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.00290090000089549,
+        "decode_seconds": 0.04635749999943073,
+        "pipeline_seconds": 0.04926080000041111
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_2a6dd28f4a511097adba6fbc",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002717399998800829,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0027254999986325856,
+        "decode_seconds": 0.14201409999986936,
+        "pipeline_seconds": 0.14474260000133654
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_94b5b13d0a92eab14005bce4",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0032644000002619578,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0032756999989942415,
+        "decode_seconds": 0.04407320000063919,
+        "pipeline_seconds": 0.04735230000005686
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_39d082c4ca4e35ddd0c02311",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0032028000005084323,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0032117000009748153,
+        "decode_seconds": 0.046682700000019395,
+        "pipeline_seconds": 0.049898100000064005
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_47f88a2c880aea82ef279aff",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028745999989041593,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0028834999993705424,
+        "decode_seconds": 0.04308149999997113,
+        "pipeline_seconds": 0.04596809999929974
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_41d2f4f33b47acb10ba6b941",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0027282999999442836,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0027367999991838587,
+        "decode_seconds": 0.04619089999869175,
+        "pipeline_seconds": 0.04893089999859512
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_2da8d8da218a01ae2877133e",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0031454999989364296,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0031558999999106163,
+        "decode_seconds": 0.05031710000002931,
+        "pipeline_seconds": 0.05347700000129407
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_10b8c1de3e7924a8dc75013a",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.002764999999271822,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.0027738999997382052,
+        "decode_seconds": 0.04895519999990938,
+        "pipeline_seconds": 0.051732199999605655
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_dfe044ff7baaf17c8a3517eb",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.003107500000623986,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.003117700000075274,
+        "decode_seconds": 0.045923199999378994,
+        "pipeline_seconds": 0.049043900000469876
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_33099ae341aa9f5db9dfa607",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.0028060000004188623,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.002816900001562317,
+        "decode_seconds": 0.1413273999987723,
+        "pipeline_seconds": 0.1441471999987698
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    },
+    {
+      "image_id": "kaggle_original_8be4b13aef4067e77f2ce52b",
+      "status": "sem_regioes",
+      "regions": [],
+      "candidates": [],
+      "original_decision": "sem_suspeita",
+      "timings": {
+        "localization_seconds": 0.005639999999402789,
+        "classification_seconds": 0.0,
+        "preprocessing_seconds": 0.0,
+        "total_seconds": 0.005652399999235058,
+        "decode_seconds": 0.04731779999929131,
+        "pipeline_seconds": 0.05297450000034587
+      },
+      "instrumentation": {
+        "hsv_color_pixels": 0,
+        "morphology_pixels": 0,
+        "area_filtered_pixels": 0,
+        "nucleus_pixels": 0,
+        "components_before_area_filter": 0,
+        "candidates": 0,
+        "classified_regions": 0
+      },
+      "image_prediction": 0
+    }
+  ],
+  "note": "Diagnóstico de execução; escores não calibrados.",
+  "subset_provenance": {
+    "source_predictions_sha256": "c4235e8df24642066b1b56394e728cb39ac78f74e880ad0ee673e1b9921c1bb5",
+    "source_manifest_sha256": "2e0f8463c78ebc26b0c8e61ae42a44ba012b89e1309f3a5135d90b4449cab547",
+    "historical_archive": "archive/labimed_historico_20261005.zip",
+    "source_count": 220,
+    "retained_count": 187,
+    "removed_count": 33,
+    "note": "Filtro por IDs do manifesto. Decisões e tempos preservados; nenhuma nova inferência/medição. Artefato conserva a proveniência da execução original."
+  }
+}

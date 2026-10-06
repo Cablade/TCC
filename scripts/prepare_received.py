@@ -19,13 +19,15 @@ def prepare(archive, *, root=ROOT):
     config_path = root / "configs/experiment_cpu_local.json"
     if output.exists() or config_path.exists():
         raise FileExistsError("Este computador já foi preparado; use configs/experiment_cpu_local.json.")
-    config = json.loads((root / "configs/experiment_cpu.json").read_text(encoding="utf-8-sig"))
+    profile = root / "configs/experiment_b_original_negatives.json"
+    if not profile.exists(): profile = root / "configs/experiment_cpu.json"
+    config = json.loads(profile.read_text(encoding="utf-8-sig"))
     images = dp.read_manifest(root / config["image_manifest"])
     crops = dp.read_manifest(root / config["crop_manifest"])
     archives = {row["path"].replace("\\", "/")[6:].split("!", 1)[0] for row in images
                 if row["path"].startswith("zip://")}
     if len(archives) != 1:
-        raise ValueError("O pacote deve usar exatamente um ZIP público.")
+        raise ValueError("Este importador é para entregas de uma fonte; para o conjunto atual com dois ZIPs, use relocate_experiment.py.")
     old_roots = set()
     for row in crops:
         old_root, separator, _ = row["path"].replace("\\", "/").partition("/data/processed/")

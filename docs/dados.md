@@ -1,205 +1,47 @@
-# Dados e fontes do experimento
+# Dados e fontes atuais
 
-Origem, integridade e evidências públicas. Para executar o treino, siga o [guia](guia_treinamento.md); para registrar negativos, consulte [anotações](anotacoes.md).
+## Base principal autorizada
 
-- [Base principal](#base)
-- [Anotações positivas públicas](#anotacoes-publicas)
-- [Fontes de negativos](#negativos)
+`C:/Users/PCZAO/Documents/Caio/trypoastigote_images.zip` corresponde ao [Zenodo 5123062](https://zenodo.org/records/5123062): sangue de camundongos com tripomastigotas de *T. cruzi*. SHA-256: `ce6408615b126178fa0ed96068308bee19a5e2a89330268bbb2e1f4ec88fed1b`; MD5 publicado/local: `3434fa22df03956c256f1203b683517e`.
 
-<a id="base"></a>
+675 JPEGs, 674 legíveis; `train/field0156.jpg` excluído por falha. Divisão preservada: 455 treino, 114 validação, 105 teste reservado. Divisão por imagem não comprova independência entre animais/lâminas. Inventário: `data/protocol/trypomastigote_verified/`; partições: `data/splits/experimento/`.
 
-## Base principal
+Referência principal: `data/annotations/experimento_reference_v2.json`; fontes positivas em `data/annotations/public_import/`. Há 450 pontos na validação. Referência parcial: ausência de ponto não significa ausência de parasita. Imagens privadas descartadas não são fontes ativas; `configs/dataset.json` continua restrito ao ZIP público.
 
-Atualização: 24/09/2026. A base principal é `C:\Users\PCZAO\Documents\Caio\trypoastigote_images.zip`. Os ZIPs anteriormente descartados continuam excluídos do experimento. A coleção LABIMED foi preparada separadamente para examinar negativos, sem substituir a base principal. Nenhuma pessoa ou instituição é atribuída a partir de um nome de arquivo.
+## Negativos originais suplementares
 
-### Origem verificada
+[Blood Cell Images / Paul Mooney](https://www.kaggle.com/datasets/paultimothymooney/blood-cells), versão 6: 366 originais e 12.515 imagens previamente aumentadas. Somente originais foram usados. ZIP: `data/external_candidates/kaggle_blood_cells/source_v6.zip`, SHA-256 `38e9d5fc04e4bfb562dd6f170175e5fb12e8460b5a92cf226b0f96549e280d06`. A fonte credita [BCCD](https://github.com/Shenggan/BCCD_Dataset), que declara MIT; preserve atribuição e termos.
 
-O nome, tamanho e MD5 do ZIP local correspondem ao depósito [Zenodo 5123062](https://zenodo.org/records/5123062), que descreve imagens de esfregaço de sangue de **camundongos** contendo tripomastigotas de *T. cruzi*. A origem deve ser citada pelo depósito e pelos autores da publicação, sem atribuição baseada no nome de uma pasta. Os termos de licença/reutilização ainda devem ser registrados antes de redistribuir as imagens.
+Caio declarou ter examinado e aprovado todas as 366 imagens, sem parasita visível. Evidências: `data/annotations/kaggle_originals_20261005/{inventory.csv,reviewed.json,human_approval_all_originals.json}`. Rótulos negativos vêm dessa revisão visual declarada; rótulos de células do fornecedor não comprovam ausência de *T. cruzi*.
 
-| Verificação local | Resultado |
-| --- | --- |
-| Tamanho do ZIP | 1.302.179.075 bytes |
-| MD5 publicado e local | `3434fa22df03956c256f1203b683517e` |
-| SHA-256 local | `ce6408615b126178fa0ed96068308bee19a5e2a89330268bbb2e1f4ec88fed1b` |
-| Imagens JPG | 675 |
-| Conteúdos distintos por SHA-256 | 675; nenhuma duplicata por bytes |
-| Decodificação completa | 674 aprovadas; uma falha |
-| Organização original | 570 arquivos em `train`, 105 em `test` |
-| Anotações dentro do ZIP | Nenhum arquivo; somente imagens |
+Há 365 grupos por similaridade visual, sem independência biológica demonstrada: 293 originais no treino e 73 na validação. Foram acrescentados 1.172 / 292 recortes, até quatro por imagem. A política `configs/negative_source_kaggle_originals.json` exige hashes, origem, rótulo negativo e limite; impede uso no teste final.
 
-As pastas originais **não comprovam independência por animal/lâmina**. Na rodada inicial de 25/09/2026, as 105 imagens de `test` foram mantidas reservadas e as 569 imagens legíveis de `train` foram separadas em 455 para treino e 114 para validação. A divisão é por imagem original, com semente 42 e negativos revisados em ambos os conjuntos. O protocolo está em `data/splits/experimento/split_report.json`; não é uma divisão comprovadamente independente por animal.
+## Dados montados
 
-### Integridade e arquivos preparados
+`data/processed/b_real_01/`: 4.301 recortes de treino (3.053 positivos / 1.248 negativos), 1.070 de validação (740 positivos / 330 negativos). Perfil: `configs/model_b_cpu_original_negatives.yaml`. As cópias de entrada em `experiments/runs/b_val_01/` permanecem imutáveis; `relocation.json` no conjunto registra correção de caminhos e conferência dos pixels.
 
-A auditoria fez leitura completa dos pixels, sem habilitar recuperação de JPEG truncado. Arquivos com falha ficam no inventário e no manifesto de exclusão, sem apagar ou modificar o ZIP. O relatório local `data/protocol/trypomastigote_verified/audit.json` registra a verificação individual das 675 imagens.
+Preparado para o próximo treino, **ainda não executado**: `data/processed/b_next/`, com 4.381 recortes de treino (3.053 positivos/1.328 negativos) e a mesma validação de 1.070. Foram acrescentados 80 recortes de 20 originais Barcelona (até quatro por imagem). Os 5.371 recortes anteriores continuam nos arquivos originais, referenciados no novo manifesto, sem duplicar pixels. Não atribuir esses novos dados ao treinamento do checkpoint B atual.
 
-- Inventário completo: `data/protocol/trypomastigote_verified/inventory.csv`.
-- 674 imagens únicas com leitura aprovada: `data/protocol/trypomastigote_verified/eligible_inventory.csv`.
-- Exclusões de integridade: `data/protocol/trypomastigote_verified/integrity_exclusions.csv`.
-- Referência positiva importada: `data/annotations/public_import/public_points.json`.
-- Template vazio original, preservado: `data/annotations/trypomastigote_pending.json`.
-- Configuração da única fonte ativa: [configs/dataset.json](../configs/dataset.json).
+## LABIMED arquivado
 
-O arquivo `train/field0156.jpg` apresentou `Truncated File Read`. Não será usado sem obter uma cópia válida e registrar uma nova auditoria. Elegibilidade técnica não confirma foco, qualidade biológica ou presença/ausência de parasitas.
+Os 33 campos foram retirados do fluxo ativo a pedido de Caio após inspeção dos resultados. Não entraram no treino atual. Dados, revisões, código específico e resultados anteriores estão em `archive/labimed_historico_20261005.zip`, com hashes conferidos; registro em `archive/labimed_historico_20261005.json`. O diagnóstico anterior encontrou alarmes em A: 20/33 e B: 33/33. A exclusão deve constar no TCC como alteração posterior do escopo, sem apagar essa evidência.
 
-O template antigo conserva rótulos nulos e revisão pendente. A referência ativa é `data/annotations/experimento_reference_v2.json` e a divisão está em `data/splits/experimento/images.csv`. Foram preparados 7.019 recortes de treino/validação. O primeiro treino real foi concluído e recebido em 26/09/2026; a comparação A × B permanece pendente. Consulte o relatório em `experiments/validation/b_real_cpu_01_received_20260926/relatorio.md`. Os parâmetros de localização foram mantidos nesta rodada inicial; o diagnóstico nas oito imagens de desenvolvimento encontrou interseção para 26 de 28 pontos conhecidos, com duas falhas. Isso não constitui sensibilidade de detecção nem otimização validada.
+O [artigo de origem](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0012955) descreve aquisição de fotografias microscópicas por smartphone. Não foi demonstrado que os campos usados eram negativos fabricados a partir de positivos. Campo sem parasita visível não estabelece negatividade do doador. A mudança de aquisição é uma hipótese para investigar os alarmes, sem conclusão causal.
 
-### Como reproduzir a preparação
+## Ampliação da avaliação negativa
 
-No terminal da pasta `C:\Users\PCZAO\Documents\Caio\TCC\TCC`:
+A comparação atual contém 73 originais Kaggle de validação e 180 Barcelona destinados à comparação, além de 114 positivas. Os 293 Kaggle já usados no treino e os 20 Barcelona reservados para o próximo treino ficam excluídos. Versões aumentadas podem repetir seus originais e não contam como novos campos. No ZIP, `dataset2-master/.../labels.csv` não fornece vínculo explícito entre cada JPEG aumentado e o original correspondente; nomes de pastas TRAIN/TEST não garantem disjunção da nossa divisão. Auditoria: `data/annotations/kaggle_originals_20261005/augmentation_audit.json`.
 
-```powershell
-.\.venv\Scripts\python.exe scripts/prepare_active_dataset.py
-```
+Novos originais revisados e sem sobreposição com treino ampliam a evidência. Variações controladas dos 73 originais de validação podem ser usadas somente em relatório adicional de robustez, preservando o grupo do original e a contagem de originais. Não somar essas versões ao denominador principal.
 
-As saídas já foram preparadas nesta máquina. Para repetir sem sobrescrever anotações ou manifestos, escolha novos destinos:
+O histórico fica em `archive/`. Não reclassificar desconhecidos como negativos nem abrir o teste para escolher parâmetros.
 
-```powershell
-.\.venv\Scripts\python.exe scripts/prepare_active_dataset.py --output-dir data/protocol/trypomastigote_reaudit --annotations data/annotations/trypomastigote_reaudit_pending.json
-```
+## Originais PBC/Barcelona — revisão confirmada
 
-Se apenas o ZIP mudar de local, forneça `--archive 'CAMINHO_DO_MESMO_ZIP'`. Os checksums continuam obrigatórios. Os IDs dependem do caminho e do conteúdo; reconciliar pelo SHA-256 ao transferir anotações entre inventários feitos em locais diferentes. O script não escolhe automaticamente pastas externas nem combina bases anteriores.
+Fonte: [Mendeley Data, versão 1](https://data.mendeley.com/datasets/snkd93bnjr/1), DOI `10.17632/snkd93bnjr.1`, autores Andrea Acevedo, Anna Merino, Santiago Alférez, Ángel Molina, Laura Boldú e José Rodellar, licença CC BY 4.0. A fonte descreve imagens originais de células de indivíduos sem infecção, doença hematológica/oncológica ou tratamento farmacológico; não fornece rótulos de ausência de *T. cruzi*.
 
-### Próximos passos para treinar
+Baixadas 200 candidatas (25 por tipo, semente 42), antes de qualquer inferência. Bytes JPEG sem transformação; CRC32 do membro ZIP e SHA-256 registrados. A seleção foi baixada por intervalos HTTP; o hash integral do ZIP não foi verificado. Sem duplicatas exatas de bytes/pixels entre candidatas ou contra as 366 originais Kaggle. Isso não comprova independência de pacientes nem exclui toda similaridade visual.
 
-1. Aproveitar os pontos públicos já importados e completar a referência com negativos revisados usando a [ferramenta visual](anotacoes.md#revisao).
-2. Identificar animais/lâminas ou declarar a limitação quando só houver imagem original.
-3. Revisar positivos e regiões/campos negativos. Consultar [fontes negativas](dados.md#negativos); nenhum conjunto externo já foi incorporado.
-4. Definir partições por grupo antes de inspecionar resultados ou ajustar a localização.
-5. Seguir a seção 4 do [guia de treinamento](guia_treinamento.md), usando como ponto de partida o inventário elegível acima.
+São imagens de células individuais, com dimensões reais preservadas próximas de 360×363. Não tratá-las como campos inteiros equivalentes às imagens positivas. Caio confirmou ausência de parasita visível nas 200; a referência pendente original, `reviewed.json` e a declaração com hashes em `human_approval_all_originals.json` foram preservadas. O diagnóstico anterior das 200 está em `experiments/comparison/barcelona_a_vs_b/`.
 
-Em 23/09/2026, os suplementos do [artigo original (PeerJ/PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC9150695/) foram obtidos e comparados aos CSVs usados pelo importador: são idênticos byte a byte. A referência positiva contém **2.715 pontos em 674 imagens**, com escala, nomes e dimensões conferidos. Consulte [anotações públicas](dados.md#anotacoes-publicas). Isso não comprova cobertura completa nem fornece recortes RGB negativos: os `False` do suplemento 2 rotulam segmentos em áreas centradas em parasitas. As fontes externas e seus limites estão em [preparação de negativos](dados.md#negativos).
-
-### Verificações desta atualização
-
-Em 22/09/2026, passaram 25 testes automatizados e os cinco notebooks executaram em modo sintético. A preparação foi executada no ZIP real; a proteção contra sobrescrita, exclusão de arquivo corrompido/duplicado e recusa de checksum incorreto também foram verificadas com arquivos artificiais. Isso valida a preparação técnica, sem medir a qualidade do detector em imagens reais.
-
-<a id="anotacoes-publicas"></a>
-
-## Anotações positivas públicas
-
-Verificação de 23/09/2026. As **674 imagens legíveis da base ativa já têm 2.715 pontos positivos importados**. Não é necessário começar marcando esses positivos do zero. A referência é a anotação publicada pelos autores; não representa uma nova revisão biológica feita pela equipe do TCC.
-
-### Arquivos disponíveis
-
-| Arquivo | Conteúdo |
-| --- | --- |
-| `data/annotations/public_import/public_points.json` | Referência positiva no formato aceito pelo projeto |
-| `data/annotations/public_import/source_mapping.csv` | Ligação entre imagem original, ID do projeto, pasta original e número de pontos |
-| `data/annotations/public_import/import_report.json` | Contagens, origem, hashes e inconsistências da fonte |
-| `data/annotations/public_import/raw/` | CSVs e documentação da versão pública utilizada |
-| `data/annotations/public_source/peerj-10-13470-s001.csv` | Suplemento 1 obtido diretamente do acervo do artigo |
-| `data/annotations/public_source/peerj-10-13470-s002.csv` | Suplemento 2 obtido diretamente do acervo do artigo |
-| `data/annotations/public_source/supplements_provenance.json` | Endereço de obtenção e hashes dos suplementos |
-| `data/annotations/public_source/readiness_audit.json` | Auditoria local de reprodução da importação |
-
-Esses dados locais ficam fora do Git. Inclua as pastas de dados no pacote transferido para o outro computador. O template `trypomastigote_pending.json` permanece preservado; ele não foi sobrescrito por esta referência.
-
-### O que foi confirmado
-
-O [repositório dos autores](https://github.com/csbl-br/chagas_detection) associa seus CSVs ao [conjunto de imagens do Zenodo](https://zenodo.org/records/5123062). Os [suplementos do artigo](https://pmc.ncbi.nlm.nih.gov/articles/PMC9150695/#supplemental-information) também foram obtidos pelo [serviço Europe PMC](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9150695/supplementaryFiles). Os dois CSVs são idênticos, byte a byte, às cópias utilizadas na importação:
-
-| Arquivo | SHA-256 |
-| --- | --- |
-| Posições / suplemento 1 | `e53861f400e84bde199fb941ff1a8e8784ab49f5a5a03837ce37dfa73e070064` |
-| Atributos / suplemento 2 | `88f183b566616b06194dd94bb86702a1b48714a8dafd7463a17c88092d4f6c06` |
-
-A associação é inequívoca para as 674 imagens elegíveis: nomes únicos, dimensões originais, pasta original e escala conferem. `x, y` são as coordenadas nos pixels originais. `new_x, new_y` servem apenas para conferir a transformação para altura 1.024; não substituem as coordenadas originais.
-
-O filtro `NUCLEUS`, `NUCLEUS_CELL_BODY` e `T_CRUZI` acompanha a seleção feita no [código publicado](https://github.com/csbl-br/chagas_detection/blob/b0b8f4d74dc679756bca4c5569c3f8abbe0d10d5/main/my_tools.py). Cinetoplastos não são contados como um segundo parasita. Das 5.250 linhas de estruturas, 2.717 passam nesse filtro; dois pontos exatamente repetidos foram unidos, conservando as linhas de origem, resultando em **2.715 pontos**.
-
-O JSON final foi regenerado em memória e comparado integralmente à cópia existente: resultado idêntico. Os dez testes do importador passaram, incluindo escala, limites, associação incorreta, duplicatas e preservação de cobertura desconhecida. Esta auditoria examinou metadados e coordenadas, sem abrir visualmente imagens ou previsões do futuro teste.
-
-### Por que o suplemento 2 não resolve sozinho os negativos
-
-O CSV de atributos contém 1.314 linhas `True` e 1.314 `False`. Esses rótulos pertencem a **segmentos**, não a imagens completas. O código de extração trabalha numa área de 100 × 100 pixels em torno de um ponto de parasita; um segmento vizinho pode receber `False` enquanto o recorte RGB inclui o parasita central. A [descrição dos atributos](https://github.com/csbl-br/chagas_detection#functionality) distingue a posição local e o rótulo do segmento.
-
-Consequentemente, esses 1.314 segmentos não foram convertidos em lâminas negativas nem em caixas RGB negativas. O modelo B atual precisa de recortes RGB com rótulo defensável. É possível completar a classe negativa com campos públicos cuja anotação sustente ausência de parasitas visíveis, ou com regiões negativas efetivamente revisadas. Consulte [fontes negativas](dados.md#negativos) e o [roteiro de anotação](anotacoes.md#criterios).
-
-### O que esses pontos permitem
-
-- Usar como positivos os recortes que contêm pontos publicados, preservando a origem da anotação.
-- Registrar `review_basis: published_author_annotations` e `new_tcc_human_review: false`; o campo de revisor identifica a publicação.
-- Preparar o treinamento após incorporar negativos apropriados e definir as partições.
-
-Um ponto não fornece o contorno nem o tamanho completo do parasita. A importação não inventa caixas. Também não transforma qualquer região sem ponto em negativa.
-
-Não há identificadores de animal ou lâmina nos CSVs consultados. As pastas originais têm 569 imagens elegíveis em `train` e 105 em `test`; isso não comprova independência biológica nem cria automaticamente a divisão do TCC. Há 95 imagens com divergência entre `n_structures` do resumo e a quantidade de linhas de estruturas. Essas divergências estão registradas e a cobertura continua `reference_complete: false`. A limitação afeta a avaliação de referência completa, separadamente da utilização de pontos positivos no treinamento.
-
-### Como repetir sem perder trabalho
-
-Na pasta principal do projeto, usando o ambiente instalado:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/import_public_annotations.py --output-dir data/annotations/public_import_recheck
-```
-
-O importador recusa sobrescrever uma saída existente, verifica os hashes das fontes e confere o inventário elegível. Se o inventário for relocalizado para outro computador, passe seu caminho com `--inventory`. Use a referência produzida para o mesmo inventário ou preserve os IDs na transferência.
-
-Para o experimento, copie a referência positiva como ponto de partida de `data/annotations/experimento_reference_v2.json`, acrescente apenas negativos sustentados pela fonte/revisão e preserve a procedência de ambos. Depois siga o [guia de treinamento](guia_treinamento.md). Só os pontos positivos, isoladamente, ainda não permitem treinar o classificador binário.
-
-<a id="negativos"></a>
-
-## Fontes de negativos
-
-Atualizado em 24/09/2026. Foi preparado um subconjunto externo de **36 campos de esfregaço fino humano: 13 negativos e 23 positivos na referência publicada**, com 30 caixas de parasitas e identificação de participante/lâmina. Eles não substituem a base principal de camundongos. Não foi encontrado um conjunto público de lâminas de camundongos comprovadamente negativos para *T. cruzi*, com aquisição equivalente à base principal.
-
-### LABIMED: campos sem parasitas, com procedência
-
-O [depósito Zenodo 15007339](https://zenodo.org/records/15007339) contém imagens e tabelas de identificação e caixas. A [seção Dataset/Image labeling do artigo](https://doi.org/10.1371/journal.pntd.0012955) descreve campos positivos e negativos, coloração Giemsa e anotação dos parasitas. Todos os participantes são positivos: **campo sem parasita visível não significa lâmina ou participante sem Chagas**. Selecionamos apenas `Blood_thin`, excluindo sangue espesso e líquor.
-
-A licença do depósito, confirmada pela [API oficial](https://zenodo.org/api/records/15007339), é **CC BY-NC 4.0**. Manter atribuição aos autores e registrar o uso não comercial. A licença do artigo não substitui a licença do conjunto de imagens.
-
-Os números abaixo foram calculados diretamente das tabelas originais com checksum conferido. “Negativo” usa a ausência de caixas no inventário completo **em conjunto com o protocolo de anotação publicado**; não é inferido apenas porque falta um arquivo local de anotação.
-
-| Participante (`caseId`) | Campos positivos, coleção fina completa | Campos negativos, coleção fina completa |
-| --- | ---: | ---: |
-| `8RGvX4eyf1` | 3 | 0 |
-| `EkTCPvQKmR` | 126 | 0 |
-| `NEjC0RzC4K` | 4 | 175 |
-| `iCN9FDDeVI` | 2 | 0 |
-| **Total** | **135** | **175** |
-
-**Limitação decisiva: os 175 campos negativos pertencem a uma única pessoa**, distribuídos em oito preparações. Portanto, esta coleção sozinha não permite treino, validação e teste todos com negativos e independência entre participantes. Não distribuir imagens dessa pessoa entre partições para aparentar independência. Os 36 arquivos baixados cobrem os quatro participantes e as 13 preparações de sangue fino; são um subconjunto inicial para inspeção e desenvolvimento, não um teste representativo.
-
-### Arquivos locais e reprodução
-
-Na raiz do projeto:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/fetch_negative_candidates.py --limit 36 --max-mb 210
-.\.venv\Scripts\python.exe scripts/import_labimed_annotations.py
-```
-
-O download foi concluído. A seleção ocupa aproximadamente 201 MB comprimidos e foi recuperada por partes, sem baixar o ZIP completo de 3,91 GB. Reexecutar o download reutiliza os pixels locais depois de verificar sua integridade. O importador recusa sobrescrever resultados: use `--output-dir data/annotations/labimed_public_v2` para uma nova versão.
-
-| Arquivo/pasta | Conteúdo |
-| --- | --- |
-| `data/external_candidates/labimed/images/` | 36 imagens originais, 4128 × 3096 pixels |
-| `data/external_candidates/labimed/selection.csv` | Seleção, hashes SHA-256, campos, participantes e preparações |
-| `data/external_candidates/labimed/download_report.json` | Contagens, licença e limitações |
-| `data/external_candidates/labimed/assets.csv` / `bboxes.csv` | Tabelas originais completas |
-| `data/annotations/labimed_public/inventory.csv` | Manifesto importável, agrupado por participante |
-| `data/annotations/labimed_public/annotations.json` | Referência publicada no formato do TCC |
-| `data/annotations/labimed_public/import_report.json` | Auditoria e distribuição por participante |
-
-O importador confere os hashes dos metadados/pixels, grupos, contagens, dimensões e limites das caixas. Preserva as coordenadas originais `xmin,ymin,xmax,ymax`, interpretadas como `xyxy` com limite final exclusivo, sem redimensionar. A procedência é `published_author_annotations`, com `new_tcc_human_review=false`: a referência completa é a publicada, sem alegar nova revisão local. A verificação do download usa tamanho, CRC32 da entrada ZIP e SHA-256 local; o MD5 do ZIP inteiro não é recalculado no download seletivo. Nenhuma partição final é criada pelo importador.
-
-Links diretos: [assets.csv](https://zenodo.org/api/records/15007339/files/assets.csv/content), [bboxes.csv](https://zenodo.org/api/records/15007339/files/bboxes.csv/content), [images.zip](https://zenodo.org/api/records/15007339/files/images.zip/content).
-
-Auditoria local de 24/09/2026: os 36 arquivos foram decodificados integralmente; reconstruir a importação reproduziu exatamente o manifesto, as anotações e o relatório existentes. Três testes automatizados passaram: preservação do participante positivo em campos negativos, rejeição de pixels modificados e rejeição de metadados publicados modificados. Essa auditoria verifica a importação, não constitui revisão parasitológica.
-
-### Outras fontes avaliadas
-
-| Fonte | Classe e agrupamento | Licença e situação |
-| --- | --- | --- |
-| [NIH/NLM: sangue fino](https://lhncbc.nlm.nih.gov/LHC-research/LHC-projects/image-processing/malaria-datasheet.html) | 193 participantes; 45 não infectados no estudo de malária. O rótulo celular `Uninfected` não prova que o participante seja controle. O estudo não comprova ausência específica de *T. cruzi*. | [Licença oficial](https://data.lhncbc.nlm.nih.gov/public/Malaria/NIH-NLM-ThinBloodSmearsPf/Data%20License%20Agreement.docx): permite reutilização sob condições de atribuição e preservação dos avisos. Metadados/licença salvos; nenhuma imagem promovida a negativo de Chagas. |
-| [Tryp](https://figshare.com/articles/dataset/22825787) | A coleção investiga *T. brucei brucei*, com sangue espesso sem coloração; aparência e alvo diferentes. | [API oficial](https://api.figshare.com/v2/articles/22825787): CC BY 4.0; ZIP de 4,65 GB não baixado. Não selecionada para a comparação principal. |
-
-Os documentos NIH estão em `data/raw/external_candidates/nih_thin/`. Não considerar o nome da pasta nem o zero na contagem de hemácias infectadas como confirmação diagnóstica de Chagas.
-
-### O que falta para um experimento defensável
-
-Para o classificador de recortes, revisar negativos nas próprias imagens de camundongos mantém origem e aquisição compartilhadas com os positivos. Para medir falsos alarmes por campo, a referência LABIMED fornece negativos públicos, mas sua concentração em um participante precisa aparecer no desenho experimental e nos resultados. Para afirmar desempenho em lâminas/doadores negativos, obter controles confirmados e documentados, preferencialmente com a mesma preparação da base principal.
-
-Não formar automaticamente “todos os positivos de camundongo versus todos os negativos humanos”: diferenças de espécie, câmera e laboratório poderiam virar o sinal aprendido. A divisão deve preservar grupos antes de extrair recortes. O [guia de treinamento](guia_treinamento.md) apresenta o fluxo; estes arquivos tornam a preparação reproduzível, mas não eliminam a limitação de grupos negativos independentes.
+Após esse diagnóstico, Caio autorizou separar **20 para treino e 180 para comparação**. A autorização posterior está em `data/protocol/barcelona_split_20261006/authorization.json`; não modifica nem apaga a autorização histórica de uso exclusivo em avaliação. A nova seleção usa apenas tipos celulares/IDs e semente 42, duas ou três por tipo; não escolhe imagens pelos escores ou erros de A/B. `training.csv`, `comparison.csv` e `assignments.csv` identificam todas as imagens e sua finalidade. `configs/negative_source_barcelona_training.json` autoriza somente os 20 IDs no treino; os 180 restantes integram a comparação atual por fonte em `a_vs_b_barcelona`, junto aos 73 Kaggle. Nenhum novo treino realizado. Como as 200 já foram examinadas, as 180 constituem desenvolvimento e não teste final independente.

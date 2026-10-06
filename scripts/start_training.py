@@ -15,7 +15,7 @@ from scripts.check_training_ready import check_data, check_runtime, resolve_path
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--experiment", type=Path, default=ROOT / "configs/experiment_cpu.json")
+    parser.add_argument("--experiment", type=Path, default=ROOT / "configs/experiment_b_original_negatives.json")
     parser.add_argument("--check-only", action="store_true", help="Confere tudo sem iniciar treinamento.")
     args = parser.parse_args()
     config = json.loads(args.experiment.read_text(encoding="utf-8-sig"))
@@ -45,6 +45,9 @@ def main():
                "--annotations", str(paths["annotations"]),
                "--config", str(paths["model_config"]),
                "--run-name", config["run_name"], "--output-dir", str(paths["output_dir"])]
+    if config.get("supplementary_policy"):
+        policy = Path(config["supplementary_policy"])
+        command += ["--supplementary-policy", str(policy if policy.is_absolute() else ROOT / policy)]
     return subprocess.run(command, cwd=ROOT).returncode
 
 

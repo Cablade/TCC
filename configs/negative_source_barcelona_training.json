@@ -1,0 +1,17 @@
+{
+  "source": "https://data.mendeley.com/datasets/snkd93bnjr/1",
+  "negative_only": true,
+  "inventory": "data/protocol/barcelona_split_20261006/training.csv",
+  "inventory_sha256": "1960c024f073ab48070a18bf7cd5e4d09b1f4fee9153706caf44b4ee08949fa5",
+  "approval": "data/protocol/barcelona_split_20261006/authorization.json",
+  "approval_sha256": "6bc8186e5ef1a5f68f2505a34bdec247cc2a2f0719ca1f4a549a46f4d646cbae",
+  "reviewed": "data/protocol/barcelona_split_20261006/training_annotations.json",
+  "reviewed_sha256": "fcb2b66fc53ba73e73c914ea5698f2d1542bd881098eebd3455dd663f2b87d97",
+  "partition_manifest": "data/protocol/barcelona_split_20261006/assignments.csv",
+  "partition_manifest_sha256": "3d0f82787e800eab1c7530764fb0357a2777219b06931b13cd51ba88b3590b9e",
+  "image_root": "data/annotations/barcelona_originals_review/images",
+  "allowed_splits": [
+    "train"
+  ],
+  "max_crops_per_image": 4
+}
