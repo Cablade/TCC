@@ -1,5 +1,5 @@
 {
-  "output_dir": "experiments/comparison/a_vs_b_barcelona",
+  "output_dir": "experiments/comparison/a_vs_b_barcelona20_20261006",
   "barcelona_manifest": "data/protocol/barcelona_split_20261006/comparison.csv",
   "barcelona_annotations": "data/protocol/barcelona_split_20261006/comparison_annotations.json",
   "barcelona_authorization": "data/protocol/barcelona_split_20261006/authorization.json",

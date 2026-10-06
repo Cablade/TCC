@@ -1,6 +1,6 @@
-# Ampliação da comparação A original × B atual
+# Histórico da ampliação — A original × B anterior
 
-**Registro das avaliações anteriores à reserva 20/180.** A comparação atual está em [367 imagens de desenvolvimento](figuras/a_vs_b_barcelona/index.html): 114 positivas, 73 negativas Kaggle e 180 Barcelona. Foram reservadas 20 Barcelona para próximo treino (80 recortes), ainda não executado. Os resultados abaixo das 200 Barcelona e o ensaio de robustez descrevem os lotes anteriores; seus denominadores não devem ser atribuídos à divisão atual.
+**Registro das avaliações do B anterior, agora arquivado.** O novo B foi treinado em 06/10/2026 com as 20 Barcelona reservadas (80 recortes adicionais), por 17 épocas, com seleção da época 10. A comparação atual foi refeita em [367 imagens de desenvolvimento](figuras/a_vs_b_barcelona20_20261006/index.html): 114 positivas, 73 negativas Kaggle e 180 Barcelona. Nos mesmos 180 negativos Barcelona, os alarmes do B passaram de 24 para 3 imagens; Kaggle permaneceu em 0/73 e a cobertura positiva em 424/450 pontos. Os resultados abaixo das 200 Barcelona e o ensaio de robustez descrevem exclusivamente o B anterior. As variações não foram reavaliadas com o novo B.
 
 Foram mantidos os dois checkpoints e a avaliação de desenvolvimento: 114 imagens positivas com 450 pontos publicados e 73 negativas originais Kaggle revisadas. Nenhuma imagem de treino nem as 105 reservadas para teste final foi adicionada à avaliação. As imagens da comparação principal permanecem as mesmas após a retirada de LABIMED, realizada a pedido do autor depois da inspeção dos resultados; o diagnóstico anterior e os dados dessa fonte foram preservados no arquivo histórico.
 
@@ -26,7 +26,7 @@ Foram selecionadas antes da inferência 200 imagens PBC/Barcelona, 25 por tipo c
 | Sistema | Imagens com falso alarme | Regiões positivas | Erros |
 | --- | ---: | ---: | ---: |
 | A original | 3/200 (1,5%) | 3 | 0 |
-| B atual | 28/200 (14,0%) | 42 | 0 |
+| B anterior | 28/200 (14,0%) | 42 | 0 |
 
 Esse grupo contém células individuais enquadradas, com aquisição humana/CellaVision diferente da base positiva murina. IDs de pacientes/lâminas não estão disponíveis; as imagens não representam 200 pacientes independentes. O resultado deve ser apresentado como avaliação externa de desenvolvimento por fonte, sem inferência clínica ou uma acurácia global misturando aquisições. A revisão visual declarada pelo autor não é laudo clínico.
 
@@ -36,4 +36,4 @@ A comparação original reutiliza tempos por imagem da execução anterior. As n
 
 [Todas as figuras e exemplos](figuras/index.html). CSVs e proveniência estão em `experiments/comparison/{a_vs_b,robustez_a_vs_b,barcelona_a_vs_b}/`. O relatório externo apresenta todos os originais com alarme em qualquer sistema e todos os seus 45 recortes positivos, sem marcações.
 
-Na divisão atual, preservando as previsões dos mesmos checkpoints, A sinalizou 3/180 imagens Barcelona e B 24/180; ambos permaneceram em 0/73 nas negativas Kaggle. A mudança de contagem decorre da reserva das 20 imagens, não de melhoria do B. A referência positiva continua com A 0/450 e B 424/450 pontos associados. Resultados por fonte e proveniência em `experiments/comparison/a_vs_b_barcelona/`.
+Na divisão 20/180 anterior ao novo treino, preservando as previsões dos checkpoints antigos, A sinalizou 3/180 imagens Barcelona e B 24/180; ambos permaneceram em 0/73 nas negativas Kaggle. Essa mudança inicial de contagem decorreu somente da reserva das 20 imagens. Evidência histórica em `experiments/comparison/a_vs_b_barcelona/`; o resultado do novo B está em `experiments/comparison/a_vs_b_barcelona20_20261006/` e em [resultados atuais](resultados_atuais.md).

@@ -51,6 +51,9 @@ def select_candidates(candidates, limit=4):
 
 
 def write_partition_preview(assignments, destination=PARTITION):
+    setup=ROOT/'configs/comparison_a_vs_b.json'
+    output=json.loads(setup.read_text('utf-8'))['output_dir'].split('/')[-1] if setup.exists() else 'a_vs_b_barcelona'
+    trained=(DESTINATION/'trained_in.json').exists()
     labels={'basophil':'Basófilos','eosinophil':'Eosinófilos','erythroblast':'Eritroblastos',
             'ig':'Granulócitos imaturos','lymphocyte':'Linfócitos','monocyte':'Monócitos',
             'neutrophil':'Neutrófilos','platelet':'Plaquetas'}
@@ -63,6 +66,9 @@ def write_partition_preview(assignments, destination=PARTITION):
             cards.append(f'<article><img loading="lazy" src="{html.escape(image,quote=True)}" alt="{row["image_id"]}"><p>{labels[row["cell_type"]]}</p><small>{row["image_id"]}</small></article>')
         sections.append('<h2>'+title+'</h2><div class="grid">'+''.join(cards)+'</div>')
     page='<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Barcelona — divisão 20/180</title><style>body{font:16px system-ui;margin:24px;color:#203548;background:#edf2f5;line-height:1.5}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px}article{background:white;padding:12px;border-radius:8px;overflow-wrap:anywhere}img{width:100%;height:250px;object-fit:contain}small{font-size:11px}</style><h1>Barcelona: 20 para treino, 180 para comparação</h1><p>Todas as imagens foram aprovadas por Caio como sem parasita visível. Semente 42; seleção por tipos celulares, sem consultar previsões. Nenhum novo treino realizado. As 180 restantes entram na comparação junto às 73 negativas Kaggle e 114 positivas.</p><p>Arquivos <a href="training.csv">20 do treino</a> · <a href="comparison.csv">180 da comparação</a> · <a href="assignments.csv">Divisão completa</a> · <a href="../../../tcc/figuras/a_vs_b_barcelona/index.html">Comparação atual</a></p>'+''.join(sections)+'</html>'
+    page=page.replace('a_vs_b_barcelona/index.html',output+'/index.html')
+    if trained:
+        page=page.replace('Nenhum novo treino realizado.','O B foi retreinado com os 20 originais destinados ao treino (80 recortes negativos).')
     (destination/'index.html').write_text(page,encoding='utf-8')
 
 

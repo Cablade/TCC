@@ -138,7 +138,7 @@ Aplicar a cada uma das 187 imagens de desenvolvimento (114 positivas/73 negativa
 
 As 561 versões herdam a referência do original; transformações geométricas transportam pontos e caixas para os pixels correspondentes. Comparar decisões e cobertura por original/condição; não computar 748 vistas como 748 unidades independentes nem atribuir intervalos de confiança independentes a versões do mesmo original. Imagens de treino e as 105 de teste não entram. Resultados são exploratórios e adicionais à comparação principal, sem seleção de melhores versões.
 
-## Reserva Barcelona para próximo treino — 06/10/2026
+## Histórico: preparação da reserva Barcelona — 06/10/2026, antes do treino
 
 Após aprovar e examinar o diagnóstico das 200 Barcelona, Caio solicitou reservar 20 para os negativos de treino e manter 180 na comparação com Kaggle. A reserva usa semente 42 e distribuição de duas ou três imagens por tipo celular; consulta somente IDs/tipos, sem filtrar pelos resultados de A/B. A decisão de mudar o uso do lote é posterior ao diagnóstico e deve permanecer descrita como desenvolvimento.
 
@@ -147,3 +147,11 @@ Os 20 originais geraram 80 recortes negativos, no máximo quatro por imagem, com
 A comparação preparada contém os mesmos 367 IDs para A/B: 114 positivas, 73 negativas Kaggle da validação e somente as 180 Barcelona restantes. A disjunção dos 20 reservados é conferida por ID, hash dos arquivos, hash dos pixels e grupos; seus recortes/versões não podem integrar a comparação. Fontes continuam separadas nas métricas, pois células Barcelona enquadradas não equivalem aos campos positivos murinos. O diagnóstico anterior das 200 e o ensaio de robustez sobre 187 originais são históricos, não novas avaliações de um B retreinado.
 
 Foram reutilizadas previsões anteriores coincidentes em conteúdo, referências e checkpoints, sem alterar decisões ou tempos. Não interpretar a mudança de denominador 200→180 como melhoria dos pesos. Depois de novo treino, executar ambos os sistemas novamente na divisão fixada e substituir as previsões; rejeitar reutilização de previsões com checkpoint divergente. As 180 imagens já examinadas não são teste final independente; as 105 imagens do teste principal continuam reservadas.
+
+## Treinamento concluído com os 20 originais Barcelona — 06/10/2026
+
+Após nova autorização de Caio, o B foi treinado novamente com as mesmas regras de arquitetura, localização, aumento e seleção, acrescentando os 80 recortes negativos dos 20 originais reservados. Todos os 4.381 recortes de treino foram consumidos uma vez por época, com pesos por classe calculados das novas contagens, sem oversampling/undersampling. A validação permanece com 1.070 recortes. Foram concluídas 17 épocas; o checkpoint da décima foi selecionado por menor `val_loss` (0,21533), salvo e reaberto. A acurácia correspondente de 99,25% refere-se somente aos recortes de validação.
+
+O B anterior foi arquivado integralmente e conferido por hashes. O A original permanece inalterado. A comparação pós-treino executa os dois modelos novamente nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona); não reutiliza previsões do B anterior. O lote, rótulos, pontos e critérios de correspondência foram mantidos. Não usar os 20 originais de treino nem suas versões na avaliação.
+
+A distribuição anterior de Python 3.11.15 foi bloqueada pela política de assinatura do Windows; a execução usou Python oficial 3.11.9, preservando TensorFlow/Keras 2.15 e as demais dependências. Ambiente e reparo estão registrados junto à execução. A medição atual é uma execução sequencial por sistema em CPU, duas threads, sem exportação de imagens durante a inferência; não é benchmark repetido com aquecimento controlado. Os resultados antigos de robustez e das 200 Barcelona continuam históricos do checkpoint arquivado. O teste final de 105 imagens não foi aberto.

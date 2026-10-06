@@ -19,11 +19,11 @@ O estudo compara dois sistemas completos nas mesmas imagens microscópicas: **A 
 | A original | `models/model_a/model_trained.keras` |
 | B atual | `experiments/runs/b_val_01/best.keras` |
 
-Apesar do nome `b_val_01`, essa pasta contém o **treinamento atual**: 16 épocas, melhor época 9, com negativos originais revisados. Preserve configuração, histórico e metadados. Não há terceiro modelo na comparação.
+Apesar do nome `b_val_01`, essa pasta contém o **Treinamento atual**: 17 épocas, melhor época 10, cerca de 15,2 minutos em CPU. Preserve configuração, histórico e metadados. O B anterior está em `archive/b_anterior_barcelona20_20261006/b_val_01/`. Não há terceiro modelo ativo na comparação.
 
-[Gráficos e exemplos atuais](tcc/figuras/a_vs_b_barcelona/index.html) · [Texto dos resultados](tcc/resultados_atuais.md).
+[Gráficos e exemplos atuais](tcc/figuras/a_vs_b_barcelona20_20261006/index.html) · [Texto dos resultados](tcc/resultados_atuais.md).
 
-Dados usados pelo B atual: `data/processed/b_real_01/`, com 4.301 recortes de treino e 1.070 de validação, preservados. Próximo treino **somente preparado**, em `data/processed/b_next/`: 4.381 recortes de treino, incluindo 80 negativos extraídos de 20 originais Barcelona; validação mantém 1.070 recortes. Nenhum novo treino foi iniciado. As 105 imagens do teste principal continuam reservadas.
+Dados usados pelo B atual: `data/processed/b_next/`, com 4.381 recortes de treino (3.053 positivos/1.328 negativos), incluindo 80 negativos de 20 originais Barcelona, e 1.070 de validação. Cada recorte uma vez por época, sem oversampling/undersampling. `b_real_01` permanece como origem dos recortes compartilhados e registro dos dados anteriores. As 105 imagens do teste principal continuam reservadas.
 
 ## Organização
 
@@ -39,4 +39,4 @@ Dados usados pelo B atual: `data/processed/b_real_01/`, com 4.301 recortes de tr
 
 A `.venv` e o Python em `.cache/python` são necessários neste PC. Dados e modelos grandes são locais e não acompanham automaticamente o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.
 
-[Todas as figuras e comparações](tcc/figuras/index.html). Comparação atual: **114 positivas + 73 negativas Kaggle + 180 negativas Barcelona**, mesmos 367 IDs para A/B. As 20 Barcelona do próximo treino ficam fora. A sinalizou 3/180 e B 24/180 nas Barcelona restantes, reutilizando previsões anteriores; não são resultados de um B retreinado. O diagnóstico anterior das 200 e a robustez sobre os 187 originais continuam como histórico.
+[Todas as figuras e comparações](tcc/figuras/index.html). Nova comparação após o treino: **114 positivas + 73 negativas Kaggle + 180 negativas Barcelona**, mesmos 367 IDs para A original/B atual. As 20 Barcelona usadas no treino ficam fora. Previsões executadas novamente, sem reutilização das do B anterior. O diagnóstico anterior das 200 e a robustez sobre os 187 originais permanecem identificados como histórico do B arquivado.

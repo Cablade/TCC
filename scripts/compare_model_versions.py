@@ -122,6 +122,19 @@ def prepare(output):
         decision_rule='any_argmax_positive_region',threads=2,B_execution='tf_function',
         timing='Uma execução sequencial por modelo; sem exportação PNG, sem aquecimento explícito. Não é benchmark repetido.',
         reference='Pontos positivos parciais; negativos declarados visualmente por Caio. Coortes separadas, sem acurácia global misturando fontes.'))
+    if comparison_config.exists():
+        b_meta=read(MODELS['B'][1].parent/'metadata.json')
+        if b_meta.get('manifests',{}).get('images',{}).get('sha256')==sha(ROOT/setup['next_training_manifest']):
+            provenance_path=MODELS['B'][1].parent/'human_review_provenance.json'
+            provenance=read(provenance_path)
+            if provenance.get('barcelona_training_originals')!=20 or provenance.get('barcelona_training_negative_crops')!=80:
+                raise ValueError('Novo B sem prova das 20 imagens negativas e 80 recortes.')
+            protocol=read(output/'protocol.json')
+            protocol['training_update']=dict(status='complete',barcelona_training_originals=20,
+                added_barcelona_negative_crops=80,training_dataset_sha256=b_meta['manifests']['images']['sha256'],
+                selected_epoch=b_meta['selected_epoch'],selected_val_loss=b_meta['selected_val_loss'],
+                old_checkpoint_archived=True,training_run=str(MODELS['B'][1].parent))
+            save(output/'protocol.json',protocol)
     return output
 
 

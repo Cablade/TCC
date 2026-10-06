@@ -6,7 +6,7 @@ Concluído: B com negativos originais revisados, histórico do treino preservado
 
 Manter `src` para regras e `scripts` para comandos. Não criar camadas apenas para aumentar a estrutura. `notebooks` serve para exploração; comandos de revisão, transporte e verificação não são inúteis por serem ocasionais.
 
-A `.venv` depende do Python em `.cache/python`; essa pasta não é cache descartável. Fontes, modelos, rótulos e evidências do treino também não são descartáveis. As figuras atuais sairão da comparação em `experiments/comparison/a_vs_b/`.
+A `.venv` depende do Python em `.cache/python`; essa pasta não é cache descartável. Fontes, modelos, rótulos e evidências do treino também não são descartáveis. O B foi retreinado com 20 originais Barcelona adicionais em 06/10/2026; o anterior foi arquivado. As figuras atuais usam a nova inferência A/B em `experiments/comparison/a_vs_b_barcelona20_20261006/`.
 
 Limites científicos: referência positiva parcial, grupos sem independência biológica comprovada, negativos externos de aquisição diferente e revisão visual declarada pelo autor. Separar fontes; não usar recortes como animais independentes, não chamar ausência de parasita visível de ausência clínica de Chagas e não presumir vitória de B.
 

@@ -5,7 +5,7 @@
   "base_sha256": {
     "images.csv": "4e6611dbdcc5f206429f6b3091c077b2a86fb8eebc64a1376146d77c4162bad6",
     "annotations.json": "1a1b2ecfa1c0fdfd64b53da9e6f41d8873809e65cbf0d1696b2d6dfc2afaae3b",
-    "protocol.json": "8e6f7f389545ca800e621686229157f5dae225e2843a6df05ce0aa69d1632ca1",
+    "protocol.json": "1db9b5315a13b21d4e4eea089cd9a1efe4875c3b8e36237bc0be9d920c4bf8e5",
     "A/predictions.json": "6c234123fcaf124754226b88ead451a64c2247caf4f90905ed64b0deffa4cb9f",
     "B/predictions.json": "716fc4e039bc31f616ef8e07fb95582d8eec297997763e1b4cb54b901572e6cd"
   },
@@ -17,7 +17,7 @@
     },
     "B": {
       "label": "B atual",
-      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01\\best.keras",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\b_val_01\\best.keras",
       "sha256": "24c9507aebfbf87553df5d15320d04e80d721b4c6c0954713ea381b44c908b08"
     }
   },
@@ -36,5 +36,11 @@
   "training_changed": false,
   "threads": 2,
   "timing": "Execução única, B compilado, sem exportação PNG; tempos originais herdados do lote anterior. Não é benchmark controlado.",
-  "interpretation": "Não combinar versões com o denominador da comparação principal; relatar cada condição sobre 187 originais e comparar decisões por original."
+  "interpretation": "Não combinar versões com o denominador da comparação principal; relatar cada condição sobre 187 originais e comparar decisões por original.",
+  "historical_model": {
+    "status": "archived",
+    "promotion_record": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\promotion.json",
+    "original_protocol_sha256": "9efe577f5c3a40245fc3744d6f16e4fac4eadd77119f4793efa94af9393d574d",
+    "note": "Resultados do B anterior preservados; somente caminho de acesso ao modelo atualizado."
+  }
 }

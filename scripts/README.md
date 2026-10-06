@@ -9,6 +9,7 @@ Execute na raiz do projeto. Consulte o [guia atual](../docs/guia_treinamento.md)
 | Negativos externos PBC aprovados | `compare_external_negatives.py` |
 | Novos originais PBC para revisão | `prepare_external_negative_review.py` |
 | Reserva Barcelona 20 treino / 180 comparação, sem treinar | `prepare_barcelona_split.py` |
+| Arquivar B anterior e promover treino concluído | `promote_model_b.py` |
 | Inferência individual | `run_model_a.py`, `run_model_b.py` |
 | Relatório pareado | `compare_systems.py` |
 | Figuras atuais | `generate_tcc_figures.py` |
@@ -26,6 +27,6 @@ Scripts específicos do B anterior (`audit_experiment.py`, `tune_region_merging.
 
 `prepare_received.py` permanece como compatibilidade para entregas antigas de uma fonte e está coberto por teste. Para os dados atuais com dois ZIPs, use `relocate_experiment.py`.
 
-O próximo conjunto em `data/processed/b_next/` mantém recortes anteriores compartilhados e acrescenta 80 negativos de 20 Barcelona. A comparação vigente usa `configs/comparison_a_vs_b.json`: 114 positivas, 73 negativas Kaggle e 180 Barcelona, em `a_vs_b_barcelona`. `compare_model_versions.py --reuse-sources` combina previsões existentes conferidas por conteúdo/referência/checkpoint; não executa redes nem altera tempos. O preparo não iniciou treinamento; consulte o guia antes de outra execução.
+O B atual foi retreinado com `data/processed/b_next/`, que compartilha recortes anteriores e acrescenta 80 negativos de 20 Barcelona. A comparação vigente usa `configs/comparison_a_vs_b.json`: 114 positivas, 73 negativas Kaggle e 180 Barcelona, em `a_vs_b_barcelona20_20261006`. `compare_model_versions.py --reuse-sources` é uma opção histórica para combinar previsões com o mesmo checkpoint; não usar previsões do B arquivado para o B atual. A comparação nova executa os dois modelos novamente. Consulte o guia antes de outra execução.
 
 Os comandos específicos de LABIMED e seus testes estão em `archive/labimed_historico_20261005.zip`, junto aos dados e resultados antigos. O fluxo de comparação atual não usa essa fonte.

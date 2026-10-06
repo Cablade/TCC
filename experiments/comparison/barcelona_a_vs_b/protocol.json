@@ -8,7 +8,7 @@
     },
     "B": {
       "label": "B atual",
-      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01\\best.keras",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\b_val_01\\best.keras",
       "sha256": "24c9507aebfbf87553df5d15320d04e80d721b4c6c0954713ea381b44c908b08"
     }
   },
@@ -27,5 +27,11 @@
   "reference": "Ausência de parasita visível declarada por Caio; não é laudo de ausência de Chagas.",
   "unit": "Imagem original de célula individual; não equivale a campo inteiro, paciente ou lâmina independente.",
   "timing": "Execução única, CPU com duas threads, B compilado, sem PNGs exportados. Não é benchmark repetido.",
-  "scope": "Fonte separada da comparação principal; selecionar antes de inferir, preservar todos os IDs e falhas."
+  "scope": "Fonte separada da comparação principal; selecionar antes de inferir, preservar todos os IDs e falhas.",
+  "historical_model": {
+    "status": "archived",
+    "promotion_record": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\promotion.json",
+    "original_protocol_sha256": "73926132e69e6cf62a6fb219a18c5d92c8b4b1384cdc1bd3f41ddd522eb21a97",
+    "note": "Resultados do B anterior preservados; somente caminho de acesso ao modelo atualizado."
+  }
 }

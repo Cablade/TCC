@@ -44,13 +44,16 @@ def status_counts(system: dict) -> dict:
 def main():
     parser=argparse.ArgumentParser(description="Gera figuras de A original e B atual a partir de inferências concluídas.")
     parser.add_argument("--comparison",type=Path,default=current_comparison())
-    parser.add_argument('--all',action='store_true',help='Atualiza as três avaliações concluídas e cria a página de acesso às figuras.')
+    parser.add_argument('--all',action='store_true',help='Atualiza avaliações do checkpoint atual e mantém avaliações anteriores identificadas como histórico.')
     args=parser.parse_args()
     from src.tcc_reporting import build_report
     comparisons=([current_comparison(),ROOT/'experiments/comparison/robustez_a_vs_b',ROOT/'experiments/comparison/barcelona_a_vs_b']
                  if args.all else [args.comparison.resolve()])
     for comparison in comparisons:
         protocol=json.loads((comparison/'protocol.json').read_text('utf-8-sig'))
+        active_protocol=json.loads((current_comparison()/'protocol.json').read_text('utf-8-sig'))
+        if comparison!=current_comparison() and protocol['checkpoint']['B']['sha256']!=active_protocol['checkpoint']['B']['sha256']:
+            print('HISTORICO PRESERVADO '+str(comparison));continue
         if protocol['evaluation']=='development_robustness_only':
             from scripts.compare_robustness import summarize
             summarize(comparison)
@@ -67,9 +70,14 @@ def main():
         link=current_comparison().name
         comparison_text=(f"{cohorts['positive_val']} positivas e {cohorts['kaggle_negative_val']} negativas Kaggle"
                          +(f" + {cohorts['barcelona_negative']} Barcelona." if expanded else '.'))
-        state=('20 imagens Barcelona reservadas para os negativos do próximo treino; 180 usadas na comparação. O B ainda não foi retreinado.'
+        trained=report['protocol'].get('training_update',{}).get('status')=='complete'
+        state=('B retreinado com 20 originais Barcelona, além dos dados anteriores; 180 restantes usadas na comparação.' if trained else '20 imagens Barcelona reservadas para os negativos do próximo treino; 180 usadas na comparação. O B ainda não foi retreinado.'
                if expanded else 'Nenhuma das 200 imagens Barcelona participa do treino.')
         page=f'''<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figuras A × B para o TCC</title><style>body{{font:17px system-ui;max-width:900px;margin:40px auto;padding:20px;background:#edf2f5;color:#203548;line-height:1.6}}article{{background:white;border-radius:10px;padding:20px;margin:20px 0}}a{{color:#175c87}}</style><h1>Comparações A original × B atual</h1><p>Somente dois modelos. {state} Fontes apresentadas separadamente; desenvolvimento já examinado, sem independência de pacientes/lâminas demonstrada.</p><article><h2>Comparação atual — {report['paired_images']} originais</h2><p>{comparison_text} Mesmos IDs para A e B; cobertura positiva, falsos alarmes e tempo herdado. Resultados anteriores ao próximo treino.</p><a href="{link}/index.html">Abrir comparação atual</a></article><article><h2>Robustez nas duas classes — lote anterior</h2><p>114 positivas e 73 negativas Kaggle, com rotação 90°, espelho horizontal e brilho × 0,85: 561 versões. Relatório sobre 187 originais; Barcelona não está neste ensaio já concluído. Versões não contam como novos campos independentes.</p><a href="robustez_a_vs_b/index.html">Abrir robustez</a></article><article><h2>Histórico: diagnóstico das 200 Barcelona</h2><p>Diagnóstico anterior à reserva 20/180, com células individuais enquadradas. Não usar as 200 como denominador da comparação atual.</p><a href="barcelona_a_vs_b/index.html">Abrir diagnóstico anterior</a></article><article><h2>Histórico: comparação original de 187 imagens</h2><a href="a_vs_b/index.html">Abrir lote anterior sem Barcelona</a></article><p>As 105 imagens do teste final permanecem reservadas. LABIMED permanece no histórico, excluído após inspeção dos resultados a pedido do autor.</p></html>'''
+        if trained:
+            page=page.replace('tempo herdado. Resultados anteriores ao próximo treino.','tempo medido nesta execução. Resultados do B retreinado; sem reutilização de previsões antigas.')
+            page=page.replace('Robustez nas duas classes — lote anterior','Histórico: robustez com o B anterior')
+            page=page.replace('Relatório sobre 187 originais;','Relatório do checkpoint B arquivado, sobre 187 originais;')
         (out/'index.html').write_text(page,encoding='utf-8')
         print('INDEX '+str(out/'index.html'))
     return 0

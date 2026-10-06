@@ -12,7 +12,7 @@
     },
     "B": {
       "label": "B atual",
-      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01\\best.keras",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\b_val_01\\best.keras",
       "sha256": "24c9507aebfbf87553df5d15320d04e80d721b4c6c0954713ea381b44c908b08"
     }
   },
@@ -50,5 +50,11 @@
       "removed_count": 33,
       "note": "Filtro por IDs do manifesto. Decisões e tempos preservados; nenhuma nova inferência/medição. Artefato conserva a proveniência da execução original."
     }
+  },
+  "historical_model": {
+    "status": "archived",
+    "promotion_record": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_anterior_barcelona20_20261006\\promotion.json",
+    "original_protocol_sha256": "8e6f7f389545ca800e621686229157f5dae225e2843a6df05ce0aa69d1632ca1",
+    "note": "Resultados do B anterior preservados; somente caminho de acesso ao modelo atualizado."
   }
 }
