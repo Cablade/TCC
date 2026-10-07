@@ -30,3 +30,7 @@ Scripts específicos do B anterior (`audit_experiment.py`, `tune_region_merging.
 O B atual foi retreinado com `data/processed/b_next/`, que compartilha recortes anteriores e acrescenta 80 negativos de 20 Barcelona. A comparação vigente usa `configs/comparison_a_vs_b.json`: 114 positivas, 73 negativas Kaggle e 180 Barcelona, em `a_vs_b_barcelona20_20261006`. `compare_model_versions.py --reuse-sources` é uma opção histórica para combinar previsões com o mesmo checkpoint; não usar previsões do B arquivado para o B atual. A comparação nova executa os dois modelos novamente. Consulte o guia antes de outra execução.
 
 Os comandos específicos de LABIMED e seus testes estão em `archive/labimed_historico_20261005.zip`, junto aos dados e resultados antigos. O fluxo de comparação atual não usa essa fonte.
+
+Após a limpeza de 06/10/2026, `generate_tcc_figures.py --all` considera somente relatórios disponíveis com os mesmos hashes dos dois checkpoints da comparação atual. Não exige pastas históricas. Os utilitários legados `notebooks/analisar_anotacoes.py` e `visualizar_anotacoes.py` foram arquivados; `gerar_rois.py` permanece porque os preparadores o utilizam.
+
+A apresentação de `generate_tcc_figures.py` usa dois grupos: imagens positivas e negativas. `report.json` conserva `summary` por origem e acrescenta `class_summary`; `summary.csv` resume as duas classes e `per_image.csv` mantém origem e classe. Não há novo treino nem inferência para reorganizar essas figuras.

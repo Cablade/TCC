@@ -1,4 +1,5 @@
-from src.tcc_reporting import cohort_metrics
+import pytest
+from src.tcc_reporting import cohort_metrics, class_groups
 
 
 def fixture(labels):
@@ -46,3 +47,30 @@ def test_no_regions_and_classified_negatives_remain_different_states():
     assert metrics['rejected_negative_images']==2
     assert metrics['status_counts']=={'sem_regioes':1,'regioes_sem_predicao_positiva':1}
     assert metrics['false_positive_regions']==0
+
+
+def test_negative_sources_are_pooled_with_all_images_and_original_times():
+    rows, refs = fixture([1, 0, 0, 0])
+    for row, cohort in zip(rows, ['positive_val', 'kaggle_negative_val', 'kaggle_negative_val', 'barcelona_negative']):
+        row['cohort'] = cohort
+    groups = class_groups(rows, refs)
+    assert len(groups['positive']) == 1
+    assert [r['image_id'] for r in groups['negative']] == ['1', '2', '3']
+    predictions = [result('1', 'sem_regioes'), result('2', 'predicao_positiva', 1), result('3', 'erro')]
+    for pred, seconds in zip(predictions, [1, 3, 100]):
+        pred['timings']['total_seconds'] = seconds
+    metrics, _ = cohort_metrics(groups['negative'], refs, predictions)
+    assert metrics['n_images'] == 3
+    assert metrics['false_alarm_images'] == 1
+    assert metrics['rejected_negative_images'] == 1
+    assert metrics['errors'] == 1
+    assert metrics['algorithm_seconds'] == 104
+    assert metrics['median_seconds'] == 3
+    assert [r['cohort'] for r in groups['negative']] == ['kaggle_negative_val', 'kaggle_negative_val', 'barcelona_negative']
+
+
+def test_class_grouping_does_not_turn_unknown_reference_into_negative():
+    rows, refs = fixture([1, 0])
+    refs['1']['whole_image_label'] = None
+    with pytest.raises(ValueError, match='rótulo'):
+        class_groups(rows, refs)

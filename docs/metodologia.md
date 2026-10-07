@@ -2,7 +2,7 @@
 
 > Protocolo ativo, iniciado em 2026-09-20. Substitui os desenhos históricos. Este documento define o experimento; a evidência do que foi efetivamente executado deve ficar no checklist e nos relatórios de execução.
 
-Atualização de 05/10/2026: comparação exploratória de A original e B atual nas mesmas 114 imagens positivas e 73 negativas originais Kaggle da validação, com fontes separadas. O [estado atual](status.md) e os resultados em `experiments/comparison/a_vs_b/` descrevem a execução. O teste final depende da referência e do congelamento das escolhas. LABIMED foi retirado após inspeção dos resultados, a pedido do autor; o diagnóstico anterior permanece no arquivo histórico e a exclusão deve ser declarada no texto. O lote atual não é teste cego. Tempos do subconjunto são herdados da execução anterior, sem nova medição.
+Atualização de 06/10/2026: B retreinado com 20 originais Barcelona adicionais e comparado novamente com A original nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona). Apresentação em 114 imagens positivas e 253 negativas, com origens preservadas nos manifestos e tempos medidos nesta execução e nenhuma previsão antiga reutilizada. O [estado atual](status.md) e `experiments/comparison/a_vs_b_barcelona20_20261006/` registram a execução. O lote é desenvolvimento já examinado; as 105 imagens do teste final continuam reservadas. LABIMED foi retirado após inspeção, por solicitação do autor; diagnóstico preservado no arquivo histórico.
 
 ## 1. Unidade de comparação
 
@@ -15,7 +15,7 @@ O arquivo `.keras` de A não representa sozinho o sistema: segmentação, recort
 - TCC inspecionado: commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais existentes preservadas antes da revisão.
 - Referência indicada pelo pedido: `Cablade/Vision`.
 - Referência local encontrada: repositório com remoto `Cablade/VisionCruzi`, commit `59b10244f2ce5cfabff7bece404cb5679668a45d`. A equivalência com a referência indicada precisa ser registrada após confronto; não é presumida.
-- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
+- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a base positiva selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
 
 Cada execução deve registrar commit e modificações locais relevantes, hash SHA-256 do modelo e dos dados, configuração, semente, manifestos, versões, hardware, tempos e caminhos de saída. Dados originais e pesos não devem ser sobrescritos nem incluídos automaticamente no Git.
 
@@ -31,7 +31,7 @@ Separar antes de gerar recortes ou aumentos. Persistir a semente e as atribuiç�
 
 As [fontes candidatas de negativos](dados.md#negativos-originais-suplementares) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
 
-O formato de referência está em [data/README.md](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
+O formato de referência está em [documento de anotações](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
 
 A referência exige revisão de alguém qualificado da equipe. Não gerar referência de avaliação a partir das próprias previsões. Regiões negativas devem ser explicitamente confirmadas; verificar a interseção de **todo o recorte** com positivos, inclusive bordas. Distância entre centros não basta. Regiões não anotadas continuam desconhecidas, salvo cobertura completa e negativa confirmada.
 
@@ -130,23 +130,19 @@ O diagnóstico suplementar de classificadores nos mesmos recortes de validação
 - Para detecção, revisar a referência necessária para identificar falsos positivos; não transformar regiões não anotadas em negativas. Para diagnóstico por lâmina, obter lâminas negativas e rótulos compatíveis antes de afirmar especificidade.
 - Esclarecer possível sobreposição do treino de A com a base e a identidade animal/lâmina. O uso de IDs iguais na avaliação não resolve essas pendências.
 
-O treino reduzido do B já autorizado é uma experiência de eficiência no desenvolvimento. Na conferência de 26/09 às 15:39, o processo da comparação de referência já não existia, o log estava parado desde 13:43 e não havia resultado final; o novo treino não havia iniciado. A causa da interrupção não foi determinada. Uma futura conclusão desse treino não aprova, por si, o desenho final do TCC. A avaliação final permanece reservada. Não alterar dados, limites ou métricas para garantir que B vença ou para aproximar artificialmente os resultados dos modelos.
+Não alterar dados, limites ou métricas para garantir a vitória de B ou aproximar artificialmente os resultados. As interrupções e preparações anteriores estão documentadas no arquivo histórico.
 
-## Teste adicional de robustez
+## Protocolo adicional de robustez (ensaio anterior arquivado)
 
 Aplicar a cada uma das 187 imagens de desenvolvimento (114 positivas/73 negativas) as mesmas três transformações predefinidas, sem escolher intensidade pelo resultado: rotação 90° anti-horária, espelho horizontal e brilho multiplicado por 0,85. Os modelos, dados de treino, limiares e localização permanecem congelados. Aumentar ambos os grupos evita assimetria de condições, mas não elimina confusão entre fontes, espécies e aquisição.
 
 As 561 versões herdam a referência do original; transformações geométricas transportam pontos e caixas para os pixels correspondentes. Comparar decisões e cobertura por original/condição; não computar 748 vistas como 748 unidades independentes nem atribuir intervalos de confiança independentes a versões do mesmo original. Imagens de treino e as 105 de teste não entram. Resultados são exploratórios e adicionais à comparação principal, sem seleção de melhores versões.
 
-## Histórico: preparação da reserva Barcelona — 06/10/2026, antes do treino
+## Reserva Barcelona e separação de origens
 
-Após aprovar e examinar o diagnóstico das 200 Barcelona, Caio solicitou reservar 20 para os negativos de treino e manter 180 na comparação com Kaggle. A reserva usa semente 42 e distribuição de duas ou três imagens por tipo celular; consulta somente IDs/tipos, sem filtrar pelos resultados de A/B. A decisão de mudar o uso do lote é posterior ao diagnóstico e deve permanecer descrita como desenvolvimento.
+Após o diagnóstico das 200 imagens, Caio autorizou reservar 20 para treino e 180 para comparação. Semente 42, duas ou três imagens por tipo celular, sem consultar previsões. A autorização e os manifestos imutáveis estão em `data/protocol/barcelona_split_20261006/`. A disjunção é conferida por IDs, grupos, hashes de bytes e pixels; recortes e variantes das 20 imagens de treino ficam excluídos da avaliação. Como o lote já foi examinado, as 180 restantes são desenvolvimento, não teste final independente.
 
-Os 20 originais geraram 80 recortes negativos, no máximo quatro por imagem, com o mesmo localizador e regra de diversidade contextual dos negativos Kaggle. O próximo conjunto possui 4.381 recortes de treino (3.053 positivos/1.328 negativos); os 1.070 de validação permanecem iguais. Não houve novo treinamento, ajuste de pesos, limiar ou escolha de época nesta etapa. Os checkpoints atuais e os dados efetivamente usados no seu treinamento foram preservados.
-
-A comparação preparada contém os mesmos 367 IDs para A/B: 114 positivas, 73 negativas Kaggle da validação e somente as 180 Barcelona restantes. A disjunção dos 20 reservados é conferida por ID, hash dos arquivos, hash dos pixels e grupos; seus recortes/versões não podem integrar a comparação. Fontes continuam separadas nas métricas, pois células Barcelona enquadradas não equivalem aos campos positivos murinos. O diagnóstico anterior das 200 e o ensaio de robustez sobre 187 originais são históricos, não novas avaliações de um B retreinado.
-
-Foram reutilizadas previsões anteriores coincidentes em conteúdo, referências e checkpoints, sem alterar decisões ou tempos. Não interpretar a mudança de denominador 200→180 como melhoria dos pesos. Depois de novo treino, executar ambos os sistemas novamente na divisão fixada e substituir as previsões; rejeitar reutilização de previsões com checkpoint divergente. As 180 imagens já examinadas não são teste final independente; as 105 imagens do teste principal continuam reservadas.
+O ensaio anterior de robustez e o diagnóstico das 200 pertencem ao B arquivado; resultados, figuras e a documentação anterior estão em `archive/limpeza_pos_retreino_20261006.zip`. O novo B exige nova inferência; não reutilizar previsões de outro checkpoint.
 
 ## Treinamento concluído com os 20 originais Barcelona — 06/10/2026
 
@@ -155,3 +151,7 @@ Após nova autorização de Caio, o B foi treinado novamente com as mesmas regra
 O B anterior foi arquivado integralmente e conferido por hashes. O A original permanece inalterado. A comparação pós-treino executa os dois modelos novamente nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona); não reutiliza previsões do B anterior. O lote, rótulos, pontos e critérios de correspondência foram mantidos. Não usar os 20 originais de treino nem suas versões na avaliação.
 
 A distribuição anterior de Python 3.11.15 foi bloqueada pela política de assinatura do Windows; a execução usou Python oficial 3.11.9, preservando TensorFlow/Keras 2.15 e as demais dependências. Ambiente e reparo estão registrados junto à execução. A medição atual é uma execução sequencial por sistema em CPU, duas threads, sem exportação de imagens durante a inferência; não é benchmark repetido com aquecimento controlado. Os resultados antigos de robustez e das 200 Barcelona continuam históricos do checkpoint arquivado. O teste final de 105 imagens não foi aberto.
+
+## Apresentação por classe — 06/10/2026
+
+A pedido do autor, gráficos e tabelas visuais usam somente imagens positivas (114) e negativas (253). O agrupamento não altera partições, referências, modelos ou previsões. Medianas e distribuições de tempo dos negativos são recalculadas a partir de todas as imagens, sem fazer média das medianas das fontes. `class_summary` descreve os grupos visuais; `summary`, `cohort` e `source` conservam a procedência nos arquivos técnicos. Não interpretar o agrupamento como demonstração de generalização clínica ou equivalência entre aquisições.

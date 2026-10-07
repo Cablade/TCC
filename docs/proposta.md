@@ -4,7 +4,7 @@
 
 ## Tema e problema
 
-Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
+Desde 22/09/2026, a base positiva escolhida é `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases privadas anteriores estão fora do estudo. Negativos originais Kaggle e Barcelona revisados foram incorporados como fontes suplementares, documentadas em [dados](dados.md); resultados de fontes excluídas permanecem somente no histórico.
 
 Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação da imagem, pois um parasita que não gera recorte nunca chega ao classificador.
 
@@ -49,7 +49,7 @@ Essas hipóteses não antecipam superioridade ou significância estatística. Cr
 
 ## Dados, análise e limitações
 
-O lote de lâminas disponível e a fonte Zenodo mencionada no projeto devem ser inventariados antes de escolher partições. A identidade do animal ou lâmina deve ser confirmada; nomes de pastas não bastam para inferi-la. Não se fixa proporção de divisão sem conhecer grupos e classes. O conjunto usado para ajustar B é desenvolvimento, não teste final intocado.
+Os inventários e as partições estão registrados em [dados](dados.md). A identidade do animal ou lâmina deve ser confirmada; nomes de pastas não bastam para inferi-la. Não se fixa proporção de divisão sem conhecer grupos e classes. O conjunto usado para ajustar B é desenvolvimento, não teste final intocado.
 
 Anotações devem ter coordenadas compatíveis com a imagem original, cobertura declarada e revisão qualificada. Previsões automáticas podem auxiliar inspeção, mas não substituem referência independente. Sem rótulos confiáveis, o escopo executável é infraestrutura, diagnóstico e verificações sintéticas, sem conclusões de qualidade real.
 
@@ -57,4 +57,4 @@ O histórico de treinamento do A é incompleto; não se afirma igualdade do tama
 
 ## Entregas
 
-Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino supervisionado real e comparação final dependem dos dados revisados e do conjunto reservado. O [cronograma](status.md#cronograma) e o [checklist](status.md) detalham essa sequência.
+Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino real e comparação de desenvolvimento já concluídos; a avaliação final depende do congelamento do protocolo e da referência do conjunto reservado. O [estado atual](status.md) registra treino, comparação concluída e pendências do teste final.

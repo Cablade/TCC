@@ -20,9 +20,8 @@ Inferência refeita para ambos os modelos sobre os mesmos 367 IDs, sem reutiliza
 | --- | ---: | ---: |
 | 114 positivas: imagens sinalizadas | 27 | 114 |
 | 450 pontos positivos publicados: associados a regiões positivas | 0 | 424 |
-| 73 negativas Kaggle: imagens com falso alarme | 0 | 0 |
-| 180 negativas Barcelona: imagens com falso alarme | 3 | 3 |
-| 180 negativas Barcelona: regiões positivas | 3 | 5 |
+| 253 negativas: imagens com falso alarme | 3 | 3 |
+| 253 negativas: regiões positivas | 3 | 5 |
 
 Nenhum erro de execução. Nos mesmos 180 negativos Barcelona, o B anterior sinalizou 24 imagens; o novo sinalizou 3 (redução observada de 87,5%), conservando a cobertura de 424/450 pontos. A referência positiva é parcial: regiões sem ponto associado não podem ser automaticamente declaradas falsos positivos.
 
@@ -34,10 +33,12 @@ Tempos medidos nesta execução: aproximadamente 28,35 segundos para A e 296,30 
 
 As 20 Barcelona de treino foram escolhidas com semente 42 e balanceamento por tipo celular, sem consultar previsões; estão excluídas da comparação por IDs, grupos, bytes e pixels. A reserva foi feita após o diagnóstico inicial: as 180 restantes constituem desenvolvimento, não teste final independente. As 105 imagens do teste final continuam reservadas.
 
-Negativos Kaggle/Barcelona são originais com ausência de parasita visível declarada por Caio. Isso não equivale a laudo clínico. Barcelona contém células individuais humanas/CellaVision, distintas dos campos positivos murinos; a independência entre lâminas/animais não foi demonstrada. Relatar resultados por fonte, sem acurácia global que misture aquisições.
+Negativos Kaggle/Barcelona são originais com ausência de parasita visível declarada por Caio. Isso não equivale a laudo clínico. Barcelona contém células individuais humanas/CellaVision, distintas dos campos positivos murinos; a independência entre lâminas/animais não foi demonstrada. A apresentação agora agrupa 114 imagens positivas e 253 negativas. Origens e diagnóstico por fonte permanecem nos registros técnicos, sem acurácia global ou conclusão clínica misturando aquisições.
 
 132 testes passaram. Checkpoints, entradas do treinamento, recortes, pareamento e links das figuras conferidos em `experiments/validation/retrain_b_barcelona20_20261006/audit.json`.
 
-O diagnóstico antigo das 200 Barcelona e as 561 variações de robustez pertencem ao B arquivado; não foram repetidos com o B atual. Consulte [histórico da ampliação](../tcc/resultados_ampliados.md). LABIMED e arquivos privados permanecem fora do fluxo ativo; históricos e limpezas anteriores estão em `archive/`.
+O diagnóstico antigo das 200 Barcelona e as 561 variações de robustez pertencem ao B arquivado; não foram repetidos com o B atual. Consulte [histórico após o retreino](../archive/README.md). LABIMED e arquivos privados permanecem fora do fluxo ativo; históricos e limpezas anteriores estão em `archive/`.
 
 Próximo: conferir os exemplos atuais com o orientador e congelar o protocolo antes de abrir o teste final.
+
+Limpeza de 06/10/2026: quatro comparações do B anterior, relatórios e utilitários legados retirados da rotina e preservados em `archive/limpeza_pos_retreino_20261006.zip`. Fontes, revisões, partições, recortes compartilhados, modelos e comparação atual preservados. Conferência: `experiments/validation/cleanup_pos_retreino_20261006/audit.json`.

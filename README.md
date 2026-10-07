@@ -39,4 +39,6 @@ Dados usados pelo B atual: `data/processed/b_next/`, com 4.381 recortes de trein
 
 A `.venv` e o Python em `.cache/python` são necessários neste PC. Dados e modelos grandes são locais e não acompanham automaticamente o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.
 
-[Todas as figuras e comparações](tcc/figuras/index.html). Nova comparação após o treino: **114 positivas + 73 negativas Kaggle + 180 negativas Barcelona**, mesmos 367 IDs para A original/B atual. As 20 Barcelona usadas no treino ficam fora. Previsões executadas novamente, sem reutilização das do B anterior. O diagnóstico anterior das 200 e a robustez sobre os 187 originais permanecem identificados como histórico do B arquivado.
+[Todas as figuras e comparações](tcc/figuras/index.html). Nova comparação após o treino: **114 imagens positivas + 253 imagens negativas**, mesmos 367 IDs para A original/B atual. As 20 Barcelona usadas no treino ficam fora. Previsões executadas novamente, sem reutilização das do B anterior. O diagnóstico anterior das 200 e a robustez sobre os 187 originais permanecem identificados como histórico do B arquivado.
+
+Gráficos e tabelas da avaliação usam apenas positivas/negativas. As origens continuam nos manifestos e no relatório técnico para rastreabilidade.
