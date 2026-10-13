@@ -93,7 +93,7 @@ def promote(root,candidate,current,archive):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--candidate',type=Path,required=True)
-    parser.add_argument('--current',type=Path,default=ROOT/'experiments/runs/b_val_01')
+    parser.add_argument('--current',type=Path,default=ROOT/'experiments/runs/b_atual')
     parser.add_argument('--archive',type=Path,required=True)
     args=parser.parse_args()
     print(json.dumps(promote(ROOT,args.candidate,args.current,args.archive),ensure_ascii=False,indent=2))

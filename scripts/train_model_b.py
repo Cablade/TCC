@@ -22,6 +22,8 @@ def main():
     parser.add_argument("--annotations")
     parser.add_argument("--supplementary-policy", help="Política explícita de originais externos autorizados e hashes.")
     parser.add_argument("--no-augment", action="store_true")
+    parser.add_argument("--seed", type=int,
+                        help="Substitui data.seed; use os valores de runs.seeds para repetir o treino.")
     parser.add_argument("--smoke", action="store_true",
                         help="Uma etapa sintética; pesos aleatórios, sem download e sem desempenho real.")
     args = parser.parse_args()
@@ -38,6 +40,11 @@ def main():
         tf.config.threading.set_inter_op_parallelism_threads(2)
         tf.config.threading.set_intra_op_parallelism_threads(2)
     cfg = train.load_config(args.config)
+    if args.seed is not None:
+        allowed = cfg.get("runs", {}).get("seeds")
+        if allowed and args.seed not in allowed:
+            raise ValueError(f"Semente fora de runs.seeds {allowed}; declare-a na configuração antes de treinar.")
+        cfg["data"]["seed"] = args.seed
     for key, expected in {"optimizer": "AdamW", "loss": "categorical_crossentropy",
                           "selection_monitor": "val_loss", "selection_mode": "min"}.items():
         if cfg["training"].get(key, expected) != expected:

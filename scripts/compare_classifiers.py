@@ -31,7 +31,7 @@ def main():
     parser.add_argument('--experiment',type=Path,default=ROOT/'configs/experiment_b_original_negatives.json',
                         help='Define o conjunto comum de recortes; apenas val é avaliado.')
     parser.add_argument('--model-a',type=Path,default=ROOT/'models/model_a/model_trained.keras')
-    parser.add_argument('--checkpoint-b',type=Path,default=ROOT/'experiments/runs/b_val_01/best.keras')
+    parser.add_argument('--checkpoint-b',type=Path,default=ROOT/'experiments/runs/b_atual/best.keras')
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--batch-size',type=int,default=8)
     parser.add_argument('--compiled',action='store_true',help='Executa ambas as redes em grafo TensorFlow.')

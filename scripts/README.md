@@ -20,6 +20,11 @@ Execute na raiz do projeto. Consulte o [guia atual](../docs/guia_treinamento.md)
 | Negativos e revisão | `prepare_original_negatives.py`, `preselect_negatives.py`, `review_annotations.py`, `merge_reviewed_reference.py`, `review_ui.html` |
 | Transporte | `relocate_experiment.py` |
 | Classificadores em recortes (auxiliar) | `compare_classifiers.py` |
+| Negativos difíceis murinos (só treino) | `mine_hard_negatives.py`, `prepare_hard_negative_dataset.py` |
+| Precisão por amostra revisada | `sample_precision_review.py` |
+| Estatística pareada A × B | `paired_analysis.py` |
+| Sementes e congelamento | `summarize_seeds.py`, `freeze_protocol.py` |
+| A no domínio original | `check_model_a_original_domain.py` |
 | Auditoria do A | `audit_model_a.py` |
 | Exploração de notebooks | `notebook_support.py`, `validate_notebooks.py` |
 

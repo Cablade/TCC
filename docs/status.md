@@ -5,7 +5,7 @@ Novo treinamento, arquivamento do B anterior e nova comparação A/B concluídos
 ## Modelos e treinamento
 
 - A original preservado: `models/model_a/model_trained.keras`.
-- B atual: `experiments/runs/b_val_01/best.keras`. EfficientNetB0, 17 épocas, melhor época 10 por `val_loss` (0,21533), aproximadamente 15,2 minutos em CPU.
+- B atual: `experiments/runs/b_atual/best.keras`. EfficientNetB0, 17 épocas, melhor época 10 por `val_loss` (0,21533), aproximadamente 15,2 minutos em CPU.
 - Treino: 4.381 recortes (3.053 positivos/1.328 negativos), incluindo 80 novos negativos de 20 originais Barcelona. Validação preservada: 1.070 recortes (740 positivos/330 negativos). Cada recorte uma vez por época, pesos por classe, sem oversampling ou undersampling.
 - `data/processed/b_next/` é o conjunto efetivamente treinado. Ele compartilha os 5.371 recortes anteriores com `b_real_01`; preservar ambas as pastas.
 - B anterior e seus 14 arquivos arquivados e conferidos em `archive/b_anterior_barcelona20_20261006/b_val_01/`. Protocolos e páginas antigas identificam esse checkpoint histórico.
@@ -39,6 +39,6 @@ Negativos Kaggle/Barcelona são originais com ausência de parasita visível dec
 
 O diagnóstico antigo das 200 Barcelona e as 561 variações de robustez pertencem ao B arquivado; não foram repetidos com o B atual. Consulte [histórico após o retreino](../archive/README.md). LABIMED e arquivos privados permanecem fora do fluxo ativo; históricos e limpezas anteriores estão em `archive/`.
 
-Próximo: conferir os exemplos atuais com o orientador e congelar o protocolo antes de abrir o teste final.
+Próximo (revisão de 13/10/2026): o B atual separa principalmente a origem das imagens (camundongo × humano). Antes de congelar o protocolo: negativos difíceis murinos revisados, novo treino com cinco sementes, precisão por amostra revisada e checagem do A no VisionCruzi. Passo a passo em [roteiro](roteiro_correcao_vies.md); análise em [plano estatístico](plano_estatistico.md). O teste final continua fechado.
 
 Limpeza de 06/10/2026: quatro comparações do B anterior, relatórios e utilitários legados retirados da rotina e preservados em `archive/limpeza_pos_retreino_20261006.zip`. Fontes, revisões, partições, recortes compartilhados, modelos e comparação atual preservados. Conferência: `experiments/validation/cleanup_pos_retreino_20261006/audit.json`.

@@ -2,7 +2,7 @@
 
 > Protocolo ativo, iniciado em 2026-09-20. Substitui os desenhos históricos. Este documento define o experimento; a evidência do que foi efetivamente executado deve ficar no checklist e nos relatórios de execução.
 
-Atualização de 06/10/2026: B retreinado com 20 originais Barcelona adicionais e comparado novamente com A original nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona). Apresentação em 114 imagens positivas e 253 negativas, com origens preservadas nos manifestos e tempos medidos nesta execução e nenhuma previsão antiga reutilizada. O [estado atual](status.md) e `experiments/comparison/a_vs_b_barcelona20_20261006/` registram a execução. O lote é desenvolvimento já examinado; as 105 imagens do teste final continuam reservadas. LABIMED foi retirado após inspeção, por solicitação do autor; diagnóstico preservado no arquivo histórico.
+Atualização de 06/10/2026: B retreinado com 20 originais Barcelona adicionais e comparado novamente com A original nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona). Apresentação em 114 imagens positivas e 253 negativas, com origens preservadas nos manifestos e tempos medidos nesta execução e nenhuma previsão antiga reutilizada. O [estado atual](status.md) e `experiments/comparison/a_vs_b_barcelona20_20261006/` registram a execução. O lote é desenvolvimento já examinado; as 105 imagens do teste final continuam reservadas. LABIMED saiu do fluxo ativo de comparação, mas o resultado (alarme do B em 33/33 imagens) permanece no texto como resultado em outra aquisição; retirá-lo depois de ver os números seria seleção posterior de resultados.
 
 ## 1. Unidade de comparação
 
@@ -83,7 +83,7 @@ Comparar A e B sobre os mesmos IDs de teste. Incluir imagens sem candidatos e fa
 
 Registrar tempo total e por etapa, hardware, aquecimento e condições de medição, tamanho dos artefatos e tempo de treino do B. Tempo de treino do A desconhecido fica indisponível. Ajustes de parâmetros e limiares usam somente desenvolvimento/validação. Resultados no teste não orientam nova seleção do mesmo experimento.
 
-Intervalos de confiança, quando viáveis, devem reamostrar grupos independentes e preservar o pareamento A × B. Recortes correlacionados e sementes não são novas amostras independentes. Poucos grupos podem impedir inferência estatística confiável; não há obrigação de Wilcoxon, folds ou significância.
+A análise estatística está definida no [plano estatístico](plano_estatistico.md): intervalos de confiança de 95% por bootstrap pareado, reamostrando imagens inteiras dentro de cada classe, para cobertura, precisão e taxas por imagem; McNemar exato para a decisão por imagem, com correção de Holm na família pré-declarada. Recortes correlacionados e sementes não são novas amostras independentes.
 
 ## 8. Limitações a manter no texto final
 
@@ -155,3 +155,15 @@ A distribuição anterior de Python 3.11.15 foi bloqueada pela política de assi
 ## Apresentação por classe — 06/10/2026
 
 A pedido do autor, gráficos e tabelas visuais usam somente imagens positivas (114) e negativas (253). O agrupamento não altera partições, referências, modelos ou previsões. Medianas e distribuições de tempo dos negativos são recalculadas a partir de todas as imagens, sem fazer média das medianas das fontes. `class_summary` descreve os grupos visuais; `summary`, `cohort` e `source` conservam a procedência nos arquivos técnicos. Não interpretar o agrupamento como demonstração de generalização clínica ou equivalência entre aquisições.
+
+## Revisão de 13/10/2026 — viés de origem dos negativos
+
+A revisão de 13/10/2026 identificou que os positivos de treino são 100% murinos (Zenodo, smartphone, campo circular) e os negativos são majoritariamente humanos: 76 de 1.328 negativos de treino e 38 de 330 de validação vêm de camundongo. Nessas condições o classificador pode acertar reconhecendo a origem da imagem. As saídas do B confirmam esse risco: nas imagens humanas o escore médio de suspeita é 0,055 (máximo 0,35), enquanto nos campos murinos 12.296 de 25.695 regiões (48%) são sinalizadas, com mínimo de 35 e média de 108 por imagem, e apenas 738 delas (6%) contêm ponto publicado. A acurácia de 99,25% nos recortes de validação e os 3/253 alarmes em negativos humanos medem, portanto, sobretudo a separação de fontes, e não a detecção de *T. cruzi*. O conjunto não respeitou a regra da seção 4 ("evitar positivos exclusivamente de uma fonte e negativos de outra").
+
+Correção adotada antes de abrir o teste, detalhada no [roteiro](roteiro_correcao_vies.md):
+
+1. Negativos difíceis do mesmo domínio: o B atual é executado somente nas 455 imagens murinas de treino; regiões sinalizadas sem ponto publicado são sorteadas uniformemente e revisadas por Caio; só as confirmadas sem parasita entram no treino, como `negative_regions` revisadas.
+2. Novo treino do B com as cinco sementes declaradas; semente 42 como modelo principal.
+3. Precisão estimada na validação por revisão cega de amostra aleatória de 200 regiões positivas.
+4. Kaggle e Barcelona permanecem como teste auxiliar em outra aquisição.
+5. O A é executado nas imagens de exemplo do VisionCruzi, seu domínio original, para que a ausência de regiões em 87 de 114 campos murinos seja apresentada como falta de transferência entre aquisições, e não como suspeita sobre a reprodução.

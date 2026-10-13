@@ -17,7 +17,7 @@ from src import data_protocol as dp
 
 MODELS = {
     'A': ('A original', ROOT/'models/model_a/model_trained.keras'),
-    'B': ('B atual', ROOT/'experiments/runs/b_val_01/best.keras'),
+    'B': ('B atual', ROOT/'experiments/runs/b_atual/best.keras'),
 }
 
 

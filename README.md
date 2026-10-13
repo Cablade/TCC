@@ -17,9 +17,9 @@ O estudo compara dois sistemas completos nas mesmas imagens microscópicas: **A 
 | Modelo | Arquivo |
 | --- | --- |
 | A original | `models/model_a/model_trained.keras` |
-| B atual | `experiments/runs/b_val_01/best.keras` |
+| B atual | `experiments/runs/b_atual/best.keras` |
 
-Apesar do nome `b_val_01`, essa pasta contém o **Treinamento atual**: 17 épocas, melhor época 10, cerca de 15,2 minutos em CPU. Preserve configuração, histórico e metadados. O B anterior está em `archive/b_anterior_barcelona20_20261006/b_val_01/`. Não há terceiro modelo ativo na comparação.
+A pasta `b_atual` é o lugar fixo do B em uso (antes chamada `b_val_01`; renomeada em 13/10/2026 para evitar confusão). Hoje ela contém o treino `b_next` (`metadata.json` → `run_name`): 17 épocas, melhor época 10, cerca de 15,2 minutos em CPU. Relatórios e auditorias anteriores a 13/10/2026 citam o caminho antigo `b_val_01`; os hashes dos arquivos continuam válidos. O B anterior está em `archive/b_anterior_barcelona20_20261006/b_val_01/`. Não há terceiro modelo ativo na comparação.
 
 [Gráficos e exemplos atuais](tcc/figuras/a_vs_b_barcelona20_20261006/index.html) · [Texto dos resultados](tcc/resultados_atuais.md).
 
@@ -30,7 +30,7 @@ Dados usados pelo B atual: `data/processed/b_next/`, com 4.381 recortes de trein
 | Pasta | Responsabilidade |
 | --- | --- |
 | `src/`, `scripts/`, `configs/` | Regras, comandos e configurações vigentes |
-| `models/model_a/`, `experiments/runs/b_val_01/` | Os dois modelos e seus registros |
+| `models/model_a/`, `experiments/runs/b_atual/` | Os dois modelos e seus registros |
 | `experiments/comparison/` | Comparação A × B atual |
 | `data/` | Fontes, revisões, partições e recortes necessários |
 | `docs/`, `tcc/` | Documentação, texto e figuras acadêmicas |

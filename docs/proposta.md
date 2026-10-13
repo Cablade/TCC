@@ -45,7 +45,7 @@ O compartilhamento da localização não é obrigatório. O bloqueio da segmenta
 - O sistema B pode alterar recall, precisão, falsos positivos por imagem e F1 em relação ao A; o sentido e a magnitude dependem do experimento.
 - As mudanças podem afetar o custo de inferência e a relação entre cobertura e falsos positivos.
 
-Essas hipóteses não antecipam superioridade ou significância estatística. Critérios e limiares serão definidos antes da avaliação final, conforme a [metodologia](metodologia.md).
+Essas hipóteses não antecipam superioridade ou significância estatística. Critérios e limiares serão definidos antes da avaliação final, conforme a [metodologia](metodologia.md) e o [plano estatístico](plano_estatistico.md): bootstrap pareado por imagem para cobertura e precisão e McNemar para a decisão por imagem.
 
 ## Dados, análise e limitações
 

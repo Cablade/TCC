@@ -9,7 +9,7 @@ O B foi retreinado com os dados anteriores mais **20 negativas originais Barcelo
 | Modelo | Caminho atual |
 | --- | --- |
 | A original, preservado | `models/model_a/model_trained.keras` |
-| B retreinado | `experiments/runs/b_val_01/best.keras` |
+| B retreinado | `experiments/runs/b_atual/best.keras` |
 
 Dados do B atual: `data/processed/b_next/{images.csv,annotations.json,crops.csv}`. Treino: 4.381 recortes (3.053 positivos/1.328 negativos). Validação: 1.070 (740 positivos/330 negativos). `b_real_01` contém os arquivos dos recortes anteriores compartilhados; não apagar essa pasta. Entradas, revisões, configurações, histórico e metadados do treinamento foram preservados junto ao B.
 
