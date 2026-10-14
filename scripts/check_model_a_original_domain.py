@@ -76,13 +76,16 @@ def main():
     parser.add_argument("--zenodo-limit", type=int, default=10)
     parser.add_argument("--model", default=str(ROOT / "models/model_a/model_trained.keras"))
     parser.add_argument("--output-dir", required=True, type=Path)
+    parser.add_argument("--label", default="visioncruzi", help="Nome do domínio das imagens de --images no resumo.")
+    parser.add_argument("--no-overlays", action="store_true",
+                        help="Não grava overlays (imagens de terceiros que não podem ser salvas).")
     args = parser.parse_args()
     if args.output_dir.exists():
         raise FileExistsError("Pasta de saída já existe.")
     from src.data_protocol import read_image_bytes
     from src.model_a import draw_overlay, infer_image, load_original_model
 
-    jobs = [("visioncruzi", str(p), p.stem) for p in image_files(args.images)]
+    jobs = [(args.label, str(p), p.stem) for p in image_files(args.images)]
     if not jobs:
         raise ValueError("Nenhuma imagem encontrada em --images.")
     if args.zenodo_manifest:
@@ -91,7 +94,8 @@ def main():
         jobs += [("zenodo", r["path"], r["image_id"]) for r in rows[:args.zenodo_limit]]
     model, artifact = load_original_model(args.model)
     args.output_dir.mkdir(parents=True)
-    (args.output_dir / "overlays").mkdir()
+    if not args.no_overlays:
+        (args.output_dir / "overlays").mkdir()
     records = []
     for domain, path, name in jobs:
         raw = read_image_bytes(path)
@@ -104,7 +108,8 @@ def main():
             raise AssertionError(f"Recálculo das áreas diverge do fluxo do A em {name}.")
         within = sum(AREA_MIN <= a <= AREA_MAX for a in areas)
         overlay = args.output_dir / "overlays" / f"{domain}_{hashlib.sha256(name.encode()).hexdigest()[:12]}.png"
-        cv.imwrite(str(overlay), draw_overlay(image, result))
+        if not args.no_overlays:
+            cv.imwrite(str(overlay), draw_overlay(image, result))
         records.append({
             "domain": domain, "image": name, "path": path, "sha256": hashlib.sha256(raw).hexdigest(),
             "width": image.shape[1], "height": image.shape[0], "status": result["status"],
@@ -114,7 +119,7 @@ def main():
             "area_median": float(np.median(areas)) if areas else None,
             "area_p10": float(np.percentile(areas, 10)) if areas else None,
             "area_p90": float(np.percentile(areas, 90)) if areas else None,
-            "overlay": overlay.name, "error": result.get("error", ""),
+            "overlay": "" if args.no_overlays else overlay.name, "error": result.get("error", ""),
             **{f"inst_{k}": v for k, v in result["instrumentation"].items()},
         })
         print(f"{domain} {name}: {result['status']}, {len(areas)} componentes, {within} na faixa de área", flush=True)
