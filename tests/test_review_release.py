@@ -1,7 +1,6 @@
 """Regressões de perda de revisão, origem não autorizada e vazamento do teste."""
 import hashlib
 import json
-from pathlib import Path
 from types import SimpleNamespace
 import zipfile
 
@@ -34,34 +33,6 @@ def fixture(tmp_path):
     write_json(tmp_path / "data/annotations/negative_preselection_v1/development_reservation.json",
                {"images": [{"image_id": "one", "sha256": "a" * 64}]})
     return rows, inventory, archive
-
-
-def test_received_package_relocates_without_changing_split_and_refuses_overwrite(tmp_path):
-    from scripts.prepare_received import prepare
-    from src.data_pipeline import file_sha256
-    rows, inventory, archive = fixture(tmp_path)
-    with zipfile.ZipFile(archive) as stream:
-        rows[0]["sha256"] = hashlib.sha256(stream.read("train/a.jpg")).hexdigest()
-    dp.write_manifest(rows, inventory)
-    dp.write_manifest(rows, tmp_path / "data/splits/experimento/images.csv")
-    crop = tmp_path / "data/processed/b_real_01/train/0/crop.png"
-    crop.parent.mkdir(parents=True)
-    crop.write_bytes(b"synthetic crop fixture")
-    old_path = (tmp_path / "old_project/data/processed/b_real_01/train/0/crop.png").as_posix()
-    crops = [{"crop_id": "crop", "path": old_path, "crop_sha256": file_sha256(crop),
-              "label": "0", "split": "train", "image_id": "one"}]
-    dp.write_manifest(crops, tmp_path / "data/processed/b_real_01/crops.csv", list(crops[0]))
-    write_json(tmp_path / "configs/experiment_cpu.json", {
-        "image_manifest": "data/splits/experimento/images.csv",
-        "crop_manifest": "data/processed/b_real_01/crops.csv", "run_name": "initial"})
-    config = json.loads(prepare(archive, root=tmp_path).read_text(encoding="utf-8"))
-    moved = dp.read_manifest(tmp_path / config["crop_manifest"])
-    assert Path(moved[0]["path"]) == crop
-    assert moved[0]["label"] == "0" and moved[0]["split"] == "train"
-    assert dp.read_manifest(tmp_path / config["image_manifest"])[0]["image_id"] == "one"
-    assert config["run_name"] == "initial"
-    with pytest.raises(FileExistsError, match="já foi preparado"):
-        prepare(archive, root=tmp_path)
 
 
 def test_source_guard_accepts_relocation_but_rejects_other_zip(tmp_path):

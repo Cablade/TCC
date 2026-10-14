@@ -6,9 +6,18 @@ Instalação e transporte dos mesmos dados entre computadores. O passo a passo d
 
 O Windows bloqueou `python311.dll` da distribuição anterior sem assinatura (eventos Code Integrity 3033/3077). Foi instalada localmente a distribuição oficial Python Software Foundation 3.11.9 de 64 bits, via pacote NuGet `python/3.11.9`, em `.cache/python/python-3.11.9-official/`. Assinaturas do executável e da DLL conferidas como válidas; origem e hash registrados em `origin.json` nessa pasta. É uma versão anterior dentro da mesma série 3.11, usada para preservar compatibilidade com as dependências existentes.
 
-A `.venv` foi atualizada com `venv --upgrade --without-pip`, preservando os pacotes. O caminho de execução continua `.venv/Scripts/python.exe`; TensorFlow/Keras 2.15, NumPy 1.26.3 e OpenCV 4.9 foram carregados e uma operação TensorFlow executada. Nenhuma política de segurança do Windows foi alterada. Registro e configuração anterior: `data/protocol/retrain_b_barcelona20_20261006/`. A distribuição oficial em `.cache/python` passa a ser necessária; não removê-la como cache descartável.
+A `.venv` foi atualizada com `venv --upgrade --without-pip`, preservando os pacotes. O caminho de execução continua `.venv/Scripts/python.exe`; TensorFlow/Keras 2.15, NumPy 1.26.3 e OpenCV 4.9 foram carregados e uma operação TensorFlow executada. Nenhuma política de segurança do Windows foi alterada. Registro e configuração anterior: `data/protocol/retrain_b_barcelona20_20261006/`, arquivado em `archive/limpeza_pos_teste_final_20261014.zip`. A distribuição oficial em `.cache/python` passa a ser necessária; não removê-la como cache descartável.
 
 Referências: [distribuições oficiais Python no Windows](https://docs.python.org/3.11/using/windows.html#the-nuget-org-packages), [Python 3.11.9](https://www.python.org/downloads/release/python-3119/), [diagnóstico de bloqueios App Control](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/appcontrol-debugging-and-troubleshooting).
+
+## Testes
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+`pytest.ini` usa `.cache/pytest` como pasta temporária: neste PC a pasta temporária padrão do pytest em `AppData\Local\Temp` dá "Acesso negado". `PYTHONUTF8=1` evita erros de codificação nos textos em português.
 
 - [Windows com RX 6600 e alternativa GPU](#windows)
 - [Transferir para outro computador](#transferencia)
@@ -168,11 +177,11 @@ Copie o código (`src`, `scripts`, `configs`, `notebooks`, `tests`, `requirement
 - `data/annotations/public_import/`, com as marcações positivas e sua origem;
 - `data/annotations/experimento_reference_v2.json`, com a revisão preservada;
 - `data/splits/experimento/`, com a divisão inicial congelada;
-- `data/processed/b_real_01/`, com os recortes de treino/validação;
+- `data/processed/b_real_01/`, `b_next/` e `b_hardneg/`, com os recortes de treino/validação (o manifesto de `b_hardneg` aponta para as três);
 - `data/annotations/negative_preselection_v1/`, com o histórico da revisão e a reserva obrigatória das imagens já examinadas;
 - o ZIP original `trypoastigote_images.zip`, por exemplo em `D:\TCC\dados\trypoastigote_images.zip`.
 
-Para a comparação, o Modelo A já está disponível dentro do TCC em `models/model_a/model_trained.keras`, acompanhado de `provenance.json`. A cópia foi conferida byte a byte com o original do ChagasVizion; os pesos permanecem congelados. Ao transportar o experimento A × B, inclua a pasta `models/model_a` e a execução completa do B em `experiments/runs/b_val_01`. O pacote inicial de 25/09, destinado apenas ao treinamento do B, não contém esses dois modelos. Arquivos `.keras` não acompanham automaticamente o Git.
+Para a comparação, o Modelo A já está disponível dentro do TCC em `models/model_a/model_trained.keras`, acompanhado de `provenance.json`. A cópia foi conferida byte a byte com o original do ChagasVizion; os pesos permanecem congelados. Ao transportar o experimento A × B, inclua a pasta `models/model_a` e a execução completa do B em `experiments/runs/b_atual` (`b_hardneg_s42`). O pacote inicial de 25/09, destinado apenas ao treinamento do B, não contém esses dois modelos. Arquivos `.keras` não acompanham automaticamente o Git.
 
 ### Antes de gerar recortes no PC novo
 

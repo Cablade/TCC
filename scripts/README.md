@@ -1,41 +1,52 @@
-# Comandos em uso
+# Comandos
 
-Execute na raiz do projeto. Consulte o [guia atual](../docs/guia_treinamento.md).
+Execute na raiz do projeto. A ordem de uso está no [guia](../docs/guia_treinamento.md) e no [roteiro de correção do viés](../docs/roteiro_correcao_vies.md). Os scripts com SHA-256 em `data/protocol/protocolo_congelado.json` não podem ser alterados.
+
+## Teste final e análise
 
 | Finalidade | Comandos |
 | --- | --- |
-| Comparação A original × B atual | `compare_model_versions.py` |
-| Robustez adicional A × B | `compare_robustness.py` |
-| Negativos externos PBC aprovados | `compare_external_negatives.py` |
-| Novos originais PBC para revisão | `prepare_external_negative_review.py` |
-| Reserva Barcelona 20 treino / 180 comparação, sem treinar | `prepare_barcelona_split.py` |
-| Arquivar B anterior e promover treino concluído | `promote_model_b.py` |
-| Inferência individual | `run_model_a.py`, `run_model_b.py` |
-| Relatório pareado | `compare_systems.py` |
-| Figuras atuais | `generate_tcc_figures.py` |
-| Imagens originais e CSVs após inferência | `export_prediction_review.py` |
-| Conferir/treinar outra execução | `check_training_ready.py`, `start_training.py`, `train_model_b.py` |
-| Fontes e partições | `prepare_active_dataset.py`, `prepare_data.py`, `prepare_initial_split.py` |
-| Anotações publicadas | `import_public_annotations.py` |
-| Negativos e revisão | `prepare_original_negatives.py`, `preselect_negatives.py`, `review_annotations.py`, `merge_reviewed_reference.py`, `review_ui.html` |
-| Transporte | `relocate_experiment.py` |
-| Classificadores em recortes (auxiliar) | `compare_classifiers.py` |
-| Negativos difíceis murinos (só treino) | `mine_hard_negatives.py`, `prepare_hard_negative_dataset.py` |
+| Abertura única do teste final | `run_final_test.py` |
+| Estatística pareada A × B (bootstrap e McNemar) | `paired_analysis.py` |
 | Precisão por amostra revisada | `sample_precision_review.py` |
-| Estatística pareada A × B | `paired_analysis.py` |
-| Sementes e congelamento | `summarize_seeds.py`, `freeze_protocol.py` |
+| Revisão cega de A e B na mesma página | `blind_merge_review.py` |
+| Figuras do teste final | `generate_final_test_figures.py` |
+| Congelamento do protocolo | `freeze_protocol.py` |
+
+## Modelos e comparações
+
+| Finalidade | Comandos |
+| --- | --- |
+| Inferência individual | `run_model_a.py`, `run_model_b.py` |
+| Comparação A × B de desenvolvimento | `compare_model_versions.py` |
+| Relatório pareado por imagem | `compare_systems.py` |
+| Figuras das comparações de desenvolvimento | `generate_tcc_figures.py` |
+| Imagens originais e CSVs após inferência | `export_prediction_review.py` |
 | A no domínio original | `check_model_a_original_domain.py` |
 | Auditoria do A | `audit_model_a.py` |
-| Exploração de notebooks | `notebook_support.py`, `validate_notebooks.py` |
+| Robustez A × B (histórico do B anterior) | `compare_robustness.py` |
+| Negativos externos PBC | `compare_external_negatives.py`, `prepare_external_negative_review.py` |
 
-Scripts específicos do B anterior (`audit_experiment.py`, `tune_region_merging.py`, `recover_reviews.py`) estão no ZIP histórico. Não há terceiro modelo na comparação. Comandos ocasionais de revisão, transporte e verificação continuam necessários.
+## Treino do B
 
-`prepare_received.py` permanece como compatibilidade para entregas antigas de uma fonte e está coberto por teste. Para os dados atuais com dois ZIPs, use `relocate_experiment.py`.
+| Finalidade | Comandos |
+| --- | --- |
+| Negativos difíceis murinos (só treino) | `mine_hard_negatives.py`, `prepare_hard_negative_dataset.py` |
+| Conferir e treinar | `check_training_ready.py`, `start_training.py`, `train_model_b.py` |
+| Resumo das sementes | `summarize_seeds.py` |
+| Arquivar o B anterior e promover um treino concluído | `promote_model_b.py` |
+| Reserva Barcelona 20 treino / 180 comparação | `prepare_barcelona_split.py` |
 
-O B atual foi retreinado com `data/processed/b_next/`, que compartilha recortes anteriores e acrescenta 80 negativos de 20 Barcelona. A comparação vigente usa `configs/comparison_a_vs_b.json`: 114 positivas, 73 negativas Kaggle e 180 Barcelona, em `a_vs_b_barcelona20_20261006`. `compare_model_versions.py --reuse-sources` é uma opção histórica para combinar previsões com o mesmo checkpoint; não usar previsões do B arquivado para o B atual. A comparação nova executa os dois modelos novamente. Consulte o guia antes de outra execução.
+## Dados e revisão
 
-Os comandos específicos de LABIMED e seus testes estão em `archive/labimed_historico_20261005.zip`, junto aos dados e resultados antigos. O fluxo de comparação atual não usa essa fonte.
+| Finalidade | Comandos |
+| --- | --- |
+| Fontes e partições | `prepare_active_dataset.py`, `prepare_data.py`, `prepare_initial_split.py` |
+| Anotações publicadas | `import_public_annotations.py` |
+| Negativos e revisão | `prepare_original_negatives.py`, `preselect_negatives.py`, `review_annotations.py`, `merge_reviewed_reference.py`, `review_ui.html`, `abrir_revisao.cmd` |
+| Transporte para outro PC | `relocate_experiment.py` |
+| Notebooks | `notebook_support.py`, `validate_notebooks.py` |
 
-Após a limpeza de 06/10/2026, `generate_tcc_figures.py --all` considera somente relatórios disponíveis com os mesmos hashes dos dois checkpoints da comparação atual. Não exige pastas históricas. Os utilitários legados `notebooks/analisar_anotacoes.py` e `visualizar_anotacoes.py` foram arquivados; `gerar_rois.py` permanece porque os preparadores o utilizam.
+`notebooks/gerar_rois.py` fica junto dos notebooks porque os preparadores o usam.
 
-A apresentação de `generate_tcc_figures.py` usa dois grupos: imagens positivas e negativas. `report.json` conserva `summary` por origem e acrescenta `class_summary`; `summary.csv` resume as duas classes e `per_image.csv` mantém origem e classe. Não há novo treino nem inferência para reorganizar essas figuras.
+Retirados na limpeza de 14/10/2026 e guardados em `archive/limpeza_pos_teste_final_20261014.zip`: `compare_classifiers.py` (comparação auxiliar em recortes, fora dos resultados) e `prepare_received.py` (importação de entregas antigas de uma fonte; o transporte atual usa `relocate_experiment.py`). Os scripts de LABIMED e do B anterior estão nos ZIPs anteriores de `archive/`.

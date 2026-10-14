@@ -1,47 +1,59 @@
 # Guia da rotina atual
 
-Execute na pasta que contém `README.md`, `src` e `scripts`. Use `.venv/Scripts/python.exe`; o ambiente local foi corrigido para Python oficial 3.11.9, preservando TensorFlow/Keras 2.15.
+Execute na pasta que contém `README.md`, `src` e `scripts`, com `.venv/Scripts/python.exe` (Python oficial 3.11.9, TensorFlow/Keras 2.15; ver [ambiente](ambiente.md)).
 
-## Treino concluído em 06/10/2026
+```powershell
+$py = '.\.venv\Scripts\python.exe'
+$env:PYTHONUTF8 = '1'
+```
 
-O B foi retreinado com os dados anteriores mais **20 negativas originais Barcelona (80 recortes)**. Foram 17 épocas, melhor época 10 pelo menor `val_loss` (0,21533), cerca de 15,2 minutos em CPU. Limite configurado de 40 épocas, paciência 7, lote 8, pesos por classe; cada recorte uma vez por época, sem oversampling/undersampling.
+## Situação
 
-| Modelo | Caminho atual |
+O protocolo está congelado (`data/protocol/protocolo_congelado.json`) e o teste final já foi aberto (`data/protocol/teste_aberto.json`). `run_final_test.py` recusa uma segunda abertura. Não treine de novo, não troque o B em `experiments/runs/b_atual/` e não altere nenhum dos 21 arquivos com hash registrado: qualquer mudança neles é desvio de protocolo e precisa ser declarada no texto.
+
+| Modelo | Caminho |
 | --- | --- |
-| A original, preservado | `models/model_a/model_trained.keras` |
-| B retreinado | `experiments/runs/b_atual/best.keras` |
+| A, como entregue | `models/model_a/model_trained.keras` |
+| B avaliado (`b_hardneg_s42`) | `experiments/runs/b_atual/best.keras` |
+| Sementes 123, 456, 789, 1024 | `experiments/runs/b_hardneg_s*/` |
 
-Dados do B atual: `data/processed/b_next/{images.csv,annotations.json,crops.csv}`. Treino: 4.381 recortes (3.053 positivos/1.328 negativos). Validação: 1.070 (740 positivos/330 negativos). `b_real_01` contém os arquivos dos recortes anteriores compartilhados; não apagar essa pasta. Entradas, revisões, configurações, histórico e metadados do treinamento foram preservados junto ao B.
+B: EfficientNet-B0, AdamW com cosseno, seleção da época de menor `val_loss` (época 9 na semente 42). Dados em `data/processed/b_hardneg/`: 4.898 recortes de treino (3.053 positivos/1.845 negativos, incluindo 517 negativos difíceis murinos) e 1.070 de validação. Cada recorte uma vez por época, pesos por classe, sem oversampling.
 
-O B anterior foi arquivado integralmente em `archive/b_anterior_barcelona20_20261006/b_val_01/`, com hashes conferidos. Resultados e figuras desse checkpoint estão identificados como históricos. A comparação usa somente A original e o B atual.
+## Conferir o protocolo
 
-## Comparação após o novo treino
+Para conferir que nada congelado mudou, compare os SHA-256 de `protocolo_congelado.json` com os arquivos (é o primeiro passo de `run_final_test.py`). Faça isso antes de qualquer commit que mexa em `src/`, `scripts/`, `docs/metodologia.md` ou `docs/plano_estatistico.md`.
 
-Mesmo lote de **367 imagens** para ambos: 114 positivas, 73 negativas Kaggle da validação e 180 negativas Barcelona. As 20 Barcelona usadas no treino ficam excluídas por ID, bytes, pixels e grupo. A divisão está em `data/protocol/barcelona_split_20261006/`; configuração em `configs/comparison_a_vs_b.json`.
+## Etapas e saídas
 
-Nova inferência dos dois modelos, sem reutilizar previsões do B anterior. Saída atual: `experiments/comparison/a_vs_b_barcelona20_20261006/`. Essa comparação é de desenvolvimento já examinado; as 105 imagens do teste final continuam reservadas. As fontes são apresentadas separadamente, sem acurácia global misturando células humanas enquadradas e campos murinos positivos.
+O passo a passo com os comandos usados está no [roteiro de correção do viés](roteiro_correcao_vies.md).
 
-Para uma nova execução, escolha uma pasta que ainda não exista:
+| Etapa | Script | Saída |
+| --- | --- | --- |
+| Negativos difíceis (só treino) | `mine_hard_negatives.py`, `prepare_hard_negative_dataset.py` | `data/annotations/hard_negatives_20261013/`, `data/processed/b_hardneg/` |
+| Treino com cinco sementes | `train_model_b.py`, `summarize_seeds.py` | `experiments/runs/b_hardneg_s*` |
+| Promoção da semente 42 | `promote_model_b.py` | `experiments/runs/b_atual/` (anterior em `archive/b_vies_origem_20261013/`) |
+| Comparação de desenvolvimento | `compare_model_versions.py` | `experiments/comparison/a_vs_b_hardneg_20261013/` |
+| Precisão por amostra cega | `sample_precision_review.py`, `blind_merge_review.py` | `data/annotations/precision_B_val_20261013/` |
+| A no domínio original | `check_model_a_original_domain.py --no-overlays` | `experiments/validation/model_a_original_domain_20261013/` |
+| Congelamento | `freeze_protocol.py` | `data/protocol/protocolo_congelado.json` |
+| Teste final | `run_final_test.py`, `paired_analysis.py` | `experiments/final_test_20261014/` |
+| Precisão e kappa no teste | `sample_precision_review.py`, `blind_merge_review.py` | `data/annotations/precision_teste_final_20261014/` |
+| Figuras do teste final | `generate_final_test_figures.py` | `tcc/figuras/teste_final_20261014/` |
+
+As figuras só leem resultados já gravados; para refazê-las:
 
 ```powershell
-$pythonTcc = '.\.venv\Scripts\python.exe'
-& $pythonTcc scripts/compare_model_versions.py --output-dir experiments/comparison/nova_comparacao
+& $py scripts/generate_final_test_figures.py
 ```
 
-Para atualizar somente tabelas, figuras e a página de acesso, depois das inferências concluídas:
+`generate_tcc_figures.py --all` continua gerando as páginas das comparações de desenvolvimento.
 
-```powershell
-& $pythonTcc scripts/generate_tcc_figures.py --all
-```
+## Comparações de desenvolvimento
 
-O gerador atualiza relatórios do checkpoint atual; preserva avaliações de checkpoints anteriores como histórico. Página de acesso: `tcc/figuras/index.html`. Não atribuir o diagnóstico antigo das 200 Barcelona ou a robustez antiga ao B retreinado. As variações antigas não foram executadas novamente nesta etapa.
-
-## Antes de qualquer outro treino
-
-O treinamento solicitado já terminou. Não executar novamente apenas para comparar. Se houver outro experimento, escolha nome novo, confira dados e ambiente com `scripts/start_training.py --check-only` e mantenha o teste final reservado. `promote_model_b.py` só arquiva/troca modelos após conferir um treinamento real concluído e seus hashes; nunca substituir um modelo por uma execução parcial.
+`a_vs_b_barcelona20_20261006` (B antes da correção) e `a_vs_b_hardneg_20261013` (B corrigido) usam as mesmas 367 imagens: 114 campos murinos de validação, 73 Kaggle e 180 Barcelona. Ficam no projeto porque mostram o viés de origem e a correção, e a figura 04 do teste final usa as duas. São desenvolvimento já examinado, não teste.
 
 ## Transportar
 
-Copie código, configurações, dois modelos ativos, revisões, fontes e recortes usados. `b_next` referencia recortes em `b_real_01`; as duas pastas são necessárias. Não copie `.venv`: crie um ambiente Python 3.11 de 64 bits no destino, conforme [ambiente](ambiente.md), e confira as dependências fixadas. Manifestos com caminhos absolutos exigem ajuste e revalidação. Cópias históricas de entradas do treinamento não devem ser alteradas.
+Copie código, configurações, os dois modelos, revisões, fontes e as três pastas de recortes (`b_real_01`, `b_next`, `b_hardneg`): o manifesto do B aponta para recortes das três. Não copie `.venv`; crie o ambiente no destino conforme [ambiente](ambiente.md). Manifestos com caminhos absolutos exigem `relocate_experiment.py` e nova conferência dos hashes.
 
-A acurácia de recortes não é desempenho de imagens inteiras. Consulte [dados](dados.md), [metodologia](metodologia.md) e [estado](status.md).
+A acurácia em recortes não é desempenho em imagens inteiras. Consulte [dados](dados.md), [metodologia](metodologia.md) e [estado](status.md).

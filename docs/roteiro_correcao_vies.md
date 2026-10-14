@@ -1,5 +1,7 @@
 # Roteiro — correção do viés de origem antes do teste final
 
+> **Concluído em 14/10/2026.** Todos os passos foram executados; o estado e os resultados estão em [status.md](status.md). Mantido como registro dos comandos usados.
+
 > 13/10/2026. Responde à revisão de 13/10/2026: o B atual separa a origem das imagens (camundongo × humano), não a presença de parasita. A ordem abaixo é obrigatória; o teste de 105 imagens só é aberto no passo 9.
 
 Execute na raiz do TCC, com o mesmo Python do guia:

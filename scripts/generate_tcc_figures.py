@@ -94,13 +94,14 @@ body {{font:17px system-ui;max-width:900px;margin:40px auto;padding:20px;backgro
 article {{background:white;border-radius:10px;padding:20px;margin:20px 0}}
 a {{color:#175c87}}
 </style>
-<h1>Comparações A original × B atual</h1>
-<p>Comparação dos dois modelos</p>
-<article><h2>Comparação atual: {report['paired_images']} originais</h2>
+<h1>Comparações A × B</h1>
+<article><h2>Teste final: 105 imagens murinas + 253 negativos auxiliares</h2>
+<p>Aberto uma única vez em 14/10/2026, após o congelamento do protocolo. IC 95% por bootstrap pareado de imagens, McNemar e precisão revisada às cegas.</p>
+<a href="teste_final_20261014/LEIA-ME.md">Abrir figuras do teste final</a></article>
+<article><h2>Desenvolvimento: {report['paired_images']} originais</h2>
 <p>{description}. Mesmos IDs para A e B; cobertura positiva, falsos alarmes e tempo. {timing}</p>
-<a href="{current_comparison().name}/index.html">Abrir comparação atual</a></article>
+<a href="{current_comparison().name}/index.html">Abrir comparação de desenvolvimento</a></article>
 {''.join(cards)}
-<p>As 105 imagens do teste final permanecem reservadas.</p>
 <p>Resultados antigos preservados no <a href="../../archive/README.md">arquivo histórico</a>.</p>
 </html>'''
         (out/'index.html').write_text(page,encoding='utf-8')

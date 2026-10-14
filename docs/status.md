@@ -1,44 +1,37 @@
-# Estado atual — 06/10/2026
+# Estado atual — 14/10/2026
 
-Novo treinamento, arquivamento do B anterior e nova comparação A/B concluídos. Somente A original e B atual participam do fluxo ativo.
+A parte experimental terminou. O viés de origem do B foi corrigido, o protocolo foi congelado e o teste final de 105 imagens foi aberto uma única vez. Falta escrever a monografia.
 
-## Modelos e treinamento
+## O que foi feito depois da revisão de 13/10/2026
 
-- A original preservado: `models/model_a/model_trained.keras`.
-- B atual: `experiments/runs/b_atual/best.keras`. EfficientNetB0, 17 épocas, melhor época 10 por `val_loss` (0,21533), aproximadamente 15,2 minutos em CPU.
-- Treino: 4.381 recortes (3.053 positivos/1.328 negativos), incluindo 80 novos negativos de 20 originais Barcelona. Validação preservada: 1.070 recortes (740 positivos/330 negativos). Cada recorte uma vez por época, pesos por classe, sem oversampling ou undersampling.
-- `data/processed/b_next/` é o conjunto efetivamente treinado. Ele compartilha os 5.371 recortes anteriores com `b_real_01`; preservar ambas as pastas.
-- B anterior e seus 14 arquivos arquivados e conferidos em `archive/b_anterior_barcelona20_20261006/b_val_01/`. Protocolos e páginas antigas identificam esse checkpoint histórico.
+1. **Negativos difíceis murinos.** O B anterior rodou nas 455 imagens de treino de camundongo; 600 regiões positivas foram revisadas por Caio (517 negativas, 46 parasitas, 37 incertas). Só as 517 negativas entraram no treino, em `data/processed/b_hardneg/`. Registro: `data/annotations/hard_negatives_20261013/` e `data/processed/b_hardneg/assembly.json`.
+2. **Retreino com cinco sementes.** `b_hardneg_s42` (avaliado, em `experiments/runs/b_atual/`) e as sementes 123, 456, 789 e 1024 (`experiments/runs/b_hardneg_s*`), todas declaradas antes do treino.
+3. **Desenvolvimento.** Nas mesmas 367 imagens de 06/10, o B passou de 12.296 para 3.232 regiões positivas nos campos murinos, manteve a cobertura (423/450 pontos) e zerou os alarmes em negativos humanos (de 3 para 0 imagens). Saída: `experiments/comparison/a_vs_b_hardneg_20261013/`. Precisão revisada numa amostra aleatória de 200 regiões: `data/annotations/precision_B_val_20261013/precision.json`.
+4. **A no domínio original.** Rodado nas lâminas da FIOCRUZ, só em pasta temporária e sem guardar imagens: gera regiões nas versões já processadas (24 de 48 convertidas no Fiji; 14 de 22 filtradas por distância) e nenhuma nas fotos originais (0 de 59 do aparelho; 0 de 59 de 2023). Sem referência anotada, isso mostra só que o fluxo funciona com o pré-processamento para o qual foi feito. Números agregados em `experiments/validation/model_a_original_domain_20261013/summary.json`.
+5. **Congelamento.** `data/protocol/protocolo_congelado.json` registra os SHA-256 de 21 arquivos (código de avaliação, metodologia, plano estatístico, modelos, configuração, dados de treino, precisão de desenvolvimento e partição de teste). Alterar qualquer um deles é desvio de protocolo.
+6. **Teste final.** Aberto em 14/10/2026 (`data/protocol/teste_aberto.json`). Saída: `experiments/final_test_20261014/`. Precisão revisada às cegas em `data/annotations/precision_teste_final_20261014/`, com segundo avaliador (Victor) em 50 regiões.
 
-O bloqueio de assinatura do Python pelo Windows foi resolvido com Python oficial 3.11.9 assinado, mantendo TensorFlow/Keras 2.15 e os pacotes instalados. Nenhuma política de segurança foi alterada. Registro em `data/protocol/retrain_b_barcelona20_20261006/environment_repair.json`.
+## Resultado do teste final
 
-## Nova comparação
+| Desfecho | A | B | B − A (IC 95%) |
+| --- | ---: | ---: | ---: |
+| Cobertura dos 441 pontos | 0,0% | 91,6% | 91,6% [88,9%; 94,2%] |
+| Imagens positivas sinalizadas (105) | 17,1% | 100,0% | 82,9% [75,2%; 89,5%] |
+| Negativos sem alarme (253, auxiliar) | 98,8% | 100,0% | 1,2% [0,0%; 2,8%] |
+| Precisão revisada por região | 0% (0/23) | 53,3% [44,9%; 62,5%] | — |
 
-Inferência refeita para ambos os modelos sobre os mesmos 367 IDs, sem reutilizar previsões antigas. Saída: `experiments/comparison/a_vs_b_barcelona20_20261006/`.
+McNemar exato nas positivas: 87 × 0 (p Holm = 2,6e-26); nas negativas: 3 × 0 (p = 0,25). Kappa de Cohen entre avaliadores: 0,73 em três categorias, 0,90 no binário sem incertas.
 
-| Grupo | A original | B atual |
-| --- | ---: | ---: |
-| 114 positivas: imagens sinalizadas | 27 | 114 |
-| 450 pontos positivos publicados: associados a regiões positivas | 0 | 424 |
-| 253 negativas: imagens com falso alarme | 3 | 3 |
-| 253 negativas: regiões positivas | 3 | 5 |
+A referência positiva é parcial: regiões sem ponto publicado não são automaticamente falsos positivos, e a precisão vem da revisão humana. Os negativos são humanos (Kaggle/Barcelona), de outra aquisição; servem como resultado auxiliar, não como teste do mesmo domínio.
 
-Nenhum erro de execução. Nos mesmos 180 negativos Barcelona, o B anterior sinalizou 24 imagens; o novo sinalizou 3 (redução observada de 87,5%), conservando a cobertura de 424/450 pontos. A referência positiva é parcial: regiões sem ponto associado não podem ser automaticamente declaradas falsos positivos.
+Figuras e legendas: [tcc/figuras/teste_final_20261014](../tcc/figuras/teste_final_20261014/LEIA-ME.md). Texto: [resultados](../tcc/resultados_atuais.md).
 
-Tempos medidos nesta execução: aproximadamente 28,35 segundos para A e 296,30 para B, em CPU, duas threads e sem exportação PNG durante a medição. Uma execução sequencial não constitui benchmark repetido.
+## O que falta
 
-[Gráficos e exemplos atuais](../tcc/figuras/a_vs_b_barcelona20_20261006/index.html), [texto dos resultados](../tcc/resultados_atuais.md) e [divisão visual 20/180](../data/protocol/barcelona_split_20261006/index.html).
+- Escrever a monografia (introdução, fundamentação, metodologia, resultados e discussão). Rascunho em andamento fora do repositório.
+- Manter no texto o resultado LABIMED do B anterior (33/33 alarmes) como resultado em outra aquisição; os dados estão em `archive/labimed_historico_20261005.zip`.
 
-## Escopo e conferência
+## Registros
 
-As 20 Barcelona de treino foram escolhidas com semente 42 e balanceamento por tipo celular, sem consultar previsões; estão excluídas da comparação por IDs, grupos, bytes e pixels. A reserva foi feita após o diagnóstico inicial: as 180 restantes constituem desenvolvimento, não teste final independente. As 105 imagens do teste final continuam reservadas.
-
-Negativos Kaggle/Barcelona são originais com ausência de parasita visível declarada por Caio. Isso não equivale a laudo clínico. Barcelona contém células individuais humanas/CellaVision, distintas dos campos positivos murinos; a independência entre lâminas/animais não foi demonstrada. A apresentação agora agrupa 114 imagens positivas e 253 negativas. Origens e diagnóstico por fonte permanecem nos registros técnicos, sem acurácia global ou conclusão clínica misturando aquisições.
-
-132 testes passaram. Checkpoints, entradas do treinamento, recortes, pareamento e links das figuras conferidos em `experiments/validation/retrain_b_barcelona20_20261006/audit.json`.
-
-O diagnóstico antigo das 200 Barcelona e as 561 variações de robustez pertencem ao B arquivado; não foram repetidos com o B atual. Consulte [histórico após o retreino](../archive/README.md). LABIMED e arquivos privados permanecem fora do fluxo ativo; históricos e limpezas anteriores estão em `archive/`.
-
-Próximo (revisão de 13/10/2026): o B atual separa principalmente a origem das imagens (camundongo × humano). Antes de congelar o protocolo: negativos difíceis murinos revisados, novo treino com cinco sementes, precisão por amostra revisada e checagem do A no VisionCruzi. Passo a passo em [roteiro](roteiro_correcao_vies.md); análise em [plano estatístico](plano_estatistico.md). O teste final continua fechado.
-
-Limpeza de 06/10/2026: quatro comparações do B anterior, relatórios e utilitários legados retirados da rotina e preservados em `archive/limpeza_pos_retreino_20261006.zip`. Fontes, revisões, partições, recortes compartilhados, modelos e comparação atual preservados. Conferência: `experiments/validation/cleanup_pos_retreino_20261006/audit.json`.
+- Histórico das limpezas: [archive/README.md](../archive/README.md). A limpeza de 14/10/2026 está em `archive/limpeza_pos_teste_final_20261014.zip`.
+- O caminho de cada etapa da correção está em [roteiro_correcao_vies.md](roteiro_correcao_vies.md).
