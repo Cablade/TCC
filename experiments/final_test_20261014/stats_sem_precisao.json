@@ -1,0 +1,133 @@
+{
+  "evaluation_set": "teste_final",
+  "per_image_csv": "experiments\\final_test_20261014\\per_image.csv",
+  "per_image_sha256": "629d0f0a3baf12771d7c1f5ded803a86e5e0780864a12375873bc3565a238960",
+  "bootstrap": {
+    "method": "bootstrap_percentil_estratificado_por_classe_reamostrando_imagens",
+    "paired": true,
+    "n_resamples": 10000,
+    "seed": 20261013,
+    "confidence": 0.95,
+    "n_images": 358,
+    "n_positive": 105,
+    "n_negative": 253,
+    "metrics": {
+      "coverage_A": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "undefined_resamples": 0
+      },
+      "coverage_B": {
+        "estimate": 0.9160997732426304,
+        "ci_low": 0.8893610599768825,
+        "ci_high": 0.9417891045407824,
+        "undefined_resamples": 0
+      },
+      "sensitivity_A": {
+        "estimate": 0.17142857142857143,
+        "ci_low": 0.10476190476190476,
+        "ci_high": 0.24761904761904763,
+        "undefined_resamples": 0
+      },
+      "sensitivity_B": {
+        "estimate": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "undefined_resamples": 0
+      },
+      "specificity_A": {
+        "estimate": 0.9881422924901185,
+        "ci_low": 0.9723320158102767,
+        "ci_high": 1.0,
+        "undefined_resamples": 0
+      },
+      "specificity_B": {
+        "estimate": 1.0,
+        "ci_low": 1.0,
+        "ci_high": 1.0,
+        "undefined_resamples": 0
+      },
+      "false_regions_per_negative_A": {
+        "estimate": 0.011857707509881422,
+        "ci_low": 0.0,
+        "ci_high": 0.02766798418972332,
+        "undefined_resamples": 0
+      },
+      "false_regions_per_negative_B": {
+        "estimate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "undefined_resamples": 0
+      },
+      "coverage_diff_B_minus_A": {
+        "estimate": 0.9160997732426304,
+        "ci_low": 0.8893610599768825,
+        "ci_high": 0.9417891045407824,
+        "undefined_resamples": 0
+      },
+      "sensitivity_diff_B_minus_A": {
+        "estimate": 0.8285714285714285,
+        "ci_low": 0.7523809523809524,
+        "ci_high": 0.8952380952380953,
+        "undefined_resamples": 0
+      },
+      "specificity_diff_B_minus_A": {
+        "estimate": 0.011857707509881465,
+        "ci_low": 0.0,
+        "ci_high": 0.02766798418972327,
+        "undefined_resamples": 0
+      },
+      "false_regions_per_negative_diff_B_minus_A": {
+        "estimate": -0.011857707509881422,
+        "ci_low": -0.02766798418972332,
+        "ci_high": 0.0,
+        "undefined_resamples": 0
+      }
+    }
+  },
+  "mcnemar": {
+    "positivas": {
+      "test": "mcnemar_exato_bilateral",
+      "n_pairs": 105,
+      "excluded_pairs_with_error": 0,
+      "both_correct": 18,
+      "only_A_correct": 0,
+      "only_B_correct": 87,
+      "both_wrong": 0,
+      "discordant": 87,
+      "p_value": 1.2924697071141057e-26
+    },
+    "negativas": {
+      "test": "mcnemar_exato_bilateral",
+      "n_pairs": 253,
+      "excluded_pairs_with_error": 0,
+      "both_correct": 250,
+      "only_A_correct": 0,
+      "only_B_correct": 3,
+      "both_wrong": 0,
+      "discordant": 3,
+      "p_value": 0.25
+    },
+    "todas": {
+      "test": "mcnemar_exato_bilateral",
+      "n_pairs": 358,
+      "excluded_pairs_with_error": 0,
+      "both_correct": 268,
+      "only_A_correct": 0,
+      "only_B_correct": 90,
+      "both_wrong": 0,
+      "discordant": 90,
+      "p_value": 1.6155871338926322e-27
+    }
+  },
+  "mcnemar_holm": {
+    "positivas": 2.5849394142282115e-26,
+    "negativas": 0.25
+  },
+  "notes": [
+    "Unidade de reamostragem: imagem inteira; pareamento A/B preservado.",
+    "Cobertura usa a referência parcial publicada; não estima precisão.",
+    "Erros de execução saem do McNemar e são relatados em excluded_pairs_with_error."
+  ]
+}
