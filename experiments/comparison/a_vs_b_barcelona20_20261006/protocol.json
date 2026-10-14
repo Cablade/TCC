@@ -13,7 +13,7 @@
     },
     "B": {
       "label": "B atual",
-      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01\\best.keras",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_vies_origem_20261013\\b_atual\\best.keras",
       "sha256": "915a0b36ee012476356d38f8ae94bae1c59748837d2deb409b31cfc59177d176"
     }
   },
@@ -46,5 +46,11 @@
     "selected_val_loss": 0.2153298556804657,
     "old_checkpoint_archived": true,
     "training_run": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01"
+  },
+  "historical_model": {
+    "status": "archived",
+    "promotion_record": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_vies_origem_20261013\\promotion.json",
+    "original_protocol_sha256": "7c9a18c6bedd01a686a4f3614517a2ddc7ab048be581a00b57dc57b0a1057973",
+    "note": "Resultados do B anterior preservados; somente caminho de acesso ao modelo atualizado."
   }
 }
