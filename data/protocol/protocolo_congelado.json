@@ -1,0 +1,53 @@
+{
+  "frozen_at": "2026-10-14T03:58:42.832772+00:00",
+  "git_commit": "3e9abae33109ffa9a2f3fbe92be9b6f1b0c0d0d5",
+  "git_dirty": false,
+  "model_b_run": "b_hardneg_s42",
+  "model_b_seed": 42,
+  "seed_runs": [
+    "experiments\\runs\\b_hardneg_s123",
+    "experiments\\runs\\b_hardneg_s456",
+    "experiments\\runs\\b_hardneg_s789",
+    "experiments\\runs\\b_hardneg_s1024"
+  ],
+  "decision_rule_b": "any argmax(scores)==1",
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20261013,
+    "confidence": 0.95
+  },
+  "precision_sample": {
+    "n": 200,
+    "seed": 20261013,
+    "blind": true
+  },
+  "mcnemar_family": [
+    "positivas_teste",
+    "negativos_outra_aquisicao"
+  ],
+  "alpha": 0.05,
+  "test_opened": false,
+  "sha256": {
+    "docs/plano_estatistico.md": "6c63744f684ab5e1924fa8f5069011689a7e43cb41f176a6c3a04a78cdb8625d",
+    "docs/metodologia.md": "77203b3f8b9417a7fd8ea3e416e1c25c85b8f78f40348ff64a5ff9d31e44a6e1",
+    "src/paired_stats.py": "8dbeb5f7d96f154e9592de565803862e2ce1533840a2666f5d35142e0f6df812",
+    "src/detection_evaluation.py": "560b7f1b4520b6cbc91dd88b7e020551e7dd5d708fd9a7ffb3eecade7b4ef055",
+    "src/model_a.py": "45dedec705d7b5005e8e665153eaa5c25c3e042a24ce24fd9ff2b067595170ce",
+    "src/model_b.py": "95a5f7378263ab35f7f9f1abcf5808b0ca2db1c1da1f06bfa6e27759a1526233",
+    "src/segmentation.py": "ae13c8c77f88e635fb715923927e4bda647e815c96f48f54182443683fc8d87f",
+    "src/data_pipeline.py": "d27e44ecad7d6975abbb5284a5dbaf4f222933073752635b91263902d03f05f1",
+    "scripts/paired_analysis.py": "02ab9a34c144cb46af7c942fd69d2aa140b4649e97083bfc679d353d9a58e119",
+    "scripts/sample_precision_review.py": "27e554c33fb2623e5f424c0073fe348bf4ad4c00637e0310ca68ffb1336a25c5",
+    "scripts/run_model_a.py": "6bfae603db49661bcb13671632603a94a0531f53b6da2d49885a19bf63bb46d0",
+    "scripts/run_model_b.py": "b907e02ed33fd5a769b1858c75422337b32928113f379bfa8165a27d5f401af4",
+    "scripts/compare_model_versions.py": "7120e8f4ec0f4459ae07c2a227ad233a3ae9a76a29daf52f13c50f853eba37b1",
+    "data/splits/experimento/test.csv": "22fd52c5c2eee39f88cf654fd5950eda65e69da8a54e82557e8c1ea2325ef159",
+    "models/model_a/model_trained.keras": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+    "data/processed/b_hardneg/images.csv": "ade26d0c37f4774f5f11ecdc37c18feed24acc79c4fa84a064f44819206ce36b",
+    "data/processed/b_hardneg/annotations.json": "585f6d64427b8045840ee5c67586784560afc2814d3df80d3fc1be3814cb350a",
+    "experiments\\runs\\b_atual\\best.keras": "b4d9d7ee4434143857513fe25796dc7264f716c39adf2c7b889d228ce7c133f8",
+    "experiments\\runs\\b_atual\\config.json": "2fd34d3b351aa4e28f8add20f4099162bd7765a8ca2d811a37169f178f33a737",
+    "data\\annotations\\precision_B_val_20261013\\precision.json": "7064ab92f5bf900ea61938b27b8cdef82ae66aea89618e6637ac2ed4db1512e2",
+    "experiments\\validation\\model_a_original_domain_20261013\\summary.json": "c349cfbfc42d83b21a7561b285d6afec2760e572b6739c800da8d63c0547d678"
+  }
+}
