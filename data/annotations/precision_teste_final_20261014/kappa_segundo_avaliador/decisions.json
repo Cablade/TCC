@@ -1,0 +1,258 @@
+{
+  "queue_sha256": "53bf651109b17f5603da1f78af002dc0ab5ac6a67251abee7a23a40c335d4202",
+  "reviewer": "Victor Jacques",
+  "exported_at": "2026-10-14T04:28:09.765Z",
+  "total_items": 50,
+  "decisions": [
+    {
+      "candidate_id": "a8a48e3820d071c08e0e7746",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:26:52.668Z"
+    },
+    {
+      "candidate_id": "7cbb64d2cb42a70aca0a81e3",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:26:58.448Z"
+    },
+    {
+      "candidate_id": "2e41f6c88355b49402a4eb51",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:26:59.364Z"
+    },
+    {
+      "candidate_id": "9ca466b7dc9275a8508d441d",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:00.030Z"
+    },
+    {
+      "candidate_id": "cc944c3c7b1bb95a9d3be292",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:00.598Z"
+    },
+    {
+      "candidate_id": "569c118a98e10f5620dd23f6",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:02.184Z"
+    },
+    {
+      "candidate_id": "810e488b292978d2ee55dfc5",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:03.128Z"
+    },
+    {
+      "candidate_id": "124b2972822b473cc8f65fae",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:03.943Z"
+    },
+    {
+      "candidate_id": "6ddd7b2b043bb07d5c100325",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:04.562Z"
+    },
+    {
+      "candidate_id": "b3387bd667c0bbccf343f844",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:05.393Z"
+    },
+    {
+      "candidate_id": "b27038f49678dfbda32402d4",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:06.076Z"
+    },
+    {
+      "candidate_id": "cd1e273b80575700af6f6fa2",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:07.494Z"
+    },
+    {
+      "candidate_id": "a60484ba5b0c1f7ecac53d60",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:08.346Z"
+    },
+    {
+      "candidate_id": "0a697f6672ee85e1369b75cf",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:09.079Z"
+    },
+    {
+      "candidate_id": "d05cc64dc3f2408a1ce0a3b2",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:09.637Z"
+    },
+    {
+      "candidate_id": "3c557a8af53a91d77b42bce7",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:27:11.409Z"
+    },
+    {
+      "candidate_id": "a0ed7a40ca95f52bd878c8cb",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:12.167Z"
+    },
+    {
+      "candidate_id": "0e904a1d353e25ce49b320db",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:13.353Z"
+    },
+    {
+      "candidate_id": "0421c07865efdc6e2fe5b9f3",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:27:15.134Z"
+    },
+    {
+      "candidate_id": "37fdf6eccb19fd4f2a37204c",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:15.773Z"
+    },
+    {
+      "candidate_id": "efbf9a52443f9f0fd8932b4d",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:17.006Z"
+    },
+    {
+      "candidate_id": "d454441135be0f2404b6f513",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:17.637Z"
+    },
+    {
+      "candidate_id": "9c83fd8a41a71d5193715403",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:18.345Z"
+    },
+    {
+      "candidate_id": "9af1a3d6e6b50c0f0ece1b09",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:27:19.580Z"
+    },
+    {
+      "candidate_id": "1380942e429eda2c775a85d6",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:20.849Z"
+    },
+    {
+      "candidate_id": "40cb758164fc44507bc77606",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:27:22.844Z"
+    },
+    {
+      "candidate_id": "a7829ff601c7655c059757e0",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:24.269Z"
+    },
+    {
+      "candidate_id": "19a5300169aa6e3aeee1130b",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:25.096Z"
+    },
+    {
+      "candidate_id": "2f4a135c93a8b898e9a66af8",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:26.243Z"
+    },
+    {
+      "candidate_id": "7bae5a2c5c870c3ce8762451",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:26.728Z"
+    },
+    {
+      "candidate_id": "865e39af2f692a2ec1525618",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:27.557Z"
+    },
+    {
+      "candidate_id": "e93303aa45eeb92b37d3104d",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:30.648Z"
+    },
+    {
+      "candidate_id": "2003cc74e7bb92d37718abbe",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:27:34.278Z"
+    },
+    {
+      "candidate_id": "0925d48fa7ee868a22a71387",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:34.918Z"
+    },
+    {
+      "candidate_id": "1c5f7171f7611d470786249f",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:37.665Z"
+    },
+    {
+      "candidate_id": "c46d728738856d31e9accd5a",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:38.305Z"
+    },
+    {
+      "candidate_id": "c5031d8cf1cca04af172e183",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:39.040Z"
+    },
+    {
+      "candidate_id": "3856973225994fd93bd4b34a",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:41.357Z"
+    },
+    {
+      "candidate_id": "2ae670939fc949835bb8cb58",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:42.262Z"
+    },
+    {
+      "candidate_id": "a08cdec206253484e71a48b7",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:45.864Z"
+    },
+    {
+      "candidate_id": "a825e4a9b0285d8700047031",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:47.643Z"
+    },
+    {
+      "candidate_id": "f8b0d081d8664e9b2828c24d",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:27:49.047Z"
+    },
+    {
+      "candidate_id": "6a97abc9ae370f0474ccdc62",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:27:58.711Z"
+    },
+    {
+      "candidate_id": "f5710be01126fbedffeed9be",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:28:00.897Z"
+    },
+    {
+      "candidate_id": "d71ecac92a99fbc34cf3d191",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:28:02.415Z"
+    },
+    {
+      "candidate_id": "5c2d9256d2c7aa0aed09a7f6",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:28:03.371Z"
+    },
+    {
+      "candidate_id": "807bd8521ca6b4a465d2d824",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:28:04.078Z"
+    },
+    {
+      "candidate_id": "a52325deb53b9727e82cd94d",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:28:04.728Z"
+    },
+    {
+      "candidate_id": "9baf48ca8a8c765981bfecc4",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:28:05.628Z"
+    },
+    {
+      "candidate_id": "f81ceec4f523627acd27b1ec",
+      "decision": "parasita",
+      "reviewed_at": "2026-10-14T04:28:06.897Z"
+    }
+  ]
+}
