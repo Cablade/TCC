@@ -1,0 +1,30 @@
+{
+  "method": "amostra_aleatoria_simples_de_regioes_ic_bootstrap_por_imagem",
+  "n_regions": 200,
+  "n_images": 74,
+  "parasita": 93,
+  "nao_parasita": 94,
+  "incerto": 13,
+  "n_resamples": 10000,
+  "seed": 20261013,
+  "confidence": 0.95,
+  "metrics": {
+    "precision": {
+      "estimate": 0.49732620320855614,
+      "ci_low": 0.4206340690782751,
+      "ci_high": 0.5854930801745295
+    },
+    "precision_worst_case": {
+      "estimate": 0.465,
+      "ci_low": 0.39344262295081966,
+      "ci_high": 0.5446086699839756
+    },
+    "precision_best_case": {
+      "estimate": 0.53,
+      "ci_low": 0.4534400089206066,
+      "ci_high": 0.6182795698924731
+    }
+  },
+  "population_positive_regions": 3232,
+  "undecided": 0
+}
