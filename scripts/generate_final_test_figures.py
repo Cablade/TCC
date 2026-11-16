@@ -53,7 +53,23 @@ def read_csv(path):
 
 
 def pct(x):
-    return f"{100 * x:.1f}%"
+    return f"{100 * x:.1f}%".replace(".", ",")
+
+
+def com_ic_exato(v, n, confidence=0.95):
+    """Quando a proporção observada é 0 ou 1, o bootstrap percentil degenera (todas as réplicas iguais).
+
+    Nesses casos troca o intervalo pelo exato de Clopper-Pearson com n unidades (forma fechada para
+    k = 0 ou k = n). Nos demais casos devolve o intervalo de bootstrap sem alteração.
+    """
+    if v["estimate"] not in (0.0, 1.0):
+        return v
+    limite = ((1 - confidence) / 2) ** (1 / n)
+    low, high = (0.0, 1 - limite) if v["estimate"] == 0.0 else (limite, 1.0)
+    return {**v, "ci_low": low, "ci_high": high, "ci_method": "clopper_pearson", "n": n}
+
+
+NOTA_IC_EXATO = "* Intervalo exato de Clopper-Pearson (proporção observada de 0% ou 100%)."
 
 
 def overlay_panel(ax, pixels, regions, points, color, title):
@@ -83,8 +99,17 @@ def main():
                              "teste (exige experiments/final_test_20261014/B_anterior/predictions.json).")
     args = parser.parse_args()
     stats = read_json(RUN / "stats.json")
-    boot = stats["bootstrap"]["metrics"]
+    boot = dict(stats["bootstrap"]["metrics"])
     prec = stats["precision"]
+    # Proporções de 0% ou 100%: IC exato no lugar do bootstrap degenerado. A unidade é a imagem
+    # (cobertura e decisão por imagem) ou a região com decisão conclusiva (precisão).
+    n_pos, n_neg = stats["bootstrap"]["n_positive"], stats["bootstrap"]["n_negative"]
+    for s in ("A", "B"):
+        boot[f"coverage_{s}"] = com_ic_exato(boot[f"coverage_{s}"], n_pos)
+        boot[f"sensitivity_{s}"] = com_ic_exato(boot[f"sensitivity_{s}"], n_pos)
+        boot[f"specificity_{s}"] = com_ic_exato(boot[f"specificity_{s}"], n_neg)
+        prec[s]["metrics"]["precision"] = com_ic_exato(
+            prec[s]["metrics"]["precision"], prec[s]["parasita"] + prec[s]["nao_parasita"])
     per_image = read_csv(RUN / "per_image.csv")
     test_rows = [r for r in per_image if r["cohort"] == "positive_test"]
     OUT.mkdir(parents=True, exist_ok=True)
@@ -106,23 +131,27 @@ def main():
         err = [[e - v["ci_low"] for e, v in zip(est, values)], [v["ci_high"] - e for e, v in zip(est, values)]]
         bars = ax.bar(x, est, color=[COLORS["A"], COLORS["B"]], yerr=err, capsize=6, ecolor="#333")
         for bar, v in zip(bars, values):
-            ax.annotate(f"{fmt(v['estimate'])}\n[{fmt(v['ci_low'])}; {fmt(v['ci_high'])}]",
+            marca = "*" if v.get("ci_method") == "clopper_pearson" else ""
+            ax.annotate(f"{fmt(v['estimate'])}\n[{fmt(v['ci_low'])}; {fmt(v['ci_high'])}]{marca}",
                         (bar.get_x() + bar.get_width() / 2, v["ci_high"]), ha="center", va="bottom",
                         fontsize=8, xytext=(0, 4), textcoords="offset points")
         ax.set(xticks=x, xticklabels=[NAMES["A"], NAMES["B"]], title=title, ylabel=ylabel, ylim=(0, ylim * 1.15))
         ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
         ax.set_yticks(np.linspace(0, 1, 6))
+        if any(v.get("ci_method") == "clopper_pearson" for v in values):
+            ax.figure.text(0.5, -0.02, NOTA_IC_EXATO, ha="center", va="top", fontsize=8)
 
     # 01 — desfechos primários lado a lado.
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.3))
     ci_bars(axes[0], [boot["coverage_A"], boot["coverage_B"]],
             "Cobertura dos 441 pontos publicados", "Pontos cobertos")
     precision = {s: prec[s]["metrics"]["precision"] for s in ("A", "B")}
-    ci_bars(axes[1], [precision["A"], precision["B"]], "Precisão por região (revisão cega)",
+    ci_bars(axes[1], [precision["A"], precision["B"]], "Precisão por região (revisão manual)",
             "Regiões com parasita")
     save(fig, "01_desfechos_primarios",
          "Teste final: 105 imagens murinas, 441 pontos publicados. Cobertura: pontos associados um a um a regiões "
-         "positivas; IC 95% por bootstrap pareado de imagens (10.000 réplicas). Precisão: amostra revisada às cegas "
+         "positivas; IC 95% por bootstrap pareado de imagens (10.000 réplicas); em 0% ou 100%, IC exato de "
+         "Clopper-Pearson. Precisão: amostra revisada às cegas "
          f"(A: todas as {prec['A']['n_regions']} regiões; B: {prec['B']['n_regions']} de "
          f"{sum(int(r['positive_regions']) for r in test_rows if r['system'] == 'B')}), IC por bootstrap de imagens.")
 
@@ -305,10 +334,6 @@ def main():
 
     # Exemplos e página.
     p = {s: prec[s] for s in ("A", "B")}
-    f1 = {s: (2 * p[s]["metrics"]["precision"]["estimate"] * boot[f"coverage_{s}"]["estimate"]
-              / (p[s]["metrics"]["precision"]["estimate"] + boot[f"coverage_{s}"]["estimate"])
-              if p[s]["metrics"]["precision"]["estimate"] + boot[f"coverage_{s}"]["estimate"] else 0.0)
-          for s in ("A", "B")}
     table = [
         ("Cobertura dos pontos publicados", boot["coverage_A"], boot["coverage_B"], boot["coverage_diff_B_minus_A"]),
         ("Precisão revisada por região", p["A"]["metrics"]["precision"], p["B"]["metrics"]["precision"], None),
@@ -319,10 +344,11 @@ def main():
     md = ["# Teste final — Modelo A (entregue) × Modelo B (proposto)", "",
           f"105 imagens murinas de teste (441 pontos publicados), abertas uma única vez após o congelamento do "
           f"protocolo; 253 negativos humanos de outra aquisição como resultado auxiliar. IC 95% por bootstrap "
-          f"pareado de imagens (10.000 réplicas, semente {stats['bootstrap']['seed']}).", "",
+          f"pareado de imagens (10.000 réplicas, semente {stats['bootstrap']['seed']}); em 0% ou 100%, IC exato de "
+          "Clopper-Pearson.", "",
           "| Desfecho | A | B | B − A |", "| --- | ---: | ---: | ---: |"]
     md += [f"| {name} | {fmt(a)} | {fmt(b)} | {fmt(d)} |" for name, a, b, d in table]
-    md += [f"| F1 aproximado (derivado) | {f1['A']:.2f} | {f1['B']:.2f} | — |", "",
+    md += ["",
            f"Precisão do A: 0 de {p['A']['nao_parasita'] + p['A']['parasita']} regiões decididas; IC exato "
            "(Clopper-Pearson) 0% [0; 14,8%].",
            f"Concordância entre avaliadores (50 regiões): ver data/annotations/precision_teste_final_20261014/"
@@ -341,10 +367,9 @@ def main():
             '{padding:10px;border:1px solid #cdd7df}.grafico{display:block;max-width:100%;width:1100px}</style>'
             '<h1>Teste final: Modelo A (entregue) × Modelo B (proposto)</h1><p>105 imagens murinas de teste, '
             '441 pontos publicados; 253 negativos humanos como resultado auxiliar.</p><table><tr><th>Desfecho</th>'
-            f'<th>A</th><th>B</th><th>B − A</th></tr>{rows}<tr><td>F1 aproximado</td><td>{f1["A"]:.2f}</td>'
-            f'<td>{f1["B"]:.2f}</td><td>—</td></tr></table>{charts}</html>')
+            f'<th>A</th><th>B</th><th>B − A</th></tr>{rows}</table>{charts}</html>')
     (OUT / "index.html").write_text(page, encoding="utf-8")
-    (OUT / "summary.json").write_text(json.dumps({"stats_sha256": stats["per_image_sha256"], "f1": f1,
+    (OUT / "summary.json").write_text(json.dumps({"stats_sha256": stats["per_image_sha256"],
                                                   "figures": figures}, indent=2, ensure_ascii=False) + "\n",
                                       encoding="utf-8")
     print("\n".join(md))

@@ -1,13 +1,9 @@
 {
   "stats_sha256": "629d0f0a3baf12771d7c1f5ded803a86e5e0780864a12375873bc3565a238960",
-  "f1": {
-    "A": 0.0,
-    "B": 0.6735968150807289
-  },
   "figures": [
     {
       "name": "01_desfechos_primarios",
-      "caption": "Teste final: 105 imagens murinas, 441 pontos publicados. Cobertura: pontos associados um a um a regiões positivas; IC 95% por bootstrap pareado de imagens (10.000 réplicas). Precisão: amostra revisada às cegas (A: todas as 24 regiões; B: 200 de 3028), IC por bootstrap de imagens."
+      "caption": "Teste final: 105 imagens murinas, 441 pontos publicados. Cobertura: pontos associados um a um a regiões positivas; IC 95% por bootstrap pareado de imagens (10.000 réplicas); em 0% ou 100%, IC exato de Clopper-Pearson. Precisão: amostra revisada às cegas (A: todas as 24 regiões; B: 200 de 3028), IC por bootstrap de imagens."
     },
     {
       "name": "02_decisao_por_imagem",
