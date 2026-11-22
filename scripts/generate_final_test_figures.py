@@ -119,6 +119,11 @@ def main():
         for ax in fig.axes:
             if ax.axison:
                 ax.spines[["top", "right"]].set_visible(False)
+            # Vírgula decimal nos eixos numéricos (eixos com PercentFormatter ficam como estão).
+            for axis in (ax.xaxis, ax.yaxis):
+                if isinstance(axis.get_major_formatter(), matplotlib.ticker.ScalarFormatter):
+                    axis.set_major_formatter(matplotlib.ticker.FuncFormatter(
+                        lambda value, _pos: f"{value:g}".replace(".", ",")))
         fig.tight_layout()
         fig.savefig(OUT / f"{name}.png", dpi=200, bbox_inches="tight")
         fig.savefig(OUT / f"{name}.pdf", bbox_inches="tight")
@@ -134,12 +139,12 @@ def main():
             marca = "*" if v.get("ci_method") == "clopper_pearson" else ""
             ax.annotate(f"{fmt(v['estimate'])}\n[{fmt(v['ci_low'])}; {fmt(v['ci_high'])}]{marca}",
                         (bar.get_x() + bar.get_width() / 2, v["ci_high"]), ha="center", va="bottom",
-                        fontsize=8, xytext=(0, 4), textcoords="offset points")
+                        fontsize=11, xytext=(0, 4), textcoords="offset points")
         ax.set(xticks=x, xticklabels=[NAMES["A"], NAMES["B"]], title=title, ylabel=ylabel, ylim=(0, ylim * 1.15))
         ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
         ax.set_yticks(np.linspace(0, 1, 6))
         if any(v.get("ci_method") == "clopper_pearson" for v in values):
-            ax.figure.text(0.5, -0.02, NOTA_IC_EXATO, ha="center", va="top", fontsize=8)
+            ax.figure.text(0.5, -0.02, NOTA_IC_EXATO, ha="center", va="top", fontsize=10)
 
     # 01 — desfechos primários lado a lado.
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.3))
@@ -175,7 +180,7 @@ def main():
         patch.set_facecolor(COLORS[s])
         patch.set_alpha(.55)
     pts = sum(int(r["reference_points"]) for r in test_rows if r["system"] == "A") / len(series[0])
-    ax.axhline(pts, color="#555", linestyle="--", label=f"Pontos publicados por imagem (média {pts:.1f})")
+    ax.axhline(pts, color="#555", linestyle="--", label=f"Pontos publicados por imagem (média {pts:.1f})".replace(".", ","))
     ax.set(title="Regiões positivas por imagem (teste)", ylabel="Regiões")
     ax.legend(fontsize=8)
     save(fig, "03_regioes_por_imagem",
@@ -212,7 +217,7 @@ def main():
         (axes[2], [int(old[("negative", "B")]["false_positive_regions"]), int(new[("negative", "B")]["false_positive_regions"])],
          f"Regiões em {new[('negative', 'B')]['n_images']} negativos humanos", "Regiões", "{:d}")]:
         bars = ax.bar(labels, values, color=["#d9a3a4", COLORS["B"]])
-        ax.bar_label(bars, labels=[fmt.format(v) for v in values], padding=3)
+        ax.bar_label(bars, labels=[fmt.format(v).replace(".", ",") for v in values], padding=3)
         ax.set(title=title, ylabel=ylabel, ylim=(0, max(values + [1]) * 1.25))
     save(fig, "04_avanco_treinamento_B",
          scope + " A mineração e revisão de 517 negativos difíceis murinos (só treino) reduziu as regiões por "
@@ -228,11 +233,13 @@ def main():
         vals.append(meta["selected_val_loss"])
         accs.append(hist["val_accuracy"][meta["selected_epoch"] - 1])
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-    for ax, values, title, fmt in [(axes[0], vals, "val_loss na época escolhida", "{:.4f}"),
+    for ax, values, title, fmt in [(axes[0], vals, "Perda de validação na época escolhida", "{:.4f}"),
                                    (axes[1], [100 * a for a in accs], "Acurácia de validação (%)", "{:.2f}")]:
         bars = ax.bar([str(s) for s in SEEDS], values, color=[COLORS["B"]] + ["#d9a3a4"] * 4)
-        ax.bar_label(bars, labels=[fmt.format(v) for v in values], padding=3, fontsize=8)
-        ax.axhline(np.mean(values), color="#555", linestyle="--", label=f"média {np.mean(values):.4g}")
+        ax.bar_label(bars, labels=[fmt.format(v).replace(".", ",") for v in values], padding=3, fontsize=10,
+                     bbox=dict(facecolor="white", edgecolor="none", pad=1))
+        ax.axhline(np.mean(values), color="#555", linestyle="--",
+                   label=f"média {np.mean(values):.4g}".replace(".", ","))
         lo, hi = min(values), max(values)
         ax.set(title=title, xlabel="Semente", ylim=(lo - (hi - lo) * 2 - 1e-3, hi + (hi - lo) * 2 + 1e-3))
         ax.legend(fontsize=8)
@@ -259,7 +266,7 @@ def main():
     times = [[float(r["algorithm_seconds"]) for r in test_rows if r["system"] == s] for s in ("A", "B")]
     ax.boxplot(times, labels=[NAMES["A"], NAMES["B"]])
     for i, t in enumerate(times, 1):
-        ax.annotate(f"mediana {np.median(t):.2f} s", (i, np.median(t)), xytext=(28, 0), textcoords="offset points",
+        ax.annotate(f"mediana {np.median(t):.2f} s".replace(".", ","), (i, np.median(t)), xytext=(28, 0), textcoords="offset points",
                     fontsize=8, va="center")
     ax.set(title="Tempo de processamento por imagem (teste)", ylabel="Segundos")
     save(fig, "07_tempo",
