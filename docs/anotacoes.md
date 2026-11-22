@@ -36,13 +36,13 @@ Ela reúne os 674 registros positivos publicados e as 29 regiões negativas revi
 
 As propostas usam estruturas detectadas e distância mínima de 200 pixels dos pontos positivos conhecidos. Essa distância não comprova ausência de parasitas não anotados. Nenhuma região foi confirmada biologicamente por esta triagem. Para gerar outro lote, use `scripts/preselect_negatives.py --output-dir NOVO_DESTINO`; a seleção automática não inclui a triagem visual feita neste primeiro lote e não sobrescreve saídas existentes.
 
-Esta ferramenta abre as imagens originais no navegador do próprio computador. Você desenha retângulos que examinou e registra seu nome como revisor. Os pontos positivos publicados continuam preservados. Nenhuma região recebe rótulo negativo automaticamente.
+Esta ferramenta abre as imagens originais no navegador do próprio computador. O revisor desenha retângulos nas regiões examinadas e registra seu nome. Os pontos positivos publicados continuam preservados. Nenhuma região recebe rótulo negativo automaticamente.
 
 ### Antes de começar
 
 Reserve as imagens de teste por grupos de origem antes da revisão de desenvolvimento. Uma imagem examinada para escolher negativos de treinamento não deve posteriormente ser apresentada como teste intocado. O inventário fornecido à ferramenta deve conter a coluna `split`; linhas com `test` ficam bloqueadas. Se ainda não houver divisão, a página avisa sobre essa pendência.
 
-O revisor precisa saber reconhecer o parasita e estruturas que podem ser confundidas com ele. Combine esse trabalho com o orientador ou alguém habilitado a revisar as imagens. A ferramenta registra o nome informado; ela não verifica a identidade nem substitui a revisão especializada.
+O revisor precisa saber reconhecer o parasita e estruturas que podem ser confundidas com ele. A revisão deve ser combinada com o orientador ou com alguém habilitado a avaliar as imagens. A ferramenta registra o nome informado; ela não verifica a identidade nem substitui a revisão especializada.
 
 ### Abrir no Windows
 

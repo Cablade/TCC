@@ -94,4 +94,4 @@ McNemar nas positivas: só B acerta 87, só A acerta 0 (p Holm = 2,6e-26). Conco
 | `tests/`, `notebooks/` | Verificação e exploração |
 | `archive/` | Histórico compactado, fora da rotina |
 
-A `.venv` e o Python em `.cache/python` são necessários neste PC. Dados e modelos grandes são locais e não acompanham o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.
+A `.venv` e o Python em `.cache/python` foram usados no ambiente de desenvolvimento (Windows); em outra máquina, basta criar a `.venv` conforme a seção "Como executar e verificar". Dados e modelos grandes são locais e não acompanham o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.

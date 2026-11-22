@@ -17,7 +17,7 @@ $env:PYTHONUTF8 = '1'
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-`pytest.ini` usa `.cache/pytest` como pasta temporária: neste PC a pasta temporária padrão do pytest em `AppData\Local\Temp` dá "Acesso negado". `PYTHONUTF8=1` evita erros de codificação nos textos em português.
+`pytest.ini` usa `.cache/pytest` como pasta temporária, pois no ambiente de desenvolvimento a pasta padrão do pytest em `AppData\Local\Temp` retornava "Acesso negado". `PYTHONUTF8=1` evita erros de codificação nos textos em português.
 
 - [Windows com RX 6600 e alternativa GPU](#windows)
 - [Transferir para outro computador](#transferencia)
@@ -26,9 +26,9 @@ $env:PYTHONUTF8 = '1'
 
 ## Windows com RX 6600 e alternativa GPU
 
-Conferido em 23/09/2026. Cenário informado: Windows 10 ou 11; quantidade de RAM e processador ainda não informados.
+Levantamento de 23/09/2026 para uma máquina Windows 10/11 com GPU AMD RX 6600.
 
-**Recomendação: use esse computador para preparar os dados, conferir as anotações e iniciar o Modelo B pela CPU. Para acelerar o treinamento, use uma GPU NVIDIA compatível em Linux/nuvem. Não conte com a RX 6600 como aceleradora do ambiente atual.** O projeto usa TensorFlow/Keras 2.15 e Python 3.11. O Modelo A continua congelado; quem recebe treinamento é o B.
+**Conclusão: nessa máquina, a preparação dos dados, a conferência das anotações e o treinamento do Modelo B são feitos pela CPU. A aceleração por GPU exige uma placa NVIDIA compatível em Linux/nuvem; a RX 6600 não é suportada pelo ambiente atual.** O projeto usa TensorFlow/Keras 2.15 e Python 3.11. O Modelo A continua congelado; quem recebe treinamento é o B.
 
 ### 1. Por que a RX 6600 não é uma instalação pronta para este projeto?
 
@@ -46,9 +46,9 @@ A Microsoft informa a descontinuação do plugin TensorFlow-DirectML e os limite
 
 A matriz AMD de Windows consultada cobre PyTorch e GPUs selecionadas, sem RX 6600; a matriz unificada também não lista essa placa. A existência de suporte a outras Radeon ou à família profissional W6000 não significa suporte à RX 6600. Este guia não usa modificações comunitárias para simular outra GPU. [Matriz AMD para Windows](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/compatibility/compatibilityrad/windows/windows_compatibility.html), [matriz unificada AMD](https://rocm-handbook.amd.com/projects/amd-rocm-programming-guide/en/latest/compatibility/compatibility-matrix.html).
 
-### 2. Preparar o Windows do Vitor
+### 2. Preparar outra máquina Windows
 
-Copie o projeto e os dados conforme o [guia principal](guia_treinamento.md). Não copie sua pasta `.venv`: crie o ambiente na máquina de destino. Manifestos com caminhos do seu computador precisam ser ajustados e revalidados; copiar somente o código não leva junto o ZIP original, as anotações e os recortes.
+O projeto e os dados são copiados conforme o [guia principal](guia_treinamento.md). A pasta `.venv` não deve ser copiada: o ambiente é criado na máquina de destino. Manifestos com caminhos absolutos da máquina de origem precisam ser ajustados e revalidados; copiar somente o código não leva junto o ZIP original, as anotações e os recortes.
 
 Instale Python **3.11 de 64 bits**. A tabela oficial do TensorFlow 2.15 lista Python 3.9–3.11; usar o Python mais novo disponível pode impedir a instalação das versões fixadas. [Versões testadas do TensorFlow](https://www.tensorflow.org/install/source#tested_build_configurations).
 
