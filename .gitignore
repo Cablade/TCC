@@ -113,3 +113,4 @@ tcc/*.toc
 tcc/*.bbl
 tcc/*.blg
 tcc/*.synctex.gz
+!data/demo/*.csv
