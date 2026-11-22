@@ -1,42 +1,37 @@
-# Estado do experimento e próximos passos
+# Estado atual — 14/10/2026
 
-Atualizado em 26/09/2026. **O primeiro treinamento real do B foi concluído e recebido.** O modelo foi reaberto nesta máquina e reproduziu 98,70% de acerto nos recortes de validação. A avaliação final permanece pendente; as 105 imagens de teste não foram avaliadas. Consulte o [relatório da execução](../experiments/validation/b_real_cpu_01_received_20260926/relatorio.md).
+A parte experimental terminou. O viés de origem do B foi corrigido, o protocolo foi congelado e o teste final de 105 imagens foi aberto uma única vez. Falta escrever a monografia.
 
-## Revisão e correções
+## O que foi feito depois da revisão de 13/10/2026
 
-- Removidos resultados antigos que ainda continham 58 imagens privadas de sobreposição, além dos registros associados. O pacote de envio inclui apenas recortes do ZIP público autorizado.
-- A referência v2 conserva os 2.715 pontos publicados, as 29 áreas negativas revisadas e o histórico da revisão humana. A incorporação da revisão agora confere inventário, origem, dimensões e positivos, preservando negativos já existentes.
-- A preparação e o treino real verificam o SHA-256 do ZIP autorizado e a reserva das imagens examinadas para desenvolvimento. Recortes idênticos não podem atravessar partições; rótulos fracionários ou incompatíveis são rejeitados.
-- A extração de treinamento exclui o teste. Checkpoints sintéticos, incompletos ou alterados são bloqueados para o teste real. Interrupções passam a registrar `interrupted`.
-- O limite de dois núcleos fica restrito ao teste curto; o treino real permite que o TensorFlow gerencie o paralelismo da CPU.
-- O transporte ganhou um comando que preserva IDs, rótulos e divisão e confere os arquivos no novo caminho.
+1. **Negativos difíceis murinos.** O B anterior rodou nas 455 imagens de treino de camundongo; 600 regiões positivas foram revisadas por Caio (517 negativas, 46 parasitas, 37 incertas). Só as 517 negativas entraram no treino, em `data/processed/b_hardneg/`. Registro: `data/annotations/hard_negatives_20261013/` e `data/processed/b_hardneg/assembly.json`.
+2. **Retreino com cinco sementes.** `b_hardneg_s42` (avaliado, em `experiments/runs/b_atual/`) e as sementes 123, 456, 789 e 1024 (`experiments/runs/b_hardneg_s*`), todas declaradas antes do treino.
+3. **Desenvolvimento.** Nas mesmas 367 imagens de 06/10, o B passou de 12.296 para 3.232 regiões positivas nos campos murinos, manteve a cobertura (423/450 pontos) e zerou os alarmes em negativos humanos (de 3 para 0 imagens). Saída: `experiments/comparison/a_vs_b_hardneg_20261013/`. Precisão revisada numa amostra aleatória de 200 regiões: `data/annotations/precision_B_val_20261013/precision.json`.
+4. **A no domínio original.** Rodado nas lâminas da FIOCRUZ, só em pasta temporária e sem guardar imagens: gera regiões nas versões já processadas (24 de 48 convertidas no Fiji; 14 de 22 filtradas por distância) e nenhuma nas fotos originais (0 de 59 do aparelho; 0 de 59 de 2023). Sem referência anotada, isso mostra só que o fluxo funciona com o pré-processamento para o qual foi feito. Números agregados em `experiments/validation/model_a_original_domain_20261013/summary.json`.
+5. **Congelamento.** `data/protocol/protocolo_congelado.json` registra os SHA-256 de 21 arquivos (código de avaliação, metodologia, plano estatístico, modelos, configuração, dados de treino, precisão de desenvolvimento e partição de teste). Alterar qualquer um deles é desvio de protocolo.
+6. **Teste final.** Aberto em 14/10/2026 (`data/protocol/teste_aberto.json`). Saída: `experiments/final_test_20261014/`. Precisão revisada às cegas em `data/annotations/precision_teste_final_20261014/`, com segundo avaliador (Victor) em 50 regiões.
 
-## Dados preparados
+## Resultado do teste final
 
-| Conjunto | Imagens | Recortes positivos | Recortes negativos | Imagens com negativos revisados |
-| --- | ---: | ---: | ---: | ---: |
-| Treino | 455 | 5.012 | 625 | 6 |
-| Validação | 114 | 1.196 | 186 | 2 |
-| Teste reservado | 105 | Não extraídos | Não extraídos | 0 |
+| Desfecho | A | B | B − A (IC 95%) |
+| --- | ---: | ---: | ---: |
+| Cobertura dos 441 pontos | 0,0% | 91,6% | 91,6% [88,9%; 94,2%] |
+| Imagens positivas sinalizadas (105) | 17,1% | 100,0% | 82,9% [75,2%; 89,5%] |
+| Negativos sem alarme (253, auxiliar) | 98,8% | 100,0% | 1,2% [0,0%; 2,8%] |
+| Precisão revisada por região | 0% (0/23) | 53,3% [44,9%; 62,5%] | — |
 
-São 7.019 recortes. O manifesto está em `data/splits/experimento/images.csv`, os recortes em `data/processed/b_real_01` e a referência em `data/annotations/experimento_reference_v2.json`. O relatório de prontidão de 25/09 aprovou os dados e o ambiente; após receber a execução, o mesmo nome de pasta fica bloqueado para evitar sobrescrita. A referência de avaliação final continua incompleta.
+McNemar exato nas positivas: 87 × 0 (p Holm = 2,6e-26); nas negativas: 3 × 0 (p = 0,25). Kappa de Cohen entre avaliadores: 0,73 em três categorias, 0,90 no binário sem incertas.
 
-A divisão preserva o teste original do ZIP; as demais imagens foram separadas em treino/validação com semente 42, estratificando a disponibilidade de negativos revisados. As oito imagens já examinadas não entram no teste.
+A referência positiva é parcial: regiões sem ponto publicado não são automaticamente falsos positivos, e a precisão vem da revisão humana. Os negativos são humanos (Kaggle/Barcelona), de outra aquisição; servem como resultado auxiliar, não como teste do mesmo domínio.
 
-## Verificação técnica
+Figuras e legendas: [tcc/figuras/teste_final_20261014](../tcc/figuras/teste_final_20261014/LEIA-ME.md). Texto: [resultados](../tcc/resultados_atuais.md).
 
-Na revisão de 25/09, passaram 77 testes automatizados e os cinco notebooks executaram em modo sintético. O relatório da suíte está em `experiments/validation/review_20260925_tests.xml`. Em 26/09, foram conferidos o ZIP recebido, os hashes do checkpoint e dos manifestos, as anotações, a configuração, as partições e o histórico. O checkpoint real foi reaberto e a validação reproduzida: 1.364/1.382 acertos, com cinco falsos positivos e treze falsos negativos em recortes. Auditoria: `experiments/validation/b_real_cpu_01_received_20260926/audit.json`.
+## O que falta
 
-## Próximo passo
+- Escrever a monografia (introdução, fundamentação, metodologia, resultados e discussão). Rascunho em andamento fora do repositório.
+- Manter no texto o resultado LABIMED do B anterior (33/33 alarmes) como resultado em outra aquisição; os dados estão em `archive/labimed_historico_20261005.zip`.
 
-O modelo real está em `experiments/runs/b_real_cpu_01/best.keras`, junto de todo o histórico recebido. Foram concluídas 26 épocas na CPU em aproximadamente 52 minutos; a melhor foi a época 19, seguida por sete épocas sem melhora. Não é necessário refazer esse treino. Preserve a execução; qualquer rodada futura deve usar outro nome.
+## Registros
 
-Examine os erros e o comportamento em imagens inteiras de desenvolvimento/validação. Prepare a referência necessária para a comparação A × B e esclareça a independência das amostras e o histórico do A antes de avaliar o teste reservado. A acurácia de recortes de validação não substitui essa etapa.
-
-## Limitações para o TCC
-
-- A fonte descreve sangue de camundongos, mas não temos o vínculo de cada imagem com animal/lâmina individual. `imagem_original` não comprova independência biológica; a divisão poderá precisar de nova versão se esses IDs forem obtidos.
-- Os negativos são áreas revisadas de campos positivos, provenientes de apenas oito imagens. Centenas de recortes não equivalem a centenas de amostras independentes. Ampliar a revisão é importante para uma avaliação robusta.
-- A localização inicial intersectou 26 de 28 pontos conhecidos nas oito imagens de desenvolvimento. Houve duas falhas; esse diagnóstico não é sensibilidade de detecção. Nenhum parâmetro foi escolhido com base no teste.
-- O teste atual contém somente campos positivos, com referência não exaustiva. Não permite concluir especificidade em lâminas negativas nem completar todas as métricas A × B.
-- O histórico de treinamento do A e possível sobreposição com esta base ainda precisam ser esclarecidos antes da comparação final. Consulte a [metodologia](metodologia.md).
+- Histórico das limpezas: [archive/README.md](../archive/README.md). A limpeza de 14/10/2026 está em `archive/limpeza_pos_teste_final_20261014.zip`.
+- O caminho de cada etapa da correção está em [roteiro_correcao_vies.md](roteiro_correcao_vies.md).

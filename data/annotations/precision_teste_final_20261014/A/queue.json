@@ -1,0 +1,377 @@
+{
+  "purpose": "estimativa_de_precisao_por_amostra",
+  "created_at": "2026-10-14T04:09:20.558684+00:00",
+  "regions_csv": "experiments\\final_test_20261014\\A\\regions.csv",
+  "regions_sha256": "312d5fc452d792dae8ab99b2b65ac7fc3df4cb406531420afcde6c9de3dc67b1",
+  "image_manifest": "experiments\\final_test_20261014\\images.csv",
+  "image_manifest_sha256": "a591fb0e426572d3521b925b97329682235b941118524e16471dbd436e1880c6",
+  "sampling": "amostra_aleatoria_simples_de_regioes_positivas",
+  "seed": 20261013,
+  "requested": 200,
+  "population_positive_regions": 24,
+  "eligible_images": 105,
+  "blind_review": true,
+  "final_test": true,
+  "items": [
+    {
+      "candidate_id": "017443f85dc13846bc6b143c",
+      "image_id": "img_09086fb78a35b9127315e369",
+      "region_candidate_id": 1,
+      "bbox": [
+        2117,
+        865,
+        2172,
+        892
+      ],
+      "score_suspect": 0.6654644012451172,
+      "crop_file": "crops/017443f85dc13846bc6b143c.png",
+      "context_file": "context/017443f85dc13846bc6b143c.jpg",
+      "crop_sha256": "38d6e8ce58f253432c712a8bf4a634872d4cc43cc174eb818fe47d72b47d8f45"
+    },
+    {
+      "candidate_id": "0a697f6672ee85e1369b75cf",
+      "image_id": "img_09086fb78a35b9127315e369",
+      "region_candidate_id": 2,
+      "bbox": [
+        2213,
+        889,
+        2256,
+        928
+      ],
+      "score_suspect": 0.7748851776123047,
+      "crop_file": "crops/0a697f6672ee85e1369b75cf.png",
+      "context_file": "context/0a697f6672ee85e1369b75cf.jpg",
+      "crop_sha256": "59b160785e0a6628f56dfc152af722a724f3aeeb0cbbc15f7ad7c7506075341b"
+    },
+    {
+      "candidate_id": "810e488b292978d2ee55dfc5",
+      "image_id": "img_199c864094e8158e41303ab7",
+      "region_candidate_id": 1,
+      "bbox": [
+        144,
+        1906,
+        166,
+        1965
+      ],
+      "score_suspect": 0.9430429935455322,
+      "crop_file": "crops/810e488b292978d2ee55dfc5.png",
+      "context_file": "context/810e488b292978d2ee55dfc5.jpg",
+      "crop_sha256": "ac1caa61ca66c0e4929d8584ef5ab0e861693ecac8279acbd2231da28b96c847"
+    },
+    {
+      "candidate_id": "bcb25936ac520985a928b005",
+      "image_id": "img_1dbdc8f506024947b25f5e8d",
+      "region_candidate_id": 1,
+      "bbox": [
+        895,
+        2826,
+        979,
+        2858
+      ],
+      "score_suspect": 0.9790939688682556,
+      "crop_file": "crops/bcb25936ac520985a928b005.png",
+      "context_file": "context/bcb25936ac520985a928b005.jpg",
+      "crop_sha256": "b9f27cb346c63b2d3905f5fec45923b0fbdac8d2d5ef58b90ac79d62d53cf297"
+    },
+    {
+      "candidate_id": "e7b48aa5cc904b4aa435c1e5",
+      "image_id": "img_2d982d3b439ee72c73ad75ba",
+      "region_candidate_id": 1,
+      "bbox": [
+        2752,
+        1161,
+        2798,
+        1201
+      ],
+      "score_suspect": 0.7735324501991272,
+      "crop_file": "crops/e7b48aa5cc904b4aa435c1e5.png",
+      "context_file": "context/e7b48aa5cc904b4aa435c1e5.jpg",
+      "crop_sha256": "3dfb12e8761a84c6368ae5e6db40f674e8c27d522870c6c0ac3ddc413be278d9"
+    },
+    {
+      "candidate_id": "5f935a871e8d53e85335055f",
+      "image_id": "img_32745d5670c1e2a05cdd42ee",
+      "region_candidate_id": 1,
+      "bbox": [
+        835,
+        2464,
+        888,
+        2487
+      ],
+      "score_suspect": 0.9556492567062378,
+      "crop_file": "crops/5f935a871e8d53e85335055f.png",
+      "context_file": "context/5f935a871e8d53e85335055f.jpg",
+      "crop_sha256": "57253c3430677fc8dcb9b98c388b55dfdc8c67acddcb368fe794163675544187"
+    },
+    {
+      "candidate_id": "112b1d484a7cb00b0bcc1499",
+      "image_id": "img_33402ce3ca5eb7e9d0c5e331",
+      "region_candidate_id": 1,
+      "bbox": [
+        210,
+        1170,
+        263,
+        1236
+      ],
+      "score_suspect": 0.9971154928207397,
+      "crop_file": "crops/112b1d484a7cb00b0bcc1499.png",
+      "context_file": "context/112b1d484a7cb00b0bcc1499.jpg",
+      "crop_sha256": "4cec718b6b117c8f3069207a5ec371c4d9b7c184dec93f7cb3619ecb0b9d05d3"
+    },
+    {
+      "candidate_id": "12259d056d3b5c314b9ea299",
+      "image_id": "img_5da6d448acb1743c88131f2a",
+      "region_candidate_id": 1,
+      "bbox": [
+        2326,
+        932,
+        2367,
+        990
+      ],
+      "score_suspect": 0.9282649755477905,
+      "crop_file": "crops/12259d056d3b5c314b9ea299.png",
+      "context_file": "context/12259d056d3b5c314b9ea299.jpg",
+      "crop_sha256": "9c0a98d1f0bf3810c8506334f7bcd9835cb0efc22fe7facf06649f644034b48b"
+    },
+    {
+      "candidate_id": "03c9e1d2d52a3c2b19f6af77",
+      "image_id": "img_75b710b76e1611a924e775c1",
+      "region_candidate_id": 1,
+      "bbox": [
+        1073,
+        2033,
+        1102,
+        2092
+      ],
+      "score_suspect": 0.9917826652526855,
+      "crop_file": "crops/03c9e1d2d52a3c2b19f6af77.png",
+      "context_file": "context/03c9e1d2d52a3c2b19f6af77.jpg",
+      "crop_sha256": "6047cb059931724dd3e7d144053eb6c43e2f6fa554e1e5d5f9aa2cdc16d10235"
+    },
+    {
+      "candidate_id": "6eeb39d09e0d023acde07de4",
+      "image_id": "img_791c56c2df698c5091eb5f01",
+      "region_candidate_id": 1,
+      "bbox": [
+        758,
+        1096,
+        799,
+        1135
+      ],
+      "score_suspect": 0.8921545147895813,
+      "crop_file": "crops/6eeb39d09e0d023acde07de4.png",
+      "context_file": "context/6eeb39d09e0d023acde07de4.jpg",
+      "crop_sha256": "0788603ed674eb14f67aaa94ec131a76326f485124b440ffab527481e7e681fe"
+    },
+    {
+      "candidate_id": "6a97abc9ae370f0474ccdc62",
+      "image_id": "img_80437d8ebbcd3088d556a9ea",
+      "region_candidate_id": 1,
+      "bbox": [
+        415,
+        1804,
+        463,
+        1840
+      ],
+      "score_suspect": 0.8666026592254639,
+      "crop_file": "crops/6a97abc9ae370f0474ccdc62.png",
+      "context_file": "context/6a97abc9ae370f0474ccdc62.jpg",
+      "crop_sha256": "a00dace6cd29fbbd3e60828329e8f9f853642128a029942aca779953b78c525b"
+    },
+    {
+      "candidate_id": "2f2709da9631904c60fec4cc",
+      "image_id": "img_9eb2de4f0e28f94cdaff90b5",
+      "region_candidate_id": 1,
+      "bbox": [
+        137,
+        2444,
+        192,
+        2489
+      ],
+      "score_suspect": 0.9076498746871948,
+      "crop_file": "crops/2f2709da9631904c60fec4cc.png",
+      "context_file": "context/2f2709da9631904c60fec4cc.jpg",
+      "crop_sha256": "cc92e9e50a73f9108460b720b10185c9cae043408f019a62571fa56e790e96d0"
+    },
+    {
+      "candidate_id": "505df191ab4dea821aa498fc",
+      "image_id": "img_9eb2de4f0e28f94cdaff90b5",
+      "region_candidate_id": 2,
+      "bbox": [
+        531,
+        2794,
+        582,
+        2826
+      ],
+      "score_suspect": 0.9067859649658203,
+      "crop_file": "crops/505df191ab4dea821aa498fc.png",
+      "context_file": "context/505df191ab4dea821aa498fc.jpg",
+      "crop_sha256": "9eeaf8b53cf65994fc3fdb8378a1af341ba0d4ddca8ff8a01c226ce4ea59e775"
+    },
+    {
+      "candidate_id": "0c7f2ff605494ed9c0d3a897",
+      "image_id": "img_9eb2de4f0e28f94cdaff90b5",
+      "region_candidate_id": 3,
+      "bbox": [
+        531,
+        2818,
+        570,
+        2848
+      ],
+      "score_suspect": 0.8104336857795715,
+      "crop_file": "crops/0c7f2ff605494ed9c0d3a897.png",
+      "context_file": "context/0c7f2ff605494ed9c0d3a897.jpg",
+      "crop_sha256": "5b952d1f9751d7bc5f4593e99357d62f18297c2981487da7cbdeacd01b3a8586"
+    },
+    {
+      "candidate_id": "b3387bd667c0bbccf343f844",
+      "image_id": "img_9eb2de4f0e28f94cdaff90b5",
+      "region_candidate_id": 4,
+      "bbox": [
+        566,
+        2828,
+        625,
+        2862
+      ],
+      "score_suspect": 0.907132089138031,
+      "crop_file": "crops/b3387bd667c0bbccf343f844.png",
+      "context_file": "context/b3387bd667c0bbccf343f844.jpg",
+      "crop_sha256": "8e5eef99426a91d6e714b5d3a39b6df232f96894f8e57ae7fb255b8754fc603a"
+    },
+    {
+      "candidate_id": "40cb758164fc44507bc77606",
+      "image_id": "img_a3ad8ae4201340784207e7b6",
+      "region_candidate_id": 1,
+      "bbox": [
+        561,
+        1624,
+        598,
+        1668
+      ],
+      "score_suspect": 0.9163102507591248,
+      "crop_file": "crops/40cb758164fc44507bc77606.png",
+      "context_file": "context/40cb758164fc44507bc77606.jpg",
+      "crop_sha256": "d7b6a3b62451b2d66a29b09b2043517d6282e5b7caada0a45edc8accc62b2192"
+    },
+    {
+      "candidate_id": "432e2415fcb25aa43a39a452",
+      "image_id": "img_b4b69176ea432b2590d6caba",
+      "region_candidate_id": 1,
+      "bbox": [
+        1530,
+        1649,
+        1565,
+        1685
+      ],
+      "score_suspect": 0.9786958694458008,
+      "crop_file": "crops/432e2415fcb25aa43a39a452.png",
+      "context_file": "context/432e2415fcb25aa43a39a452.jpg",
+      "crop_sha256": "6fc3a10281f34bf4e31c58da2b0773b22726ed1cf7cca8a8c908d941a5003f36"
+    },
+    {
+      "candidate_id": "ee22798afaf57ff7d1666038",
+      "image_id": "img_b5d07e19488d3973c38fa76c",
+      "region_candidate_id": 1,
+      "bbox": [
+        331,
+        3499,
+        364,
+        3547
+      ],
+      "score_suspect": 0.8854061365127563,
+      "crop_file": "crops/ee22798afaf57ff7d1666038.png",
+      "context_file": "context/ee22798afaf57ff7d1666038.jpg",
+      "crop_sha256": "63e451479859c100dc351e579952fd66f00f0889a790962d8f2823f755d3c22c"
+    },
+    {
+      "candidate_id": "69892df38cf885f0d75ea044",
+      "image_id": "img_c09cef1eeb2b839dcfd020df",
+      "region_candidate_id": 1,
+      "bbox": [
+        156,
+        2211,
+        180,
+        2267
+      ],
+      "score_suspect": 0.9990899562835693,
+      "crop_file": "crops/69892df38cf885f0d75ea044.png",
+      "context_file": "context/69892df38cf885f0d75ea044.jpg",
+      "crop_sha256": "d8e1441ff770be7ac84549c80bafc8069c2ac2101d18a9825f3e7a5072b6ce18"
+    },
+    {
+      "candidate_id": "a7829ff601c7655c059757e0",
+      "image_id": "img_c09cef1eeb2b839dcfd020df",
+      "region_candidate_id": 2,
+      "bbox": [
+        263,
+        2384,
+        287,
+        2431
+      ],
+      "score_suspect": 0.9975178241729736,
+      "crop_file": "crops/a7829ff601c7655c059757e0.png",
+      "context_file": "context/a7829ff601c7655c059757e0.jpg",
+      "crop_sha256": "9c1ee28ab715c41e18e2cbb155a566bf9156476b254cd6e2a883cb1546cf9f02"
+    },
+    {
+      "candidate_id": "e8ff0af43ac5c088d19e0650",
+      "image_id": "img_e0fa0933743a1462e0e82521",
+      "region_candidate_id": 1,
+      "bbox": [
+        1523,
+        1171,
+        1556,
+        1199
+      ],
+      "score_suspect": 0.9594423770904541,
+      "crop_file": "crops/e8ff0af43ac5c088d19e0650.png",
+      "context_file": "context/e8ff0af43ac5c088d19e0650.jpg",
+      "crop_sha256": "30414466fea0285a68aab1dfe3aa33cce7a698b1adf889c2d4cf5b6be6c91982"
+    },
+    {
+      "candidate_id": "0350fca86a9cda3b9fd60e4c",
+      "image_id": "img_f56e18c5b4d6019a2738e835",
+      "region_candidate_id": 1,
+      "bbox": [
+        1555,
+        791,
+        1614,
+        831
+      ],
+      "score_suspect": 0.8537465333938599,
+      "crop_file": "crops/0350fca86a9cda3b9fd60e4c.png",
+      "context_file": "context/0350fca86a9cda3b9fd60e4c.jpg",
+      "crop_sha256": "c7a08aa2cc31abb357150dc832d1803ed4f133eb0847ef46e14f26edbeccfe63"
+    },
+    {
+      "candidate_id": "0491313ef6a8dbc9c8baeee3",
+      "image_id": "img_f56e18c5b4d6019a2738e835",
+      "region_candidate_id": 2,
+      "bbox": [
+        1493,
+        799,
+        1553,
+        822
+      ],
+      "score_suspect": 0.7208799123764038,
+      "crop_file": "crops/0491313ef6a8dbc9c8baeee3.png",
+      "context_file": "context/0491313ef6a8dbc9c8baeee3.jpg",
+      "crop_sha256": "4e8f3ee47f57682d5b8b6b29d3357636708483486fdb8dcf23603cdae63676fc"
+    },
+    {
+      "candidate_id": "ab40210fdd80859646823b34",
+      "image_id": "img_fab1762307c0eeb94f420e6f",
+      "region_candidate_id": 1,
+      "bbox": [
+        2311,
+        925,
+        2367,
+        952
+      ],
+      "score_suspect": 0.6747609376907349,
+      "crop_file": "crops/ab40210fdd80859646823b34.png",
+      "context_file": "context/ab40210fdd80859646823b34.jpg",
+      "crop_sha256": "dc0c1eb9d8f2dc866c35185e268a02156fe3af9e1ef6d333c5c20bffc315144a"
+    }
+  ]
+}

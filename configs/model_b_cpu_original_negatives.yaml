@@ -1,0 +1,50 @@
+model:
+  name: EfficientNetB0
+  num_classes: 2
+  input_shape:
+  - 224
+  - 224
+  - 3
+  weights: imagenet
+  dropout_rate: 0.3
+  unfreeze_last_n: 30
+  label_smoothing: 0.1
+  batch_normalization: frozen
+training:
+  batch_size: 8
+  epochs: 40
+  learning_rate: 0.0001
+  optimizer: AdamW
+  weight_decay: 0.0001
+  scheduler: cosine_annealing
+  loss: categorical_crossentropy
+  patience: 7
+  augmentation: true
+  selection_monitor: val_loss
+  selection_mode: min
+  max_class_weight: 4
+augmentation:
+  policy: rotations_90_and_flips
+localization:
+  method: blackhat_otsu
+  kernel_size: 31
+  min_contrast: 8
+  min_area: 8
+  max_area: 2500
+  min_crop_size: 100
+  context_fraction: 0.5
+  border_policy: clip
+  merge_max_size: 224
+data:
+  image_size:
+  - 224
+  - 224
+  seed: 42
+class_weights: auto
+runs:
+  seeds:
+  - 42
+  - 123
+  - 456
+  - 789
+  - 1024

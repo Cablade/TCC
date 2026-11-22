@@ -56,6 +56,12 @@ def write_manifest(rows: Sequence[Mapping], path: str | Path, fields=None) -> No
 
 def read_image_bytes(path: str | Path) -> bytes:
     locator = str(path)
+    if locator.startswith('variant://'):
+        transform, separator, original = locator[10:].partition('!')
+        if not separator or not original or original.startswith('variant://'):
+            raise ValueError('Variação exige transformação e uma origem, sem encadeamento.')
+        from .robustness_dataset import variant_bytes
+        return variant_bytes(read_image_bytes(original), transform)
     if locator.startswith("zip://"):
         archive, separator, member = locator[6:].partition("!")
         if not separator or not member:

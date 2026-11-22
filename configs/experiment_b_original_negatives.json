@@ -1,0 +1,11 @@
+{
+  "name": "b_next_barcelona20",
+  "image_manifest": "data/processed/b_next/images.csv",
+  "annotations": "data/processed/b_next/annotations.json",
+  "crop_manifest": "data/processed/b_next/crops.csv",
+  "model_config": "configs/model_b_cpu_original_negatives.yaml",
+  "run_name": "b_next",
+  "output_dir": "experiments/runs",
+  "require_gpu": false,
+  "supplementary_policy": "configs/negative_sources_originals.json"
+}

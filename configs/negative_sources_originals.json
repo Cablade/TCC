@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "policies": [
+    "configs/negative_source_kaggle_originals.json",
+    "configs/negative_source_barcelona_training.json"
+  ]
+}

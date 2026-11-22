@@ -1,64 +1,53 @@
 # TCC — comparação A × B para detecção de Trypanosoma cruzi
 
-**Autores:** Victor Jacques e Caio Milão
+**Autores:** Victor Jacques e Caio Milão · **Orientador:** Prof. Rogério Mandelli · **Instituição:** UVA — Ciência da Computação.
 
-**Orientador:** Prof. Rogério Mandelli
+O estudo compara dois sistemas completos nas mesmas imagens microscópicas: **A**, o modelo Fuzzylab/FIOCRUZ avaliado como foi entregue, e **B**, proposto pelo TCC, com localização por black-hat e Otsu e classificação com EfficientNet-B0. O teste final de 105 imagens foi aberto uma única vez, em 14/10/2026, depois do congelamento do protocolo.
 
-**Instituição:** UVA — Universidade Veiga de Almeida · Ciência da Computação
+## Comece aqui
 
-O estudo compara dois sistemas em imagens microscópicas inteiras: **A**, com inferência original e pesos congelados do Vision/FuzzyLab/FIOCRUZ; e **B**, a proposta com localização configurável e EfficientNet-B0. A melhoria de B é uma hipótese a testar.
+- [Estado do trabalho](docs/status.md): o que terminou e o que falta.
+- [Guia da rotina](docs/guia_treinamento.md): modelos, dados, teste final e figuras.
+- [Metodologia](docs/metodologia.md) e [plano estatístico](docs/plano_estatistico.md): congelados no protocolo.
+- [Dados e revisão](docs/dados.md): fontes autorizadas e limitações.
+- [Ambiente](docs/ambiente.md): instalação, testes e transporte.
+- [Mapa dos comandos](scripts/README.md): finalidade dos scripts.
 
-## Por onde começar
+## Dois modelos
 
-1. [Preparar o computador](docs/ambiente.md): instalação Windows/CPU, limites da RX 6600 e transferência dos arquivos.
-2. [Seguir o guia de treinamento](docs/guia_treinamento.md): preparar os dados, treinar B e comparar com A.
-3. [Consultar o que falta](docs/status.md): prontidão e próximos passos.
+| Modelo | Arquivo |
+| --- | --- |
+| A, como entregue | `models/model_a/model_trained.keras` |
+| B avaliado (`b_hardneg_s42`) | `experiments/runs/b_atual/best.keras` |
 
-O primeiro treino real foi concluído e conferido em 26/09/2026: o checkpoint da época 19 reproduziu **98,70% de acerto nos recortes de validação**, sem avaliar o teste final. São 674 imagens utilizáveis, divididas em 455 para treino, 114 para validação e 105 reservadas para teste; 7.019 recortes de treino/validação. A referência combina 2.715 pontos positivos publicados e 29 regiões negativas revisadas em oito imagens. **Somente o ZIP público autorizado entra no treinamento.** A divisão é por imagem, sem independência entre animais comprovada; os poucos negativos e a referência incompleta do teste limitam a avaliação científica.
+`experiments/runs/b_atual/` é o lugar fixo do B em uso; `metadata.json` → `run_name` identifica o treino. O B foi treinado com `data/processed/b_hardneg/`: 4.898 recortes de treino (3.053 positivos/1.845 negativos, dos quais 517 negativos difíceis murinos revisados) e 1.070 de validação. As outras quatro sementes estão em `experiments/runs/b_hardneg_s*` e servem para a estabilidade entre treinos.
 
-O modelo recebido e seu histórico estão em `experiments/runs/b_real_cpu_01`. Consulte o [relatório da execução](experiments/validation/b_real_cpu_01_received_20260926/relatorio.md) e os [próximos passos](docs/status.md). O pacote `entrega_modelo_b_20260925.zip` conserva a preparação original para transporte; uma nova rodada precisa de outro nome de execução, conforme o [guia](docs/guia_treinamento.md).
+## Resultado do teste final
+
+105 imagens murinas de teste (441 pontos publicados) e 253 negativos humanos de outra aquisição como resultado auxiliar. IC 95% por bootstrap pareado de imagens.
+
+| Desfecho | A | B |
+| --- | ---: | ---: |
+| Cobertura dos pontos publicados | 0,0% | 91,6% [88,9%; 94,2%] |
+| Precisão revisada por região | 0,0% (0/23) | 53,3% [44,9%; 62,5%] |
+| Imagens positivas sinalizadas | 17,1% | 100,0% |
+| Negativos sem alarme (auxiliar) | 98,8% | 100,0% |
+
+McNemar nas positivas: só B acerta 87, só A acerta 0 (p Holm = 2,6e-26). Concordância entre dois avaliadores em 50 regiões: kappa 0,73 (três categorias) e 0,90 (binário, sem incertas).
+
+[Texto dos resultados](tcc/resultados_atuais.md) · [Figuras do teste final](tcc/figuras/teste_final_20261014/LEIA-ME.md) · [Estatística completa](experiments/final_test_20261014/stats.md).
 
 ## Organização
 
 | Pasta | Responsabilidade |
 | --- | --- |
-| `src/` | Regras de dados, localização, modelos, treino e avaliação |
-| `scripts/` | Comandos para preparar, conferir e executar o experimento |
-| `configs/` | Configurações dos dados, modelos e execuções |
-| `models/model_a/` | Artefato original do A, congelado, e registro da cópia |
-| `tests/` | Verificações automatizadas |
-| `notebooks/` | Exploração e apresentação do fluxo |
-| `data/` | Imagens, anotações, manifestos e recortes locais |
-| `experiments/` | Resultados, checkpoints e registros de execução |
-| `docs/` | Documentação vigente, organizada por finalidade |
-| `tcc/` | Material de redação e figuras do trabalho acadêmico |
-| `archive/` | Cópia compactada da documentação anterior, fora do fluxo de trabalho |
+| `src/`, `scripts/`, `configs/` | Regras, comandos e configurações |
+| `models/model_a/`, `experiments/runs/` | Os modelos e seus registros de treino |
+| `experiments/comparison/` | Comparações de desenvolvimento (antes e depois da correção do viés) |
+| `experiments/final_test_20261014/` | Previsões e estatística do teste final |
+| `data/` | Fontes, revisões, partições, recortes e registros do protocolo |
+| `docs/`, `tcc/` | Documentação, texto e figuras acadêmicas |
+| `tests/`, `notebooks/` | Verificação e exploração |
+| `archive/` | Histórico compactado, fora da rotina |
 
-## Consultas específicas
-
-| Assunto | Documento |
-| --- | --- |
-| Bases, anotações públicas e fontes de negativos | [Dados](docs/dados.md) |
-| Revisão visual e formato das anotações | [Anotações](docs/anotacoes.md) |
-| Regras e limitações do experimento | [Metodologia](docs/metodologia.md) |
-| Objetivos e hipóteses do TCC | [Proposta](docs/proposta.md) |
-| Bibliografia | [Referências](docs/referencias.md) |
-
-## Conferir a instalação
-
-No terminal da pasta que contém este README, após instalar o ambiente:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/start_training.py --experiment configs/experiment_cpu.json --check-only
-```
-
-O comando informa as pendências sem iniciar treino. A configuração CPU é a opção preparada para o Windows com RX 6600. Dados, pesos e resultados não acompanham automaticamente o Git; use as instruções de transferência do ambiente.
-
-## Modelos para a comparação
-
-- **A:** `models/model_a/model_trained.keras`, caminho padrão de `scripts/run_model_a.py`; cópia idêntica ao original, sem novo treinamento.
-- **B:** `experiments/runs/b_real_cpu_01/best.keras`; preserve também os arquivos de configuração, metadados e histórico nessa pasta.
-
-Ambos estão dentro deste projeto. Para levar a comparação a outro computador, copie essas duas pastas além dos dados e do código. O ZIP inicial de entrega do treinamento não contém os modelos prontos.
-
-Consulte [LICENSE](LICENSE) para o código. A origem e as condições de uso dos conjuntos de imagens ficam no documento de dados.
+A `.venv` e o Python em `.cache/python` são necessários neste PC. Dados e modelos grandes são locais e não acompanham o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.

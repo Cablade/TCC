@@ -1,0 +1,15 @@
+{
+  "source": "https://www.kaggle.com/datasets/paultimothymooney/blood-cells",
+  "archive": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\data\\external_candidates\\kaggle_blood_cells\\source_v6.zip",
+  "expected_archive_sha256": "38e9d5fc04e4bfb562dd6f170175e5fb12e8460b5a92cf226b0f96549e280d06",
+  "inventory": "data/annotations/kaggle_originals_20261005/inventory.csv",
+  "inventory_sha256": "b2e18c30efeeadbe35348bc9dfa05b112ca61f98a2bd80512e716abc24564dda",
+  "allowed_member_prefix": "dataset-master/dataset-master/JPEGImages/",
+  "negative_only": true,
+  "allowed_splits": [
+    "train",
+    "val",
+    "development"
+  ],
+  "max_crops_per_image": 4
+}

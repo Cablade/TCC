@@ -1,0 +1,133 @@
+{
+  "queue_sha256": "dca463771fb44c6528e8e8d08d2a5bede7e1ff5c401355a9475db7cab5efe88f",
+  "reviewer": "Caio Henrique",
+  "exported_at": "2026-10-14T04:17:05.258Z",
+  "total_items": 24,
+  "decisions": [
+    {
+      "candidate_id": "03c9e1d2d52a3c2b19f6af77",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:11:39.684Z"
+    },
+    {
+      "candidate_id": "432e2415fcb25aa43a39a452",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:11:59.877Z"
+    },
+    {
+      "candidate_id": "5f935a871e8d53e85335055f",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:08.518Z"
+    },
+    {
+      "candidate_id": "2f2709da9631904c60fec4cc",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:09.257Z"
+    },
+    {
+      "candidate_id": "112b1d484a7cb00b0bcc1499",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:13.011Z"
+    },
+    {
+      "candidate_id": "6a97abc9ae370f0474ccdc62",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:25.186Z"
+    },
+    {
+      "candidate_id": "12259d056d3b5c314b9ea299",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:29.892Z"
+    },
+    {
+      "candidate_id": "0350fca86a9cda3b9fd60e4c",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:31.214Z"
+    },
+    {
+      "candidate_id": "ee22798afaf57ff7d1666038",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:43.100Z"
+    },
+    {
+      "candidate_id": "e8ff0af43ac5c088d19e0650",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:12:44.353Z"
+    },
+    {
+      "candidate_id": "0c7f2ff605494ed9c0d3a897",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:13:07.751Z"
+    },
+    {
+      "candidate_id": "6eeb39d09e0d023acde07de4",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:13:36.372Z"
+    },
+    {
+      "candidate_id": "69892df38cf885f0d75ea044",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:14:15.326Z"
+    },
+    {
+      "candidate_id": "e7b48aa5cc904b4aa435c1e5",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:00.345Z"
+    },
+    {
+      "candidate_id": "0491313ef6a8dbc9c8baeee3",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:16.459Z"
+    },
+    {
+      "candidate_id": "017443f85dc13846bc6b143c",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:17.712Z"
+    },
+    {
+      "candidate_id": "0a697f6672ee85e1369b75cf",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:18.320Z"
+    },
+    {
+      "candidate_id": "810e488b292978d2ee55dfc5",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:23.958Z"
+    },
+    {
+      "candidate_id": "b3387bd667c0bbccf343f844",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:30.014Z"
+    },
+    {
+      "candidate_id": "ab40210fdd80859646823b34",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:35.463Z"
+    },
+    {
+      "candidate_id": "505df191ab4dea821aa498fc",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:50.737Z"
+    },
+    {
+      "candidate_id": "bcb25936ac520985a928b005",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:51.664Z"
+    },
+    {
+      "candidate_id": "a7829ff601c7655c059757e0",
+      "decision": "nao_parasita",
+      "reviewed_at": "2026-10-14T04:15:58.584Z"
+    },
+    {
+      "candidate_id": "40cb758164fc44507bc77606",
+      "decision": "incerto",
+      "reviewed_at": "2026-10-14T04:16:27.306Z"
+    }
+  ],
+  "derived_from_blind_review": {
+    "decisions": "data\\annotations\\precision_teste_final_20261014\\revisao_cega\\decisions.json",
+    "decisions_sha256": "6e91d7de997d672be2a335afed4fbccc91a70fa26acac59073315f77e3ed0d53",
+    "blind_queue_sha256": "f154585a0ce1f33b24082bc7dc4bc76f7015e29b6a026d9fde260551afce77d6"
+  }
+}

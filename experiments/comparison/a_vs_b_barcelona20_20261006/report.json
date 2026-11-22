@@ -1,0 +1,437 @@
+{
+  "summary": {
+    "positive_val": {
+      "A": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 27,
+          "sem_regioes": 87
+        },
+        "signaled_images": 27,
+        "errors": 0,
+        "candidates": 42,
+        "positive_regions": 42,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 27.623406800003067,
+        "median_seconds": 0.18819845000007263,
+        "timing_count": 114
+      },
+      "B": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 114
+        },
+        "signaled_images": 114,
+        "errors": 0,
+        "candidates": 25695,
+        "positive_regions": 12296,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 425,
+        "matched_positive_regions": 424,
+        "algorithm_seconds": 273.506803199999,
+        "median_seconds": 2.2770171500001197,
+        "timing_count": 114
+      }
+    },
+    "kaggle_negative_val": {
+      "A": {
+        "n_images": 73,
+        "status_counts": {
+          "sem_regioes": 73
+        },
+        "signaled_images": 0,
+        "errors": 0,
+        "candidates": 0,
+        "positive_regions": 0,
+        "false_alarm_images": 0,
+        "rejected_negative_images": 73,
+        "false_positive_regions": 0,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.18658649999997579,
+        "median_seconds": 0.002480000000105065,
+        "timing_count": 73
+      },
+      "B": {
+        "n_images": 73,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 73
+        },
+        "signaled_images": 0,
+        "errors": 0,
+        "candidates": 1138,
+        "positive_regions": 0,
+        "false_alarm_images": 0,
+        "rejected_negative_images": 73,
+        "false_positive_regions": 0,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 11.579850699999042,
+        "median_seconds": 0.15999060000012832,
+        "timing_count": 73
+      }
+    },
+    "barcelona_negative": {
+      "A": {
+        "n_images": 180,
+        "status_counts": {
+          "sem_regioes": 177,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 3,
+        "positive_regions": 3,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 177,
+        "false_positive_regions": 3,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.5449894999965181,
+        "median_seconds": 0.001511549999804629,
+        "timing_count": 180
+      },
+      "B": {
+        "n_images": 180,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 177,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 1082,
+        "positive_regions": 5,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 177,
+        "false_positive_regions": 5,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 11.214307099997313,
+        "median_seconds": 0.06176295000000209,
+        "timing_count": 180
+      }
+    }
+  },
+  "class_summary": {
+    "positive": {
+      "A": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 27,
+          "sem_regioes": 87
+        },
+        "signaled_images": 27,
+        "errors": 0,
+        "candidates": 42,
+        "positive_regions": 42,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 27.623406800003067,
+        "median_seconds": 0.18819845000007263,
+        "timing_count": 114
+      },
+      "B": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 114
+        },
+        "signaled_images": 114,
+        "errors": 0,
+        "candidates": 25695,
+        "positive_regions": 12296,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 425,
+        "matched_positive_regions": 424,
+        "algorithm_seconds": 273.506803199999,
+        "median_seconds": 2.2770171500001197,
+        "timing_count": 114
+      }
+    },
+    "negative": {
+      "A": {
+        "n_images": 253,
+        "status_counts": {
+          "sem_regioes": 250,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 3,
+        "positive_regions": 3,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 250,
+        "false_positive_regions": 3,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.7315759999964939,
+        "median_seconds": 0.0016387000000577245,
+        "timing_count": 253
+      },
+      "B": {
+        "n_images": 253,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 250,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 2220,
+        "positive_regions": 5,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 250,
+        "false_positive_regions": 5,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 22.794157799996356,
+        "median_seconds": 0.06850239999994301,
+        "timing_count": 253
+      }
+    }
+  },
+  "presentation_grouping": "whole_image_label",
+  "protocol": {
+    "created_at": "2026-10-06T23:24:11.731095+00:00",
+    "cohorts": {
+      "positive_val": 114,
+      "kaggle_negative_val": 73,
+      "barcelona_negative": 180
+    },
+    "checkpoint": {
+      "A": {
+        "label": "A original",
+        "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\models\\model_a\\model_trained.keras",
+        "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f"
+      },
+      "B": {
+        "label": "B atual",
+        "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01\\best.keras",
+        "sha256": "915a0b36ee012476356d38f8ae94bae1c59748837d2deb409b31cfc59177d176"
+      }
+    },
+    "source_hashes": {
+      "data\\splits\\experimento\\images.csv": "505bccf73cb44d94a43d1c37d3ccb4a084ca003117e81fa6f6331fd182e5d5da",
+      "data\\processed\\b_real_01\\images.csv": "d1813c9734aaead2a9dd9301514ad9433bf0f8d62ff0e430e084483fbd9f569a",
+      "data\\annotations\\kaggle_originals_20261005\\human_approval_all_originals.json": "58d25961b04efe2d6446388b54bdf60287c69fa9a8a6c41abc17b7a0380b27b0",
+      "data\\annotations\\kaggle_originals_20261005\\reviewed.json": "023eae43afbafec9b845c9c5b9f8beef91ec1fac39d79c56de0798493f1f412f",
+      "data\\protocol\\barcelona_split_20261006\\comparison.csv": "fec9613df63ba2905c4e85b4c2e03383112e284216804b8ad5df48cc1a8062b6",
+      "data\\protocol\\barcelona_split_20261006\\comparison_annotations.json": "56e4c0c080ac94e087baff3cdee75073bc52d72a024387b960e5439426d7d4ac",
+      "data\\protocol\\barcelona_split_20261006\\authorization.json": "6bc8186e5ef1a5f68f2505a34bdec247cc2a2f0719ca1f4a549a46f4d646cbae",
+      "configs\\comparison_a_vs_b.json": "399271054825398183e0664e3af93c951e3fbd206704bfdb23caa79efdec6225",
+      "data\\processed\\b_next\\images.csv": "ade26d0c37f4774f5f11ecdc37c18feed24acc79c4fa84a064f44819206ce36b"
+    },
+    "scope": "Negativos originais Kaggle da validação e, quando houver reserva 20/180, somente os 180 Barcelona destinados à comparação. Fontes separadas; versões aumentadas do fornecedor excluídas.",
+    "scope_change": "LABIMED retirado a pedido do usuário após inspeção dos resultados. Histórico integral em archive/labimed_historico_20261005.zip. Barcelona: reserva de 20 para próximo treino feita após diagnóstico das 200; 180 na comparação de desenvolvimento. Exclusões não demonstram a causa dos alarmes.",
+    "evaluation": "development_only",
+    "test_images_excluded": 105,
+    "decision_rule": "any_argmax_positive_region",
+    "threads": 2,
+    "B_execution": "tf_function",
+    "timing": "Uma execução sequencial por modelo; sem exportação PNG, sem aquecimento explícito. Não é benchmark repetido.",
+    "reference": "Pontos positivos parciais; negativos declarados visualmente por Caio. Coortes separadas, sem acurácia global misturando fontes.",
+    "training_update": {
+      "status": "complete",
+      "barcelona_training_originals": 20,
+      "added_barcelona_negative_crops": 80,
+      "training_dataset_sha256": "ade26d0c37f4774f5f11ecdc37c18feed24acc79c4fa84a064f44819206ce36b",
+      "selected_epoch": 10,
+      "selected_val_loss": 0.2153298556804657,
+      "old_checkpoint_archived": true,
+      "training_run": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01"
+    }
+  },
+  "provenance": {
+    "A": {
+      "system": "A",
+      "split": "development",
+      "manifest_sha256": "7cd809eaacac989d831b6cf7282c1c7acaab2effb09fc10cba1267ac9fb2e623",
+      "synthetic": false,
+      "artifact": {
+        "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f",
+        "artifact_bytes": 94985071,
+        "keras_metadata": {
+          "keras_version": "2.15.0",
+          "date_saved": "2025-12-28@21:39:04"
+        },
+        "tensorflow": "2.15.0",
+        "keras": "2.15.0",
+        "opencv": "4.9.0",
+        "python": "3.11.9",
+        "platform": "Windows-10-10.0.26300-SP0",
+        "hardware": {
+          "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+          "devices": [
+            "/physical_device:CPU:0"
+          ]
+        },
+        "reference_repository": "https://github.com/Cablade/VisionCruzi",
+        "reference_commit": "59b10244f2ce5cfabff7bece404cb5679668a45d",
+        "class_labels": [
+          "0",
+          "1"
+        ],
+        "class_mapping_source": "label_encoder.dat classes_=['0','1']; API _build_summary",
+        "normalized_copy": false,
+        "training_time_seconds": null,
+        "preservation": {
+          "tensor_count": 329,
+          "original_unchanged": true
+        },
+        "model_weight_count": 320,
+        "load_seconds": 6.814908099999911,
+        "tensorflow_threads": {
+          "intra_op": 2,
+          "inter_op": 2
+        },
+        "overlays_saved": false
+      }
+    },
+    "B": {
+      "system": "B",
+      "split": "development",
+      "manifest_sha256": "7cd809eaacac989d831b6cf7282c1c7acaab2effb09fc10cba1267ac9fb2e623",
+      "synthetic": false,
+      "artifact": {
+        "system": "B",
+        "split": "development",
+        "manifest_sha256": "7cd809eaacac989d831b6cf7282c1c7acaab2effb09fc10cba1267ac9fb2e623",
+        "trained_on_synthetic_data": false,
+        "checkpoint_sha256": "915a0b36ee012476356d38f8ae94bae1c59748837d2deb409b31cfc59177d176",
+        "checkpoint_bytes": 28861181,
+        "config": {
+          "model": {
+            "name": "EfficientNetB0",
+            "num_classes": 2,
+            "input_shape": [
+              224,
+              224,
+              3
+            ],
+            "weights": "imagenet",
+            "dropout_rate": 0.3,
+            "unfreeze_last_n": 30,
+            "label_smoothing": 0.1,
+            "batch_normalization": "frozen"
+          },
+          "training": {
+            "batch_size": 8,
+            "epochs": 40,
+            "learning_rate": 0.0001,
+            "optimizer": "AdamW",
+            "weight_decay": 0.0001,
+            "scheduler": "cosine_annealing",
+            "loss": "categorical_crossentropy",
+            "patience": 7,
+            "augmentation": true,
+            "selection_monitor": "val_loss",
+            "selection_mode": "min",
+            "max_class_weight": 4
+          },
+          "augmentation": {
+            "policy": "rotations_90_and_flips"
+          },
+          "localization": {
+            "method": "blackhat_otsu",
+            "kernel_size": 31,
+            "min_contrast": 8,
+            "min_area": 8,
+            "max_area": 2500,
+            "min_crop_size": 100,
+            "context_fraction": 0.5,
+            "border_policy": "clip",
+            "merge_max_size": 224
+          },
+          "data": {
+            "image_size": [
+              224,
+              224
+            ],
+            "seed": 42
+          },
+          "class_weights": "auto",
+          "runs": {
+            "seeds": [
+              42,
+              123,
+              456,
+              789,
+              1024
+            ]
+          },
+          "resolved_class_weights": {
+            "1": 0.7174909924664264,
+            "0": 1.649472891566265
+          },
+          "sampling": {
+            "policy": "all_crops_once_per_epoch",
+            "oversampling": false,
+            "undersampling": false,
+            "train_counts": {
+              "1": 3053,
+              "0": 1328
+            }
+          },
+          "dataset_counts": {
+            "train": 4381,
+            "val": 1070
+          }
+        },
+        "versions": {
+          "python": "3.11.9",
+          "platform": "Windows-10-10.0.26300-SP0",
+          "packages": {
+            "tensorflow": "2.15.0",
+            "tensorflow-intel": "2.15.0",
+            "keras": "2.15.0",
+            "numpy": "1.26.3",
+            "opencv-python": "4.9.0.80",
+            "pandas": "2.1.4"
+          }
+        },
+        "model_load_seconds": 5.7675578999997015,
+        "hardware": [
+          "/physical_device:CPU:0"
+        ],
+        "scores_are_calibrated_probabilities": false,
+        "decision_rule": "any argmax(scores)==1",
+        "execution_mode": "tf_function",
+        "overlays_saved": false,
+        "image_mode": "none",
+        "export_errors": 0,
+        "tensorflow_threads": {
+          "intra_op": 2,
+          "inter_op": 2
+        }
+      }
+    }
+  },
+  "input_sha256": {
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\images.csv": "7cd809eaacac989d831b6cf7282c1c7acaab2effb09fc10cba1267ac9fb2e623",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\annotations.json": "c6764cea7d65f0e19ae4bd90ce7cf095fd62cb246c482e3a91ce0471aabcd1a8",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\protocol.json": "7c9a18c6bedd01a686a4f3614517a2ddc7ab048be581a00b57dc57b0a1057973",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\A\\predictions.json": "8e982733bea4d74fd0a47f47398fc45d2826f0d691972b709134ed65aee7377f",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\B\\predictions.json": "480023704bbed58c247e8f9441cc84a03c282515406e43d4901cd1b8db88b2dd"
+  },
+  "paired_images": 367,
+  "final_test_opened": false
+}

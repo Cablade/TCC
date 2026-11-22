@@ -1,0 +1,53 @@
+{
+  "stats_sha256": "629d0f0a3baf12771d7c1f5ded803a86e5e0780864a12375873bc3565a238960",
+  "figures": [
+    {
+      "name": "01_desfechos_primarios",
+      "caption": "Teste final: 105 imagens murinas, 441 pontos publicados. Cobertura: pontos associados um a um a regiões positivas; IC 95% por bootstrap pareado de imagens (10.000 réplicas); em 0% ou 100%, IC exato de Clopper-Pearson. Precisão: amostra revisada às cegas (A: todas as 24 regiões; B: 200 de 3028), IC por bootstrap de imagens."
+    },
+    {
+      "name": "02_decisao_por_imagem",
+      "caption": "McNemar exato nas positivas: só A acerta 0, só B acerta 87 (p Holm = 2.6e-26). Negativos de outra aquisição (73 Kaggle, 180 Barcelona) avaliados com os mesmos checkpoints; resultado auxiliar."
+    },
+    {
+      "name": "03_regioes_por_imagem",
+      "caption": "Distribuição por imagem. A referência publicada é parcial: com precisão revisada de cerca de 53%, o B sinaliza mais parasitas do que os pontos publicados."
+    },
+    {
+      "name": "04_avanco_treinamento_B",
+      "caption": "Desenvolvimento (114 campos murinos de validação e 253 negativos humanos), mesmas imagens nas duas execuções. A mineração e revisão de 517 negativos difíceis murinos (só treino) reduziu as regiões por campo sem perder cobertura e zerou os alarmes em negativos humanos."
+    },
+    {
+      "name": "05_estabilidade_sementes",
+      "caption": "Cinco treinos do B com sementes declaradas antes do treino; a semente 42 (destacada) é o modelo avaliado no teste. Validação de 1.070 recortes."
+    },
+    {
+      "name": "06_treinamento_B",
+      "caption": "B avaliado (b_hardneg_s42): EfficientNet-B0, AdamW, cosseno, época escolhida por menor val_loss (época 9). Sem histórico de treino comparável do A."
+    },
+    {
+      "name": "07_tempo",
+      "caption": "Execução única em CPU, duas threads, B em grafo TensorFlow; inclui a primeira imagem e exclui leitura e exportação. Descritivo, não é benchmark repetido."
+    },
+    {
+      "name": "08_overlay_1",
+      "caption": "img_9eb2de4f0e28f94cdaff90b5 (Zenodo, CC BY 4.0). A e B sobre a mesma imagem. Seleção determinística: positivas do teste = a com mais pontos entre as que o A sinalizou, a de carga mediana do B e a com mais pontos; negativas = a primeira de cada fonte por identificador. Ilustrativo, não é amostra representativa."
+    },
+    {
+      "name": "08_overlay_2",
+      "caption": "img_0fa0fd46387df17132f14eae (Zenodo, CC BY 4.0). A e B sobre a mesma imagem. Seleção determinística: positivas do teste = a com mais pontos entre as que o A sinalizou, a de carga mediana do B e a com mais pontos; negativas = a primeira de cada fonte por identificador. Ilustrativo, não é amostra representativa."
+    },
+    {
+      "name": "08_overlay_3",
+      "caption": "kaggle_original_052188b20794b44c19c78c7b (https://www.kaggle.com/datasets/paultimothymooney/blood-cells). A e B sobre a mesma imagem. Seleção determinística: positivas do teste = a com mais pontos entre as que o A sinalizou, a de carga mediana do B e a com mais pontos; negativas = a primeira de cada fonte por identificador. Ilustrativo, não é amostra representativa."
+    },
+    {
+      "name": "08_overlay_4",
+      "caption": "barcelona_original_01b7c6cd88c031177b694cb0 (https://data.mendeley.com/datasets/snkd93bnjr/1). A e B sobre a mesma imagem. Seleção determinística: positivas do teste = a com mais pontos entre as que o A sinalizou, a de carga mediana do B e a com mais pontos; negativas = a primeira de cada fonte por identificador. Ilustrativo, não é amostra representativa."
+    },
+    {
+      "name": "09_recortes_revisados",
+      "caption": "Recortes da revisão cega do teste, os primeiros de cada categoria em ordem de identificador (seleção determinística, não escolhida a dedo). O A não teve nenhuma região revisada como parasita."
+    }
+  ]
+}

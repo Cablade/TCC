@@ -2,6 +2,8 @@
 
 > Protocolo ativo, iniciado em 2026-09-20. Substitui os desenhos históricos. Este documento define o experimento; a evidência do que foi efetivamente executado deve ficar no checklist e nos relatórios de execução.
 
+Atualização de 06/10/2026: B retreinado com 20 originais Barcelona adicionais e comparado novamente com A original nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona). Apresentação em 114 imagens positivas e 253 negativas, com origens preservadas nos manifestos e tempos medidos nesta execução e nenhuma previsão antiga reutilizada. O [estado atual](status.md) e `experiments/comparison/a_vs_b_barcelona20_20261006/` registram a execução. O lote é desenvolvimento já examinado; as 105 imagens do teste final continuam reservadas. LABIMED saiu do fluxo ativo de comparação, mas o resultado (alarme do B em 33/33 imagens) permanece no texto como resultado em outra aquisição; retirá-lo depois de ver os números seria seleção posterior de resultados.
+
 ## 1. Unidade de comparação
 
 Comparar exatamente dois sistemas completos de localização e classificação de regiões suspeitas de *Trypanosoma cruzi*. O A usa os pesos já treinados e reproduz a inferência original. O B é a proposta, com localização configurável e EfficientNet-B0. Ambos recebem os mesmos IDs de **imagens inteiras** do conjunto reservado. Nenhum retreinamento do A será realizado. As etapas de localização não precisam ser iguais.
@@ -13,7 +15,7 @@ O arquivo `.keras` de A não representa sozinho o sistema: segmentação, recort
 - TCC inspecionado: commit `e056cd60739d2f4d6f74b329a24beb81b6ae916b`, com alterações locais existentes preservadas antes da revisão.
 - Referência indicada pelo pedido: `Cablade/Vision`.
 - Referência local encontrada: repositório com remoto `Cablade/VisionCruzi`, commit `59b10244f2ce5cfabff7bece404cb5679668a45d`. A equivalência com a referência indicada precisa ser registrada após confronto; não é presumida.
-- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a única base local selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md#base); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
+- Artefato `model_trained.keras` localizado. Desde 22/09/2026, a base positiva selecionada é `trypoastigote_images.zip`, auditada em [base atual](dados.md); os ZIPs anteriores estão excluídos. Sua presença não comprova anotações ou qualidade do modelo.
 
 Cada execução deve registrar commit e modificações locais relevantes, hash SHA-256 do modelo e dos dados, configuração, semente, manifestos, versões, hardware, tempos e caminhos de saída. Dados originais e pesos não devem ser sobrescritos nem incluídos automaticamente no Git.
 
@@ -27,9 +29,9 @@ Separar antes de gerar recortes ou aumentos. Persistir a semente e as atribuiç�
 
 ## 4. Anotações e negativos
 
-As [fontes candidatas de negativos](dados.md#negativos) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
+As [fontes candidatas de negativos](dados.md#negativos-originais-suplementares) devem ser avaliadas quanto a espécie, preparação, equipamento e nível do rótulo. Campo ou recorte sem parasita não equivale a lâmina/animal negativo. Não confundir a origem do conjunto com a classe; evitar positivos exclusivamente de uma fonte e negativos de outra. A base atual é de camundongos e não sustenta, por si, conclusões clínicas sobre humanos.
 
-O formato de referência está em [data/README.md](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
+O formato de referência está em [documento de anotações](anotacoes.md#formato). Coordenadas usam a imagem original: origem no canto superior esquerdo, x para a direita, y para baixo. Caixas `[x1,y1,x2,y2]` têm extremos direito/inferior exclusivos; pontos são `[x,y]`. Imagens e marcações devem declarar revisão e responsável. A ausência de marcação ou de arquivo de anotação nunca significa negativo.
 
 A referência exige revisão de alguém qualificado da equipe. Não gerar referência de avaliação a partir das próprias previsões. Regiões negativas devem ser explicitamente confirmadas; verificar a interseção de **todo o recorte** com positivos, inclusive bordas. Distância entre centros não basta. Regiões não anotadas continuam desconhecidas, salvo cobertura completa e negativa confirmada.
 
@@ -54,7 +56,7 @@ A localização deve ser executável, configurável e separada dos parâmetros c
 
 Para a EfficientNet do Keras com reescala interna, a entrada RGB mantém tipo e faixa compatíveis, sem segunda divisão por 255. Registrar a versão efetiva. Aumentos são aplicados apenas no treino; transformações devem respeitar a morfologia e aquisição. Registrar camadas congeladas, Batch Normalization, otimizador, taxa de aprendizado, regularização e semente. A configuração final deve refletir o código executado, não uma lista de técnicas prometidas.
 
-A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. Trata-se de um protótipo anterior à troca da base. Os valores de `configs/model_b.yaml` são provisórios e precisam ser examinados no desenvolvimento da base atual, sem transferir conclusões da base descartada. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
+A implementação inicial usa black-hat na luminância, Otsu com contraste mínimo, componentes conexos e recorte contextual com bordas limitadas à imagem. O perfil atual está em `configs/model_b_cpu_original_negatives.yaml`, com localização preservada no treino e na inferência. As escolhas foram feitas no desenvolvimento, sem transferir conclusões de fontes descartadas. A caixa avaliada é o recorte contextual; `proposal_bbox` registra o componente bruto. Interseção com positivo revisado rotula o crop para classificação; a métrica de detecção ainda exige IoU/ponto e associação um a um.
 
 Configuração efetiva: RGB float32 [0,255], resize bilinear TensorFlow comum ao treino e inferência, aumento apenas com rotações de 90 graus e espelhamentos. EfficientNet-B0, últimas 30 camadas elegíveis descongeladas (inclui camadas sem pesos na contagem), Batch Normalization congelada e base chamada com `training=False`, AdamW, LR inicial 1e-4, weight decay 1e-4, scheduler cosseno, dropout 0,3 e label smoothing 0,1. O smoke usa entrada 32 × 32, pesos aleatórios e base toda congelada, explicitamente para verificar execução.
 
@@ -81,7 +83,7 @@ Comparar A e B sobre os mesmos IDs de teste. Incluir imagens sem candidatos e fa
 
 Registrar tempo total e por etapa, hardware, aquecimento e condições de medição, tamanho dos artefatos e tempo de treino do B. Tempo de treino do A desconhecido fica indisponível. Ajustes de parâmetros e limiares usam somente desenvolvimento/validação. Resultados no teste não orientam nova seleção do mesmo experimento.
 
-Intervalos de confiança, quando viáveis, devem reamostrar grupos independentes e preservar o pareamento A × B. Recortes correlacionados e sementes não são novas amostras independentes. Poucos grupos podem impedir inferência estatística confiável; não há obrigação de Wilcoxon, folds ou significância.
+A análise estatística está definida no [plano estatístico](plano_estatistico.md): intervalos de confiança de 95% por bootstrap pareado, reamostrando imagens inteiras dentro de cada classe, para cobertura, precisão e taxas por imagem; McNemar exato para a decisão por imagem, com correção de Holm na família pré-declarada. Recortes correlacionados e sementes não são novas amostras independentes.
 
 ## 8. Limitações a manter no texto final
 
@@ -128,4 +130,40 @@ O diagnóstico suplementar de classificadores nos mesmos recortes de validação
 - Para detecção, revisar a referência necessária para identificar falsos positivos; não transformar regiões não anotadas em negativas. Para diagnóstico por lâmina, obter lâminas negativas e rótulos compatíveis antes de afirmar especificidade.
 - Esclarecer possível sobreposição do treino de A com a base e a identidade animal/lâmina. O uso de IDs iguais na avaliação não resolve essas pendências.
 
-O treino reduzido do B já autorizado é uma experiência de eficiência no desenvolvimento. Na conferência de 26/09 às 15:39, o processo da comparação de referência já não existia, o log estava parado desde 13:43 e não havia resultado final; o novo treino não havia iniciado. A causa da interrupção não foi determinada. Uma futura conclusão desse treino não aprova, por si, o desenho final do TCC. A avaliação final permanece reservada. Não alterar dados, limites ou métricas para garantir que B vença ou para aproximar artificialmente os resultados dos modelos.
+Não alterar dados, limites ou métricas para garantir a vitória de B ou aproximar artificialmente os resultados. As interrupções e preparações anteriores estão documentadas no arquivo histórico.
+
+## Protocolo adicional de robustez (ensaio anterior arquivado)
+
+Aplicar a cada uma das 187 imagens de desenvolvimento (114 positivas/73 negativas) as mesmas três transformações predefinidas, sem escolher intensidade pelo resultado: rotação 90° anti-horária, espelho horizontal e brilho multiplicado por 0,85. Os modelos, dados de treino, limiares e localização permanecem congelados. Aumentar ambos os grupos evita assimetria de condições, mas não elimina confusão entre fontes, espécies e aquisição.
+
+As 561 versões herdam a referência do original; transformações geométricas transportam pontos e caixas para os pixels correspondentes. Comparar decisões e cobertura por original/condição; não computar 748 vistas como 748 unidades independentes nem atribuir intervalos de confiança independentes a versões do mesmo original. Imagens de treino e as 105 de teste não entram. Resultados são exploratórios e adicionais à comparação principal, sem seleção de melhores versões.
+
+## Reserva Barcelona e separação de origens
+
+Após o diagnóstico das 200 imagens, Caio autorizou reservar 20 para treino e 180 para comparação. Semente 42, duas ou três imagens por tipo celular, sem consultar previsões. A autorização e os manifestos imutáveis estão em `data/protocol/barcelona_split_20261006/`. A disjunção é conferida por IDs, grupos, hashes de bytes e pixels; recortes e variantes das 20 imagens de treino ficam excluídos da avaliação. Como o lote já foi examinado, as 180 restantes são desenvolvimento, não teste final independente.
+
+O ensaio anterior de robustez e o diagnóstico das 200 pertencem ao B arquivado; resultados, figuras e a documentação anterior estão em `archive/limpeza_pos_retreino_20261006.zip`. O novo B exige nova inferência; não reutilizar previsões de outro checkpoint.
+
+## Treinamento concluído com os 20 originais Barcelona — 06/10/2026
+
+Após nova autorização de Caio, o B foi treinado novamente com as mesmas regras de arquitetura, localização, aumento e seleção, acrescentando os 80 recortes negativos dos 20 originais reservados. Todos os 4.381 recortes de treino foram consumidos uma vez por época, com pesos por classe calculados das novas contagens, sem oversampling/undersampling. A validação permanece com 1.070 recortes. Foram concluídas 17 épocas; o checkpoint da décima foi selecionado por menor `val_loss` (0,21533), salvo e reaberto. A acurácia correspondente de 99,25% refere-se somente aos recortes de validação.
+
+O B anterior foi arquivado integralmente e conferido por hashes. O A original permanece inalterado. A comparação pós-treino executa os dois modelos novamente nos mesmos 367 IDs (114 positivas, 73 negativas Kaggle e 180 negativas Barcelona); não reutiliza previsões do B anterior. O lote, rótulos, pontos e critérios de correspondência foram mantidos. Não usar os 20 originais de treino nem suas versões na avaliação.
+
+A distribuição anterior de Python 3.11.15 foi bloqueada pela política de assinatura do Windows; a execução usou Python oficial 3.11.9, preservando TensorFlow/Keras 2.15 e as demais dependências. Ambiente e reparo estão registrados junto à execução. A medição atual é uma execução sequencial por sistema em CPU, duas threads, sem exportação de imagens durante a inferência; não é benchmark repetido com aquecimento controlado. Os resultados antigos de robustez e das 200 Barcelona continuam históricos do checkpoint arquivado. O teste final de 105 imagens não foi aberto.
+
+## Apresentação por classe — 06/10/2026
+
+A pedido do autor, gráficos e tabelas visuais usam somente imagens positivas (114) e negativas (253). O agrupamento não altera partições, referências, modelos ou previsões. Medianas e distribuições de tempo dos negativos são recalculadas a partir de todas as imagens, sem fazer média das medianas das fontes. `class_summary` descreve os grupos visuais; `summary`, `cohort` e `source` conservam a procedência nos arquivos técnicos. Não interpretar o agrupamento como demonstração de generalização clínica ou equivalência entre aquisições.
+
+## Revisão de 13/10/2026 — viés de origem dos negativos
+
+A revisão de 13/10/2026 identificou que os positivos de treino são 100% murinos (Zenodo, smartphone, campo circular) e os negativos são majoritariamente humanos: 76 de 1.328 negativos de treino e 38 de 330 de validação vêm de camundongo. Nessas condições o classificador pode acertar reconhecendo a origem da imagem. As saídas do B confirmam esse risco: nas imagens humanas o escore médio de suspeita é 0,055 (máximo 0,35), enquanto nos campos murinos 12.296 de 25.695 regiões (48%) são sinalizadas, com mínimo de 35 e média de 108 por imagem, e apenas 738 delas (6%) contêm ponto publicado. A acurácia de 99,25% nos recortes de validação e os 3/253 alarmes em negativos humanos medem, portanto, sobretudo a separação de fontes, e não a detecção de *T. cruzi*. O conjunto não respeitou a regra da seção 4 ("evitar positivos exclusivamente de uma fonte e negativos de outra").
+
+Correção adotada antes de abrir o teste, detalhada no [roteiro](roteiro_correcao_vies.md):
+
+1. Negativos difíceis do mesmo domínio: o B atual é executado somente nas 455 imagens murinas de treino; regiões sinalizadas sem ponto publicado são sorteadas uniformemente e revisadas por Caio; só as confirmadas sem parasita entram no treino, como `negative_regions` revisadas.
+2. Novo treino do B com as cinco sementes declaradas; semente 42 como modelo principal.
+3. Precisão estimada na validação por revisão cega de amostra aleatória de 200 regiões positivas.
+4. Kaggle e Barcelona permanecem como teste auxiliar em outra aquisição.
+5. O A é executado nas imagens de exemplo do VisionCruzi, seu domínio original, para que a ausência de regiões em 87 de 114 campos murinos seja apresentada como falta de transferência entre aquisições, e não como suspeita sobre a reprodução.

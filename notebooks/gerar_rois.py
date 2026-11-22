@@ -108,7 +108,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--image-manifest", required=True)
     parser.add_argument("--annotations", required=True)
-    parser.add_argument("--config", default=str(ROOT / "configs/model_b.yaml"))
+    parser.add_argument("--config", default=str(ROOT / "configs/model_b_cpu_original_negatives.yaml"))
     parser.add_argument("--output-dir", default=str(ROOT / "data/processed/b"))
     parser.add_argument("--dry-run", action="store_true", help="Diagnostica candidatos sem salvar recortes.")
     parser.add_argument("--splits", nargs="+", choices=["train", "val", "development"],

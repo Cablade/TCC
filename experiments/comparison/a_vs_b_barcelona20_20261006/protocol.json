@@ -1,0 +1,56 @@
+{
+  "created_at": "2026-10-06T23:24:11.731095+00:00",
+  "cohorts": {
+    "positive_val": 114,
+    "kaggle_negative_val": 73,
+    "barcelona_negative": 180
+  },
+  "checkpoint": {
+    "A": {
+      "label": "A original",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\models\\model_a\\model_trained.keras",
+      "sha256": "9fd092567f2579ffd283d1796c472230853481de394a81159f312a598440893f"
+    },
+    "B": {
+      "label": "B atual",
+      "path": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_vies_origem_20261013\\b_atual\\best.keras",
+      "sha256": "915a0b36ee012476356d38f8ae94bae1c59748837d2deb409b31cfc59177d176"
+    }
+  },
+  "source_hashes": {
+    "data\\splits\\experimento\\images.csv": "505bccf73cb44d94a43d1c37d3ccb4a084ca003117e81fa6f6331fd182e5d5da",
+    "data\\processed\\b_real_01\\images.csv": "d1813c9734aaead2a9dd9301514ad9433bf0f8d62ff0e430e084483fbd9f569a",
+    "data\\annotations\\kaggle_originals_20261005\\human_approval_all_originals.json": "58d25961b04efe2d6446388b54bdf60287c69fa9a8a6c41abc17b7a0380b27b0",
+    "data\\annotations\\kaggle_originals_20261005\\reviewed.json": "023eae43afbafec9b845c9c5b9f8beef91ec1fac39d79c56de0798493f1f412f",
+    "data\\protocol\\barcelona_split_20261006\\comparison.csv": "fec9613df63ba2905c4e85b4c2e03383112e284216804b8ad5df48cc1a8062b6",
+    "data\\protocol\\barcelona_split_20261006\\comparison_annotations.json": "56e4c0c080ac94e087baff3cdee75073bc52d72a024387b960e5439426d7d4ac",
+    "data\\protocol\\barcelona_split_20261006\\authorization.json": "6bc8186e5ef1a5f68f2505a34bdec247cc2a2f0719ca1f4a549a46f4d646cbae",
+    "configs\\comparison_a_vs_b.json": "399271054825398183e0664e3af93c951e3fbd206704bfdb23caa79efdec6225",
+    "data\\processed\\b_next\\images.csv": "ade26d0c37f4774f5f11ecdc37c18feed24acc79c4fa84a064f44819206ce36b"
+  },
+  "scope": "Negativos originais Kaggle da validação e, quando houver reserva 20/180, somente os 180 Barcelona destinados à comparação. Fontes separadas; versões aumentadas do fornecedor excluídas.",
+  "scope_change": "LABIMED retirado a pedido do usuário após inspeção dos resultados. Histórico integral em archive/labimed_historico_20261005.zip. Barcelona: reserva de 20 para próximo treino feita após diagnóstico das 200; 180 na comparação de desenvolvimento. Exclusões não demonstram a causa dos alarmes.",
+  "evaluation": "development_only",
+  "test_images_excluded": 105,
+  "decision_rule": "any_argmax_positive_region",
+  "threads": 2,
+  "B_execution": "tf_function",
+  "timing": "Uma execução sequencial por modelo; sem exportação PNG, sem aquecimento explícito. Não é benchmark repetido.",
+  "reference": "Pontos positivos parciais; negativos declarados visualmente por Caio. Coortes separadas, sem acurácia global misturando fontes.",
+  "training_update": {
+    "status": "complete",
+    "barcelona_training_originals": 20,
+    "added_barcelona_negative_crops": 80,
+    "training_dataset_sha256": "ade26d0c37f4774f5f11ecdc37c18feed24acc79c4fa84a064f44819206ce36b",
+    "selected_epoch": 10,
+    "selected_val_loss": 0.2153298556804657,
+    "old_checkpoint_archived": true,
+    "training_run": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\runs\\b_val_01"
+  },
+  "historical_model": {
+    "status": "archived",
+    "promotion_record": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\archive\\b_vies_origem_20261013\\promotion.json",
+    "original_protocol_sha256": "7c9a18c6bedd01a686a4f3614517a2ddc7ab048be581a00b57dc57b0a1057973",
+    "note": "Resultados do B anterior preservados; somente caminho de acesso ao modelo atualizado."
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "input_sha256": {
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\images.csv": "7cd809eaacac989d831b6cf7282c1c7acaab2effb09fc10cba1267ac9fb2e623",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\annotations.json": "c6764cea7d65f0e19ae4bd90ce7cf095fd62cb246c482e3a91ce0471aabcd1a8",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\protocol.json": "7c9a18c6bedd01a686a4f3614517a2ddc7ab048be581a00b57dc57b0a1057973",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\A\\predictions.json": "8e982733bea4d74fd0a47f47398fc45d2826f0d691972b709134ed65aee7377f",
+    "experiments\\comparison\\a_vs_b_barcelona20_20261006\\B\\predictions.json": "480023704bbed58c247e8f9441cc84a03c282515406e43d4901cd1b8db88b2dd"
+  },
+  "class_summary": {
+    "positive": {
+      "A": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 27,
+          "sem_regioes": 87
+        },
+        "signaled_images": 27,
+        "errors": 0,
+        "candidates": 42,
+        "positive_regions": 42,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 27.623406800003067,
+        "median_seconds": 0.18819845000007263,
+        "timing_count": 114
+      },
+      "B": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 114
+        },
+        "signaled_images": 114,
+        "errors": 0,
+        "candidates": 25695,
+        "positive_regions": 12296,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 425,
+        "matched_positive_regions": 424,
+        "algorithm_seconds": 273.506803199999,
+        "median_seconds": 2.2770171500001197,
+        "timing_count": 114
+      }
+    },
+    "negative": {
+      "A": {
+        "n_images": 253,
+        "status_counts": {
+          "sem_regioes": 250,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 3,
+        "positive_regions": 3,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 250,
+        "false_positive_regions": 3,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.7315759999964939,
+        "median_seconds": 0.0016387000000577245,
+        "timing_count": 253
+      },
+      "B": {
+        "n_images": 253,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 250,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 2220,
+        "positive_regions": 5,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 250,
+        "false_positive_regions": 5,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 22.794157799996356,
+        "median_seconds": 0.06850239999994301,
+        "timing_count": 253
+      }
+    }
+  },
+  "summary": {
+    "positive_val": {
+      "A": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 27,
+          "sem_regioes": 87
+        },
+        "signaled_images": 27,
+        "errors": 0,
+        "candidates": 42,
+        "positive_regions": 42,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 27.623406800003067,
+        "median_seconds": 0.18819845000007263,
+        "timing_count": 114
+      },
+      "B": {
+        "n_images": 114,
+        "status_counts": {
+          "predicao_positiva": 114
+        },
+        "signaled_images": 114,
+        "errors": 0,
+        "candidates": 25695,
+        "positive_regions": 12296,
+        "false_alarm_images": null,
+        "rejected_negative_images": null,
+        "false_positive_regions": null,
+        "reference_points": 450,
+        "matched_proposals": 425,
+        "matched_positive_regions": 424,
+        "algorithm_seconds": 273.506803199999,
+        "median_seconds": 2.2770171500001197,
+        "timing_count": 114
+      }
+    },
+    "kaggle_negative_val": {
+      "A": {
+        "n_images": 73,
+        "status_counts": {
+          "sem_regioes": 73
+        },
+        "signaled_images": 0,
+        "errors": 0,
+        "candidates": 0,
+        "positive_regions": 0,
+        "false_alarm_images": 0,
+        "rejected_negative_images": 73,
+        "false_positive_regions": 0,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.18658649999997579,
+        "median_seconds": 0.002480000000105065,
+        "timing_count": 73
+      },
+      "B": {
+        "n_images": 73,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 73
+        },
+        "signaled_images": 0,
+        "errors": 0,
+        "candidates": 1138,
+        "positive_regions": 0,
+        "false_alarm_images": 0,
+        "rejected_negative_images": 73,
+        "false_positive_regions": 0,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 11.579850699999042,
+        "median_seconds": 0.15999060000012832,
+        "timing_count": 73
+      }
+    },
+    "barcelona_negative": {
+      "A": {
+        "n_images": 180,
+        "status_counts": {
+          "sem_regioes": 177,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 3,
+        "positive_regions": 3,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 177,
+        "false_positive_regions": 3,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 0.5449894999965181,
+        "median_seconds": 0.001511549999804629,
+        "timing_count": 180
+      },
+      "B": {
+        "n_images": 180,
+        "status_counts": {
+          "regioes_sem_predicao_positiva": 177,
+          "predicao_positiva": 3
+        },
+        "signaled_images": 3,
+        "errors": 0,
+        "candidates": 1082,
+        "positive_regions": 5,
+        "false_alarm_images": 3,
+        "rejected_negative_images": 177,
+        "false_positive_regions": 5,
+        "reference_points": 0,
+        "matched_proposals": 0,
+        "matched_positive_regions": 0,
+        "algorithm_seconds": 11.214307099997313,
+        "median_seconds": 0.06176295000000209,
+        "timing_count": 180
+      }
+    }
+  },
+  "figures": [
+    {
+      "name": "01_sinalizacoes",
+      "caption": "Mesmos IDs por grupo. Sinalização não comprova localização correta; nos negativos revisados, é falso alarme de desenvolvimento."
+    },
+    {
+      "name": "02_cobertura",
+      "caption": "Associação de cardinalidade máxima um a um: ponto dentro da caixa semiaberta. Referência parcial; não é sensibilidade geral nem precisão de detecção."
+    },
+    {
+      "name": "03_falsas_regioes",
+      "caption": "Regiões positivas nas imagens negativas confirmadas visualmente por Caio. Regiões não são pacientes independentes; referência positiva parcial não permite contar falsos positivos nas imagens positivas."
+    },
+    {
+      "name": "04_tempo",
+      "caption": "Tempo exclui leitura/exportação e inclui primeira imagem. Execução única em CPU, duas threads, B compilado; Tempos herdados da execução original quando houver derivação de subconjunto; consulte o protocolo. Não é benchmark repetido com aquecimento controlado."
+    },
+    {
+      "name": "05_distribuicao_tempo",
+      "caption": "Dispersão por imagem; caixas não são intervalos de confiança e imagens não são unidades biológicas independentes."
+    },
+    {
+      "name": "06_treinamento_B",
+      "caption": "B atual: época escolhida por menor val_loss; validação com 1.070 recortes. Sem histórico comparável do A."
+    }
+  ]
+}

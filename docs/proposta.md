@@ -4,15 +4,15 @@
 
 ## Tema e problema
 
-Desde 22/09/2026, a base local escolhida é exclusivamente `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases locais anteriores estão fora do estudo; resultados nelas não são resultados do novo experimento.
+Desde 22/09/2026, a base positiva escolhida é `trypoastigote_images.zip`, de imagens de sangue de camundongos disponibilizadas no Zenodo. A [auditoria da base](dados.md#base) e a [pesquisa de controles negativos](dados.md#negativos) delimitam os dados disponíveis. As bases privadas anteriores estão fora do estudo. Negativos originais Kaggle e Barcelona revisados foram incorporados como fontes suplementares, documentadas em [dados](dados.md); resultados de fontes excluídas permanecem somente no histórico.
 
-Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação, pois um parasita que não gera recorte nunca chega ao classificador.
+Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação da imagem, pois um parasita que não gera recorte nunca chega ao classificador.
 
-O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam, em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
+O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam (um metodo antigo contra um metodo novo), em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
 
 ## Objetivo geral
 
-Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo a localização e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
+Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo o resultado gerado e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
 
 O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para uma nova proposta: A permanece original, sem retreinamento. O contexto de 2024 informado pelo autor deve ser documentado antes de vincular essa data ao artefato. Não se presume que A tenha sido o melhor sistema disponível naquele ano. A magnitude de eventual melhoria será expressa por métricas específicas e custo computacional, com seus limites, sem antecipar a vitória de B ou atribuir todo o efeito à arquitetura.
 
@@ -33,7 +33,7 @@ O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para u
 | Localização | Fluxo e parâmetros originais do Vision | Fluxo configurável definido no desenvolvimento |
 | Classificador | ResNet-50, sujeito à inspeção do artefato | EfficientNet-B0, já presente no código-base |
 | Entrada principal | Imagem microscópica inteira | A mesma imagem microscópica inteira |
-| Saída | Regiões, escores, classes e decisão original | Regiões, escores, classes e decisão definida na validação |
+| Saída | Status se possui ou não parasito ,decisão definida de acordo com o modelo ,quantidade de candidatos ,quantidade classificado ,segundos que levou, erros | Regiões, escores, classes e decisão definida de acordo com o modelo |
 
 Há exatamente duas abordagens. Repetições do B com sementes distintas não constituem novos modelos. Não há obrigação de ablações, detector complexo, número fixo de folds ou número pré-fixado de treinos.
 
@@ -45,11 +45,11 @@ O compartilhamento da localização não é obrigatório. O bloqueio da segmenta
 - O sistema B pode alterar recall, precisão, falsos positivos por imagem e F1 em relação ao A; o sentido e a magnitude dependem do experimento.
 - As mudanças podem afetar o custo de inferência e a relação entre cobertura e falsos positivos.
 
-Essas hipóteses não antecipam superioridade ou significância estatística. Critérios e limiares serão definidos antes da avaliação final, conforme a [metodologia](metodologia.md).
+Essas hipóteses não antecipam superioridade ou significância estatística. Critérios e limiares serão definidos antes da avaliação final, conforme a [metodologia](metodologia.md) e o [plano estatístico](plano_estatistico.md): bootstrap pareado por imagem para cobertura e precisão e McNemar para a decisão por imagem.
 
 ## Dados, análise e limitações
 
-O lote de lâminas disponível e a fonte Zenodo mencionada no projeto devem ser inventariados antes de escolher partições. A identidade do animal ou lâmina deve ser confirmada; nomes de pastas não bastam para inferi-la. Não se fixa proporção de divisão sem conhecer grupos e classes. O conjunto usado para ajustar B é desenvolvimento, não teste final intocado.
+Os inventários e as partições estão registrados em [dados](dados.md). A identidade do animal ou lâmina deve ser confirmada; nomes de pastas não bastam para inferi-la. Não se fixa proporção de divisão sem conhecer grupos e classes. O conjunto usado para ajustar B é desenvolvimento, não teste final intocado.
 
 Anotações devem ter coordenadas compatíveis com a imagem original, cobertura declarada e revisão qualificada. Previsões automáticas podem auxiliar inspeção, mas não substituem referência independente. Sem rótulos confiáveis, o escopo executável é infraestrutura, diagnóstico e verificações sintéticas, sem conclusões de qualidade real.
 
@@ -57,4 +57,4 @@ O histórico de treinamento do A é incompleto; não se afirma igualdade do tama
 
 ## Entregas
 
-Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino supervisionado real e comparação final dependem dos dados revisados e do conjunto reservado. O [cronograma](status.md#cronograma) e o [checklist](status.md) detalham essa sequência.
+Protocolo central, inventário e manifestos, notebooks numerados, execução instrumentada do A, infraestrutura e verificação curta do B, comparação funcional e relatório de resultados e limitações. Treino real e comparação de desenvolvimento já concluídos; a avaliação final depende do congelamento do protocolo e da referência do conjunto reservado. O [estado atual](status.md) registra treino, comparação concluída e pendências do teste final.

@@ -39,8 +39,10 @@ def check_data(config, root=ROOT):
     try:
         images = dp.read_manifest(paths["image_manifest"])
         dp.validate_partitions(images)
-        from src.dataset_policy import validate_active_images
-        validate_active_images(images, root=root)
+        from src.dataset_policy import validate_active_images, validate_supplementary_crops
+        policy = config.get("supplementary_policy")
+        if policy and not Path(policy).is_absolute(): policy = root / policy
+        validate_active_images(images, root=root, supplementary_policy=policy)
         check("authorized_source", True, "ZIP público, IDs e reserva do teste conferidos.")
         check("partitions", True, "IDs, hashes e grupos sem duplicação entre partições.")
         result["counts"]["images"] = dict(Counter(row["split"] for row in images))
@@ -58,6 +60,12 @@ def check_data(config, root=ROOT):
         model_config = load_config(paths["model_config"])
         data_pipeline.validate_crop_manifest(crops, images, annotations,
             localization_hash(model_config["localization"]), data_pipeline.file_sha256(paths["annotations"]))
+        if policy:
+            validate_supplementary_crops(crops, policy, root)
+        from src.class_balance import resolve_class_weights
+        train_labels = crops.loc[crops["split"] == "train", "label"].astype(int)
+        result["resolved_class_weights"] = resolve_class_weights(train_labels,
+            model_config.get("class_weights"), model_config["training"].get("max_class_weight"))
         check("crop_provenance", True, "Rótulos, grupos, hashes dos recortes e configuração conferidos.")
         for split in ("train", "val"):
             labels = crops.loc[crops["split"] == split, "label"].astype(int)
@@ -122,7 +130,7 @@ def check_runtime(require_gpu=False):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "configs/experiment.json")
+    parser.add_argument("--config", type=Path, default=ROOT / "configs/experiment_b_original_negatives.json")
     parser.add_argument("--check-runtime", action="store_true")
     parser.add_argument("--require-gpu", action="store_true")
     parser.add_argument("--runtime-only", action="store_true", help="Verifica o ambiente antes de copiar os dados.")

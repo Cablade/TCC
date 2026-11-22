@@ -1,0 +1,15 @@
+{
+  "opened_at": "2026-10-14T04:03:17.529933+00:00",
+  "status": "concluido",
+  "output_dir": "C:\\Users\\PCZAO\\Documents\\Caio\\TCC\\TCC\\experiments\\final_test_20261014",
+  "protocol_sha256": "d30cb9bdc1ba17837014fbeb827bf09fec42a75226595ee0ae01ef5fa1f7d09e",
+  "protocol_frozen_at": "2026-10-14T03:58:42.832772+00:00",
+  "finished_at": "2026-10-14T04:08:07.645773+00:00",
+  "test_images": 105,
+  "auxiliary_negative_images": 253,
+  "per_image_sha256": "629d0f0a3baf12771d7c1f5ded803a86e5e0780864a12375873bc3565a238960",
+  "predictions_sha256": {
+    "A": "fa7895bc69f37ef02b80ffd79dc90965392ec03c73041d2d15f9620c49dfabb8",
+    "B": "e39bd86263185e08b3edb03da749bd5afcb5e4ccacc59acb6e84c76229a45a7f"
+  }
+}

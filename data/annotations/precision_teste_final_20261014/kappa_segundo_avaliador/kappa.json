@@ -1,0 +1,42 @@
+{
+  "reviewer_1": "Caio Henrique",
+  "reviewer_2": "Victor Jacques",
+  "first_queue_sha256": "f154585a0ce1f33b24082bc7dc4bc76f7015e29b6a026d9fde260551afce77d6",
+  "second_queue_sha256": "53bf651109b17f5603da1f78af002dc0ab5ac6a67251abee7a23a40c335d4202",
+  "first_decisions_sha256": "6e91d7de997d672be2a335afed4fbccc91a70fa26acac59073315f77e3ed0d53",
+  "second_decisions_sha256": "d689adec3ff76a67f313f2559c7f1823bba058e16eb801c76689280754ef6e8a",
+  "three_categories": {
+    "n": 50,
+    "agreement": 0.84,
+    "expected": 0.4004,
+    "kappa": 0.7331554369579719
+  },
+  "binary_excluding_uncertain": {
+    "n": 41,
+    "agreement": 0.9512195121951219,
+    "expected": 0.4991076740035693,
+    "kappa": 0.9026128266033254
+  },
+  "confusion_rows_reviewer1_cols_reviewer2": {
+    "parasita": {
+      "parasita": 20,
+      "nao_parasita": 0,
+      "incerto": 1
+    },
+    "nao_parasita": {
+      "parasita": 2,
+      "nao_parasita": 19,
+      "incerto": 1
+    },
+    "incerto": {
+      "parasita": 2,
+      "nao_parasita": 2,
+      "incerto": 3
+    }
+  },
+  "items_by_system": {
+    "B": 44,
+    "A": 6
+  },
+  "method": "Kappa de Cohen não ponderado; amostra aleatória de 50 regiões da revisão cega do teste (semente 20261013)."
+}
