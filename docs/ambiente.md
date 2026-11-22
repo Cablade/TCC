@@ -46,7 +46,7 @@ A Microsoft informa a descontinuação do plugin TensorFlow-DirectML e os limite
 
 A matriz AMD de Windows consultada cobre PyTorch e GPUs selecionadas, sem RX 6600; a matriz unificada também não lista essa placa. A existência de suporte a outras Radeon ou à família profissional W6000 não significa suporte à RX 6600. Este guia não usa modificações comunitárias para simular outra GPU. [Matriz AMD para Windows](https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/compatibility/compatibilityrad/windows/windows_compatibility.html), [matriz unificada AMD](https://rocm-handbook.amd.com/projects/amd-rocm-programming-guide/en/latest/compatibility/compatibility-matrix.html).
 
-### 2. Preparar o Windows do seu amigo
+### 2. Preparar o Windows do Vitor
 
 Copie o projeto e os dados conforme o [guia principal](guia_treinamento.md). Não copie sua pasta `.venv`: crie o ambiente na máquina de destino. Manifestos com caminhos do seu computador precisam ser ajustados e revalidados; copiar somente o código não leva junto o ZIP original, as anotações e os recortes.
 

@@ -13,6 +13,50 @@ O estudo compara dois sistemas completos nas mesmas imagens microscópicas: **A*
 - [Ambiente](docs/ambiente.md): instalação, testes e transporte.
 - [Mapa dos comandos](scripts/README.md): finalidade dos scripts.
 
+## Como executar e verificar
+
+Requisitos: Python 3.11 (64 bits) e cerca de 3 GB livres. Windows ou Linux; não é preciso ter GPU.
+
+```powershell
+git clone https://github.com/Cablade/TCC.git
+cd TCC
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+**1. Testes automatizados (não precisam de imagens nem de modelos).**
+
+```powershell
+$env:PYTHONUTF8 = '1'
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+**2. Resultados.** As previsões de A e B nas 105 imagens de teste estão em `experiments/final_test_20261014/{A,B}/predictions.json`; a estatística em `stats.json`/`stats.md`; as decisões da revisão humana e o kappa em `data/annotations/precision_teste_final_20261014/`; o protocolo congelado em `data/protocol/protocolo_congelado.json`.
+
+**3. Rodar o Modelo B nas 105 imagens do teste final.**
+
+1. Baixe o ZIP de imagens do Zenodo ([DOI 10.5281/zenodo.5123062](https://doi.org/10.5281/zenodo.5123062)) e salve como `data/raw/trypoastigote_images.zip`.
+2. Baixe `best.keras` da [Release do Modelo B](https://github.com/Cablade/TCC/releases) e salve em `experiments/runs/b_atual/best.keras`.
+3. Rode, a partir da raiz do repositório:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_model_b.py --manifest data\demo\teste_final_images.csv --checkpoint experiments\runs\b_atual\best.keras --split test --output-dir saida_b --image-mode overlay
+```
+
+`data/demo/teste_final_images.csv` lista as mesmas 105 imagens usadas no teste final, com o SHA-256 de cada uma. A saída traz as previsões por imagem e as imagens com as detecções sobrepostas, comparáveis a `experiments/final_test_20261014/B/predictions.json`.
+
+## Fontes de dados
+
+O Modelo B foi treinado e avaliado somente com dados públicos:
+
+| Fonte | Uso | Licença |
+| --- | --- | --- |
+| Morais et al., *Trypanosoma cruzi* trypomastigote images, Zenodo, [DOI 10.5281/zenodo.5123062](https://doi.org/10.5281/zenodo.5123062) | 674 imagens: treino, validação e teste final | CC-BY 4.0 |
+| Acevedo et al. (2020), *A dataset for microscopic peripheral blood cell images*, Mendeley Data v1, [DOI 10.17632/snkd93bnjr.1](https://data.mendeley.com/datasets/snkd93bnjr/1) | 20 imagens: negativos | CC-BY 4.0 |
+| P. Mooney, *Blood Cell Images*, Kaggle, [blood-cells](https://www.kaggle.com/datasets/paultimothymooney/blood-cells) | 366 imagens originais: negativos | MIT (BCCD, creditado pela fonte) |
+
+As imagens e o modelo cedidos pela FIOCRUZ/Fuzzylab (Modelo A) não são públicos e não acompanham o repositório; dele constam apenas as previsões e os resultados.
+
 ## Dois modelos
 
 | Modelo | Arquivo |

@@ -29,7 +29,6 @@ Figuras e legendas: [tcc/figuras/teste_final_20261014](../tcc/figuras/teste_fina
 ## O que falta
 
 - Escrever a monografia (introdução, fundamentação, metodologia, resultados e discussão). Rascunho em andamento fora do repositório.
-- Manter no texto o resultado LABIMED do B anterior (33/33 alarmes) como resultado em outra aquisição; os dados estão em `archive/labimed_historico_20261005.zip`.
 
 ## Registros
 
