@@ -126,7 +126,7 @@ def main():
     save_json(args.output_dir/'suggestions.json',suggestions)
     page='''<!doctype html><html lang="pt-BR"><meta charset="utf-8"><title>Pré-seleção para revisão</title>
 <style>body{font:16px system-ui;margin:32px;background:#f4f6f8;color:#172535}.grid{display:flex;flex-wrap:wrap;gap:18px}article{background:white;padding:14px;border-radius:10px}img{max-width:100%;height:auto}.pending{color:#985000;font-weight:600}code{overflow-wrap:anywhere}section{margin-top:30px}</style>
-<h1>Regiões candidatas para você examinar</h1><p>As sugestões foram escolhidas por estruturas e distância dos pontos conhecidos. <strong>Não confirmam ausência de parasitas e não possuem rótulo de treino.</strong> Clique num recorte para ampliar.</p>
+<h1>Regiões candidatas para revisão</h1><p>As sugestões foram escolhidas por estruturas e distância dos pontos conhecidos. <strong>Não confirmam ausência de parasitas e não possuem rótulo de treino.</strong> Clique num recorte para ampliar.</p>
 <p>As imagens deste lote foram reservadas para desenvolvimento. Não reutilizar no teste final. Examine toda a região e o contexto na imagem original antes de confirmar.</p>'''
     command=f'.\\.venv\\Scripts\\python.exe scripts/review_annotations.py --batch {args.output_dir.relative_to(ROOT).as_posix() if args.output_dir.is_relative_to(ROOT) else str(args.output_dir)}'
     page+=f'<p>Para confirmar ou desenhar outra região, abra a revisão interativa no terminal do projeto:</p><pre><code>{html.escape(command)}</code></pre>'

@@ -113,7 +113,7 @@ def prepare():
     save(PARTITION / "training_annotations.json", envelope(training))
     save(PARTITION / "comparison_annotations.json", envelope(comparison))
     save(PARTITION / "authorization.json", dict(status="complete", created_at=datetime.now(timezone.utc).isoformat(),
-        reviewer="Caio", authorization="dessas 200 imagens separe 20 para entrar nas negativas do treino, e então adicione o restante que sobrou no teste de comparação junto ao Kaggle, mas ainda não treine o modelo B, só faça isso pfvr!",
+        reviewer="Caio", authorization="Separar 20 das 200 imagens aprovadas como negativos de treino e destinar as 180 restantes à comparação, junto aos originais Kaggle; não treinar o Modelo B nesta etapa.",
         review_basis="prior_human_approval_of_all_200_and_explicit_new_usage_request",
         training_allowed=True, training_started=False, training_image_ids=[r["image_id"] for r in training],
         comparison_image_ids=[r["image_id"] for r in comparison],
