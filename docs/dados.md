@@ -4,7 +4,7 @@
 
 ## Base principal autorizada
 
-`C:/Users/PCZAO/Documents/Caio/trypoastigote_images.zip` corresponde ao [Zenodo 5123062](https://zenodo.org/records/5123062): sangue de camundongos com tripomastigotas de *T. cruzi*. SHA-256: `ce6408615b126178fa0ed96068308bee19a5e2a89330268bbb2e1f4ec88fed1b`; MD5 publicado/local: `3434fa22df03956c256f1203b683517e`.
+O arquivo `trypoastigote_images.zip` corresponde ao [Zenodo 5123062](https://zenodo.org/records/5123062): sangue de camundongos com tripomastigotas de *T. cruzi*. SHA-256: `ce6408615b126178fa0ed96068308bee19a5e2a89330268bbb2e1f4ec88fed1b`; MD5 publicado/local: `3434fa22df03956c256f1203b683517e`.
 
 675 JPEGs, 674 legíveis; `train/field0156.jpg` excluído por falha. Divisão preservada: 455 treino, 114 validação, 105 teste reservado. Divisão por imagem não comprova independência entre animais/lâminas. Inventário: `data/protocol/trypomastigote_verified/`; partições: `data/splits/experimento/`.
 
@@ -38,7 +38,7 @@ O [artigo de origem](https://journals.plos.org/plosntds/article?id=10.1371/journ
 
 ## Ampliação da avaliação negativa
 
-A comparação de desenvolvimento contém 73 originais Kaggle de validação e 180 Barcelona destinados à comparação, além de 114 positivas. Os 293 Kaggle já usados no treino e os 20 Barcelona usados no treino ficam excluídos. Versões aumentadas podem repetir seus originais e não contam como novos campos. No ZIP, `dataset2-master/.../labels.csv` não fornece vínculo explícito entre cada JPEG aumentado e o original correspondente; nomes de pastas TRAIN/TEST não garantem disjunção da nossa divisão. Auditoria: `data/annotations/kaggle_originals_20261005/augmentation_audit.json`.
+A comparação de desenvolvimento contém 73 originais Kaggle de validação e 180 Barcelona destinados à comparação, além de 114 positivas. Os 293 Kaggle já usados no treino e os 20 Barcelona usados no treino ficam excluídos. Versões aumentadas podem repetir seus originais e não contam como novos campos. No ZIP, `dataset2-master/.../labels.csv` não fornece vínculo explícito entre cada JPEG aumentado e o original correspondente; nomes de pastas TRAIN/TEST não garantem disjunção em relação à divisão adotada. Auditoria: `data/annotations/kaggle_originals_20261005/augmentation_audit.json`.
 
 Novos originais revisados e sem sobreposição com treino ampliam a evidência. Variações controladas dos 73 originais de validação podem ser usadas somente em relatório adicional de robustez, preservando o grupo do original e a contagem de originais. Não somar essas versões ao denominador principal.
 

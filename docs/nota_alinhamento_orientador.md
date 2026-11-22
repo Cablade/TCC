@@ -1,6 +1,6 @@
 # Nota de alinhamento da proposta — para o Prof. Rogério Mandelli
 
-> Rascunho de 13/10/2026, para envio pelo Victor junto com o [plano estatístico](plano_estatistico.md). Revisar antes de enviar.
+> Nota de 13/10/2026 ao orientador, acompanhada do [plano estatístico](plano_estatistico.md).
 
 Prezado Prof. Rogério,
 

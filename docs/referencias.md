@@ -16,8 +16,7 @@ Fontes negativas incorporadas: [Blood Cell Images / Paul Mooney](https://www.kag
 
 ## Doença de Chagas
 
-- TODO: incluir diretrizes da OMS sobre diagnóstico de Chagas
-- TODO: incluir trabalhos brasileiros relevantes (Ministério da Saúde, FIOCRUZ)
+> Seção a completar: diretrizes da OMS sobre o diagnóstico da doença de Chagas e publicações do Ministério da Saúde e da FIOCRUZ.
 
 ## Arquiteturas
 

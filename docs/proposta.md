@@ -8,13 +8,13 @@ Desde 22/09/2026, a base positiva escolhida é `trypoastigote_images.zip`, de im
 
 Comparar dois sistemas computacionais de localização e classificação de regiões suspeitas de *Trypanosoma cruzi* em imagens microscópicas de esfregaço sanguíneo. A avaliação deve considerar tanto a localização dos candidatos quanto a classificação da imagem, pois um parasita que não gera recorte nunca chega ao classificador.
 
-O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como os dois sistemas se comportam (um metodo antigo contra um metodo novo), em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
+O sistema de referência do Vision/FuzzyLab/FIOCRUZ utiliza um classificador ResNet-50 entregue como artefato treinado. A proposta do TCC utiliza EfficientNet-B0 e pode alterar a etapa de localização. A pergunta é: **como o sistema de referência, desenvolvido anteriormente, e o sistema proposto se comportam, em detecção e custo computacional, sobre o mesmo conjunto de imagens inteiras com referência confiável?**
 
 ## Objetivo geral
 
 Implementar um protocolo reproduzível e comparar o sistema A, preservado como referência, com o sistema B proposto pelo TCC, medindo o resultado gerado e classificação de regiões suspeitas nas mesmas imagens microscópicas inteiras.
 
-O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para uma nova proposta: A permanece original, sem retreinamento. O contexto de 2024 informado pelo autor deve ser documentado antes de vincular essa data ao artefato. Não se presume que A tenha sido o melhor sistema disponível naquele ano. A magnitude de eventual melhoria será expressa por métricas específicas e custo computacional, com seus limites, sem antecipar a vitória de B ou atribuir todo o efeito à arquitetura.
+O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para uma nova proposta: A permanece original, sem retreinamento. A data de 2024 associada ao sistema A só é vinculada ao artefato mediante documentação que a comprove. Não se presume que A tenha sido o melhor sistema disponível naquele ano. A magnitude de eventual melhoria será expressa por métricas específicas e custo computacional, com seus limites, sem antecipar a vitória de B ou atribuir todo o efeito à arquitetura.
 
 ## Objetivos específicos
 
@@ -33,7 +33,7 @@ O enfoque confirmado em 26/09/2026 é a evolução de um sistema anterior para u
 | Localização | Fluxo e parâmetros originais do Vision | Fluxo configurável definido no desenvolvimento |
 | Classificador | ResNet-50, sujeito à inspeção do artefato | EfficientNet-B0, já presente no código-base |
 | Entrada principal | Imagem microscópica inteira | A mesma imagem microscópica inteira |
-| Saída | Status se possui ou não parasito ,decisão definida de acordo com o modelo ,quantidade de candidatos ,quantidade classificado ,segundos que levou, erros | Regiões, escores, classes e decisão definida de acordo com o modelo |
+| Saída | Presença ou ausência de parasito, decisão segundo a regra original, número de candidatos, número de regiões classificadas, tempo de execução (s) e erros | Regiões, escores, classes e decisão segundo a regra do modelo |
 
 Há exatamente duas abordagens. Repetições do B com sementes distintas não constituem novos modelos. Não há obrigação de ablações, detector complexo, número fixo de folds ou número pré-fixado de treinos.
 

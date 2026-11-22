@@ -10,11 +10,11 @@ A referência positiva publicada já está importada; sua origem fica em [dados]
 
 ## Revisão visual
 
-### Pré-seleção disponível para olhar depois
+### Pré-seleção de regiões candidatas
 
 Foi preparado um lote com **20 regiões candidatas**, após triagem visual de 40 propostas em oito imagens reservadas para desenvolvimento. Vinte propostas foram deixadas de fora por borda escura, foco ruim ou ambiguidade. As sugestões restantes estão em sete dessas imagens e permanecem como propostas no arquivo original; a revisão humana posterior está em `reviewed.json`, com 29 regiões salvas incluindo áreas desenhadas manualmente.
 
-Abra a [galeria de pré-seleção](../data/annotations/negative_preselection_v1/index.html) para olhar os recortes. Clique em um recorte para ampliá-lo. Para abrir cada sugestão sobre a imagem original e salvar uma confirmação, use o atalho `scripts\abrir_revisao.cmd` ou execute:
+Abra a [galeria de pré-seleção](../data/annotations/negative_preselection_v1/index.html) para visualizar os recortes. Clique em um recorte para ampliá-lo. Para abrir cada sugestão sobre a imagem original e salvar uma confirmação, use o atalho `scripts\abrir_revisao.cmd` ou execute:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/review_annotations.py --batch data/annotations/negative_preselection_v1
@@ -207,7 +207,7 @@ Não confiar em nomes antigos `raw/train` e `raw/test` para definir o protocolo 
 
 ### Interfaces de preparação
 
-Os comandos seguintes descrevem a interface da implementação desta revisão. Substituir os caminhos de exemplo por caminhos locais reais e conferir `--help`; a execução efetiva deve ser registrada no [checklist](status.md).
+Os comandos seguintes descrevem a interface da implementação desta revisão. Substituir os caminhos de exemplo por caminhos locais reais e conferir `--help`; a execução efetiva deve ser registrada no [estado do trabalho](status.md).
 
 ```powershell
 python scripts/prepare_data.py inventory --input CAMINHO_DO_LOTE --output-dir data/protocol

@@ -146,7 +146,7 @@ Não foi executado um teste nessa máquina remota; esses passos precisam passar 
 
 #### Colab e custos
 
-O Colab oferece acesso gratuito a recursos, incluindo GPU, mas disponibilidade, tipo de GPU e duração da sessão variam; planos pagos também têm limites. Os arquivos da máquina temporária podem desaparecer ao encerrar a sessão. Salve resultados fora dela e consulte o valor apresentado à sua conta antes de contratar qualquer plano. [FAQ oficial do Colab](https://research.google.com/colaboratory/faq.html).
+O Colab oferece acesso gratuito a recursos, incluindo GPU, mas disponibilidade, tipo de GPU e duração da sessão variam; planos pagos também têm limites. Os arquivos da máquina temporária podem desaparecer ao encerrar a sessão. Salve resultados fora dela e confira o valor cobrado antes de contratar qualquer plano. [FAQ oficial do Colab](https://research.google.com/colaboratory/faq.html).
 
 Um notebook Colab não fica compatível com o TCC apenas por selecionar GPU: confira sua versão de Python e mantenha o ambiente 3.11/TF 2.15 isolado. O Python padrão do serviço pode ser mais novo. Não instale versões antigas de TensorFlow sobre um ambiente incompatível. Para este projeto, a rota Linux descrita acima é a referência; um Colab sem o ambiente compatível preparado ainda exige essa configuração.
 
@@ -167,7 +167,7 @@ A GPU não resolve falta de anotações ou de negativos confiáveis. O [guia pri
 
 Para transportar o conjunto atual, copie as fontes principal e suplementar e confira os caminhos com `scripts/relocate_experiment.py`; o pacote antigo de treino com uma única fonte pertence ao histórico.
 
-O exemplo usa `D:\TCC` como pasta do projeto no destino. Substitua essa pasta se necessário. Faça a [instalação Windows](ambiente.md#windows) no computador de destino; a sua `.venv` não deve ser copiada.
+O exemplo usa `D:\TCC` como pasta do projeto no destino. Substitua essa pasta se necessário. Faça a [instalação Windows](ambiente.md#windows) no computador de destino; a `.venv` de origem não deve ser copiada.
 
 ### O que copiar
 
