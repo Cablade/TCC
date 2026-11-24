@@ -14,3 +14,5 @@
 | positivas | 0 | 87 | 1.292e-26 | 2.585e-26 |
 | negativas | 0 | 3 | 0.25 | 0.25 |
 | todas | 0 | 90 | 1.616e-27 | descritivo |
+
+Registro intermediário de 14/10/2026, mantido como gerado. Intervalos de largura nula: ver a nota de correção em `stats.md`.

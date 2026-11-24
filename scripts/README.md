@@ -18,6 +18,7 @@ Execute na raiz do projeto. A ordem de uso está no [guia](../docs/guia_treiname
 | Finalidade | Comandos |
 | --- | --- |
 | Inferência individual | `run_model_a.py`, `run_model_b.py` |
+| Demonstração do B: painel no navegador e imagem do teste final | `painel_model_b.py`, `demo_model_b.py` |
 | Comparação A × B de desenvolvimento | `compare_model_versions.py` |
 | Relatório pareado por imagem | `compare_systems.py` |
 | Figuras das comparações de desenvolvimento | `generate_tcc_figures.py` |

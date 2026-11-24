@@ -33,17 +33,23 @@ $env:PYTHONUTF8 = '1'
 
 **2. Resultados.** As previsões de A e B nas 105 imagens de teste estão em `experiments/final_test_20261014/{A,B}/predictions.json`; a estatística em `stats.json`/`stats.md`; as decisões da revisão humana e o kappa em `data/annotations/precision_teste_final_20261014/`; o protocolo congelado em `data/protocol/protocolo_congelado.json`.
 
-**3. Rodar o Modelo B nas 105 imagens do teste final.**
+**3. Ver o Modelo B funcionando.** O modelo avaliado (`best.keras` e `config.json`) acompanha o repositório em `experiments/runs/b_atual/` e também está na [Release do Modelo B](https://github.com/Cablade/TCC/releases/tag/modelo-b-v1.0).
 
-1. Baixe o ZIP de imagens do Zenodo ([DOI 10.5281/zenodo.5123062](https://doi.org/10.5281/zenodo.5123062)) e salve como `data/raw/trypoastigote_images.zip`.
-2. Baixe `best.keras` da [Release do Modelo B](https://github.com/Cablade/TCC/releases) e salve em `experiments/runs/b_atual/best.keras`.
-3. Rode, a partir da raiz do repositório:
+*Painel (qualquer imagem do computador):*
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\run_model_b.py --manifest data\demo\teste_final_images.csv --checkpoint experiments\runs\b_atual\best.keras --split test --output-dir saida_b --image-mode overlay
+.\.venv\Scripts\python.exe scripts\painel_model_b.py
 ```
 
-`data/demo/teste_final_images.csv` lista as mesmas 105 imagens usadas no teste final, com o SHA-256 de cada uma. A saída traz as previsões por imagem e as imagens com as detecções sobrepostas, comparáveis a `experiments/final_test_20261014/B/predictions.json`.
+Espere alguns segundos: o modelo carrega e abre uma página local no navegador (se não abrir, acesse `http://127.0.0.1:8765/`). Escolha a imagem (JPG, PNG, TIF ou BMP, até 40 MB) e clique em "Analisar". Para encerrar, use Ctrl+C no terminal. A imagem não sai do computador. O painel marca as regiões suspeitas, com o score de cada uma.
+
+*Imagem do teste final, com conferência:* baixe o ZIP do Zenodo ([DOI 10.5281/zenodo.5123062](https://doi.org/10.5281/zenodo.5123062)), salve como `data/raw/trypoastigote_images.zip` e rode:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\demo_model_b.py
+```
+
+A imagem marcada fica em `saida_demo/demo_modelo_b.png`, e o script informa se as caixas coincidem com `experiments/final_test_20261014/B/predictions.json`. Para outra imagem de `data/demo/teste_final_images.csv` (as 105 do teste final), use `--image-id` e outro `--output`. A execução oficial das 105 imagens (`run_model_b.py --split test`) exige inventários e metadados locais que não acompanham o Git.
 
 ## Fontes de dados
 
@@ -94,4 +100,4 @@ McNemar nas positivas: só B acerta 87, só A acerta 0 (p Holm = 2,6e-26). Conco
 | `tests/`, `notebooks/` | Verificação e exploração |
 | `archive/` | Histórico compactado, fora da rotina |
 
-A `.venv` e o Python em `.cache/python` foram usados no ambiente de desenvolvimento (Windows); em outra máquina, basta criar a `.venv` conforme a seção "Como executar e verificar". Dados e modelos grandes são locais e não acompanham o Git. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.
+A `.venv` e o Python em `.cache/python` foram usados no ambiente de desenvolvimento (Windows); em outra máquina, basta criar a `.venv` conforme a seção "Como executar e verificar". Dados e modelos grandes são locais e não acompanham o Git, exceto o B avaliado em `experiments/runs/b_atual/`. Consulte [LICENSE](LICENSE) e [fontes](docs/dados.md) antes de redistribuir.

@@ -1,13 +1,13 @@
 # Teste final — A (como entregue) × B (proposto)
 
-Teste aberto uma única vez em 14/10/2026, depois do congelamento do protocolo (`data/protocol/protocolo_congelado.json`). 105 imagens murinas de teste do Zenodo 5123062, com 441 pontos publicados, e 253 negativos humanos de outra aquisição (73 Kaggle, 180 Barcelona) como resultado auxiliar. Os mesmos IDs para A e B. Intervalos de 95% por bootstrap pareado de imagens (10.000 réplicas, semente 20261013).
+Teste aberto uma única vez em 14/10/2026, depois do congelamento do protocolo (`data/protocol/protocolo_congelado.json`). 105 imagens murinas de teste do Zenodo 5123062, com 441 pontos publicados, e 253 negativos humanos de outra aquisição (73 Kaggle, 180 Barcelona) como resultado auxiliar. Os mesmos IDs para A e B. Intervalos de 95% por bootstrap pareado de imagens (10.000 réplicas, semente 20261013); em 0% ou 100%, IC exato de Clopper-Pearson.
 
 | Desfecho | A | B | B − A |
 | --- | ---: | ---: | ---: |
-| Cobertura dos pontos publicados | 0,0% [0,0%; 0,0%] | 91,6% [88,9%; 94,2%] | 91,6% [88,9%; 94,2%] |
+| Cobertura dos pontos publicados | 0,0% [0,0%; 3,5%] | 91,6% [88,9%; 94,2%] | 91,6% [88,9%; 94,2%] |
 | Precisão revisada por região | 0,0% (0/23) | 53,3% [44,9%; 62,5%] | — |
-| Imagens positivas sinalizadas | 17,1% [10,5%; 24,8%] | 100,0% [100,0%; 100,0%] | 82,9% [75,2%; 89,5%] |
-| Negativos sem alarme (auxiliar) | 98,8% [97,2%; 100,0%] | 100,0% [100,0%; 100,0%] | 1,2% [0,0%; 2,8%] |
+| Imagens positivas sinalizadas | 17,1% [10,5%; 24,8%] | 100,0% [96,5%; 100,0%] | 82,9% [75,2%; 89,5%] |
+| Negativos sem alarme (auxiliar) | 98,8% [97,2%; 100,0%] | 100,0% [98,6%; 100,0%] | 1,2% [0,0%; 2,8%] |
 | Regiões positivas por imagem negativa | 0,012 | 0,000 | −0,012 [−0,028; 0,000] |
 
 Decisão por imagem (McNemar exato, correção de Holm na família positivas/negativas): nas positivas, só B acerta 87 e só A acerta 0 (p Holm = 2,6e-26); nas negativas, 3 × 0 (p = 0,25).
