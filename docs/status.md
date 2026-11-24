@@ -28,7 +28,7 @@ Figuras e legendas: [tcc/figuras/teste_final_20261014](../tcc/figuras/teste_fina
 
 ## O que falta
 
-- Escrever a monografia (introdução, fundamentação, metodologia, resultados e discussão). Rascunho em andamento fora do repositório.
+_ FINALIZADO
 
 ## Registros
 
